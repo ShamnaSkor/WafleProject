@@ -1,6 +1,19 @@
+The file Wafle.Data.ts, and the associated build outputs Wafle.Data.js, and
+Wafle.Data.min.js contain extracted data from the EVE Community Toolkit:
+ http://community.eveonline.com/community/fansites/toolkit/
+Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online",
+"CCP", and all related logos and images are trademarks or registered trademarks
+of CCP hf.  All uses of these data files must comply with the EVE EULA:
+ http://community.eveonline.com/support/policies/eve-eula/
+
+
+Excepting Wafle.Data.ts, Wafle.Data.js, and Wafle.Data.min.js, this project
+is licensed under the MIT license:
+
+
 The MIT License (MIT)
 
-Copyright (c) 2013 ShamnaSkor
+Copyright (c) 2013 Shamna Skor
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
