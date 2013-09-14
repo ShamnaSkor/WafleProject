@@ -31,7 +31,7 @@ Wafle is currently in early alpha.  It does not yet have a user interface.  It i
 All software required to contribute to Wafle are available at no charge.
 
 ###Setting up a Wafle development environment on Windows
-Follow the below instructions.  Note that if you have paid versions of the below tools (such as Visual Studio 2012 Professional or SQL Server 2012 Developer Edition), then you don't need to download or install the Express version.
+Follow the below instructions which should work for Windows 7 or 8/8.1.  Note that if you have the paid versions of the below tools (such as Visual Studio 2012 Professional or SQL Server 2012 Developer Edition), then you don't need to download or install the Express version.
 ####Software required on Windows to develop the Wafle library
 * Download the [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) and run it.
  * Inside the Web Platform Installer, click the "Products" link at the top and select and install Visual Studio Express 2012 for Web (Latest) with its dependencies.  You have to register the software with Microsoft, but there is no charge.
@@ -40,6 +40,8 @@ Follow the below instructions.  Note that if you have paid versions of the below
  * **Important:** _If you do not wish for your email address to be public in your commits, follow GitHub's instructions for [keeping your email address private](https://help.github.com/articles/keeping-your-email-address-private)._
 * Download [Node.js](http://nodejs.org/) and install it.
 
+
+
 ####Software required on Windows to develop the Wafle.Data extract
-* 
+* tbw
  
