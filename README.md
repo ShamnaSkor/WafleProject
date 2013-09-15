@@ -18,13 +18,14 @@ Wafle:
 Wafle is currently in early alpha.  It does not yet have a user interface.  It is currently capable of performing many but not all of the calculations relevant for fitting frigates.
 
 ###Guiding Principles
-* Wafle will be distributed for free and should therefore use free tools for development.
-* Wafle will be developed using TypeScript to gain the productivity advantages of strong typing at develop-time and the broad compatibility of JavaScript at run-time.
-* Wafle will take advantage of the HTML 5 wave of client-side technologies so that it will not _require_ any active server-side code to function in its basic role as a fitting tool.
+* Wafle will be distributed for free and will use free (as in beer) tools for development.
+* Wafle will be developed using TypeScript to gain the productivity advantages of strong typing at develop-time and the broad compatibility and flexibility of JavaScript at run-time.
+* Wafle will take advantage of modern client-side technologies:
+ * It will not require any active server-side functionality to perform its basic role as a fitting tool.
+ * It will be designed to work with modern browsers (Recent versions of Firefox, Webkit-based browsers, IE 10+, and similar)
 * The Wafle project will strive to make it easy for new contributors to join in.
-* The Wafle library will remain separate from the Wafle Data module to ensure that CCP's intellectual property is respected.
-
-###
+* The Wafle project will use [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).
+* The Wafle Data module will remain separate from the Wafle library to ensure that CCP's intellectual property is respected.
 
 
 ##How to contribute
@@ -44,4 +45,3 @@ Follow the below instructions which should work for Windows 7 or 8/8.1.  Note th
 
 ####Software required on Windows to develop the Wafle.Data extract
 * tbw
- 
