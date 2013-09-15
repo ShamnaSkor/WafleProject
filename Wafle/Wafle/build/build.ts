@@ -9,9 +9,10 @@ var exec = require("child_process").exec;
 var spawn = require("child_process").spawn;
 var wafleVersion = "";
 
+console.log("Build: " + buildJSPath);
 console.log("Compiling Wafle TypeScript files...");
 
-var tscProcess = exec('tsc --sourcemap -t ES5 --outDir build "' + buildJSPath + '\wafleInterfaces.ts" "' + buildJSPath + '\wafleCore.ts" "' + buildJSPath + '\wafleData.ts" "' + buildJSPath + '\wafleCuratedData.ts"',tsCompileComplete);
+var tscProcess = exec('tsc --sourcemap -t ES5 --outDir build "' + buildJSPath + '//..//wafleInterfaces.ts" "' + buildJSPath + '//..//wafleCore.ts" "' + buildJSPath + '//..//wafleData.ts" "' + buildJSPath + '//..//wafleCuratedData.ts"',tsCompileComplete);
 
 var wafleDone = false, wafleDataDone = false;
 
@@ -35,16 +36,17 @@ function tsCompileComplete(error,stdout,stderr)
 function uglifyWafleCallback(error, stdout, stderr) {
     copyFileSync(buildJSPath + "//wafle.min.js", buildJSPath + "//wafle-" + wafleVersion + ".min.js");
     wafleDone = true;
-    checkAllDone();
+    reportAndCheckAllDone("Wafle");
 }
 
 function uglifyWafleDataCallback(error, stdout, stderr) {
     copyFileSync(buildJSPath + "//wafleData.min.js", buildJSPath + "//wafleData-" + wafleVersion + ".min.js");
     wafleDataDone = true;
-    checkAllDone();
+    reportAndCheckAllDone("Wafle Data");
 }
 
-var checkAllDone = function () {
+var reportAndCheckAllDone = function (theLibraryName) {
+    console.log("Finished uglifying " + theLibraryName);
     if (wafleDone && wafleDataDone) {
         console.log("All done.");
     }
