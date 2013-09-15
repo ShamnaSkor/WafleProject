@@ -29,7 +29,7 @@ Wafle is currently in early alpha.  It does not yet have a user interface.  It i
 
 
 ##How to contribute
-All software required to contribute to Wafle are available at no charge.
+All software required to contribute to Wafle is available at no charge.
 
 ###Setting up a Wafle development environment on Windows
 Follow the below instructions which should work for Windows 7 or 8/8.1.  Note that if you have the paid versions of the below tools (such as Visual Studio 2012 Professional or SQL Server 2012 Developer Edition), then you don't need to download or install the Express version.
