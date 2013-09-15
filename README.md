@@ -1,5 +1,5 @@
-WafleProject
-============
+Wafle Project
+=============
 Web Accessible Fitting Library for EVE
 
 ##About the project
@@ -9,9 +9,9 @@ Wafle:
 * is written in [TypeScript](https://typescript.codeplex.com/), a typed superset of JavaScript that compiles to readable, standards-based JavaScript.  Wafle works with any modern browser on any device, or with other JavaScript environments such as [node.js](http://nodejs.org/).
 * has no server-side components.  Therefore, Wafle can be used with any web server by simply copying the .js files to an accessible path.
 * is covered by [qUnit](http://qunitjs.com/) tests.
-* produces regular js files in addition to minified js files via 
+* produces "regular" js files in addition to minified js files via [UglifyJS 2](https://github.com/mishoo/UglifyJS2).
 * does not currently have a UI.  Pull requests welcome!
-* is licensed under the [MIT license](http://opensource.org/licenses/MIT) with the exception of the Wafle.Data.ts, Wafle.Data.js, and Wafle.Data.min.js files.
+* is licensed under the [MIT license](http://opensource.org/licenses/MIT) with the exception of the Wafle.Data.ts, Wafle.Data.js, Wafle.Data.min.js and Wafle.Data-{version}.min.js files.
 * contains data in JSON format extracted from the [EVE Community Toolkit](http://community.eveonline.com/community/fansites/toolkit/) which is (c) 2013 CCP hf. (See the LICENSE file for specific details.)
 
 ###Current state of the project
