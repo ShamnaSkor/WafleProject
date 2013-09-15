@@ -7,6 +7,11 @@ Wafle/Wafle/*.js.map
 Wafle/Wafle/tests/*.js
 Wafle/Wafle/tests/*.js.map
 
+# Be specific about what to exclude in the build folder...
+Wafle/Wafle/build/build.js*
+Wafle/Wafle/build/wafle*.js*
+
+
 # User-specific files
 *.suo
 *.user
@@ -17,7 +22,6 @@ Wafle/Wafle/tests/*.js.map
 [Dd]ebug/
 [Rr]elease/
 x64/
-build/
 [Bb]in/
 [Oo]bj/
 

@@ -40,7 +40,7 @@ Follow the below instructions which should work for Windows 7 or 8/8.1.  Note th
 * Download [GitHub for Windows](https://help.github.com/articles/set-up-git#platform-windows) and install it.  If you are not familiar with Git, the install page links to lots of great information for new users.
  * **Important:** _If you do not wish for your email address to be public in your commits, follow GitHub's instructions for [keeping your email address private](https://help.github.com/articles/keeping-your-email-address-private)._
 * Download [Node.js](http://nodejs.org/) and install it.
-
+* If you get the error "ASP.NET 4.5 has not been registered on the Web server. You need to manually configure your Web server for ASP.NET 4.5 in order for your site to run correctly." upon opening the solution in Visual Studio the first time, you should run Utils\FixASPNetRegistrationWin7orWin8.bat or Utils\FixASPNetRegistrationWin8.1.bat, depending on your version of Windows.  The batch file will ensure that ASP.NET is properly registered.
 
 
 ####Software required on Windows to develop the Wafle.Data extract
