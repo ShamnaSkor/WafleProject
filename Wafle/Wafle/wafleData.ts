@@ -1,17 +1,16 @@
-///<reference path="wafleCore.ts"/>
+/*@license
+
+  This data was extracted from the EVE Community Toolkit: http://community.eveonline.com/community/fansites/toolkit/
+
+  Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.
+
+  All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/
+
+*/
+
+///<reference path="wafle.ts"/>
 
 module Wafle.Data {
-  /*
-
-    This data was extracted from the EVE Community Toolkit: http://community.eveonline.com/community/fansites/toolkit/
-
-    Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.
-
-    All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/
-
-    @preserve
-  */
-
     export var Types: Wafle.IEveInventoryGroupMap = { 
     "25": {
       "582": { n: "Bantam", mg: 61, pmg: 5, mta: 0, d: "The Bantam is a Support Frigate designed to rapidly repair allied vessels in combat.\n\
@@ -57,7 +56,7 @@ The Slasher is cheap, but versatile. It's been manufactured en masse, making it 
 <br><b>Role Bonus:</b>\n\
 +5 Virus Strength to Relic and Data Analyzers\n\
 <br><font size=\"14\"><b>Development</b></font>\n\
-The Probe is large compared to most Minmatar frigates and is considered a good scout and cargo-runner.  Uncharacteristically for a Minmatar ship, its hard outer coating makes it difficult to destroy, while the limited weapon hardpoints force it to rely on fighter assistance if engaged in combat.", tl: 1, aemr: 0.4, aexr: 0.9, akir: 0.75, athr: 0.65, semr: 1, sexr: 0.5, skir: 0.6, sthr: 0.8, hemr: 1, hexr: 1, hkir: 1, hthr: 1, r: 2, pgo: 25, cpuo: 240, shhp: 225, sshp: 300, sahp: 300, lsc: 3, msc: 4, hsc: 3, lasc: 2, tusc: 2, rsc: 3, rgsz: 1, calb: 400, vel: 360},
+The Probe is large compared to most Minmatar frigates and is considered a good scout and cargo-runner.  Uncharacteristically for a Minmatar ship, its hard outer coating makes it difficult to destroy, while the limited weapon hardpoints force it to rely on drone assistance if engaged in combat.", tl: 1, aemr: 0.4, aexr: 0.9, akir: 0.75, athr: 0.65, semr: 1, sexr: 0.5, skir: 0.6, sthr: 0.8, hemr: 1, hexr: 1, hkir: 1, hthr: 1, r: 2, pgo: 25, cpuo: 240, shhp: 225, sshp: 300, sahp: 300, lsc: 3, msc: 4, hsc: 3, lasc: 2, tusc: 2, rsc: 3, rgsz: 1, calb: 400, vel: 360},
       "587": { n: "Rifter", mg: 64, pmg: 5, mta: 0, d: "The Rifter is a Combat Frigate designed for frontline fighting.\n\
 <br><font size=\"14\"><b>Traits</b></font>\n\
 <b><a href=showinfo:3329>Minmatar Frigate</a> skill bonus per level:</b>\n\
@@ -258,7 +257,7 @@ Special Ability: 200% bonus to Small Hybrid Turret damage\n\
 \n\
 Gallente Frigate Skill Bonus: 10% bonus to Small Hybrid Turret falloff per level\n\
 Minmatar Frigate Skill Bonus: 10% bonus to the velocity factor of stasis webifiers per level", tl: 1, aemr: 0.5, aexr: 0.9, akir: 0.65, athr: 0.65, semr: 1, sexr: 0.5, skir: 0.6, sthr: 0.8, hemr: 1, hexr: 1, hkir: 1, hthr: 1, r: 2, pgo: 35, cpuo: 145, shhp: 657, sshp: 537, sahp: 582, lsc: 4, msc: 3, hsc: 3, lasc: 0, tusc: 2, rsc: 3, rgsz: 1, calb: 350, vel: 384},
-      "17930": { n: "Worm", mg: 1365, pmg: 1362, mta: 8, d: "Korako 'The Rabbit' Kosakami, Gurista leader, has a particular love for stealing the Caldari's ship designs, souping them up, and turning them on their creators.  With the Worm, he has taken the Merlin design so familiar to Caldari pilots and turned it into a defensive powerhouse with increased electronic warfare capabilities.\n\
+      "17930": { n: "Worm", mg: 1365, pmg: 1362, mta: 8, d: "Korako 'The Rabbit' Kosakami, Gurista leader, has a particular love for stealing the Caldari's ship designs, souping them up, and turning them on their creators.  With the Worm, he has taken the Merlin design so familiar to Caldari pilots and turned it into a defensive powerhouse capable of firing its volleys at terrifying speeds.\n\
 \n\
 Special Ability: 50% bonus to Rocket and Light Missile velocity\n\
 \n\
@@ -823,19 +822,19 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 19, pg: 12, opt: 10000, acc: 4000, rof: 4000, trk: 0.1, dmg: 3, capn: 7.22, tl: 1, shhp: 40, cs: 1},
       "455": { n: "Quad Light Beam Laser I", mg: 568, pmg: 557, mta: 0, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 25, pg: 81, opt: 8000, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.5, capn: 5.45, tl: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 25, pg: 81, opt: 8000, acc: 1000, rof: 3150, trk: 0.0729, dmg: 1.88, capn: 5.45, tl: 1, shhp: 40, cs: 2},
       "456": { n: "Focused Medium Pulse Laser I", mg: 572, pmg: 558, mta: 0, d: "A high-energy, concentrated laser designed for short to medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 114, opt: 9000, acc: 3000, rof: 4050, trk: 0.09, dmg: 2, capn: 8, tl: 1, shhp: 40, cs: 2},
       "457": { n: "Focused Medium Beam Laser I", mg: 568, pmg: 557, mta: 0, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 30, pg: 135, opt: 17500, acc: 6000, rof: 4800, trk: 0.042, dmg: 2, capn: 11.67, tl: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 30, pg: 135, opt: 17500, acc: 6000, rof: 4800, trk: 0.0378, dmg: 2.5, capn: 11.67, tl: 1, shhp: 40, cs: 2},
       "458": { n: "Heavy Pulse Laser I", mg: 572, pmg: 558, mta: 0, d: "A heavy laser designed for short to medium range engagements. Delivers powerful damage. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 33, pg: 189, opt: 10000, acc: 4000, rof: 5250, trk: 0.08125, dmg: 3, capn: 13.33, tl: 1, shhp: 40, cs: 2},
       "459": { n: "Heavy Beam Laser I", mg: 568, pmg: 557, mta: 0, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 35, pg: 225, opt: 20000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3, capn: 21.67, tl: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 35, pg: 225, opt: 20000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 3.75, capn: 21.67, tl: 1, shhp: 40, cs: 2},
       "460": { n: "Dual Heavy Pulse Laser I", mg: 573, pmg: 558, mta: 0, d: "This heavy pulse laser uses two separate laser focusing systems to reduce the cool down period between shots. A great weapon for medium to long range encounters. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 40, pg: 1500, opt: 18000, acc: 6000, rof: 6075, trk: 0.0375, dmg: 2, capn: 22.5, tl: 1, shhp: 40, cs: 3},
@@ -862,13 +861,13 @@ Requires either regular or advanced frequency crystal ammo types: Gamma, Infrare
 Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Conflagration, Scorch.", cpu: 8, pg: 7, opt: 5400, acc: 1500, rof: 2700, trk: 0.27375, dmg: 2.4, capn: 2.67, tl: 2, shhp: 40, cs: 1},
       "3009": { n: "Focused Medium Beam Laser II", mg: 568, pmg: 557, mta: 5, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 32, pg: 149, opt: 21000, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.4, capn: 11.67, tl: 2, shhp: 40, cs: 2},
+Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 32, pg: 149, opt: 21000, acc: 6000, rof: 4800, trk: 0.0378, dmg: 3, capn: 11.67, tl: 2, shhp: 40, cs: 2},
       "3017": { n: "Gatling Pulse Laser II", mg: 570, pmg: 558, mta: 5, d: "Rapid fire multi-barreled energy weapon that delivers a steady stream of damage. \n\
 \n\
 Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Conflagration, Scorch.", cpu: 4, pg: 6, opt: 4800, acc: 500, rof: 2100, trk: 0.308125, dmg: 1.8, capn: 1.82, tl: 2, shhp: 40, cs: 1},
       "3025": { n: "Heavy Beam Laser II", mg: 568, pmg: 557, mta: 5, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 37, pg: 248, opt: 24000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.6, capn: 21.67, tl: 2, shhp: 40, cs: 2},
+Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 37, pg: 248, opt: 24000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.5, capn: 21.67, tl: 2, shhp: 40, cs: 2},
       "3033": { n: "Small Focused Beam Laser II", mg: 567, pmg: 557, mta: 5, d: "A high-powered beam laser. Good for medium range encounters. \n\
 \n\
 Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 20, pg: 13, opt: 12000, acc: 4000, rof: 4000, trk: 0.1, dmg: 3.6, capn: 7.22, tl: 2, shhp: 40, cs: 1},
@@ -886,7 +885,7 @@ Requires either regular or advanced frequency crystal ammo types: Gamma, Infrare
 Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 63, pg: 3712, opt: 52800, acc: 20000, rof: 12500, trk: 0.0139205, dmg: 5.4, capn: 76, tl: 2, shhp: 40, cs: 3},
       "3285": { n: "Quad Light Beam Laser II", mg: 568, pmg: 557, mta: 5, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 26, pg: 89, opt: 9600, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.8, capn: 5.45, tl: 2, shhp: 40, cs: 2},
+Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Aurora, Gleam.", cpu: 26, pg: 89, opt: 9600, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.25, capn: 5.45, tl: 2, shhp: 40, cs: 2},
       "3512": { n: "Focused Medium Pulse Laser II", mg: 572, pmg: 558, mta: 5, d: "A high-energy, concentrated laser designed for short to medium range engagements. \n\
 \n\
 Requires either regular or advanced frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray, Conflagration, Scorch.", cpu: 29, pg: 125, opt: 10800, acc: 3000, rof: 4050, trk: 0.09, dmg: 2.4, capn: 8, tl: 2, shhp: 40, cs: 2},
@@ -966,16 +965,16 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 18, pg: 12, opt: 11500, acc: 4000, rof: 4000, trk: 0.1, dmg: 3.45, capn: 6.137, tl: 1, r: 8, shhp: 40, cs: 1},
       "6757": { n: "Quad Modal Light Laser I", mg: 568, pmg: 557, mta: 2, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 21, pg: 81, opt: 8800, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.65, capn: 4.905, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 21, pg: 81, opt: 8800, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.06, capn: 4.905, tl: 1, r: 1, shhp: 40, cs: 2},
       "6759": { n: "Quad Afocal Light Maser I", mg: 568, pmg: 557, mta: 1, d: "Uses four light maser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 22, pg: 81, opt: 8400, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.575, capn: 5.1775, tl: 1, r: 2, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 22, pg: 81, opt: 8400, acc: 1000, rof: 3150, trk: 0.0729, dmg: 1.97, capn: 5.1775, tl: 1, r: 2, shhp: 40, cs: 2},
       "6761": { n: "Quad Modulated Light Energy Beam I", mg: 568, pmg: 557, mta: 4, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 81, opt: 9600, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.8, capn: 4.36, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 81, opt: 9600, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.25, capn: 4.36, tl: 1, r: 4, shhp: 40, cs: 2},
       "6763": { n: "Quad Anode Light Particle Stream I", mg: 568, pmg: 557, mta: 3, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 23, pg: 81, opt: 9200, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.725, capn: 4.6325, tl: 1, r: 8, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 23, pg: 81, opt: 9200, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.16, capn: 4.6325, tl: 1, r: 8, shhp: 40, cs: 2},
       "6805": { n: "Focused Modal Pulse Laser I", mg: 572, pmg: 558, mta: 2, d: "A high-energy, concentrated laser designed for short to medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 23, pg: 114, opt: 9900, acc: 3000, rof: 4050, trk: 0.09, dmg: 2.2, capn: 7.2, tl: 1, r: 1, shhp: 40, cs: 2},
@@ -990,16 +989,16 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 26, pg: 114, opt: 10350, acc: 3000, rof: 4050, trk: 0.09, dmg: 2.3, capn: 6.8, tl: 1, r: 8, shhp: 40, cs: 2},
       "6859": { n: "Focused Modal Medium Laser I", mg: 568, pmg: 557, mta: 2, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 25, pg: 135, opt: 19250, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.2, capn: 10.503, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 25, pg: 135, opt: 19250, acc: 6000, rof: 4800, trk: 0.0378, dmg: 2.75, capn: 10.503, tl: 1, r: 1, shhp: 40, cs: 2},
       "6861": { n: "Focused Afocal Medium Maser I", mg: 568, pmg: 557, mta: 1, d: "A high-powered, concentrated energy weapon designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 27, pg: 135, opt: 18375, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.1, capn: 11.0865, tl: 1, r: 2, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 27, pg: 135, opt: 18375, acc: 6000, rof: 4800, trk: 0.0378, dmg: 2.63, capn: 11.0865, tl: 1, r: 2, shhp: 40, cs: 2},
       "6863": { n: "Focused Modulated Medium Energy Beam I", mg: 568, pmg: 557, mta: 4, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 135, opt: 21000, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.4, capn: 9.336, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 135, opt: 21000, acc: 6000, rof: 4800, trk: 0.0378, dmg: 3, capn: 9.336, tl: 1, r: 4, shhp: 40, cs: 2},
       "6865": { n: "Focused Anode Medium Particle Stream I", mg: 568, pmg: 557, mta: 3, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 135, opt: 20125, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.3, capn: 9.9195, tl: 1, r: 8, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 135, opt: 20125, acc: 6000, rof: 4800, trk: 0.0378, dmg: 2.88, capn: 9.9195, tl: 1, r: 8, shhp: 40, cs: 2},
       "6919": { n: "Heavy Modal Pulse Laser I", mg: 572, pmg: 558, mta: 2, d: "A heavy laser designed for short to medium range engagements. Delivers powerful damage. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 189, opt: 11000, acc: 4000, rof: 5250, trk: 0.08125, dmg: 3.3, capn: 11.997, tl: 1, r: 1, shhp: 40, cs: 2},
@@ -1014,16 +1013,16 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 31, pg: 189, opt: 11500, acc: 4000, rof: 5250, trk: 0.08125, dmg: 3.45, capn: 11.3305, tl: 1, r: 8, shhp: 40, cs: 2},
       "6959": { n: "Heavy Modal Laser I", mg: 568, pmg: 557, mta: 2, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 29, pg: 225, opt: 22000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.3, capn: 19.503, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 29, pg: 225, opt: 22000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.13, capn: 19.503, tl: 1, r: 1, shhp: 40, cs: 2},
       "6961": { n: "Heavy Afocal Maser I", mg: 568, pmg: 557, mta: 1, d: "A high-powered heavy energy weapon designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 31, pg: 225, opt: 21000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.15, capn: 20.5865, tl: 1, r: 2, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 31, pg: 225, opt: 21000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 3.94, capn: 20.5865, tl: 1, r: 2, shhp: 40, cs: 2},
       "6963": { n: "Heavy Modulated Energy Beam I", mg: 568, pmg: 557, mta: 4, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 225, opt: 24000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.6, capn: 17.336, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 225, opt: 24000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.5, capn: 17.336, tl: 1, r: 4, shhp: 40, cs: 2},
       "6965": { n: "Heavy Anode Particle Stream I", mg: 568, pmg: 557, mta: 3, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 33, pg: 225, opt: 23000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.45, capn: 18.4195, tl: 1, r: 8, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 33, pg: 225, opt: 23000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.31, capn: 18.4195, tl: 1, r: 8, shhp: 40, cs: 2},
       "6999": { n: "Dual Heavy Modal Pulse Laser I", mg: 573, pmg: 558, mta: 2, d: "This heavy pulse laser uses two separate laser focusing systems to reduce the cool down period between shots. A great weapon for medium to long range encounters. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 34, pg: 1500, opt: 19800, acc: 6000, rof: 6075, trk: 0.0375, dmg: 2.2, capn: 20.3, tl: 1, r: 1, shhp: 40, cs: 3},
@@ -1098,7 +1097,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 6, pg: 7, opt: 5625, acc: 1500, rof: 2700, trk: 0.27375, dmg: 2.5, capn: 2.0025, tl: 1, r: 4, shhp: 40, cs: 1},
       "13799": { n: "Dark Blood Focused Medium Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.5, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.0378, dmg: 3.13, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
       "13801": { n: "Dark Blood Focused Medium Pulse Laser", mg: 572, pmg: 558, mta: 8, d: "A high-energy, concentrated laser designed for short to medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 22, pg: 125, opt: 11250, acc: 3000, rof: 4050, trk: 0.09, dmg: 2.5, capn: 6, tl: 1, r: 4, shhp: 40, cs: 2},
@@ -1107,7 +1106,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 3, pg: 6, opt: 5000, acc: 500, rof: 2100, trk: 0.308125, dmg: 1.875, capn: 1.365, tl: 1, r: 4, shhp: 40, cs: 1},
       "13805": { n: "Dark Blood Heavy Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.75, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.69, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
       "13807": { n: "Dark Blood Heavy Pulse Laser", mg: 572, pmg: 558, mta: 8, d: "A heavy laser designed for short to medium range engagements. Delivers powerful damage. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 26, pg: 208, opt: 12500, acc: 4000, rof: 5250, trk: 0.08125, dmg: 3.75, capn: 9.9975, tl: 1, r: 4, shhp: 40, cs: 2},
@@ -1128,7 +1127,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 48, pg: 3712, opt: 52800, acc: 20000, rof: 12500, trk: 0.0139205, dmg: 5.625, capn: 57, tl: 1, r: 4, shhp: 40, cs: 3},
       "13819": { n: "Dark Blood Quad Beam Laser", mg: 568, pmg: 557, mta: 8, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.875, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.34, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
       "13820": { n: "True Sansha Dual Heavy Beam Laser", mg: 569, pmg: 557, mta: 8, d: "This heavy beam laser uses two separate laser focusing systems to reduce the cool down period between shots. A great weapon for medium to long range encounters. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 36, pg: 1732, opt: 42000, acc: 12000, rof: 7200, trk: 0.0175, dmg: 2.5, capn: 21, tl: 1, r: 4, shhp: 40, cs: 3},
@@ -1143,7 +1142,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 6, pg: 7, opt: 5625, acc: 1500, rof: 2700, trk: 0.27375, dmg: 2.5, capn: 2.0025, tl: 1, r: 4, shhp: 40, cs: 1},
       "13824": { n: "True Sansha Focused Medium Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.5, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.0378, dmg: 3.13, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
       "13825": { n: "True Sansha Focused Medium Pulse Laser", mg: 572, pmg: 558, mta: 8, d: "A high-energy, concentrated laser designed for short to medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 22, pg: 125, opt: 11250, acc: 3000, rof: 4050, trk: 0.09, dmg: 2.5, capn: 6, tl: 1, r: 4, shhp: 40, cs: 2},
@@ -1152,7 +1151,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 3, pg: 6, opt: 5000, acc: 500, rof: 2100, trk: 0.308125, dmg: 1.875, capn: 1.365, tl: 1, r: 4, shhp: 40, cs: 1},
       "13827": { n: "True Sansha Heavy Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.75, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.69, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
       "13828": { n: "True Sansha Heavy Pulse Laser", mg: 572, pmg: 558, mta: 8, d: "A heavy laser designed for short to medium range engagements. Delivers powerful damage. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 26, pg: 208, opt: 12500, acc: 4000, rof: 5250, trk: 0.08125, dmg: 3.75, capn: 9.9975, tl: 1, r: 4, shhp: 40, cs: 2},
@@ -1170,7 +1169,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 40, pg: 2750, opt: 24000, acc: 8000, rof: 7875, trk: 0.03375, dmg: 3.75, capn: 27, tl: 1, r: 4, shhp: 40, cs: 3},
       "13833": { n: "True Sansha Quad Beam Laser", mg: 568, pmg: 557, mta: 8, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.875, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.34, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
       "13834": { n: "True Sansha Tachyon Beam Laser", mg: 569, pmg: 557, mta: 8, d: "An ultra-heavy beam laser designed for medium to long range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 48, pg: 3712, opt: 52800, acc: 20000, rof: 12500, trk: 0.0139205, dmg: 5.625, capn: 57, tl: 1, r: 4, shhp: 40, cs: 3},
@@ -1238,7 +1237,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 48, pg: 3712, opt: 52800, acc: 20000, rof: 12500, trk: 0.0139205, dmg: 5.625, capn: 57, tl: 1, r: 4, shhp: 40, cs: 3},
       "15846": { n: "Ammatar Navy Quad Beam Laser", mg: 568, pmg: 557, mta: 8, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.875, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.34, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
       "15847": { n: "Ammatar Navy Mega Pulse Laser", mg: 573, pmg: 558, mta: 8, d: "A super-heavy pulse laser designed for medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 40, pg: 2750, opt: 24000, acc: 8000, rof: 7875, trk: 0.03375, dmg: 3.75, capn: 27, tl: 1, r: 4, shhp: 40, cs: 3},
@@ -1256,7 +1255,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 26, pg: 208, opt: 12500, acc: 4000, rof: 5250, trk: 0.08125, dmg: 3.75, capn: 9.9975, tl: 1, r: 4, shhp: 40, cs: 2},
       "15852": { n: "Ammatar Navy Heavy Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.75, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.69, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
       "15853": { n: "Ammatar Navy Gatling Pulse Laser", mg: 570, pmg: 558, mta: 8, d: "Rapid fire multi-barreled energy weapon that delivers a steady stream of damage. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 3, pg: 6, opt: 5000, acc: 500, rof: 2100, trk: 0.308125, dmg: 1.875, capn: 1.365, tl: 1, r: 4, shhp: 40, cs: 1},
@@ -1265,7 +1264,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 22, pg: 125, opt: 11250, acc: 3000, rof: 4050, trk: 0.09, dmg: 2.5, capn: 6, tl: 1, r: 4, shhp: 40, cs: 2},
       "15855": { n: "Ammatar Navy Focused Medium Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.5, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.0378, dmg: 3.13, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
       "15856": { n: "Ammatar Navy Dual Light Pulse Laser", mg: 570, pmg: 558, mta: 8, d: "This light pulse laser uses two separate laser focusing systems to reduce the cool down period between shots. Good skirmish weapon. Requires frequency crystal ammo types: gamma, infrared, microwave, multifrequency, radio, standard, ultraviolet, xray.", cpu: 6, pg: 7, opt: 5625, acc: 1500, rof: 2700, trk: 0.27375, dmg: 2.5, capn: 2.0025, tl: 1, r: 4, shhp: 40, cs: 1},
       "15857": { n: "Ammatar Navy Dual Light Beam Laser", mg: 567, pmg: 557, mta: 8, d: "This light beam laser uses two separate laser focusing systems to reduce the cool down period between shots. Good short to medium range weapon. \n\
 \n\
@@ -1281,7 +1280,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 48, pg: 3712, opt: 52800, acc: 20000, rof: 12500, trk: 0.0139205, dmg: 5.625, capn: 57, tl: 1, r: 4, shhp: 40, cs: 3},
       "15861": { n: "Imperial Navy Quad Beam Laser", mg: 568, pmg: 557, mta: 8, d: "Uses four light laser focusing systems. Low powered, but makes up for it with a fast firing rate. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.081, dmg: 1.875, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 20, pg: 89, opt: 10000, acc: 1000, rof: 3150, trk: 0.0729, dmg: 2.34, capn: 4.0875, tl: 1, r: 4, shhp: 40, cs: 2},
       "15862": { n: "Imperial Navy Mega Pulse Laser", mg: 573, pmg: 558, mta: 8, d: "A super-heavy pulse laser designed for medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 40, pg: 2750, opt: 24000, acc: 8000, rof: 7875, trk: 0.03375, dmg: 3.75, capn: 27, tl: 1, r: 4, shhp: 40, cs: 3},
@@ -1299,7 +1298,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 26, pg: 208, opt: 12500, acc: 4000, rof: 5250, trk: 0.08125, dmg: 3.75, capn: 9.9975, tl: 1, r: 4, shhp: 40, cs: 2},
       "15867": { n: "Imperial Navy Heavy Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.033, dmg: 3.75, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 248, opt: 25000, acc: 8000, rof: 6000, trk: 0.0297, dmg: 4.69, capn: 16.2525, tl: 1, r: 4, shhp: 40, cs: 2},
       "15868": { n: "Imperial Navy Gatling Pulse Laser", mg: 570, pmg: 558, mta: 8, d: "Rapid fire multi-barreled energy weapon that delivers a steady stream of damage. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 3, pg: 6, opt: 5000, acc: 500, rof: 2100, trk: 0.308125, dmg: 1.875, capn: 1.365, tl: 1, r: 4, shhp: 40, cs: 1},
@@ -1308,7 +1307,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 22, pg: 125, opt: 11250, acc: 3000, rof: 4050, trk: 0.09, dmg: 2.5, capn: 6, tl: 1, r: 4, shhp: 40, cs: 2},
       "15870": { n: "Imperial Navy Focused Medium Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.042, dmg: 2.5, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 149, opt: 21875, acc: 6000, rof: 4800, trk: 0.0378, dmg: 3.13, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
       "15871": { n: "Imperial Navy Dual Light Pulse Laser", mg: 570, pmg: 558, mta: 8, d: "This light pulse laser uses two separate laser focusing systems to reduce the cool down period between shots. Good skirmish weapon. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 6, pg: 7, opt: 5625, acc: 1500, rof: 2700, trk: 0.27375, dmg: 2.5, capn: 2.0025, tl: 1, r: 4, shhp: 40, cs: 1},
@@ -1340,13 +1339,13 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 15, pg: 10, opt: 10000, acc: 4800, rof: 4000, trk: 0.1, dmg: 3.6, capn: 7.22, tl: 1, shhp: 40, cs: 1},
       "23840": { n: "'Crossbow' Focused Medium Beam Laser I", mg: 568, pmg: 557, mta: 6, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 122, opt: 17500, acc: 7200, rof: 4800, trk: 0.042, dmg: 2.4, capn: 11.67, tl: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 24, pg: 122, opt: 17500, acc: 7200, rof: 4800, trk: 0.0378, dmg: 3, capn: 11.67, tl: 1, shhp: 40, cs: 2},
       "23842": { n: "'Joust' Heavy Pulse Laser I", mg: 572, pmg: 558, mta: 6, d: "A heavy laser designed for short to medium range engagements. Delivers powerful damage. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 26, pg: 170, opt: 10000, acc: 4800, rof: 5250, trk: 0.08125, dmg: 3.6, capn: 13.33, tl: 1, shhp: 40, cs: 2},
       "23844": { n: "'Arquebus' Heavy Beam Laser I", mg: 568, pmg: 557, mta: 6, d: "A high-energy heavy laser designed for medium range engagements. Delivers powerful damage. \n\
 \n\
-Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 203, opt: 20000, acc: 9600, rof: 6000, trk: 0.033, dmg: 3.6, capn: 21.67, tl: 1, shhp: 40, cs: 2},
+Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 28, pg: 203, opt: 20000, acc: 9600, rof: 6000, trk: 0.0297, dmg: 4.5, capn: 21.67, tl: 1, shhp: 40, cs: 2},
       "23846": { n: "'Halberd' Mega Pulse Laser I", mg: 573, pmg: 558, mta: 0, d: "A super-heavy pulse laser designed for medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", cpu: 40, pg: 2250, opt: 20000, acc: 9600, rof: 7875, trk: 0.03375, dmg: 3.6, capn: 36, tl: 1, shhp: 40, cs: 3},
@@ -1384,17 +1383,17 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 140, opt: 2000, acc: 9600, rof: 5625, trk: 0.1056, dmg: 2.8875, capn: 0, tl: 1, shhp: 40, cs: 2},
       "492": { n: "650mm Artillery Cannon I", mg: 578, pmg: 560, mta: 0, d: "A powerful long-range cannon. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 180, opt: 16100, acc: 17500, rof: 12750, trk: 0.0275, dmg: 4.62, capn: 0, tl: 1, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 180, opt: 16100, acc: 17500, rof: 11475, trk: 0.0261, dmg: 4.62, capn: 0, tl: 1, shhp: 40, cs: 2},
       "493": { n: "720mm Howitzer Artillery I", mg: 578, pmg: 560, mta: 0, d: "This 720mm rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 30, pg: 225, opt: 20000, acc: 17500, rof: 20003, trk: 0.022, dmg: 7.97276025, capn: 0, tl: 1, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 30, pg: 225, opt: 20000, acc: 17500, rof: 18003, trk: 0.0209, dmg: 7.97, capn: 0, tl: 1, shhp: 40, cs: 2},
       "494": { n: "Dual 425mm AutoCannon I", mg: 576, pmg: 559, mta: 0, d: "Combines the damage output of two 425mm intermediate-range autocannons. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 33, pg: 1250, opt: 3200, acc: 16000, rof: 6750, trk: 0.057132, dmg: 2.0625, capn: 0, tl: 1, shhp: 40, cs: 3},
       "495": { n: "Dual 650mm Repeating Artillery I", mg: 576, pmg: 559, mta: 0, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 36, pg: 1500, opt: 3600, acc: 17600, rof: 7500, trk: 0.04968, dmg: 2.444203042, capn: 0, tl: 1, shhp: 40, cs: 3},
-      "496": { n: "800mm Repeating Artillery I", mg: 576, pmg: 559, mta: 0, d: "A four-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "496": { n: "800mm Repeating Artillery I", mg: 576, pmg: 559, mta: 0, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 39, pg: 2000, opt: 4000, acc: 19200, rof: 7875, trk: 0.0432, dmg: 2.695, capn: 0, tl: 1, shhp: 40, cs: 3},
       "497": { n: "1200mm Artillery Cannon I", mg: 579, pmg: 560, mta: 0, d: "One of the most powerful projectile cannons a battleship can equip. \n\
@@ -1426,8 +1425,8 @@ Must be loaded with any of the following regular and advanced projectile ammo ty
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Barrage, Hail.", cpu: 25, pg: 154, opt: 2400, acc: 9600, rof: 5625, trk: 0.1056, dmg: 3.465, capn: 0, tl: 2, shhp: 40, cs: 2},
       "2921": { n: "650mm Artillery Cannon II", mg: 578, pmg: 560, mta: 5, d: "A powerful long-range cannon. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Quake, Tremor.", cpu: 28, pg: 198, opt: 19320, acc: 17500, rof: 12750, trk: 0.0275, dmg: 5.544, capn: 0, tl: 2, shhp: 40, cs: 2},
-      "2929": { n: "800mm Repeating Artillery II", mg: 576, pmg: 559, mta: 5, d: "A four-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Quake, Tremor.", cpu: 28, pg: 198, opt: 19320, acc: 17500, rof: 11475, trk: 0.0261, dmg: 5.54, capn: 0, tl: 2, shhp: 40, cs: 2},
+      "2929": { n: "800mm Repeating Artillery II", mg: 576, pmg: 559, mta: 5, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Barrage, Hail.", cpu: 41, pg: 2200, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.234, capn: 0, tl: 2, shhp: 40, cs: 3},
       "2937": { n: "Dual 180mm AutoCannon II", mg: 575, pmg: 559, mta: 5, d: "This dual 180mm autocannon is a simple but effective close combat weapon. \n\
@@ -1444,7 +1443,7 @@ Must be loaded with any of the following regular and advanced projectile ammo ty
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Quake, Tremor.", cpu: 47, pg: 3575, opt: 48000, acc: 35000, rof: 40163, trk: 0.009, dmg: 12.807, capn: 0, tl: 2, shhp: 40, cs: 3},
       "2969": { n: "720mm Howitzer Artillery II", mg: 578, pmg: 560, mta: 5, d: "This 720mm rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Quake, Tremor.", cpu: 32, pg: 248, opt: 24000, acc: 17500, rof: 20003, trk: 0.022, dmg: 9.5673123, capn: 0, tl: 2, shhp: 40, cs: 2},
+Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Quake, Tremor.", cpu: 32, pg: 248, opt: 24000, acc: 17500, rof: 18003, trk: 0.0209, dmg: 9.57, capn: 0, tl: 2, shhp: 40, cs: 2},
       "2977": { n: "280mm Howitzer Artillery II", mg: 577, pmg: 560, mta: 5, d: "Rocket-assisted artillery projectiles designed for long-range combat. It is the most powerful projectile weapon able to be fitted onto frigates. \n\
 \n\
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Quake, Tremor.", cpu: 16, pg: 13, opt: 12000, acc: 8750, rof: 10710, trk: 0.066, dmg: 7.684, capn: 0, tl: 2, shhp: 40, cs: 1},
@@ -1542,16 +1541,16 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 20, pg: 140, opt: 2300, acc: 9600, rof: 5625, trk: 0.1056, dmg: 3.32145, capn: 0, tl: 1, r: 1, shhp: 40, cs: 2},
       "9207": { n: "650mm Medium 'Scout' Artillery I", mg: 578, pmg: 560, mta: 4, d: "A powerful long-range artillery. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 180, opt: 19320, acc: 17500, rof: 12750, trk: 0.0275, dmg: 5.544, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 180, opt: 19320, acc: 17500, rof: 11475, trk: 0.0261, dmg: 5.54, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "9209": { n: "650mm Medium Carbine Howitzer I", mg: 578, pmg: 560, mta: 1, d: "A powerful long-range artillery. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 21, pg: 180, opt: 16905, acc: 17500, rof: 12750, trk: 0.0275, dmg: 4.851, capn: 0, tl: 1, r: 4, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 21, pg: 180, opt: 16905, acc: 17500, rof: 11475, trk: 0.0261, dmg: 4.85, capn: 0, tl: 1, r: 4, shhp: 40, cs: 2},
       "9211": { n: "650mm Medium Gallium Cannon", mg: 578, pmg: 560, mta: 2, d: "A powerful long-range artillery. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 25, pg: 180, opt: 17710, acc: 17500, rof: 12750, trk: 0.0275, dmg: 5.082, capn: 0, tl: 1, r: 8, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 25, pg: 180, opt: 17710, acc: 17500, rof: 11475, trk: 0.0261, dmg: 5.08, capn: 0, tl: 1, r: 8, shhp: 40, cs: 2},
       "9213": { n: "650mm Medium Prototype Siege Cannon", mg: 578, pmg: 560, mta: 3, d: "A powerful long-range artillery. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 22, pg: 180, opt: 18515, acc: 17500, rof: 12750, trk: 0.0275, dmg: 5.313, capn: 0, tl: 1, r: 1, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 22, pg: 180, opt: 18515, acc: 17500, rof: 11475, trk: 0.0261, dmg: 5.31, capn: 0, tl: 1, r: 1, shhp: 40, cs: 2},
       "9247": { n: "Dual 425mm 'Scout' Autocannon I", mg: 576, pmg: 559, mta: 4, d: "Combines the damage output of two 425mm intermediate-range autocannons. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 29, pg: 1250, opt: 3840, acc: 16000, rof: 6750, trk: 0.057132, dmg: 2.475, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
@@ -1614,16 +1613,16 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 12, pg: 12, opt: 11500, acc: 8750, rof: 10710, trk: 0.066, dmg: 7.364, capn: 0, tl: 1, r: 1, shhp: 40, cs: 1},
       "9451": { n: "720mm 'Scout' Artillery I", mg: 578, pmg: 560, mta: 4, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 225, opt: 24000, acc: 17500, rof: 20003, trk: 0.022, dmg: 9.5673123, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 225, opt: 24000, acc: 17500, rof: 18003, trk: 0.0209, dmg: 9.57, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "9453": { n: "720mm Carbine Howitzer I", mg: 578, pmg: 560, mta: 1, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 225, opt: 21000, acc: 17500, rof: 20003, trk: 0.022, dmg: 8.372091546, capn: 0, tl: 1, r: 4, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 225, opt: 21000, acc: 17500, rof: 18003, trk: 0.0209, dmg: 8.37, capn: 0, tl: 1, r: 4, shhp: 40, cs: 2},
       "9455": { n: "720mm Gallium Cannon", mg: 578, pmg: 560, mta: 2, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 28, pg: 225, opt: 22000, acc: 17500, rof: 20003, trk: 0.022, dmg: 8.770036275, capn: 0, tl: 1, r: 8, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 28, pg: 225, opt: 22000, acc: 17500, rof: 18003, trk: 0.0209, dmg: 8.77, capn: 0, tl: 1, r: 8, shhp: 40, cs: 2},
       "9457": { n: "720mm Prototype Siege Cannon", mg: 578, pmg: 560, mta: 3, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 25, pg: 225, opt: 23000, acc: 17500, rof: 20003, trk: 0.022, dmg: 9.169367571, capn: 0, tl: 1, r: 1, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 25, pg: 225, opt: 23000, acc: 17500, rof: 18003, trk: 0.0209, dmg: 9.17, capn: 0, tl: 1, r: 1, shhp: 40, cs: 2},
       "9491": { n: "1400mm 'Scout' Artillery I", mg: 579, pmg: 560, mta: 4, d: "The ultimate artillery cannon. It hurls death and destruction over incredible distances. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 40, pg: 3250, opt: 48000, acc: 35000, rof: 40163, trk: 0.009, dmg: 12.807, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
@@ -1665,10 +1664,10 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 17, pg: 154, opt: 2400, acc: 9600, rof: 5625, trk: 0.1056, dmg: 3.6102, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "13783": { n: "Domination 650mm Artillery", mg: 578, pmg: 560, mta: 7, d: "A powerful long-range artillery. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 180, opt: 19320, acc: 17500, rof: 12113, trk: 0.0275, dmg: 5.544, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 180, opt: 19320, acc: 17500, rof: 10902, trk: 0.0261, dmg: 5.54, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "13784": { n: "Domination 720mm Howitzer Artillery", mg: 578, pmg: 560, mta: 7, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 225, opt: 24000, acc: 17500, rof: 19003, trk: 0.022, dmg: 9.5673123, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 225, opt: 24000, acc: 17500, rof: 17103, trk: 0.0209, dmg: 9.57, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "13785": { n: "Domination 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 7, d: "Artillery cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 28, pg: 2200, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.36952, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
@@ -1681,10 +1680,10 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "13788": { n: "Domination Dual 650mm Repeating Artillery", mg: 576, pmg: 559, mta: 7, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 26, pg: 1650, opt: 4320, acc: 17600, rof: 7500, trk: 0.04968, dmg: 3.055253802, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
-      "14457": { n: "Mizuro's Modified 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 11, d: "A four-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "14457": { n: "Mizuro's Modified 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 11, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 28, pg: 2310, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.70524, capn: 0, tl: 1, shhp: 40, cs: 3},
-      "14459": { n: "Gotan's Modified 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 13, d: "A four-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "14459": { n: "Gotan's Modified 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 13, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 28, pg: 2420, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 4.0425, capn: 0, tl: 1, shhp: 40, cs: 3},
       "14461": { n: "Hakim's Modified 1200mm Artillery Cannon", mg: 579, pmg: 560, mta: 7, d: "One of the most powerful projectile cannons a battleship can equip. \n\
@@ -1740,10 +1739,10 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 17, pg: 154, opt: 2400, acc: 9600, rof: 5625, trk: 0.1056, dmg: 3.6102, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "16055": { n: "Republic Fleet 650mm Artillery", mg: 578, pmg: 560, mta: 7, d: "A powerful long-range artillery. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 180, opt: 19320, acc: 17500, rof: 12113, trk: 0.0275, dmg: 5.544, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 24, pg: 180, opt: 19320, acc: 17500, rof: 10902, trk: 0.0261, dmg: 5.54, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "16056": { n: "Republic Fleet 720mm Howitzer Artillery", mg: 578, pmg: 560, mta: 7, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 225, opt: 24000, acc: 17500, rof: 19003, trk: 0.022, dmg: 9.5673123, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 27, pg: 225, opt: 24000, acc: 17500, rof: 17103, trk: 0.0209, dmg: 9.57, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
       "16057": { n: "Republic Fleet 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 7, d: "Artillery cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 28, pg: 2200, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.36952, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
@@ -1778,11 +1777,11 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 20, pg: 126, opt: 2000, acc: 10560, rof: 5625, trk: 0.1056, dmg: 3.17625, capn: 0, tl: 1, shhp: 40, cs: 2},
       "21553": { n: "650mm Medium 'Jolt' Artillery I", mg: 578, pmg: 560, mta: 6, d: "A powerful long-range cannon. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 23, pg: 162, opt: 16100, acc: 19250, rof: 12750, trk: 0.0275, dmg: 5.082, capn: 0, tl: 1, shhp: 40, cs: 2},
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 23, pg: 162, opt: 16100, acc: 19250, rof: 11475, trk: 0.0261, dmg: 5.08, capn: 0, tl: 1, shhp: 40, cs: 2},
       "21555": { n: "720mm 'Jolt' Artillery I", mg: 578, pmg: 560, mta: 6, d: "This 720mm rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
-Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 26, pg: 203, opt: 20000, acc: 19250, rof: 20003, trk: 0.022, dmg: 8.770036275, capn: 0, tl: 1, shhp: 40, cs: 2},
-      "21557": { n: "800mm Heavy 'Jolt' Repeating Artillery I", mg: 576, pmg: 559, mta: 6, d: "A four-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 26, pg: 203, opt: 20000, acc: 19250, rof: 18003, trk: 0.0209, dmg: 8.77, capn: 0, tl: 1, shhp: 40, cs: 2},
+      "21557": { n: "800mm Heavy 'Jolt' Repeating Artillery I", mg: 576, pmg: 559, mta: 6, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 33, pg: 1800, opt: 4000, acc: 21120, rof: 7875, trk: 0.0432, dmg: 2.9645, capn: 0, tl: 1, shhp: 40, cs: 3},
       "21559": { n: "1200mm Heavy 'Jolt' Artillery I", mg: 579, pmg: 560, mta: 0, d: "One of the most powerful projectile cannons a battleship can equip. \n\
@@ -1860,106 +1859,106 @@ Grants a bonus to resistance for shield, armor and hull.\n\
 Only one Damage Control can be activated at a given time.", cpu: 15, pg: 1, capn: 1, tl: 1, aemr: 0.855, aexr: 0.855, akir: 0.855, athr: 0.855, semr: 0.88, sexr: 0.88, skir: 0.88, sthr: 0.88, hemr: 0.41, hexr: 0.41, hkir: 0.41, hthr: 0.41, shhp: 40, ad: 30000}
     },
     "62": {
-      "523": { n: "Small Armor Repairer I", mg: 1049, pmg: 134, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 5, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 60},
-      "1183": { n: "Small Armor Repairer II", mg: 1049, pmg: 134, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 6, pg: 6, capn: 40, tl: 2, shhp: 40, ad: 6000, ahpr: 80},
-      "3528": { n: "Medium Armor Repairer I", mg: 1050, pmg: 134, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 25, pg: 120, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 240},
-      "3530": { n: "Medium Armor Repairer II", mg: 1050, pmg: 134, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 28, pg: 138, capn: 160, tl: 2, shhp: 40, ad: 12000, ahpr: 320},
+      "523": { n: "Small Armor Repairer I", mg: 1049, pmg: 134, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 5, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 69},
+      "1183": { n: "Small Armor Repairer II", mg: 1049, pmg: 134, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 6, pg: 6, capn: 40, tl: 2, shhp: 40, ad: 6000, ahpr: 92},
+      "3528": { n: "Medium Armor Repairer I", mg: 1050, pmg: 134, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 25, pg: 120, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 276},
+      "3530": { n: "Medium Armor Repairer II", mg: 1050, pmg: 134, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 28, pg: 138, capn: 160, tl: 2, shhp: 40, ad: 12000, ahpr: 368},
       "3534": { n: "Capital Inefficient Armor Repair Unit", mg: 1052, pmg: 134, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.\n\
 Note: May only be fitted to capital class ships.", cpu: 72, pg: 125000, capn: 2400, tl: 1, shhp: 40, ad: 30000, ahpr: 10560},
-      "3538": { n: "Large Armor Repairer I", mg: 1051, pmg: 134, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 50, pg: 1800, capn: 400, tl: 1, shhp: 40, ad: 15000, ahpr: 600},
-      "3540": { n: "Large Armor Repairer II", mg: 1051, pmg: 134, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 55, pg: 2070, capn: 400, tl: 2, shhp: 40, ad: 15000, ahpr: 800},
-      "4529": { n: "Small I-a Polarized Armor Regenerator", mg: 1049, pmg: 134, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 1, shhp: 40, ad: 6000, ahpr: 63},
-      "4531": { n: "Small Inefficient Armor Repair Unit", mg: 1049, pmg: 134, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 2, shhp: 40, ad: 6000, ahpr: 66},
-      "4533": { n: "Small 'Accommodation' Vestment Reconstructer I", mg: 1049, pmg: 134, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 72},
-      "4535": { n: "Small Automated Carapace Restoration", mg: 1049, pmg: 134, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 8, shhp: 40, ad: 6000, ahpr: 69},
-      "4569": { n: "Medium I-a Polarized Armor Regenerator", mg: 1050, pmg: 134, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 22, pg: 120, capn: 160, tl: 1, r: 1, shhp: 40, ad: 12000, ahpr: 252},
-      "4571": { n: "Medium Inefficient Armor Repair Unit", mg: 1050, pmg: 134, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 120, capn: 160, tl: 1, r: 2, shhp: 40, ad: 12000, ahpr: 264},
-      "4573": { n: "Medium 'Accommodation' Vestment Reconstructer I", mg: 1050, pmg: 134, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 160, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 288},
-      "4575": { n: "Medium Automated Carapace Restoration", mg: 1050, pmg: 134, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 20, pg: 120, capn: 160, tl: 1, r: 8, shhp: 40, ad: 12000, ahpr: 276},
-      "4609": { n: "Large I-a Polarized Armor Regenerator", mg: 1051, pmg: 134, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 47, pg: 1800, capn: 400, tl: 1, r: 1, shhp: 40, ad: 15000, ahpr: 630},
-      "4611": { n: "Large Inefficient Armor Repair Unit", mg: 1051, pmg: 134, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 48, pg: 1800, capn: 400, tl: 1, r: 2, shhp: 40, ad: 15000, ahpr: 660},
-      "4613": { n: "Large 'Accommodation' Vestment Reconstructer I", mg: 1051, pmg: 134, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 720},
-      "4615": { n: "Large Automated Carapace Restoration", mg: 1051, pmg: 134, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 49, pg: 1800, capn: 400, tl: 1, r: 8, shhp: 40, ad: 15000, ahpr: 690},
-      "13955": { n: "Domination Large Armor Repairer", mg: 1051, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 720},
-      "13956": { n: "True Sansha Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 900},
-      "13957": { n: "Dark Blood Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 900},
-      "13958": { n: "Domination Medium Armor Repairer", mg: 1050, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 144, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 288},
-      "13959": { n: "True Sansha Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 360},
-      "13960": { n: "Dark Blood Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 360},
-      "13962": { n: "Domination Small Armor Repairer", mg: 1049, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 36, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 72},
-      "13963": { n: "True Sansha Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 90},
-      "13964": { n: "Dark Blood Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 90},
-      "14067": { n: "Shadow Serpentis Large Armor Repairer", mg: 1051, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 800},
-      "14068": { n: "Shadow Serpentis Medium Armor Repairer", mg: 1050, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 160, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 320},
-      "14069": { n: "Shadow Serpentis Small Armor Repairer", mg: 1049, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 80},
-      "14552": { n: "Mizuro's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1890, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 792},
-      "14554": { n: "Gotan's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2070, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 936},
-      "14848": { n: "Brokara's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 990},
-      "14849": { n: "Tairei's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 990},
-      "14850": { n: "Selynne's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1080},
-      "14851": { n: "Raysere's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1080},
-      "14852": { n: "Vizan's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1170},
-      "14853": { n: "Ahremen's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1170},
-      "14854": { n: "Chelm's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1260},
-      "14855": { n: "Draclira's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1260},
-      "15160": { n: "Brynn's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 880},
-      "15161": { n: "Tuvan's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 960},
-      "15162": { n: "Setele's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1040},
-      "15163": { n: "Cormack's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1120},
-      "15741": { n: "Ammatar Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 90},
-      "15742": { n: "Ammatar Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 360},
-      "15743": { n: "Ammatar Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 900},
-      "15744": { n: "Federation Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 80},
-      "15745": { n: "Federation Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 160, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 320},
-      "15746": { n: "Federation Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 800},
-      "17492": { n: "Republic Fleet Large Armor Repairer", mg: 1051, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 720},
-      "17493": { n: "Republic Fleet Medium Armor Repairer", mg: 1050, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 144, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 288},
-      "17494": { n: "Republic Fleet Small Armor Repairer", mg: 1049, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 36, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 72},
-      "17546": { n: "Imperial Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 900},
-      "17547": { n: "Imperial Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 360},
-      "17548": { n: "Imperial Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 90},
-      "18999": { n: "Corpii C-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 99},
-      "19001": { n: "Corpii B-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 6, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 108},
-      "19003": { n: "Corpii A-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 7, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 117},
-      "19005": { n: "Centii C-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 99},
-      "19007": { n: "Centii B-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 6, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 108},
-      "19009": { n: "Centii A-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 7, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 117},
-      "19011": { n: "Coreli C-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 88},
-      "19013": { n: "Coreli B-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 6, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 96},
-      "19015": { n: "Coreli A-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 7, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 104},
-      "19017": { n: "Corpum C-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 132, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 396},
-      "19019": { n: "Corpum B-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 144, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 432},
-      "19021": { n: "Corpum A-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 156, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 468},
-      "19023": { n: "Centum C-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 132, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 396},
-      "19025": { n: "Centum B-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 144, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 432},
-      "19027": { n: "Centum A-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 156, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 468},
-      "19029": { n: "Corelum C-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 132, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 352},
-      "19031": { n: "Corelum B-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 144, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 384},
-      "19033": { n: "Corelum A-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 156, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 416},
-      "19035": { n: "Core C-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 880},
-      "19036": { n: "Core B-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 960},
-      "19037": { n: "Core A-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1040},
-      "19038": { n: "Core X-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1120},
-      "19039": { n: "Corpus C-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 990},
-      "19040": { n: "Centus C-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 990},
-      "19041": { n: "Corpus B-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1080},
-      "19042": { n: "Centus B-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1080},
-      "19043": { n: "Corpus A-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1170},
-      "19044": { n: "Centus A-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1170},
-      "19045": { n: "Corpus X-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1260},
-      "19046": { n: "Centus X-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1260},
+      "3538": { n: "Large Armor Repairer I", mg: 1051, pmg: 134, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 50, pg: 1800, capn: 400, tl: 1, shhp: 40, ad: 15000, ahpr: 690},
+      "3540": { n: "Large Armor Repairer II", mg: 1051, pmg: 134, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 55, pg: 2070, capn: 400, tl: 2, shhp: 40, ad: 15000, ahpr: 920},
+      "4529": { n: "Small I-a Polarized Armor Regenerator", mg: 1049, pmg: 134, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 1, shhp: 40, ad: 6000, ahpr: 72},
+      "4531": { n: "Small Inefficient Armor Repair Unit", mg: 1049, pmg: 134, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 2, shhp: 40, ad: 6000, ahpr: 76},
+      "4533": { n: "Small 'Accommodation' Vestment Reconstructer I", mg: 1049, pmg: 134, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 83},
+      "4535": { n: "Small Automated Carapace Restoration", mg: 1049, pmg: 134, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 8, shhp: 40, ad: 6000, ahpr: 79},
+      "4569": { n: "Medium I-a Polarized Armor Regenerator", mg: 1050, pmg: 134, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 22, pg: 120, capn: 160, tl: 1, r: 1, shhp: 40, ad: 12000, ahpr: 290},
+      "4571": { n: "Medium Inefficient Armor Repair Unit", mg: 1050, pmg: 134, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 120, capn: 160, tl: 1, r: 2, shhp: 40, ad: 12000, ahpr: 304},
+      "4573": { n: "Medium 'Accommodation' Vestment Reconstructer I", mg: 1050, pmg: 134, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 160, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 331},
+      "4575": { n: "Medium Automated Carapace Restoration", mg: 1050, pmg: 134, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 20, pg: 120, capn: 160, tl: 1, r: 8, shhp: 40, ad: 12000, ahpr: 317},
+      "4609": { n: "Large I-a Polarized Armor Regenerator", mg: 1051, pmg: 134, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 47, pg: 1800, capn: 400, tl: 1, r: 1, shhp: 40, ad: 15000, ahpr: 725},
+      "4611": { n: "Large Inefficient Armor Repair Unit", mg: 1051, pmg: 134, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 48, pg: 1800, capn: 400, tl: 1, r: 2, shhp: 40, ad: 15000, ahpr: 759},
+      "4613": { n: "Large 'Accommodation' Vestment Reconstructer I", mg: 1051, pmg: 134, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 828},
+      "4615": { n: "Large Automated Carapace Restoration", mg: 1051, pmg: 134, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 49, pg: 1800, capn: 400, tl: 1, r: 8, shhp: 40, ad: 15000, ahpr: 794},
+      "13955": { n: "Domination Large Armor Repairer", mg: 1051, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 828},
+      "13956": { n: "True Sansha Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1035},
+      "13957": { n: "Dark Blood Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1035},
+      "13958": { n: "Domination Medium Armor Repairer", mg: 1050, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 144, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 331},
+      "13959": { n: "True Sansha Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 414},
+      "13960": { n: "Dark Blood Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 414},
+      "13962": { n: "Domination Small Armor Repairer", mg: 1049, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 36, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 83},
+      "13963": { n: "True Sansha Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 104},
+      "13964": { n: "Dark Blood Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 104},
+      "14067": { n: "Shadow Serpentis Large Armor Repairer", mg: 1051, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 920},
+      "14068": { n: "Shadow Serpentis Medium Armor Repairer", mg: 1050, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 160, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 368},
+      "14069": { n: "Shadow Serpentis Small Armor Repairer", mg: 1049, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 92},
+      "14552": { n: "Mizuro's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1890, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 911},
+      "14554": { n: "Gotan's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2070, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1076},
+      "14848": { n: "Brokara's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1139},
+      "14849": { n: "Tairei's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1139},
+      "14850": { n: "Selynne's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1242},
+      "14851": { n: "Raysere's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1242},
+      "14852": { n: "Vizan's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1346},
+      "14853": { n: "Ahremen's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1346},
+      "14854": { n: "Chelm's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1449},
+      "14855": { n: "Draclira's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1449},
+      "15160": { n: "Brynn's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1012},
+      "15161": { n: "Tuvan's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1104},
+      "15162": { n: "Setele's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1196},
+      "15163": { n: "Cormack's Modified Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1288},
+      "15741": { n: "Ammatar Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 104},
+      "15742": { n: "Ammatar Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 414},
+      "15743": { n: "Ammatar Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1035},
+      "15744": { n: "Federation Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 92},
+      "15745": { n: "Federation Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 160, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 368},
+      "15746": { n: "Federation Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 8, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 920},
+      "17492": { n: "Republic Fleet Large Armor Repairer", mg: 1051, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 360, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 828},
+      "17493": { n: "Republic Fleet Medium Armor Repairer", mg: 1050, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 144, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 331},
+      "17494": { n: "Republic Fleet Small Armor Repairer", mg: 1049, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 36, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 83},
+      "17546": { n: "Imperial Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1035},
+      "17547": { n: "Imperial Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 414},
+      "17548": { n: "Imperial Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 104},
+      "18999": { n: "Corpii C-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 114},
+      "19001": { n: "Corpii B-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 6, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 124},
+      "19003": { n: "Corpii A-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 7, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 135},
+      "19005": { n: "Centii C-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 114},
+      "19007": { n: "Centii B-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 6, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 124},
+      "19009": { n: "Centii A-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 7, capn: 45, tl: 1, shhp: 40, ad: 6000, ahpr: 135},
+      "19011": { n: "Coreli C-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 101},
+      "19013": { n: "Coreli B-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 6, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 110},
+      "19015": { n: "Coreli A-Type Small Armor Repairer", mg: 1049, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 7, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 120},
+      "19017": { n: "Corpum C-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 132, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 455},
+      "19019": { n: "Corpum B-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 144, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 497},
+      "19021": { n: "Corpum A-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 156, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 538},
+      "19023": { n: "Centum C-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 132, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 455},
+      "19025": { n: "Centum B-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 144, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 497},
+      "19027": { n: "Centum A-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 156, capn: 180, tl: 1, shhp: 40, ad: 12000, ahpr: 538},
+      "19029": { n: "Corelum C-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 132, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 405},
+      "19031": { n: "Corelum B-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 144, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 442},
+      "19033": { n: "Corelum A-Type Medium Armor Repairer", mg: 1050, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 23, pg: 156, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 478},
+      "19035": { n: "Core C-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1012},
+      "19036": { n: "Core B-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1104},
+      "19037": { n: "Core A-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1196},
+      "19038": { n: "Core X-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 400, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1288},
+      "19039": { n: "Corpus C-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1139},
+      "19040": { n: "Centus C-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1980, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1139},
+      "19041": { n: "Corpus B-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1242},
+      "19042": { n: "Centus B-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2160, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1242},
+      "19043": { n: "Corpus A-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1346},
+      "19044": { n: "Centus A-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2340, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1346},
+      "19045": { n: "Corpus X-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1449},
+      "19046": { n: "Centus X-Type Large Armor Repairer", mg: 1051, pmg: 134, mta: 14, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 2520, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1449},
       "20701": { n: "Capital Armor Repairer I", mg: 1052, pmg: 134, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.\n\
 Note: May only be fitted to capital class ships.", cpu: 75, pg: 125000, capn: 2400, tl: 1, shhp: 40, ad: 30000, ahpr: 9600},
-      "21853": { n: "Civilian Armor Repairer", mg: 760, pmg: 9, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 1, pg: 2, capn: 3, tl: 1, shhp: 40, ad: 3000, ahpr: 5},
-      "22887": { n: "'Harmony' Small Armor Repairer I", mg: 1049, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6750, ahpr: 90},
-      "22889": { n: "'Meditation' Medium Armor Repairer I", mg: 1050, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 20, pg: 108, capn: 160, tl: 1, shhp: 40, ad: 13500, ahpr: 360},
-      "22891": { n: "'Protest' Large Armor Repairer I", mg: 1051, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 40, pg: 1620, capn: 400, tl: 1, shhp: 40, ad: 16875, ahpr: 900},
-      "23795": { n: "'Gorget' Small Armor Repairer I", mg: 1049, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 80},
-      "23797": { n: "'Greaves' Medium Armor Repairer I", mg: 1050, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 20, pg: 108, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 320},
-      "23799": { n: "'Hauberk' Large Armor Repairer I", mg: 1051, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 40, pg: 1620, capn: 400, tl: 1, shhp: 40, ad: 15000, ahpr: 800},
-      "28544": { n: "Khanid Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 900},
-      "28549": { n: "Khanid Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 360},
-      "28556": { n: "Khanid Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 90}
+      "21853": { n: "Civilian Armor Repairer", mg: 760, pmg: 9, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 1, pg: 2, capn: 3, tl: 1, shhp: 40, ad: 3000, ahpr: 6},
+      "22887": { n: "'Harmony' Small Armor Repairer I", mg: 1049, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6750, ahpr: 104},
+      "22889": { n: "'Meditation' Medium Armor Repairer I", mg: 1050, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 20, pg: 108, capn: 160, tl: 1, shhp: 40, ad: 13500, ahpr: 414},
+      "22891": { n: "'Protest' Large Armor Repairer I", mg: 1051, pmg: 134, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 40, pg: 1620, capn: 400, tl: 1, shhp: 40, ad: 16875, ahpr: 1035},
+      "23795": { n: "'Gorget' Small Armor Repairer I", mg: 1049, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 40, tl: 1, shhp: 40, ad: 6000, ahpr: 92},
+      "23797": { n: "'Greaves' Medium Armor Repairer I", mg: 1050, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 20, pg: 108, capn: 160, tl: 1, shhp: 40, ad: 12000, ahpr: 368},
+      "23799": { n: "'Hauberk' Large Armor Repairer I", mg: 1051, pmg: 134, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 40, pg: 1620, capn: 400, tl: 1, shhp: 40, ad: 15000, ahpr: 920},
+      "28544": { n: "Khanid Navy Large Armor Repairer", mg: 1051, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 46, pg: 1800, capn: 450, tl: 1, r: 4, shhp: 40, ad: 15000, ahpr: 1035},
+      "28549": { n: "Khanid Navy Medium Armor Repairer", mg: 1050, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 21, pg: 120, capn: 180, tl: 1, r: 4, shhp: 40, ad: 12000, ahpr: 414},
+      "28556": { n: "Khanid Navy Small Armor Repairer", mg: 1049, pmg: 134, mta: 9, d: "This module uses nano-assemblers to repair damage done to the armor of the ship.", cpu: 4, pg: 5, capn: 45, tl: 1, r: 4, shhp: 40, ad: 6000, ahpr: 104}
     },
     "65": {
       "526": { n: "Stasis Webifier I", mg: 683, pmg: 657, mta: 0, d: "Reduces the maximum speed of a ship by employing micro energy streams which effectively entangle the target temporarily, thereby slowing it down.", cpu: 25, pg: 1, opt: 10000, acc: 0, spd: -50, capn: 5, tl: 1, shhp: 40, ad: 5000},
@@ -2002,7 +2001,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 24, pg: 88, opt: 2000, acc: 3000, rof: 3000, trk: 0.144, dmg: 1.8375, capn: 1.96, tl: 1, shhp: 40, cs: 2},
       "567": { n: "Dual 150mm Railgun I", mg: 565, pmg: 555, mta: 0, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 30, pg: 70, opt: 12000, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.65, capn: 3.5, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 30, pg: 70, opt: 12000, acc: 6000, rof: 3315, trk: 0.0375, dmg: 1.9, capn: 3.5, tl: 1, shhp: 40, cs: 2},
       "568": { n: "Heavy Neutron Blaster I", mg: 562, pmg: 556, mta: 0, d: "Particle blasters operate on a similar principle as the railgun except they fire a magnetically contained ball of subatomic particles. No other turret class can match the sheer destructive power of particle blasters, but due to the rapid dispersion of the containment field, it also has the worst range of all turrets. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 29, pg: 179, opt: 3000, acc: 5000, rof: 5250, trk: 0.12, dmg: 3.675, capn: 4.2483, tl: 1, shhp: 40, cs: 2},
@@ -2011,7 +2010,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 28, pg: 132, opt: 2500, acc: 4000, rof: 4500, trk: 0.132, dmg: 2.953125, capn: 3.2683, tl: 1, shhp: 40, cs: 2},
       "570": { n: "250mm Railgun I", mg: 565, pmg: 555, mta: 0, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 38, pg: 198, opt: 24000, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.025, capn: 7, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 38, pg: 198, opt: 24000, acc: 12000, rof: 5419, trk: 0.0205, dmg: 3.48, capn: 7, tl: 1, shhp: 40, cs: 2},
       "571": { n: "Electron Blaster Cannon I", mg: 563, pmg: 556, mta: 0, d: "Particle blasters operate on a similar principle as the railgun except they fire a magnetically contained ball of subatomic particles. No other turret class can match the sheer destructive power of particle blasters, but due to the rapid dispersion of the containment field, it also has the worst range of all turrets. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 40, pg: 1100, opt: 4000, acc: 6000, rof: 4500, trk: 0.06, dmg: 1.8375, capn: 5.88, tl: 1, shhp: 40, cs: 3},
@@ -2032,7 +2031,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 27, pg: 10, opt: 14400, acc: 6000, rof: 4250, trk: 0.0735, dmg: 3.63, capn: 2.338, tl: 2, shhp: 40, cs: 1},
       "3082": { n: "250mm Railgun II", mg: 565, pmg: 555, mta: 5, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 42, pg: 208, opt: 28800, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.63, capn: 7, tl: 2, shhp: 40, cs: 2},
+Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 42, pg: 208, opt: 28800, acc: 12000, rof: 5419, trk: 0.0205, dmg: 4.17, capn: 7, tl: 2, shhp: 40, cs: 2},
       "3090": { n: "425mm Railgun II", mg: 566, pmg: 555, mta: 5, d: "This large battleship-sized weapon packs quite a punch. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 74, pg: 2310, opt: 57600, acc: 24000, rof: 9563, trk: 0.01010625, dmg: 3.63, capn: 21, tl: 2, shhp: 40, cs: 3},
@@ -2041,7 +2040,7 @@ Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Ir
 Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 6, pg: 2, opt: 7200, acc: 3000, rof: 2600, trk: 0.1365, dmg: 1.98, capn: 1.169, tl: 2, shhp: 40, cs: 1},
       "3106": { n: "Dual 150mm Railgun II", mg: 565, pmg: 555, mta: 5, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 33, pg: 74, opt: 14400, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.98, capn: 3.5, tl: 2, shhp: 40, cs: 2},
+Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 33, pg: 74, opt: 14400, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.28, capn: 3.5, tl: 2, shhp: 40, cs: 2},
       "3114": { n: "Dual 250mm Railgun II", mg: 566, pmg: 555, mta: 5, d: "This battleship-sized weapon is a double-barreled version of the cruiser class 250mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 58, pg: 1155, opt: 28800, acc: 12000, rof: 5850, trk: 0.018375, dmg: 1.98, capn: 10.5, tl: 2, shhp: 40, cs: 3},
@@ -2106,28 +2105,28 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 22, pg: 9, opt: 13800, acc: 6000, rof: 4250, trk: 0.0735, dmg: 3.47875, capn: 1.988, tl: 1, r: 8, shhp: 40, cs: 1},
       "7327": { n: "Dual 150mm Prototype Gauss Gun", mg: 565, pmg: 555, mta: 4, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 25, pg: 70, opt: 14400, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.98, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 25, pg: 70, opt: 14400, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.28, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
       "7329": { n: "Dual 150mm 'Scout' Accelerator Cannon", mg: 565, pmg: 555, mta: 2, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 26, pg: 70, opt: 13200, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.815, capn: 3.15, tl: 1, r: 2, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 26, pg: 70, opt: 13200, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.09, capn: 3.15, tl: 1, r: 2, shhp: 40, cs: 2},
       "7331": { n: "Dual 150mm Carbide Railgun I", mg: 565, pmg: 555, mta: 1, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 23, pg: 70, opt: 12600, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.7325, capn: 3.325, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 23, pg: 70, opt: 12600, acc: 6000, rof: 3315, trk: 0.0375, dmg: 1.99, capn: 3.325, tl: 1, r: 4, shhp: 40, cs: 2},
       "7333": { n: "Dual 150mm Compressed Coil Gun I", mg: 565, pmg: 555, mta: 3, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 28, pg: 70, opt: 13800, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.8975, capn: 2.975, tl: 1, r: 8, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 28, pg: 70, opt: 13800, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.18, capn: 2.975, tl: 1, r: 8, shhp: 40, cs: 2},
       "7367": { n: "250mm Prototype Gauss Gun", mg: 565, pmg: 555, mta: 4, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 32, pg: 198, opt: 28800, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.63, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 32, pg: 198, opt: 28800, acc: 12000, rof: 5419, trk: 0.0205, dmg: 4.17, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
       "7369": { n: "250mm 'Scout' Accelerator Cannon", mg: 565, pmg: 555, mta: 2, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 34, pg: 198, opt: 26400, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.3275, capn: 6.3, tl: 1, r: 2, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 34, pg: 198, opt: 26400, acc: 12000, rof: 5419, trk: 0.0205, dmg: 3.83, capn: 6.3, tl: 1, r: 2, shhp: 40, cs: 2},
       "7371": { n: "250mm Carbide Railgun I", mg: 565, pmg: 555, mta: 1, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 30, pg: 198, opt: 25200, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.17625, capn: 6.65, tl: 1, r: 4, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 30, pg: 198, opt: 25200, acc: 12000, rof: 5419, trk: 0.0205, dmg: 3.65, capn: 6.65, tl: 1, r: 4, shhp: 40, cs: 2},
       "7373": { n: "250mm Compressed Coil Gun I", mg: 565, pmg: 555, mta: 3, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 36, pg: 198, opt: 27600, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.47875, capn: 5.95, tl: 1, r: 8, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 36, pg: 198, opt: 27600, acc: 12000, rof: 5419, trk: 0.0205, dmg: 4, capn: 5.95, tl: 1, r: 8, shhp: 40, cs: 2},
       "7407": { n: "Dual 250mm Prototype Gauss Gun", mg: 566, pmg: 555, mta: 4, d: "This battleship-sized weapon is a double-barreled version of the cruiser class 250mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 43, pg: 1100, opt: 28800, acc: 12000, rof: 5850, trk: 0.018375, dmg: 1.98, capn: 8.4, tl: 1, r: 1, shhp: 40, cs: 3},
@@ -2280,10 +2279,10 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 11, pg: 7, opt: 10800, acc: 5000, rof: 3250, trk: 0.08925, dmg: 2.64, capn: 1.204, tl: 1, r: 1, shhp: 40, cs: 1},
       "12344": { n: "200mm Railgun I", mg: 565, pmg: 555, mta: 0, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 158, opt: 18000, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.2, capn: 4.515, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 158, opt: 18000, acc: 10000, rof: 4144, trk: 0.025, dmg: 2.53, capn: 4.515, tl: 1, shhp: 40, cs: 2},
       "12346": { n: "200mm Railgun II", mg: 565, pmg: 555, mta: 5, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 37, pg: 166, opt: 21600, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.64, capn: 4.515, tl: 2, shhp: 40, cs: 2},
+Requires either regular or advanced hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium, Javelin, Spike.", cpu: 37, pg: 166, opt: 21600, acc: 10000, rof: 4144, trk: 0.025, dmg: 3.04, capn: 4.515, tl: 2, shhp: 40, cs: 2},
       "12354": { n: "350mm Railgun I", mg: 566, pmg: 555, mta: 0, d: "The 350mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 57, pg: 1650, opt: 36000, acc: 20000, rof: 7313, trk: 0.0122535, dmg: 2.2, capn: 15.4, tl: 1, shhp: 40, cs: 3},
@@ -2304,16 +2303,16 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 27, pg: 8, opt: 15600, acc: 6000, rof: 4250, trk: 0.0735, dmg: 3.63, capn: 1.869, tl: 1, r: 1, shhp: 40, cs: 1},
       "13868": { n: "Shadow Serpentis 200mm Railgun", mg: 565, pmg: 555, mta: 8, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 158, opt: 18000, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.75, capn: 3.612, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 158, opt: 18000, acc: 10000, rof: 4144, trk: 0.025, dmg: 3.16, capn: 3.612, tl: 1, shhp: 40, cs: 2},
       "13870": { n: "Dread Guristas 200mm Railgun", mg: 565, pmg: 555, mta: 8, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 143, opt: 23400, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.64, capn: 3.612, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 143, opt: 23400, acc: 10000, rof: 4144, trk: 0.025, dmg: 3.04, capn: 3.612, tl: 1, shhp: 40, cs: 2},
       "13872": { n: "Shadow Serpentis 250mm Railgun", mg: 565, pmg: 555, mta: 8, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 198, opt: 28800, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.78125, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 198, opt: 28800, acc: 12000, rof: 5419, trk: 0.0205, dmg: 4.35, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
       "13873": { n: "Dread Guristas 250mm Railgun", mg: 565, pmg: 555, mta: 8, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 179, opt: 31200, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.63, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 179, opt: 31200, acc: 12000, rof: 5419, trk: 0.0205, dmg: 4.17, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
       "13874": { n: "Shadow Serpentis 350mm Railgun", mg: 566, pmg: 555, mta: 8, d: "The 350mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 63, pg: 1650, opt: 43200, acc: 20000, rof: 7313, trk: 0.0122535, dmg: 2.75, capn: 12.32, tl: 1, shhp: 40, cs: 3},
@@ -2328,10 +2327,10 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 74, pg: 1980, opt: 62400, acc: 24000, rof: 9563, trk: 0.01010625, dmg: 3.63, capn: 16.8, tl: 1, r: 1, shhp: 40, cs: 3},
       "13880": { n: "Shadow Serpentis Dual 150mm Railgun", mg: 565, pmg: 555, mta: 8, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 70, opt: 14400, acc: 6000, rof: 3900, trk: 0.0441, dmg: 2.0625, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 70, opt: 14400, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.37, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
       "13881": { n: "Dread Guristas Dual 150mm Railgun", mg: 565, pmg: 555, mta: 8, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 63, opt: 15600, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.98, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 63, opt: 15600, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.28, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
       "13882": { n: "Shadow Serpentis Dual 250mm Railgun", mg: 566, pmg: 555, mta: 8, d: "This battleship-sized weapon is a double-barreled version of the cruiser class 250mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 58, pg: 1100, opt: 28800, acc: 12000, rof: 5850, trk: 0.018375, dmg: 2.0625, capn: 8.4, tl: 1, r: 1, shhp: 40, cs: 3},
@@ -2373,16 +2372,16 @@ Requires hybrid ammo types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium,
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 6, pg: 2, opt: 7200, acc: 3000, rof: 2600, trk: 0.1365, dmg: 2.0625, capn: 0.938, tl: 1, r: 1, shhp: 40, cs: 1},
       "14272": { n: "200mm Carbide Railgun I", mg: 565, pmg: 555, mta: 1, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 26, pg: 158, opt: 18900, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.31, capn: 4.291, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 26, pg: 158, opt: 18900, acc: 10000, rof: 4144, trk: 0.025, dmg: 2.66, capn: 4.291, tl: 1, shhp: 40, cs: 2},
       "14274": { n: "200mm 'Scout' Accelerator Cannon", mg: 565, pmg: 555, mta: 2, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 29, pg: 158, opt: 19800, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.42, capn: 4.067, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 29, pg: 158, opt: 19800, acc: 10000, rof: 4144, trk: 0.025, dmg: 2.78, capn: 4.067, tl: 1, shhp: 40, cs: 2},
       "14276": { n: "200mm Compressed Coil Gun I", mg: 565, pmg: 555, mta: 3, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 31, pg: 158, opt: 20700, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.53, capn: 3.836, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 31, pg: 158, opt: 20700, acc: 10000, rof: 4144, trk: 0.025, dmg: 2.91, capn: 3.836, tl: 1, shhp: 40, cs: 2},
       "14278": { n: "200mm Prototype Gauss Gun", mg: 565, pmg: 555, mta: 4, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 28, pg: 158, opt: 21600, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.64, capn: 3.612, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 28, pg: 158, opt: 21600, acc: 10000, rof: 4144, trk: 0.025, dmg: 3.04, capn: 3.612, tl: 1, shhp: 40, cs: 2},
       "14280": { n: "350mm Carbide Railgun I", mg: 566, pmg: 555, mta: 1, d: "The 350mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 45, pg: 1650, opt: 37800, acc: 20000, rof: 7313, trk: 0.0122535, dmg: 2.31, capn: 14.63, tl: 1, shhp: 40, cs: 3},
@@ -2463,7 +2462,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 58, pg: 990, opt: 31200, acc: 12000, rof: 5850, trk: 0.018375, dmg: 1.98, capn: 8.4, tl: 1, r: 1, shhp: 40, cs: 3},
       "15815": { n: "Caldari Navy Dual 150mm Railgun", mg: 565, pmg: 555, mta: 8, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 63, opt: 15600, acc: 6000, rof: 3900, trk: 0.0441, dmg: 1.98, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 63, opt: 15600, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.28, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
       "15816": { n: "Caldari Navy 75mm Railgun", mg: 564, pmg: 555, mta: 8, d: "A small multi-barreled railgun for frigates. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 6, pg: 2, opt: 7800, acc: 3000, rof: 2600, trk: 0.1365, dmg: 1.98, capn: 0.826, tl: 1, r: 1, shhp: 40, cs: 1},
@@ -2475,10 +2474,10 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 63, pg: 1485, opt: 46800, acc: 20000, rof: 7313, trk: 0.0122535, dmg: 2.64, capn: 12.32, tl: 1, shhp: 40, cs: 3},
       "15820": { n: "Caldari Navy 250mm Railgun", mg: 565, pmg: 555, mta: 8, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 179, opt: 31200, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.63, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 179, opt: 31200, acc: 12000, rof: 5419, trk: 0.0205, dmg: 4.17, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
       "15821": { n: "Caldari Navy 200mm Railgun", mg: 565, pmg: 555, mta: 8, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 143, opt: 23400, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.64, capn: 3.612, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 143, opt: 23400, acc: 10000, rof: 4144, trk: 0.025, dmg: 3.04, capn: 3.612, tl: 1, shhp: 40, cs: 2},
       "15823": { n: "Caldari Navy 150mm Railgun", mg: 564, pmg: 555, mta: 8, d: "This is a standard long-range railgun designed for frigates. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 27, pg: 8, opt: 15600, acc: 6000, rof: 4250, trk: 0.0735, dmg: 3.63, capn: 1.869, tl: 1, r: 1, shhp: 40, cs: 1},
@@ -2517,7 +2516,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 58, pg: 1100, opt: 28800, acc: 12000, rof: 5850, trk: 0.018375, dmg: 2.0625, capn: 8.4, tl: 1, r: 1, shhp: 40, cs: 3},
       "15835": { n: "Federation Navy Dual 150mm Railgun", mg: 565, pmg: 555, mta: 8, d: "This cruiser-sized weapon is a double-barreled version of the frigate class 150mm railgun. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 70, opt: 14400, acc: 6000, rof: 3900, trk: 0.0441, dmg: 2.0625, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 33, pg: 70, opt: 14400, acc: 6000, rof: 3315, trk: 0.0375, dmg: 2.37, capn: 2.8, tl: 1, r: 1, shhp: 40, cs: 2},
       "15836": { n: "Federation Navy 75mm Railgun", mg: 564, pmg: 555, mta: 8, d: "A small multi-barreled railgun for frigates. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 6, pg: 2, opt: 7200, acc: 3000, rof: 2600, trk: 0.1365, dmg: 2.0625, capn: 0.938, tl: 1, r: 1, shhp: 40, cs: 1},
@@ -2529,10 +2528,10 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 63, pg: 1650, opt: 43200, acc: 20000, rof: 7313, trk: 0.0122535, dmg: 2.75, capn: 12.32, tl: 1, shhp: 40, cs: 3},
       "15840": { n: "Federation Navy 250mm Railgun", mg: 565, pmg: 555, mta: 8, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 198, opt: 28800, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.78125, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 42, pg: 198, opt: 28800, acc: 12000, rof: 5419, trk: 0.0205, dmg: 4.35, capn: 5.6, tl: 1, r: 1, shhp: 40, cs: 2},
       "15841": { n: "Federation Navy 200mm Railgun", mg: 565, pmg: 555, mta: 8, d: "The 200mm railgun works much the same as its big brother except that it is considerably faster but also less powerful. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 158, opt: 18000, acc: 10000, rof: 4875, trk: 0.0294, dmg: 2.75, capn: 3.612, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 37, pg: 158, opt: 18000, acc: 10000, rof: 4144, trk: 0.025, dmg: 3.16, capn: 3.612, tl: 1, shhp: 40, cs: 2},
       "15843": { n: "Federation Navy 150mm Railgun", mg: 564, pmg: 555, mta: 8, d: "This is a standard long-range railgun designed for frigates. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 27, pg: 10, opt: 14400, acc: 6000, rof: 4250, trk: 0.0735, dmg: 3.78125, capn: 1.869, tl: 1, r: 1, shhp: 40, cs: 1},
@@ -2552,7 +2551,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 20, pg: 8, opt: 12000, acc: 6000, rof: 4250, trk: 0.0735, dmg: 3.3, capn: 2.1, tl: 1, shhp: 40, cs: 1},
       "20589": { n: "250mm 'Flintlock' Railgun", mg: 565, pmg: 555, mta: 6, d: "Cruiser-sized large barrel turret. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
-Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 32, pg: 179, opt: 24000, acc: 12000, rof: 6375, trk: 0.02415, dmg: 3.3, capn: 6.3, tl: 1, shhp: 40, cs: 2},
+Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 32, pg: 179, opt: 24000, acc: 12000, rof: 5419, trk: 0.0205, dmg: 3.8, capn: 6.3, tl: 1, shhp: 40, cs: 2},
       "20591": { n: "425mm 'Popper' Railgun", mg: 566, pmg: 555, mta: 6, d: "This large battleship-sized weapon packs quite a punch. Railguns use magnetic rails to fire solid chunks of matter at hypersonic speed. The accurate range of railguns is very good, but due to technical limitations it cannot use onboard guidance. This results in a fairly rapid drop in accuracy at extreme ranges. \n\
 \n\
 Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thorium, Tungsten, Uranium.", cpu: 57, pg: 1980, opt: 48000, acc: 24000, rof: 9563, trk: 0.01010625, dmg: 3.3, capn: 18.9, tl: 1, shhp: 40, cs: 3},
@@ -2666,31 +2665,31 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
       "201": { n: "EMP L", mg: 109, pmg: 845, mta: 0, d: "Large Projectile Ammo. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 36, exd: 8, kid: 4, thd: 0, wrm: 0.5, cs: 3, lg: 55, tsm: 1},
-      "17664": { n: "Carbonized Lead XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
+      "17664": { n: "Carbonized Lead XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 8, kid: 32, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
       "17666": { n: "Depleted Uranium XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. Very commonly used by Minmatar pilots, this ammo is incendiary and also has great penetration. Just be careful handling it unless you want to wake up with an extra toe on your forehead.\n\
 \n\
 20% tracking speed bonus.", tl: 1, emd: 0, exd: 24, kid: 16, thd: 24, wrm: 1, cs: 4, lg: 55, tsm: 1.2},
-      "17668": { n: "EMP XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
+      "17668": { n: "EMP XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 72, exd: 16, kid: 8, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "17670": { n: "Fusion XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
+      "17670": { n: "Fusion XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 80, kid: 16, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "17672": { n: "Nuclear XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
+      "17672": { n: "Nuclear XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 32, kid: 8, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
-      "17674": { n: "Phased Plasma XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
+      "17674": { n: "Phased Plasma XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 0, kid: 16, thd: 80, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "17676": { n: "Proton XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
+      "17676": { n: "Proton XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 24, exd: 0, kid: 16, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
-      "17678": { n: "Titanium Sabot XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
+      "17678": { n: "Titanium Sabot XL", mg: 502, pmg: 845, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
 \n\
 20% increased tracking speed.", tl: 1, emd: 0, exd: 16, kid: 48, thd: 0, wrm: 1, cs: 4, lg: 55, tsm: 1.2},
       "19970": { n: "Arch Angel Carbonized Lead S", mg: 989, pmg: 986, mta: 0, d: "This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
@@ -2775,31 +2774,31 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
       "20735": { n: "Arch Angel EMP L", mg: 987, pmg: 986, mta: 0, d: "A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 39.6, exd: 8.8, kid: 4.4, thd: 0, wrm: 0.5, cs: 3, lg: 55, tsm: 1},
-      "20737": { n: "Arch Angel Carbonized Lead XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
+      "20737": { n: "Arch Angel Carbonized Lead XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 8.8, kid: 35.2, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
       "20739": { n: "Arch Angel Depleted Uranium XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. Very commonly used by Minmatar pilots, this ammo is incendiary and also has great penetration. Just be careful handling it unless you want to wake up with an extra toe on your forehead.\n\
 \n\
 20% tracking speed bonus.", tl: 1, emd: 0, exd: 26.4, kid: 17.6, thd: 26.4, wrm: 1, cs: 4, lg: 55, tsm: 1.2},
-      "20741": { n: "Arch Angel EMP XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
+      "20741": { n: "Arch Angel EMP XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 79.2, exd: 17.6, kid: 8.8, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "20743": { n: "Arch Angel Fusion XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
+      "20743": { n: "Arch Angel Fusion XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 88, kid: 17.6, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "20745": { n: "Arch Angel Nuclear XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
+      "20745": { n: "Arch Angel Nuclear XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 35.2, kid: 8.8, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
-      "20747": { n: "Arch Angel Phased Plasma XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
+      "20747": { n: "Arch Angel Phased Plasma XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 0, kid: 17.6, thd: 88, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "20749": { n: "Arch Angel Proton XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
+      "20749": { n: "Arch Angel Proton XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 26.4, exd: 0, kid: 17.6, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
-      "20751": { n: "Arch Angel Titanium Sabot XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
+      "20751": { n: "Arch Angel Titanium Sabot XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
 \n\
 20% increased tracking speed.", tl: 1, emd: 0, exd: 17.6, kid: 52.8, thd: 0, wrm: 1, cs: 4, lg: 55, tsm: 1.2},
       "20753": { n: "Domination Carbonized Lead S", mg: 989, pmg: 986, mta: 0, d: "This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
@@ -2883,31 +2882,31 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
       "20799": { n: "Domination EMP L", mg: 987, pmg: 986, mta: 0, d: "A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 43.2, exd: 9.6, kid: 4.8, thd: 0, wrm: 0.5, cs: 3, lg: 55, tsm: 1},
-      "20801": { n: "Domination Carbonized Lead XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
+      "20801": { n: "Domination Carbonized Lead XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 9.6, kid: 38.4, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
       "20803": { n: "Domination Depleted Uranium XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. Very commonly used by Minmatar pilots, this ammo is incendiary and also has great penetration. Just be careful handling it unless you want to wake up with an extra toe on your forehead.\n\
 \n\
 20% tracking speed bonus.", tl: 1, emd: 0, exd: 28.8, kid: 19.2, thd: 28.8, wrm: 1, cs: 4, lg: 55, tsm: 1.2},
-      "20805": { n: "Domination EMP XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
+      "20805": { n: "Domination EMP XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 86.4, exd: 19.2, kid: 9.6, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "20807": { n: "Domination Fusion XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
+      "20807": { n: "Domination Fusion XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 96, kid: 19.2, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "20809": { n: "Domination Nuclear XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
+      "20809": { n: "Domination Nuclear XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 38.4, kid: 9.6, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
-      "20811": { n: "Domination Phased Plasma XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
+      "20811": { n: "Domination Phased Plasma XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 0, kid: 19.2, thd: 96, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
-      "20813": { n: "Domination Proton XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
+      "20813": { n: "Domination Proton XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 28.8, exd: 0, kid: 19.2, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
-      "20815": { n: "Domination Titanium Sabot XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
+      "20815": { n: "Domination Titanium Sabot XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
 \n\
 20% increased tracking speed.", tl: 1, emd: 0, exd: 19.2, kid: 57.6, thd: 0, wrm: 1, cs: 4, lg: 55, tsm: 1.2},
       "21894": { n: "Republic Fleet EMP L", mg: 987, pmg: 986, mta: 0, d: "Large Projectile Ammo. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
@@ -2919,7 +2918,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
       "21898": { n: "Republic Fleet EMP S", mg: 989, pmg: 986, mta: 0, d: "Small projectile Ammo. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 10.35, exd: 2.3, kid: 1.15, thd: 0, wrm: 0.5, cs: 1, lg: 55, tsm: 1},
-      "21900": { n: "Republic Fleet EMP XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
+      "21900": { n: "Republic Fleet EMP XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. A new technology, this highly advanced ammunition emits a focused EM pulse. Very potent against shields.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 82.8, exd: 18.4, kid: 9.2, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
       "21902": { n: "Republic Fleet Fusion L", mg: 987, pmg: 986, mta: 0, d: "Large Projectile Ammo. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
@@ -2931,7 +2930,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
       "21906": { n: "Republic Fleet Fusion S", mg: 989, pmg: 986, mta: 0, d: "Small Projectile Ammo. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 11.5, kid: 2.3, thd: 0, wrm: 0.5, cs: 1, lg: 55, tsm: 1},
-      "21908": { n: "Republic Fleet Fusion XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
+      "21908": { n: "Republic Fleet Fusion XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. The destructive power of a fusion warhead is superior to most other projectile warheads available, although it has problems penetrating heavy shield systems.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 92, kid: 18.4, thd: 0, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
       "21910": { n: "Republic Fleet Nuclear L", mg: 987, pmg: 986, mta: 0, d: "Large Projectile Ammo. Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
@@ -2946,14 +2945,14 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 4.6, kid: 1.15, thd: 0, wrm: 1.6, cs: 1, lg: 55, tsm: 1.05},
-      "21916": { n: "Republic Fleet Nuclear XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
+      "21916": { n: "Republic Fleet Nuclear XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts.  Nuclear weapons are considered by most races to be crude and primitive. However, the Minmatar still favor them over more sophisticated weapons due to the abundance of materials for plutonium production in Minmatar space.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 36.8, kid: 9.2, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
       "21918": { n: "Republic Fleet Phased Plasma L", mg: 987, pmg: 986, mta: 0, d: "Large Projectile Ammo. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 0, kid: 9.2, thd: 46, wrm: 0.5, cs: 3, lg: 55, tsm: 1},
-      "21920": { n: "Republic Fleet Phased Plasma XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
+      "21920": { n: "Republic Fleet Phased Plasma XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
 \n\
 50% reduced optimal range.", tl: 1, emd: 0, exd: 0, kid: 18.4, thd: 92, wrm: 0.5, cs: 4, lg: 55, tsm: 1},
       "21922": { n: "Republic Fleet Phased Plasma M", mg: 988, pmg: 986, mta: 0, d: "Medium Projectile Ammo. This ammo uses a similar plasma containment core as hybrid charges except that it is mounted in a standard cannon shell.\n\
@@ -2974,7 +2973,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 3.45, exd: 0, kid: 2.3, thd: 0, wrm: 1.6, cs: 1, lg: 55, tsm: 1.05},
-      "21933": { n: "Republic Fleet Proton XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
+      "21933": { n: "Republic Fleet Proton XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. Emits a focused, high intensity proton burst upon impact. Fairly effective vs. both shields and armor.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 27.6, exd: 0, kid: 18.4, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
@@ -2987,7 +2986,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
       "21939": { n: "Republic Fleet Titanium Sabot S", mg: 989, pmg: 986, mta: 0, d: "Small Projectile Ammo. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation fletchets that cause considerable damage to the vulnerable interior structure.\n\
 \n\
 20% increased tracking speed.", tl: 1, emd: 0, exd: 2.3, kid: 6.9, thd: 0, wrm: 1, cs: 1, lg: 55, tsm: 1.2},
-      "21941": { n: "Republic Fleet Titanium Sabot XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
+      "21941": { n: "Republic Fleet Titanium Sabot XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This is among the most feared ammunition around. It has excellent penetration. Once the ship's outer layer is penetrated, the core explodes, spraying the interior with a cloud of fragmentation flechettes that cause considerable damage to the vulnerable interior structure.\n\
 \n\
 20% increased tracking speed.", tl: 1, emd: 0, exd: 18.4, kid: 55.2, thd: 0, wrm: 1, cs: 4, lg: 55, tsm: 1.2},
       "28324": { n: "Republic Fleet Carbonized Lead L", mg: 987, pmg: 986, mta: 0, d: "Large Projectile Ammo. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
@@ -3002,7 +3001,7 @@ Requires hybrid charge types: Antimatter, Iridium, Iron, Lead, Plutonium, Thoriu
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 1.15, kid: 4.6, thd: 0, wrm: 1.6, cs: 1, lg: 55, tsm: 1.05},
-      "28330": { n: "Republic Fleet Carbonized Lead XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
+      "28330": { n: "Republic Fleet Carbonized Lead XL", mg: 1006, pmg: 986, mta: 0, d: "Extra Large Projectile Ammo. Can be used only by starbase defense batteries and capital ships like dreadnoughts. This ammo uses a simple lead slug encased in a hard shell of crystalline carbon. It is fairly cheap and works very well against most armors. Shields, however, are a problem.\n\
 \n\
 60% increased optimal range.\n\
 5% increased tracking speed.", tl: 1, emd: 0, exd: 9.2, kid: 36.8, thd: 0, wrm: 1.6, cs: 4, lg: 55, tsm: 1.05},
@@ -3926,32 +3925,32 @@ With longer range, EM damage increases although the overall damage output is dec
 With shorter range, Thermal damage increases and the overall damage output is increased.\n\
 \n\
 50% reduced optimal range.", tl: 1, shhp: 1, emd: 28, exd: 0, kid: 0, thd: 20, wrm: 0.5, cs: 3, lg: 53},
-      "17680": { n: "Gamma XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17680": { n: "Gamma XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the gamma frequencies. Greatly reduced range. Greatly increased damage.\n\
 \n\
 37.5% reduced optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 56, exd: 0, kid: 0, thd: 32, wrm: 0.625, cs: 4, lg: 53},
-      "17682": { n: "Infrared XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17682": { n: "Infrared XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the infrared frequencies. Slightly improved range.\n\
 \n\
 20% increased optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 40, exd: 0, kid: 0, thd: 16, wrm: 1.2, cs: 4, lg: 53},
-      "17684": { n: "Microwave XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17684": { n: "Microwave XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the microwave frequencies. Improved range. \n\
 \n\
 40% increased optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 32, exd: 0, kid: 0, thd: 16, wrm: 1.4, cs: 4, lg: 53},
-      "17686": { n: "Multifrequency XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17686": { n: "Multifrequency XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Randomly cycles the laser through the entire spectrum. The greatly increased damage comes at the cost of a significant reduction in range.\n\
 \n\
 With shorter range, Thermal damage increases and the overall damage output is increased.\n\
 \n\
 50% reduced optimal range.", tl: 1, shhp: 1, emd: 56, exd: 0, kid: 0, thd: 40, wrm: 0.5, cs: 4, lg: 53},
-      "17688": { n: "Radio XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17688": { n: "Radio XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the radio frequencies. Offers greatly improved range but significantly lower damage.\n\
 \n\
@@ -3959,18 +3958,18 @@ With longer range, EM damage increases although the overall damage output is dec
 \n\
 60% increased optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 40, exd: 0, kid: 0, thd: 0, wrm: 1.6, cs: 4, lg: 53},
-      "17690": { n: "Standard XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17690": { n: "Standard XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the visible light spectrum. \n\
 \n\
 45% reduced capacitor need.", tl: 1, shhp: 1, emd: 40, exd: 0, kid: 0, thd: 24, wrm: 1, cs: 4, lg: 53},
-      "17692": { n: "Ultraviolet XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17692": { n: "Ultraviolet XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the ultraviolet frequencies. Slightly reduced range. Slightly increased damage.\n\
 \n\
 12.5% reduced optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 48, exd: 0, kid: 0, thd: 24, wrm: 0.875, cs: 4, lg: 53},
-      "17694": { n: "Xray XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "17694": { n: "Xray XL", mg: 503, pmg: 851, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the xray frequencies. Reduced range. Increased damage.\n\
 \n\
@@ -4051,7 +4050,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 The delicate crystalline structures used in the manufacture of this advanced crystal degrade with use, eventually causing it to shatter.\n\
 \n\
 45% reduced capacitor need.", tl: 1, shhp: 1, emd: 22, exd: 0, kid: 0, thd: 13.2, wrm: 1, cs: 3, lg: 53},
-      "20026": { n: "Sanshas Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20026": { n: "Sanshas Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the radio frequencies. Offers greatly improved range but significantly lower damage.\n\
 \n\
@@ -4061,7 +4060,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 60% increased optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 44, exd: 0, kid: 0, thd: 0, wrm: 1.6, cs: 4, lg: 53},
-      "20028": { n: "Sanshas Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20028": { n: "Sanshas Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the microwave frequencies. Improved range. Increased EM damage.\n\
 \n\
@@ -4069,7 +4068,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 40% increased optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 35.2, exd: 0, kid: 0, thd: 17.6, wrm: 1.4, cs: 4, lg: 53},
-      "20030": { n: "Sanshas Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20030": { n: "Sanshas Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the infrared frequencies. Slightly improved range. Slightly increased EM damage.\n\
 \n\
@@ -4077,7 +4076,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 20% increased optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 44, exd: 0, kid: 0, thd: 17.6, wrm: 1.2, cs: 4, lg: 53},
-      "20032": { n: "Sanshas Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20032": { n: "Sanshas Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the visible light spectrum.\n\
 \n\
@@ -4159,7 +4158,7 @@ With shorter range, Thermal damage increases and the overall damage output is in
 The delicate crystalline structures used in the manufacture of this advanced crystal degrade with use, eventually causing it to shatter.\n\
 \n\
 50% reduced optimal range.", tl: 1, shhp: 1, emd: 30.8, exd: 0, kid: 0, thd: 22, wrm: 0.5, cs: 3, lg: 53},
-      "20841": { n: "Sanshas Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20841": { n: "Sanshas Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the ultraviolet frequencies. Slightly reduced range. Slightly increased thermal damage.\n\
 \n\
@@ -4167,7 +4166,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 12.5% reduced optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 52.8, exd: 0, kid: 0, thd: 26.4, wrm: 0.875, cs: 4, lg: 53},
-      "20843": { n: "Sanshas Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20843": { n: "Sanshas Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the xray frequencies. Reduced range. Increased thermal damage.\n\
 \n\
@@ -4175,7 +4174,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 25% reduced optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 52.8, exd: 0, kid: 0, thd: 35.2, wrm: 0.75, cs: 4, lg: 53},
-      "20845": { n: "Sanshas Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20845": { n: "Sanshas Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the gamma frequencies. Greatly reduced range. Greatly increased thermal damage.\n\
 \n\
@@ -4183,7 +4182,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 37.5% reduced optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 61.6, exd: 0, kid: 0, thd: 35.2, wrm: 0.625, cs: 4, lg: 53},
-      "20847": { n: "Sanshas Multifrequency XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20847": { n: "Sanshas Multifrequency XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Randomly cycles the laser through the entire spectrum. The greatly increased damage comes at the cost of a significant reduction in range.\n\
 \n\
@@ -4342,7 +4341,7 @@ With shorter range, Thermal damage increases and the overall damage output is in
 The delicate crystalline structures used in the manufacture of this advanced crystal degrade with use, eventually causing it to shatter.\n\
 \n\
 50% reduced optimal range.", tl: 1, shhp: 1, emd: 33.6, exd: 0, kid: 0, thd: 24, wrm: 0.5, cs: 3, lg: 53},
-      "20897": { n: "True Sanshas Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20897": { n: "True Sanshas Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the radio frequencies. Offers greatly improved range but significantly lower damage.\n\
 \n\
@@ -4352,7 +4351,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 60% increased optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 48, exd: 0, kid: 0, thd: 0, wrm: 1.6, cs: 4, lg: 53},
-      "20899": { n: "True Sanshas Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20899": { n: "True Sanshas Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the microwave frequencies. Improved range. Increased EM damage.\n\
 \n\
@@ -4360,7 +4359,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 40% increased optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 38.4, exd: 0, kid: 0, thd: 19.2, wrm: 1.4, cs: 4, lg: 53},
-      "20901": { n: "True Sanshas Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20901": { n: "True Sanshas Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the infrared frequencies. Slightly improved range. Slightly increased EM damage.\n\
 \n\
@@ -4368,14 +4367,14 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 20% increased optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 48, exd: 0, kid: 0, thd: 19.2, wrm: 1.2, cs: 4, lg: 53},
-      "20903": { n: "True Sanshas Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20903": { n: "True Sanshas Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the visible light spectrum.\n\
 \n\
 The delicate crystalline structures used in the manufacture of this advanced crystal degrade with use, eventually causing it to shatter.\n\
 \n\
 45% reduced capacitor need.", tl: 1, shhp: 1, emd: 48, exd: 0, kid: 0, thd: 28.8, wrm: 1, cs: 4, lg: 53},
-      "20905": { n: "True Sanshas Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20905": { n: "True Sanshas Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the ultraviolet frequencies. Slightly reduced range. Slightly increased thermal damage.\n\
 \n\
@@ -4383,7 +4382,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 12.5% reduced optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 57.6, exd: 0, kid: 0, thd: 28.8, wrm: 0.875, cs: 4, lg: 53},
-      "20907": { n: "True Sanshas Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20907": { n: "True Sanshas Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the xray frequencies. Reduced range. Increased thermal damage.\n\
 \n\
@@ -4391,7 +4390,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 25% reduced optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 57.6, exd: 0, kid: 0, thd: 38.4, wrm: 0.75, cs: 4, lg: 53},
-      "20909": { n: "True Sanshas Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20909": { n: "True Sanshas Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the gamma frequencies. Greatly reduced range. Greatly increased thermal damage.\n\
 \n\
@@ -4399,7 +4398,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 37.5% reduced optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 67.2, exd: 0, kid: 0, thd: 38.4, wrm: 0.625, cs: 4, lg: 53},
-      "20911": { n: "True Sanshas Multifrequency XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "20911": { n: "True Sanshas Multifrequency XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Randomly cycles the laser through the entire spectrum. The greatly increased damage comes at the cost of a significant reduction in range.\n\
 \n\
@@ -4551,7 +4550,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 50% reduced optimal range.\n\
 ", tl: 1, shhp: 1, emd: 30.8, exd: 0, kid: 0, thd: 22, wrm: 0.5, cs: 3, lg: 53},
-      "21240": { n: "Blood Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21240": { n: "Blood Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the radio frequencies. Offers greatly improved range but significantly lower damage.\n\
 \n\
@@ -4561,7 +4560,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 60% increased optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 44, exd: 0, kid: 0, thd: 0, wrm: 1.6, cs: 4, lg: 53},
-      "21242": { n: "Blood Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21242": { n: "Blood Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the microwave frequencies. Improved range. Increased EM damage.\n\
 \n\
@@ -4569,7 +4568,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 40% increased optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 35.2, exd: 0, kid: 0, thd: 17.6, wrm: 1.4, cs: 4, lg: 53},
-      "21244": { n: "Blood Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21244": { n: "Blood Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the infrared frequencies. Slightly improved range. Slightly increased EM damage.\n\
 \n\
@@ -4577,14 +4576,14 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 20% increased optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 44, exd: 0, kid: 0, thd: 17.6, wrm: 1.2, cs: 4, lg: 53},
-      "21246": { n: "Blood Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21246": { n: "Blood Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the visible light spectrum. \n\
 \n\
 The delicate crystalline structures used in the manufacture of this advanced crystal degrade with use, eventually causing it to shatter.\n\
 \n\
 45% reduced capacitor need.", tl: 1, shhp: 1, emd: 44, exd: 0, kid: 0, thd: 26.4, wrm: 1, cs: 4, lg: 53},
-      "21248": { n: "Blood Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21248": { n: "Blood Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the ultraviolet frequencies. Slightly reduced range. Slightly increased thermal damage.\n\
 \n\
@@ -4592,7 +4591,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 12.5% reduced optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 52.8, exd: 0, kid: 0, thd: 26.4, wrm: 0.875, cs: 4, lg: 53},
-      "21250": { n: "Blood Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21250": { n: "Blood Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the xray frequencies. Reduced range. Increased thermal damage.\n\
 \n\
@@ -4600,7 +4599,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 25% reduced optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 52.8, exd: 0, kid: 0, thd: 35.2, wrm: 0.75, cs: 4, lg: 53},
-      "21252": { n: "Blood Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21252": { n: "Blood Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the gamma frequencies. Greatly reduced range. Greatly increased thermal damage.\n\
 \n\
@@ -4767,7 +4766,7 @@ With shorter range, Thermal damage increases and the overall damage output is in
 The delicate crystalline structures used in the manufacture of this advanced crystal degrade with use, eventually causing it to shatter.\n\
 \n\
 50% reduced optimal range.", tl: 1, shhp: 1, emd: 33.6, exd: 0, kid: 0, thd: 24, wrm: 0.5, cs: 3, lg: 53},
-      "21304": { n: "Dark Blood Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21304": { n: "Dark Blood Radio XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the radio frequencies. Offers greatly improved range but significantly lower damage.\n\
 \n\
@@ -4777,7 +4776,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 60% increased optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 48, exd: 0, kid: 0, thd: 0, wrm: 1.6, cs: 4, lg: 53},
-      "21306": { n: "Dark Blood Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21306": { n: "Dark Blood Microwave XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the microwave frequencies. Improved range. Increased EM damage.\n\
 \n\
@@ -4785,7 +4784,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 40% increased optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 38.4, exd: 0, kid: 0, thd: 19.2, wrm: 1.4, cs: 4, lg: 53},
-      "21308": { n: "Dark Blood Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21308": { n: "Dark Blood Infrared XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the infrared frequencies. Slightly improved range. Slightly increased EM damage.\n\
 \n\
@@ -4793,14 +4792,14 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 20% increased optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 48, exd: 0, kid: 0, thd: 19.2, wrm: 1.2, cs: 4, lg: 53},
-      "21310": { n: "Dark Blood Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21310": { n: "Dark Blood Standard XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the visible light spectrum.\n\
 \n\
 The delicate crystalline structures used in the manufacture of this advanced crystal degrade with use, eventually causing it to shatter.\n\
 \n\
 45% reduced capacitor need.", tl: 1, shhp: 1, emd: 48, exd: 0, kid: 0, thd: 28.8, wrm: 1, cs: 4, lg: 53},
-      "21312": { n: "Dark Blood Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21312": { n: "Dark Blood Ultraviolet XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the ultraviolet frequencies. Slightly reduced range. Slightly increased thermal damage.\n\
 \n\
@@ -4808,7 +4807,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 12.5% reduced optimal range.\n\
 35% reduced capacitor need.", tl: 1, shhp: 1, emd: 57.6, exd: 0, kid: 0, thd: 28.8, wrm: 0.875, cs: 4, lg: 53},
-      "21314": { n: "Dark Blood Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21314": { n: "Dark Blood Xray XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the xray frequencies. Reduced range. Increased thermal damage.\n\
 \n\
@@ -4816,7 +4815,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 25% reduced optimal range.\n\
 25% reduced capacitor need.", tl: 1, shhp: 1, emd: 57.6, exd: 0, kid: 0, thd: 38.4, wrm: 0.75, cs: 4, lg: 53},
-      "21316": { n: "Dark Blood Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21316": { n: "Dark Blood Gamma XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Modulates the beam of a laser weapon into the gamma frequencies. Greatly reduced range. Greatly increased thermal damage.\n\
 \n\
@@ -4824,7 +4823,7 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 \n\
 37.5% reduced optimal range.\n\
 15% reduced capacitor need.", tl: 1, shhp: 1, emd: 67.2, exd: 0, kid: 0, thd: 38.4, wrm: 0.625, cs: 4, lg: 53},
-      "21318": { n: "Dark Blood Multifrequency XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal.  Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
+      "21318": { n: "Dark Blood Multifrequency XL", mg: 1007, pmg: 994, mta: 0, d: "Extra Large Frequency Crystal. Can be used only by starbase defense batteries and capital ships like dreadnoughts. \n\
 \n\
 Randomly cycles the laser through the entire spectrum. The greatly increased damage comes at the cost of a significant reduction in range.\n\
 \n\
@@ -4996,45 +4995,45 @@ The delicate crystalline structures used in the manufacture of this advanced cry
 The laser strike deals high damage in a tight radius at high speed. The tactical laser is devastating but its precise nature means it does not cover wide areas. ", tl: 1, shhp: 1, wrm: 1, cs: 1, lg: 53}
     },
     "325": {
-      "3536": { n: "Capital Coaxial Regenerative Projector", mg: 1056, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.\n\
+      "3536": { n: "Capital Coaxial Remote Armor Repairer", mg: 1056, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.\n\
 Note: May only be fitted to capital class ships.", cpu: 36, pg: 150000, opt: 16500, capn: 1350, tl: 1, shhp: 40, ad: 5000, ahpr: 1650},
-      "11355": { n: "Small Remote Armor Repair System I", mg: 1059, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 4000, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 40},
-      "11357": { n: "Medium Remote Armor Repair System I", mg: 1058, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 20, pg: 120, opt: 5000, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 160},
-      "11359": { n: "Large Remote Armor Repair System I", mg: 1057, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 40, pg: 600, opt: 7000, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 320},
-      "16433": { n: "Small I-ax Regenerative Projector", mg: 1059, pmg: 537, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 9, pg: 6, opt: 4200, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 42},
-      "16435": { n: "Small Coaxial Regenerative Projector", mg: 1059, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 9, pg: 6, opt: 4400, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 44},
-      "16437": { n: "Small 'Arup' Remote Bulwark Reconstruction", mg: 1059, pmg: 537, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 8, pg: 6, opt: 4600, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 46},
-      "16439": { n: "Small 'Solace' Remote Bulwark Reconstruction", mg: 1059, pmg: 537, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 8, pg: 6, opt: 4800, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 48},
-      "16441": { n: "Medium I-ax Regenerative Projector", mg: 1058, pmg: 537, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 19, pg: 120, opt: 5250, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 168},
-      "16443": { n: "Medium Coaxial Regenerative Projector", mg: 1058, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 18, pg: 120, opt: 5500, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 176},
-      "16445": { n: "Medium 'Arup' Remote Bulwark Reconstruction", mg: 1058, pmg: 537, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 17, pg: 120, opt: 5750, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 184},
-      "16447": { n: "Medium 'Solace' Remote Bulwark Reconstruction", mg: 1058, pmg: 537, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 16, pg: 120, opt: 6000, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 192},
-      "16449": { n: "Large I-ax Regenerative Projector", mg: 1057, pmg: 537, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 38, pg: 600, opt: 7350, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 336},
-      "16451": { n: "Large Coaxial Regenerative Projector", mg: 1057, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 36, pg: 600, opt: 7700, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 352},
-      "16453": { n: "Large 'Arup' Remote Bulwark Reconstruction", mg: 1057, pmg: 537, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 34, pg: 600, opt: 8050, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 368},
-      "16455": { n: "Large 'Solace' Remote Bulwark Reconstruction", mg: 1057, pmg: 537, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 32, pg: 600, opt: 8400, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 384},
-      "18981": { n: "Coreli C-Type Small Remote Armor Repair System", mg: 1059, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 5400, capn: 30, tl: 1, shhp: 40, ad: 2500, ahpr: 59},
-      "18983": { n: "Coreli B-Type Small Remote Armor Repair System", mg: 1059, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 5600, capn: 30, tl: 1, shhp: 40, ad: 2500, ahpr: 65},
-      "18985": { n: "Coreli A-Type Small Remote Armor Repair System", mg: 1059, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 5800, capn: 30, tl: 1, shhp: 40, ad: 2500, ahpr: 70},
-      "18987": { n: "Corelum C-Type Medium Remote Armor Repair System", mg: 1058, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 6750, capn: 120, tl: 1, shhp: 40, ad: 5000, ahpr: 236},
-      "18989": { n: "Corelum B-Type Medium Remote Armor Repair System", mg: 1058, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 7000, capn: 120, tl: 1, shhp: 40, ad: 5000, ahpr: 258},
-      "18991": { n: "Corelum A-Type Medium Remote Armor Repair System", mg: 1058, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 7250, capn: 120, tl: 1, shhp: 40, ad: 5000, ahpr: 278},
-      "19047": { n: "Centii C-Type Small Remote Armor Repair System", mg: 1059, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 8, opt: 5400, capn: 34, tl: 1, shhp: 40, ad: 2500, ahpr: 66},
-      "19049": { n: "Centii B-Type Small Remote Armor Repair System", mg: 1059, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 9, opt: 5600, capn: 34, tl: 1, shhp: 40, ad: 2500, ahpr: 72},
-      "19051": { n: "Centii A-Type Small Remote Armor Repair System", mg: 1059, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 10, opt: 5800, capn: 34, tl: 1, shhp: 40, ad: 2500, ahpr: 78},
-      "19053": { n: "Centum C-Type Medium Remote Armor Repair System", mg: 1058, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 181, opt: 6750, capn: 135, tl: 1, shhp: 40, ad: 5000, ahpr: 264},
-      "19055": { n: "Centum B-Type Medium Remote Armor Repair System", mg: 1058, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 187, opt: 7000, capn: 135, tl: 1, shhp: 40, ad: 5000, ahpr: 288},
-      "19057": { n: "Centum A-Type Medium Remote Armor Repair System", mg: 1058, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 192, opt: 7250, capn: 135, tl: 1, shhp: 40, ad: 5000, ahpr: 312},
-      "22947": { n: "'Beatnik' Small Remote Armor Repair System I", mg: 1059, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 8, pg: 5, opt: 4800, capn: 27, tl: 1, shhp: 40, ad: 2500, ahpr: 48},
-      "22949": { n: "'Love' Medium Remote Armor Repair System I", mg: 1058, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 16, pg: 105, opt: 6000, capn: 108, tl: 1, shhp: 40, ad: 5000, ahpr: 192},
-      "22951": { n: "'Pacifier' Large Remote Armor Repair System I", mg: 1057, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 32, pg: 520, opt: 8400, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 384},
-      "23414": { n: "'Brotherhood' Small Remote Armor Repair System I", mg: 1059, pmg: 537, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 4000, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 40},
-      "23416": { n: "'Peace' Large Remote Armor Repair System I", mg: 1057, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 32, pg: 520, opt: 8400, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 384},
-      "24569": { n: "Capital Remote Armor Repair System I", mg: 1056, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.\n\
+      "11355": { n: "Small Remote Armor Repairer I", mg: 1059, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 4000, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 40},
+      "11357": { n: "Medium Remote Armor Repairer I", mg: 1058, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 20, pg: 120, opt: 5000, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 160},
+      "11359": { n: "Large Remote Armor Repairer I", mg: 1057, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 40, pg: 600, opt: 7000, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 320},
+      "16433": { n: "Small I-ax Remote Armor Repairer", mg: 1059, pmg: 537, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 9, pg: 6, opt: 4200, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 42},
+      "16435": { n: "Small Coaxial Remote Armor Repairer", mg: 1059, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 9, pg: 6, opt: 4400, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 44},
+      "16437": { n: "Small 'Arup' Remote Armor Repairer", mg: 1059, pmg: 537, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 8, pg: 6, opt: 4600, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 46},
+      "16439": { n: "Small 'Solace' Remote Armor Repairer", mg: 1059, pmg: 537, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 8, pg: 6, opt: 4800, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 48},
+      "16441": { n: "Medium I-ax Remote Armor Repairer", mg: 1058, pmg: 537, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 19, pg: 120, opt: 5250, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 168},
+      "16443": { n: "Medium Coaxial Remote Armor Repairer", mg: 1058, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 18, pg: 120, opt: 5500, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 176},
+      "16445": { n: "Medium 'Arup' Remote Armor Repairer", mg: 1058, pmg: 537, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 17, pg: 120, opt: 5750, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 184},
+      "16447": { n: "Medium 'Solace' Remote Armor Repairer", mg: 1058, pmg: 537, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 16, pg: 120, opt: 6000, capn: 118, tl: 1, shhp: 40, ad: 5000, ahpr: 192},
+      "16449": { n: "Large I-ax Remote Armor Repairer", mg: 1057, pmg: 537, mta: 1, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 38, pg: 600, opt: 7350, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 336},
+      "16451": { n: "Large Coaxial Remote Armor Repairer", mg: 1057, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 36, pg: 600, opt: 7700, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 352},
+      "16453": { n: "Large 'Arup' Remote Armor Repairer", mg: 1057, pmg: 537, mta: 3, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 34, pg: 600, opt: 8050, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 368},
+      "16455": { n: "Large 'Solace' Remote Armor Repairer", mg: 1057, pmg: 537, mta: 4, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 32, pg: 600, opt: 8400, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 384},
+      "18981": { n: "Coreli C-Type Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 5400, capn: 30, tl: 1, shhp: 40, ad: 2500, ahpr: 59},
+      "18983": { n: "Coreli B-Type Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 5600, capn: 30, tl: 1, shhp: 40, ad: 2500, ahpr: 65},
+      "18985": { n: "Coreli A-Type Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 5800, capn: 30, tl: 1, shhp: 40, ad: 2500, ahpr: 70},
+      "18987": { n: "Corelum C-Type Medium Remote Armor Repairer", mg: 1058, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 6750, capn: 120, tl: 1, shhp: 40, ad: 5000, ahpr: 236},
+      "18989": { n: "Corelum B-Type Medium Remote Armor Repairer", mg: 1058, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 7000, capn: 120, tl: 1, shhp: 40, ad: 5000, ahpr: 258},
+      "18991": { n: "Corelum A-Type Medium Remote Armor Repairer", mg: 1058, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 7250, capn: 120, tl: 1, shhp: 40, ad: 5000, ahpr: 278},
+      "19047": { n: "Centii C-Type Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 8, opt: 5400, capn: 34, tl: 1, shhp: 40, ad: 2500, ahpr: 66},
+      "19049": { n: "Centii B-Type Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 9, opt: 5600, capn: 34, tl: 1, shhp: 40, ad: 2500, ahpr: 72},
+      "19051": { n: "Centii A-Type Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 10, opt: 5800, capn: 34, tl: 1, shhp: 40, ad: 2500, ahpr: 78},
+      "19053": { n: "Centum C-Type Medium Remote Armor Repairer", mg: 1058, pmg: 537, mta: 11, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 181, opt: 6750, capn: 135, tl: 1, shhp: 40, ad: 5000, ahpr: 264},
+      "19055": { n: "Centum B-Type Medium Remote Armor Repairer", mg: 1058, pmg: 537, mta: 12, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 187, opt: 7000, capn: 135, tl: 1, shhp: 40, ad: 5000, ahpr: 288},
+      "19057": { n: "Centum A-Type Medium Remote Armor Repairer", mg: 1058, pmg: 537, mta: 13, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 192, opt: 7250, capn: 135, tl: 1, shhp: 40, ad: 5000, ahpr: 312},
+      "22947": { n: "'Beatnik' Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 8, pg: 5, opt: 4800, capn: 27, tl: 1, shhp: 40, ad: 2500, ahpr: 48},
+      "22949": { n: "'Love' Medium Remote Armor Repairer", mg: 1058, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 16, pg: 105, opt: 6000, capn: 108, tl: 1, shhp: 40, ad: 5000, ahpr: 192},
+      "22951": { n: "'Pacifier' Large Remote Armor Repairer", mg: 1057, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 32, pg: 520, opt: 8400, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 384},
+      "23414": { n: "'Brotherhood' Small Remote Armor Repairer", mg: 1059, pmg: 537, mta: 6, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 10, pg: 6, opt: 4000, capn: 29, tl: 1, shhp: 40, ad: 2500, ahpr: 40},
+      "23416": { n: "'Peace' Large Remote Armor Repairer", mg: 1057, pmg: 537, mta: 7, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 32, pg: 520, opt: 8400, capn: 252, tl: 1, shhp: 40, ad: 5000, ahpr: 384},
+      "24569": { n: "Capital Remote Armor Repairer I", mg: 1056, pmg: 537, mta: 0, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.\n\
 Note: May only be fitted to capital class ships.", cpu: 40, pg: 150000, opt: 15000, capn: 1350, tl: 1, shhp: 40, ad: 5000, ahpr: 1500},
-      "26912": { n: "Small Remote Armor Repair System II", mg: 1059, pmg: 537, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 12, pg: 7, opt: 4800, capn: 27, tl: 2, shhp: 40, ad: 2250, ahpr: 48},
-      "26913": { n: "Medium Remote Armor Repair System II", mg: 1058, pmg: 537, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 6000, capn: 108, tl: 2, shhp: 40, ad: 4500, ahpr: 192},
-      "26914": { n: "Large Remote Armor Repair System II", mg: 1057, pmg: 537, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 48, pg: 660, opt: 8400, capn: 252, tl: 2, shhp: 40, ad: 4500, ahpr: 384}
+      "26912": { n: "Small Remote Armor Repairer II", mg: 1059, pmg: 537, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 12, pg: 7, opt: 4800, capn: 27, tl: 2, shhp: 40, ad: 2250, ahpr: 48},
+      "26913": { n: "Medium Remote Armor Repairer II", mg: 1058, pmg: 537, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 24, pg: 132, opt: 6000, capn: 108, tl: 2, shhp: 40, ad: 4500, ahpr: 192},
+      "26914": { n: "Large Remote Armor Repairer II", mg: 1057, pmg: 537, mta: 5, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.", cpu: 48, pg: 660, opt: 8400, capn: 252, tl: 2, shhp: 40, ad: 4500, ahpr: 384}
     },
     "329": {
       "11279": { n: "1600mm Reinforced Steel Plates I", mg: 1676, pmg: 133, mta: 0, d: "Increases the maximum strength of the Armor.\n\
@@ -5095,6 +5094,7 @@ Penalty:  Adds to your ship's mass, making it less agile and maneuverable in add
 \n\
 Penalty:  Adds to your ship's mass, making it less agile and maneuverable in addition to decreasing the factor of thrust gained from speed modules like Afterburners and MicroWarpdrives.", cpu: 2, pg: 1, ahp: 113, tl: 1, r: 2, shhp: 40},
       "11333": { n: "50mm Reinforced Rolled Tungsten Plates I", mg: 1671, pmg: 133, mta: 4, d: "Increases the maximum strength of the Armor.\n\
+\n\
 Penalty:  Adds to your ship's mass, making it less agile and maneuverable in addition to decreasing the factor of thrust gained from speed modules like Afterburners and MicroWarpdrives.", cpu: 3, pg: 1, ahp: 131, tl: 1, r: 4, shhp: 40},
       "11335": { n: "50mm Reinforced Crystalline Carbonide Plates I", mg: 1671, pmg: 133, mta: 3, d: "Increases the maximum strength of the Armor.\n\
 \n\
@@ -5139,6 +5139,7 @@ Penalty:  Adds to your ship's mass, making it less agile and maneuverable in add
 \n\
 Penalty:  Adds to your ship's mass, making it less agile and maneuverable in addition to decreasing the factor of thrust gained from speed modules like Afterburners and MicroWarpdrives.", cpu: 23, pg: 35, ahp: 1200, tl: 2, shhp: 40},
       "20351": { n: "800mm Reinforced Steel Plates II", mg: 1675, pmg: 133, mta: 5, d: "Increases the maximum strength of the Armor.\n\
+\n\
 Penalty:  Adds to your ship's mass, making it less agile and maneuverable in addition to decreasing the factor of thrust gained from speed modules like Afterburners and MicroWarpdrives.", cpu: 28, pg: 230, ahp: 2400, tl: 2, shhp: 40},
       "20353": { n: "1600mm Reinforced Steel Plates II", mg: 1676, pmg: 133, mta: 5, d: "Increases the maximum strength of the Armor.\n\
 \n\
@@ -5784,7 +5785,6 @@ Penalty: Using more than one type of this module or similar modules that affect 
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 3, calbc: 100, drwbk: 10},
       "25900": { n: "Large Remote Repair Augmentor I", mg: 1208, pmg: 956, mta: 0, d: "This ship modification is designed to reduce the capacitor need for a ship's remote armor repair modules at the expense of max velocity.", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
-      "25902": { n: "Large Salvage Tackle I", mg: 1208, pmg: 956, mta: 0, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
       "26286": { n: "Large Anti-EM Pump II", mg: 1208, pmg: 956, mta: 5, d: "This ship modification is designed to increase a ship's armor EM resistance at the expense of max velocity.\n\
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 3, emdrb: -35, calbc: 75, drwbk: -10},
@@ -5805,7 +5805,6 @@ Penalty: Using more than one type of this module or similar modules that affect 
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 3, calbc: 150, drwbk: 10},
       "26298": { n: "Large Remote Repair Augmentor II", mg: 1208, pmg: 956, mta: 5, d: "This ship modification is designed to reduce the capacitor need for a ship's remote armor repair modules at the expense of max velocity.\n\
 ", tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
-      "26300": { n: "Large Salvage Tackle II", mg: 1208, pmg: 956, mta: 5, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
       "26302": { n: "Large Trimark Armor Pump II", mg: 1208, pmg: 956, mta: 5, d: "This ship modification is designed to increase a ship's total armor hit points at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 3, ahpbp: 20, calbc: 75, drwbk: -10},
       "27064": { n: "Capital Auxiliary Nano Pump I", mg: 1730, pmg: 956, mta: 0, d: "This ship modification is designed to increase a ship's armor repairer repair amount at the expense of increased power grid need for them.\n\
 \n\
@@ -5928,13 +5927,7 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "31075": { n: "Capital Remote Repair Augmentor I", mg: 1730, pmg: 956, mta: 0, d: "This ship modification is designed to reduce the capacitor need for a ship's remote armor repair modules at the expense of max velocity.", tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
       "31077": { n: "Small Remote Repair Augmentor II", mg: 1206, pmg: 956, mta: 5, d: "This ship modification is designed to reduce the capacitor need for a ship's remote armor repair modules at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
       "31079": { n: "Medium Remote Repair Augmentor II", mg: 1207, pmg: 956, mta: 5, d: "This ship modification is designed to reduce the capacitor need for a ship's remote armor repair modules at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
-      "31081": { n: "Capital Remote Repair Augmentor II", mg: 1730, pmg: 956, mta: 5, d: "This ship modification is designed to reduce the capacitor need for a ship's remote armor repair modules at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10},
-      "31083": { n: "Small Salvage Tackle I", mg: 1206, pmg: 956, mta: 0, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
-      "31085": { n: "Medium Salvage Tackle I", mg: 1207, pmg: 956, mta: 0, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
-      "31087": { n: "Capital Salvage Tackle I", mg: 1730, pmg: 956, mta: 0, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
-      "31089": { n: "Small Salvage Tackle II", mg: 1206, pmg: 956, mta: 5, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
-      "31091": { n: "Medium Salvage Tackle II", mg: 1207, pmg: 956, mta: 5, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
-      "31093": { n: "Capital Salvage Tackle II", mg: 1730, pmg: 956, mta: 5, d: "This ship modification is designed to increase a ship's chance of salvage retrieval at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10}
+      "31081": { n: "Capital Remote Repair Augmentor II", mg: 1730, pmg: 956, mta: 5, d: "This ship modification is designed to reduce the capacitor need for a ship's remote armor repair modules at the expense of max velocity.", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10}
     },
     "774": {
       "25906": { n: "Large Core Defense Capacitor Safeguard I", mg: 1236, pmg: 965, mta: 0, d: "This ship modification is designed to reduce the capacitor need of modules which require shield operation skills at the expense of increased signature radius.", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: 10},
@@ -7865,7 +7858,6 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "25896": 773,
     "25898": 773,
     "25900": 773,
-    "25902": 773,
     "26286": 773,
     "26288": 773,
     "26290": 773,
@@ -7873,7 +7865,6 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "26294": 773,
     "26296": 773,
     "26298": 773,
-    "26300": 773,
     "26302": 773,
     "27064": 773,
     "27066": 773,
@@ -7923,12 +7914,6 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "31077": 773,
     "31079": 773,
     "31081": 773,
-    "31083": 773,
-    "31085": 773,
-    "31087": 773,
-    "31089": 773,
-    "31091": 773,
-    "31093": 773,
     "25906": 774,
     "26076": 774,
     "26078": 774,
