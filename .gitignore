@@ -11,6 +11,9 @@ Wafle/Wafle/tests/*.js.map
 Wafle/Wafle/build/build.js*
 Wafle/Wafle/build/wafle*.js*
 
+#Exclude modules and etc in the data extract project
+Wafle/WafleDataExtract/node_modules/
+Wafle/WafleDataExtract/*.js*
 
 # User-specific files
 *.suo
