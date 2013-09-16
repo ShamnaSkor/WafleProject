@@ -21,6 +21,7 @@ Wafle is currently in very early alpha - pre 0.1.0 release...  It is currently c
 * Wafle needs one or more UIs.
 * Wafle needs support for more module types, ship classes, and things like drones.
 * The Wafle Project needs help from a Mac or Linux user to help streamline development of Wafle on those platforms.
+* I need a node.js expert to help fixup the build script and the data extract script.
 
 ###Guiding Principles
 * Wafle will be distributed for free and will use free (as in beer) tools for development.
