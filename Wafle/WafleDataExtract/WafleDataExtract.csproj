@@ -16,7 +16,6 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="default.htm" />
     <Content Include="Scripts\typings\node\node.d.ts" />
   </ItemGroup>
   <ItemGroup>
