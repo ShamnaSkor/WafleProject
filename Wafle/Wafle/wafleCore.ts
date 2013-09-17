@@ -928,7 +928,28 @@ module Wafle {
 
     }
 
+    //shim for getOwnPropertyNames (not supported in EVE IGB as of Odyssey 1.1) http://stackoverflow.com/questions/8240802/is-it-possible-to-simulated-object-getownpropertynames-in-ie8
+    if (typeof Object.getOwnPropertyNames !== "function") {
+        Object.getOwnPropertyNames = function (obj) {
+            var keys = [];
 
+            // Only iterate the keys if we were given an object, and
+            // a special check for null, as typeof null == "object"
+            if (typeof obj === "object" && obj !== null) {
+                // Use a standard for in loop
+                for (var x in obj) {
+                    // A for in will iterate over members on the prototype
+                    // chain as well, but Object.getOwnPropertyNames returns
+                    // only those directly on the object, so use hasOwnProperty.
+                    if (obj.hasOwnProperty(x)) {
+                        keys.push(x);
+                    }
+                }
+            }
+
+            return keys;
+        }
+    }
 
     export function FindTypeByName(theName: string): TypeInfo  {
         var groupCount = Object.getOwnPropertyNames(Wafle.Data.Types).length;

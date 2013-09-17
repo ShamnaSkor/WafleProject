@@ -28,7 +28,7 @@ Wafle is currently in very early alpha - pre 0.1.0 release...  It is currently c
 * Wafle will be developed using TypeScript to gain the productivity advantages of strong typing at develop-time and the broad compatibility and flexibility of JavaScript at run-time.
 * Wafle will take advantage of modern client-side technologies:
  * It will not require any active server-side functionality to perform its basic role as a fitting tool.
- * It will be designed to work with modern browsers (Recent versions of Firefox, Webkit-based browsers, IE 10+, and similar)
+ * It will be designed to work with the EVE IGB and modern browsers (Recent versions of Firefox, Webkit-based browsers, IE 10+, and similar)
 * The Wafle project will strive to make it easy for new contributors to join in.
 * The Wafle project will use [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).
 * The Wafle Data module will remain separate from the Wafle library to ensure that CCP's intellectual property is respected.
