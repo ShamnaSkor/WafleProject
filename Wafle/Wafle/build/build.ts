@@ -7,40 +7,44 @@ console.log("Loading compilation dependencies...");
 var fs = require("fs");
 var exec = require("child_process").exec;
 var spawn = require("child_process").spawn;
+var path = require("path");
+var wafleDone = false, wafleDataDone = false;
 var wafleVersion = "";
 
-console.log("Build: " + buildJSPath);
 console.log("Compiling Wafle TypeScript files...");
+var tscProcess = exec('tsc --sourcemap --module amd --target ES5 --outDir "' + buildJSPath + '" "' + path.join(buildJSPath, '..', "wafleInterfaces.ts") + '" "' + path.join(buildJSPath, '..', "wafleCore.ts") + '" "' + path.join(buildJSPath, '..', "wafleData.ts") + '" "' + path.join(buildJSPath, '..', "wafleCuratedData.ts") + '"',tsCompileComplete);
 
-var tscProcess = exec('tsc --sourcemap -t ES5 --outDir build "' + buildJSPath + '//..//wafleInterfaces.ts" "' + buildJSPath + '//..//wafleCore.ts" "' + buildJSPath + '//..//wafleData.ts" "' + buildJSPath + '//..//wafleCuratedData.ts"',tsCompileComplete);
 
-var wafleDone = false, wafleDataDone = false;
 
 function tsCompileComplete(error,stdout,stderr)
 {
+    //todo: check for failure.
+
     
     console.log("Identifying Wafle library version...");
     //Imports Wafle.
     //This works in our case since the file is not in a CommonJS module format.  See: http://stackoverflow.com/questions/5797852/in-node-js-how-do-i-include-functions-from-my-other-files
-    eval(fs.readFileSync(buildJSPath + '//wafleCore.js') + '');
+    eval(fs.readFileSync(path.join(buildJSPath,'wafleCore.js')) + '');
     wafleVersion = Wafle.Version;
 
     console.log("Wafle version is: " + wafleVersion);
 
     console.log("Uglifying Wafle library...");
-    var uglifyWafle = exec('uglifyjs "' + buildJSPath + '//wafleCore.js" "' + buildJSPath + '//wafleCuratedData.js" -o "' + buildJSPath + '//wafle.min.js" -m -c unused=false --comments', uglifyWafleCallback);
+    var uglifyWafle = exec('uglifyjs "' + path.join(buildJSPath, 'wafleCore.js') + '" "' + path.join(buildJSPath, 'wafleCuratedData.js') + '" -o "' + path.join(buildJSPath, 'wafle.min.js') + '" -m -c unused=false --comments', uglifyWafleCallback);
     console.log("Uglifying Wafle Data file...");
-    var uglifyWafleData = exec('uglifyjs "' + buildJSPath + '//wafleData.js" -o "' + buildJSPath + '//wafleData.min.js" --comments', uglifyWafleDataCallback);
+    var uglifyWafleData = exec('uglifyjs "' + path.join(buildJSPath, 'wafleData.js') + '" -o "' + path.join(buildJSPath,'wafleData.min.js') + '" --comments', uglifyWafleDataCallback);
 }
 
 function uglifyWafleCallback(error, stdout, stderr) {
-    copyFileSync(buildJSPath + "//wafle.min.js", buildJSPath + "//wafle-" + wafleVersion + ".min.js");
+    //todo: check for failure.
+    copyFileSync(path.join(buildJSPath, "wafle.min.js"), path.join(buildJSPath,"wafle-" + wafleVersion + ".min.js"));
     wafleDone = true;
     reportAndCheckAllDone("Wafle");
 }
 
 function uglifyWafleDataCallback(error, stdout, stderr) {
-    copyFileSync(buildJSPath + "//wafleData.min.js", buildJSPath + "//wafleData-" + wafleVersion + ".min.js");
+    //todo: check for failure.
+    copyFileSync(path.join(buildJSPath, "wafleData.min.js"), path.join(buildJSPath, "wafleData-" + wafleVersion + ".min.js"));
     wafleDataDone = true;
     reportAndCheckAllDone("Wafle Data");
 }
