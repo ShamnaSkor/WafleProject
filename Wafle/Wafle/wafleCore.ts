@@ -49,7 +49,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module Wafle {
 
-    export var Version: string = "0.1.0-alpha.1";
+    export var Version: string = "0.1.0-alpha.2";
 
     
     export enum RaceType {
@@ -66,9 +66,9 @@ module Wafle {
 
     export enum InventoryGroups {
         Unknown = -1, Frigate = 25, Propulsion = 46, WarpScrambler = 52, EnergyWeapon= 53, ProjectileWeapon= 55,
-        DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, HybridWeapon= 74, ProjectileAmmo = 83, 
-        HybridCharge=85, FrequencyCrystal=86,
-        ArmorRepairProjector = 325, ArmorPlate = 329,
+        DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, EnergyVampire= 68, EnergyDestabilizer=71,
+        HybridWeapon= 74, ShieldHardener=77, ProjectileAmmo = 83, HybridCharge=85, FrequencyCrystal=86,
+        ArmorCoating=98, ArmorRepairProjector = 325, ArmorPlate = 329,
         AdvancedAutocannonAmmo= 372, AdvancedRailgunCharge= 373, AdvancedBeamLaserCrystal= 374, AdvancedPulseLaserCrystal= 375,
         AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377,
         LightMissile= 384, HeavyMissile= 385, Rocket= 387,
@@ -622,8 +622,13 @@ module Wafle {
         }
     }
 
-    function ArmorPlateLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
-        target.armorHPBonusAdd = data.ahp;
+    function ArmorPlateAndCoatingLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        if (data.ahp) {
+            target.armorHPBonusAdd = data.ahp;
+        }
+        if (data.ahpbp) {
+            target.armorHPBonusPercent = data.ahpbp;
+        }
         target.slotUsed = FittingSlotType.Low;
         target.cpuUsageActual = function (ship: Ship) {
             return CpuFormulas.standardModule(ship, this.cpuUsage)
@@ -655,12 +660,28 @@ module Wafle {
         target.baseVelocityMultiplier = data.velm;
         target.slotUsed = FittingSlotType.Low;
         target.cpuUsageActual = (ship: Ship) => {
-            return CpuFormulas.standardModule(ship, this.cpuUsage)
+            return CpuFormulas.standardModule(ship, target.cpuUsage)
         }
         target.powergridUsageActual = (ship: Ship) => {
-            return PowergridFormulas.standardModule(ship, this.powergridUsage);
+            return PowergridFormulas.standardModule(ship, target.powergridUsage);
         }
     }
+
+    function NosNeutLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.slotUsed = FittingSlotType.High;
+        target.optimalRange = data.opt;
+        target.capacitorNeed = data.capn;
+        target.activationDuration = data.ad;
+        target.powerTransferAmount = data.pta;
+        target.energyDestabilizationAmount = data.eda;
+        target.cpuUsageActual = (ship: Ship) => {
+            return CpuFormulas.standardModule(ship, target.cpuUsage)
+        }
+        target.powergridUsageActual = (ship: Ship) => {
+            return PowergridFormulas.standardModule(ship, target.powergridUsage);
+        }
+    }
+
     function RigLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData):void {
         target.cpuUsageActual = () => {return 0};
         target.powergridUsageActual = () => {return 0};
@@ -740,6 +761,10 @@ module Wafle {
         public armorHPRepaired: number = 0; 
         /** Flat capacitor amount needed to activate the module */
         public capacitorNeed: number = 0;
+        /** powerTransferAmount in "not specified" units (probably GJ) - ex: 8 */
+        public powerTransferAmount: number = 0;
+        /** energyDestabilizationAmount in Giga Joule - ex: 45 = 45GJ */
+        public energyDestabilizationAmount: number = 0;
 
 
 
@@ -755,7 +780,7 @@ module Wafle {
             switch (this.groupId) {
                 case InventoryGroups.ProjectileWeapon: //fall through
                 case InventoryGroups.HybridWeapon: //fall through
-                case InventoryGroups.EnergyWeapon: //fall through
+                case InventoryGroups.EnergyWeapon: 
                     TurretLoader(data, this);
                     break;
                 case InventoryGroups.RocketLauncher:
@@ -770,14 +795,19 @@ module Wafle {
                 case InventoryGroups.WarpScrambler:
                     MidProjectedEffectLoader(data, this);
                     break;
-                case InventoryGroups.ArmorPlate:
-                    ArmorPlateLoader(data, this);
+                case InventoryGroups.ArmorPlate: //fall through
+                case InventoryGroups.ArmorCoating:
+                    ArmorPlateAndCoatingLoader(data, this);
                     break;
                 case InventoryGroups.Nanofiber:
                     NanofiberLoader(data, this);
                     break;
+                case InventoryGroups.EnergyDestabilizer: //fall through
+                case InventoryGroups.EnergyVampire: 
+                    NosNeutLoader(data, this);
+                    break;
                 case InventoryGroups.ArmorRig: //fall through
-                case InventoryGroups.ShieldRig: //fall through
+                case InventoryGroups.ShieldRig: 
                     RigLoader(data, this);
                     break;
                 case InventoryGroups.DamageControl:

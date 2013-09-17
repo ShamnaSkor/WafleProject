@@ -12,7 +12,7 @@ module Wafle {
         groupId?: number;
     }
 
-    export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod, IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, ITurret, ICapacitorUser, IAmmo, IDamage {
+    export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod, IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, ITurret, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire {
         /** name - the name of the type. */
         n: string;
         /** description - the description text for the type. */
@@ -213,4 +213,16 @@ module Wafle {
         //todo: add description
         sshpm?: number;
     }
+    
+    export interface IEnergyDestabilizer {
+        /** energyDestabilizationAmount in Giga Joule - ex: 45 = 45GJ */
+        eda?: number;
+    }
+
+    export interface IEnergyVampire {
+        /** powerTransferAmount in "not specified" units (probably GJ) - ex: 8 */
+        pta?: number;
+    }
+
+
 }
