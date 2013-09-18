@@ -24,4 +24,47 @@ module Wafle.Data {
         return (!DrawbackIsArmorRepairPowergridPenalty(t));
     }
 
+    export function IsLoadableCharge(type: Wafle.TypeInfo): boolean {
+        var w = Wafle.InventoryGroups;
+        return (type.groupId === w.AdvancedArtilleryAmmo ||
+            type.groupId === w.AdvancedAutocannonAmmo ||
+            type.groupId === w.AdvancedBeamLaserCrystal ||
+            type.groupId === w.AdvancedBlasterCharge ||
+            type.groupId === w.AdvancedHeavyAssaultMissile ||
+            type.groupId === w.AdvancedHeavyMissile ||
+            type.groupId === w.AdvancedLightMissile ||
+            type.groupId === w.AdvancedPulseLaserCrystal ||
+            type.groupId === w.AdvancedRailgunCharge ||
+            type.groupId === w.AdvancedRocket ||
+            type.groupId === w.FoFHeavyMissile ||
+            type.groupId === w.FrequencyCrystal ||
+            type.groupId === w.HeavyAssaultMissile ||
+            type.groupId === w.HeavyMissile ||
+            type.groupId === w.HybridCharge ||
+            type.groupId === w.LightMissile ||
+            type.groupId === w.ProjectileAmmo ||
+            type.groupId === w.Rocket);
+    }
+
+
+    export function ShipOmniDamageModifier(ship: Ship, attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number {
+        var ps = ship.pilot.skills;
+        var modifier = 1;
+        if (attackingModule.groupId === 55) {
+            switch (attackingModule.chargeSize) {
+                case 1:
+                    modifier = modifier * (1 + (0.05 * ps.SmallProjectileTurret));
+                    break;
+            }
+        }
+        switch (ship.baseShipData.typeId) {
+            case 587:
+                if (attackingModule.groupId === 55 && attackingModule.chargeSize === 1) {
+                    modifier = modifier * (1 + (0.05 * ps.MinmatarFrigate));
+                }
+            //no default
+        }
+
+        return modifier;
+    }
 }

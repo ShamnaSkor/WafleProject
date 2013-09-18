@@ -480,6 +480,21 @@ module Wafle {
         private SortArrayByDescendingAbsoluteValue(theArray: number[]) {
             return theArray.sort(function (a, b) {return Math.abs(b) - Math.abs(a) });
         }
+
+        public emDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData) {
+            return Wafle.Data.ShipOmniDamageModifier(this, attackingModule, charge);
+        }
+        public explosiveDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData) {
+            return Wafle.Data.ShipOmniDamageModifier(this, attackingModule, charge);
+        }
+        public kineticDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData) {
+            return Wafle.Data.ShipOmniDamageModifier(this, attackingModule, charge);
+        }
+        public thermalDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData) {
+            return Wafle.Data.ShipOmniDamageModifier(this, attackingModule, charge);
+        }
+        
+
         
     }
 
@@ -500,7 +515,36 @@ module Wafle {
         AdvancedWeaponUpgrades: number = 0;
         Navigation: number = 0;
         ArmorRigging: number = 0;
+        GallenteFrigate: number = 0;
+        MinmatarFrigate: number = 0;
+        CaldariFrigate: number = 0;
+        AmarrFrigate: number = 0;
+        GallenteCruiser: number = 0;
+        MinmatarCruiser: number = 0;
+        CaldariCruiser: number = 0;
+        AmarrCruiser: number = 0;
+        SmallProjectileTurret: number = 0;
 
+        public SetAllSkills(level: number) {
+            this.Engineering = level;
+            this.Electronics = level;
+            this.HullUpgrades = level;
+            this.Mechanics = level;
+            this.ShieldManagement = level;
+            this.WeaponUpgrades = level;
+            this.AdvancedWeaponUpgrades = level;
+            this.Navigation = level;
+            this.ArmorRigging = level;
+            this.GallenteFrigate = level;
+            this.MinmatarFrigate = level;
+            this.CaldariFrigate = level;
+            this.AmarrFrigate = level;
+            this.GallenteCruiser = level;
+            this.MinmatarCruiser = level;
+            this.CaldariCruiser = level;
+            this.AmarrCruiser = level;
+            this.SmallProjectileTurret = level;
+        }
 
         public cpuMultiplier(): number {
             return 1.0 + (this.Electronics * 0.05);
@@ -577,12 +621,21 @@ module Wafle {
         target.trackingSpeed = data.trk;
         target.damageModifier = data.dmg;
         target.slotUsed = FittingSlotType.High;
-        target.cpuUsageActual = function (ship: Ship) {
-            return CpuFormulas.standardWeapon(ship, this.cpuUsage)
-        }
-        target.powergridUsageActual = function (ship: Ship) {
-            return PowergridFormulas.standardWeapon(ship, this.powergridUsage);
-        }
+        target.launcherGroup = data.lg;
+        target.cpuUsageActual = (ship: Ship) => CpuFormulas.standardWeapon(ship, target.cpuUsage);
+        target.powergridUsageActual = (ship: Ship) => PowergridFormulas.standardWeapon(ship, target.powergridUsage);
+        target.emAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return target.emBaseDamage * charge.damageModifier * ship.emDamageModifier(target, charge);
+        };
+        target.explosiveAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return target.explosiveBaseDamage * charge.damageModifier * ship.explosiveDamageModifier(target, charge);
+        };
+        target.kineticAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return target.kineticBaseDamage * charge.damageModifier * ship.kineticDamageModifier(target, charge);
+        };
+        target.thermalAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return target.thermalBaseDamage * charge.damageModifier * ship.thermalDamageModifier(target, charge);
+        };
     }
 
     function RocketLauncherLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
@@ -765,6 +818,35 @@ module Wafle {
         public powerTransferAmount: number = 0;
         /** energyDestabilizationAmount in Giga Joule - ex: 45 = 45GJ */
         public energyDestabilizationAmount: number = 0;
+
+        /** total alpha damage of all types at optimal including ship bonuses, pilot skill, and ammunition used. */
+        public totalAlphaDamageActual(ship: Ship, charge: BaseShipEquipmentData): number {
+            return (this.emAlphaDamageActual(ship, charge) +
+                this.explosiveAlphaDamageActual(ship, charge) +
+                this.kineticAlphaDamageActual(ship, charge) +
+                this.thermalAlphaDamageActual(ship, charge) || 0);
+        }
+        public emAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        public explosiveAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        public kineticAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        public thermalAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        /** EM damage in HP */
+        public emBaseDamage: number;
+        /** Explosive damage in HP */
+        public explosiveBaseDamage: number;
+        /** Kinetic damage in HP */
+        public kineticBaseDamage: number;
+        /** Thermal damage in HP */
+        public thermalBaseDamage: number;
+        /** Weapons Range Modifier as fraction of base range (example: 0.5 means the range is half of normal) */
+        public weaponsRangeModifier: number;
+        /** Charge size: 1=small, 2=medium, 3=large, etc... */
+        public chargeSize: number;
+        /** Launcher Group (Group ID number of compatible Launchers) */
+        public launcherGroup: number;
+        /** Tracking Speed modifier as fraction of base (example: 1.2 means 20% faster tracking than normal) */
+        public trackingSpeedModifier: number;
+
 
 
 
