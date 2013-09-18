@@ -18,8 +18,11 @@ var tscProcess = exec('tsc --sourcemap --module amd --target ES5 --outDir "' + b
 
 function tsCompileComplete(error,stdout,stderr)
 {
-    //todo: check for failure.
-
+    if (error !== null) {
+        console.log("Error compiling Wafle.");
+        console.log(error);
+        return;
+    }
     
     console.log("Identifying Wafle library version...");
     //Imports Wafle.
@@ -36,14 +39,25 @@ function tsCompileComplete(error,stdout,stderr)
 }
 
 function uglifyWafleCallback(error, stdout, stderr) {
-    //todo: check for failure.
+    if (error !== null) {
+        console.log("Error Uglifying Wafle.");
+        console.log(error);
+        return;
+    }
+
+
     copyFileSync(path.join(buildJSPath, "wafle.min.js"), path.join(buildJSPath,"wafle-" + wafleVersion + ".min.js"));
     wafleDone = true;
     reportAndCheckAllDone("Wafle");
 }
 
 function uglifyWafleDataCallback(error, stdout, stderr) {
-    //todo: check for failure.
+    if (error !== null) {
+        console.log("Error Uglifying WafleData.");
+        console.log(error);
+        return;
+    }
+
     copyFileSync(path.join(buildJSPath, "wafleData.min.js"), path.join(buildJSPath, "wafleData-" + wafleVersion + ".min.js"));
     wafleDataDone = true;
     reportAndCheckAllDone("Wafle Data");
