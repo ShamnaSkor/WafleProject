@@ -128,6 +128,37 @@ QUnit.module("Slot Tests");
 
     });
 
+    test("Adding a rocket to a rocket launcher works", function () {
+        var ship = new Wafle.Ship("Rifter");
+        var rocketLauncherTypeID = 10629;
+        var rocketType = new Wafle.TypeInfo(266, 387);
+        ship.fittingSlots[0].SetModule(rocketLauncherTypeID);
+        ok(ship.fittingSlots[0].LoadCharge(rocketType) === undefined);
+        strictEqual(ship.fittingSlots[0].LoadedCharge().name, "Scourge Rocket");
+    });
+
+    test("Adding a rocket to a missile launcher throws the correct exception", function () {
+        var ship = new Wafle.Ship("Rifter");
+        var missileLauncherTypeID = 499;
+        var rocketType = new Wafle.TypeInfo(266, 387);
+        var mwdType = new Wafle.TypeInfo(434, 46);
+        ship.fittingSlots[0].SetModule(missileLauncherTypeID);
+        throws(
+            function () {
+                ship.fittingSlots[0].LoadCharge(rocketType);
+            },
+            /Type 266 is not compatible with a launcher of type Light Missile Launcher I./,
+            "Fitting a rocket in a missile launcher"
+            );
+        throws(
+            function () {
+                ship.fittingSlots[0].LoadCharge(mwdType);
+            },
+            /Type 434 in group 46 is not a loadable charge./,
+            "Fitting a mwd in a missile launcher"
+            );
+    });
+
 QUnit.module("Fitting Tests");
     test("Rifter fit with 125 autocannon shows correct CPU for pilot with no CPU reducing skills.", function () {
         var ship = new Wafle.Ship("Rifter");
@@ -465,23 +496,22 @@ QUnit.module("Reality Checks");
         strictEqual(ship.HullThermalDamageReduction(), 0.6, "Hull th with DC II");
     });
 
-    test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
+test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
+
         var ship = new Wafle.Ship("Rifter");
         ship.pilot = new Wafle.Pilot("");
-        ship.pilot.skills.Mechanics = 5;
-        ship.pilot.skills.HullUpgrades = 5;
-        ship.pilot.skills.ShieldManagement = 5;
-        ship.pilot.skills.Electronics = 5;
-        ship.pilot.skills.Engineering = 5;
-        ship.pilot.skills.AdvancedWeaponUpgrades = 5;
-        ship.pilot.skills.WeaponUpgrades = 5;
-        ship.pilot.skills.Navigation = 5;
-        ship.pilot.skills.ArmorRigging = 5;
+        ship.pilot.skills.SetAllSkills(5);
+    var empS = new Wafle.TypeInfo(185, 83);
+    var scourgeRocket = new Wafle.TypeInfo(266, 387);
 
-        ship.fittingSlots[0].SetModule(484,55); //125mm
+        ship.fittingSlots[0].SetModule(484, 55); //125mm
+        ship.fittingSlots[0].LoadCharge(empS);
         ship.fittingSlots[1].SetModule(484, 55); //125mm
+        ship.fittingSlots[1].LoadCharge(empS);
         ship.fittingSlots[2].SetModule(484, 55); //125mm
+        ship.fittingSlots[2].LoadCharge(empS);
         ship.fittingSlots[3].SetModule(10629, 507); //rocket
+        ship.fittingSlots[3].LoadCharge(scourgeRocket);
         ship.fittingSlots[4].SetModule(526, 65);  //web
         ship.fittingSlots[5].SetModule(434, 46); //mwd
         ship.fittingSlots[6].SetModule(447, 52); //scram
@@ -512,20 +542,15 @@ QUnit.module("Reality Checks");
         strictEqual(ship.HullExplosiveDamageReduction(), 0.5, "Hull ex");
         strictEqual(ship.HullKineticDamageReduction(), 0.5, "Hull ki");
         strictEqual(ship.HullThermalDamageReduction(), 0.5, "Hull th");
+        strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage(),-2) , Wafle.Round(44.47,-2), "alpha damage from single gun");
+        strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage() + ship.fittingSlots[1].totalAlphaDamage() + ship.fittingSlots[2].totalAlphaDamage(),-2), Wafle.Round(133.42,-2), "alpha damage from guns");
+        strictEqual(Wafle.Round(ship.fittingSlots[3].totalAlphaDamage(), -2), Wafle.Round(45.38, -2), "alpha damage from single rocket");
     });
 
     test("Armor Fleet Buffer Executioner with all V skills.", function () {
         var ship = new Wafle.Ship("Executioner");
         ship.pilot = new Wafle.Pilot("");
-        ship.pilot.skills.Mechanics = 5;
-        ship.pilot.skills.HullUpgrades = 5;
-        ship.pilot.skills.ShieldManagement = 5;
-        ship.pilot.skills.Electronics = 5;
-        ship.pilot.skills.Engineering = 5;
-        ship.pilot.skills.AdvancedWeaponUpgrades = 5;
-        ship.pilot.skills.WeaponUpgrades = 5;
-        ship.pilot.skills.Navigation = 5;
-        ship.pilot.skills.ArmorRigging = 5;
+        ship.pilot.skills.SetAllSkills(5);
 
         ship.fittingSlots[0].SetModule(3001, 53); //Dual Light Pulse Laser II
         ship.fittingSlots[1].SetModule(3001, 53); //Dual Light Pulse Laser II

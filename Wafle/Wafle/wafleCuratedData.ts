@@ -47,24 +47,18 @@ module Wafle.Data {
     }
 
 
-    export function ShipOmniDamageModifier(ship: Ship, attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number {
+    export function ShipOmniDamageMultiplier(ship: Ship, attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number {
         var ps = ship.pilot.skills;
-        var modifier = 1;
-        if (attackingModule.groupId === 55) {
-            switch (attackingModule.chargeSize) {
-                case 1:
-                    modifier = modifier * (1 + (0.05 * ps.SmallProjectileTurret));
-                    break;
-            }
-        }
+        var mult = 1.0;
+
         switch (ship.baseShipData.typeId) {
             case 587:
-                if (attackingModule.groupId === 55 && attackingModule.chargeSize === 1) {
-                    modifier = modifier * (1 + (0.05 * ps.MinmatarFrigate));
+                if (attackingModule.groupId === InventoryGroups.ProjectileWeapon && attackingModule.chargeSize === 1) {
+                    mult = mult * (1 + (0.05 * ps.MinmatarFrigate));
                 }
             //no default
         }
 
-        return modifier;
+        return mult;
     }
 }
