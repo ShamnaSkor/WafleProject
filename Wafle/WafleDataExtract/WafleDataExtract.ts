@@ -36,8 +36,9 @@ catch (ex) {
 }
 
 
-var MarketGroupIDs = [25, 46, 52, 53, 55, 60, 62, 65, 74, 83, 85, 86, 325, 329, 372, 373, 374, 375, 376, 377, 384, 385, 387, 395, 507, 509, 510, 511, 648,
-    653, 654, 655, 763, 771, 772, 773, 774];
+var MarketGroupIDs = [25, 46, 52, 53, 55, 60, 62, 65, 68, 71, 74, 77, 83, 85, 86, 98, 325, 329, 372, 373, 374,
+    375, 376, 377, 384, 385, 387, 395, 507, 509, 510, 511, 648, 653, 654, 655, 763, 771, 772, 773,
+    774];
 
 
 if (process.argv.length !== 4 ) {
@@ -75,7 +76,7 @@ sql.open(connectionString, function (err, conn) {
         "	ISNULL(cpu.valueFloat,cpu.valueInt) as [cpu], \n" +
         "	ISNULL(pg.valueFloat,pg.valueInt) as [powergrid], \n" +
         "	COALESCE(mta.valueFloat,mta.valueInt,0) as [metalevel], \n" +
-        "	ISNULL(opt.valueFloat,opt.valueInt) as [optimal], \n" +
+        "	COALESCE(opt.valueFloat,opt.valueInt,edr.valueFloat,edr.valueInt,ptrr.valueFloat,ptrr.valueInt) as [optimal], \n" +
         "	ISNULL(acc.valueFloat,acc.valueInt) as [accuracyFalloff], \n" +
         "	ISNULL(rof.valueFloat,rof.valueInt) as [rateOfFire], \n" +
         "	ISNULL(trk.valueFloat,trk.valueInt) as [trackingSpeed], \n" +
@@ -114,7 +115,7 @@ sql.open(connectionString, function (err, conn) {
         "	ISNULL(agim.valueFloat,agim.valueInt) as [agilityMultiplier], \n" +
         "	ISNULL(velm.valueFloat,velm.valueInt) as [velocityMultiplier], \n" +
         "	ISNULL(vel.valueFloat,vel.valueInt) as [maxVelocity], \n" +
-        "	ISNULL(ahpbp.valueFloat,ahpbp.valueInt) as [armorHpBonusPercent], \n" +
+        "	COALESCE(ahpbp.valueFloat,ahpbp.valueInt, (ahpbm.valueFloat-1.0)*100.0, (ahpbm.valueInt-1.0)*100.0)  as [armorHpBonusPercent], \n" +
         "	ISNULL(emdrb.valueFloat,emdrb.valueInt) as [emDamageResistanceBonus], \n" +
         "	ISNULL(exdrb.valueFloat,exdrb.valueInt) as [explosiveDamageResistanceBonus], \n" +
         "	ISNULL(kidrb.valueFloat,kidrb.valueInt) as [kineticDamageResistanceBonus], \n" +
@@ -131,7 +132,9 @@ sql.open(connectionString, function (err, conn) {
         "	ISNULL(cs.valueFloat,cs.valueInt) as [chargeSize], \n" +
         "	ISNULL(lg.valueFloat,lg.valueInt) as [launcherGroup], \n" +
         "	ISNULL(tsm.valueFloat,tsm.valueInt) as [trackingSpeedMultiplier], \n" +
-        "	ISNULL(fom.valueFloat,fom.valueInt) as [falloffMultiplier] \n" +
+        "	ISNULL(fom.valueFloat,fom.valueInt) as [falloffMultiplier], \n" +
+        "	ISNULL(eda.valueFloat,eda.valueInt) as [energyDestabilizationAmount], \n" +
+        "	ISNULL(pta.valueFloat,pta.valueInt) as [powerTransferAmount] \n" +
         "FROM BaseShipEquipData bse \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes cpu ON cpu.typeID = bse.typeId AND cpu.attributeID = 50 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes pg ON pg.typeID = bse.typeId AND pg.attributeID = 30 \n" +
@@ -180,6 +183,7 @@ sql.open(connectionString, function (err, conn) {
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes velm ON velm.typeID = bse.typeId AND velm.attributeID = 1076 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes vel ON vel.typeID = bse.typeId AND vel.attributeID = 37 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes ahpbp ON ahpbp.typeID = bse.typeId AND ahpbp.attributeID = 335 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes ahpbm ON ahpbm.typeID = bse.typeId AND ahpbm.attributeID = 148 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes emdrb ON emdrb.typeID = bse.typeId AND emdrb.attributeID = 984 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes exdrb ON exdrb.typeID = bse.typeId AND exdrb.attributeID = 985 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes kidrb ON kidrb.typeID = bse.typeId AND kidrb.attributeID = 986 \n" +
@@ -197,6 +201,10 @@ sql.open(connectionString, function (err, conn) {
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes lg ON lg.typeID = bse.typeId AND lg.attributeID = 137 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes tsm ON tsm.typeID = bse.typeId AND tsm.attributeID = 244 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes fom ON fom.typeID = bse.typeId AND fom.attributeID = 517 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes eda ON eda.typeID = bse.typeId AND eda.attributeID = 97 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes pta ON pta.typeID = bse.typeId AND pta.attributeID = 90 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes edr ON edr.typeID = bse.typeId AND edr.attributeID = 98 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes ptrr ON ptrr.typeID = bse.typeId AND ptrr.attributeID = 91 \n" +
         "ORDER BY bse.groupId, bse.typeId;";
 
     console.log("Querying (may take a few seconds)...");
@@ -290,7 +298,15 @@ sql.open(connectionString, function (err, conn) {
             buffer.append(aliasedPropertyValueOrBlank(results[i], "trackingSpeedMultiplier", "tsm"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "falloffMultiplier", "fom"));
 
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "energyDestabilizationAmount", "eda"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "powerTransferAmount", "pta"));
 
+            /*
+            "	LEFT OUTER JOIN dbo.dgmTypeAttributes eda ON eda.typeID = bse.typeId AND eda.attributeID = 97 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes pta ON pta.typeID = bse.typeId AND pta.attributeID = 90 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes edr ON edr.typeID = bse.typeId AND edr.attributeID = 98 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes ptrr ON ptrr.typeID = bse.typeId AND ptrr.attributeID = 91 \n" +
+*/
             buffer.append('}');
             if (i + 1 !== results.length && results[i + 1].groupId === results[i].groupId) {
                 buffer.append(',');
@@ -318,7 +334,8 @@ sql.open(connectionString, function (err, conn) {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log(outputCodeFile + " updated successfully.");
+                    console.log("\n\nWafleData.ts updated successfully.");
+                    console.log("Don't forget to run the Wafle build script to compile and minify the data!");
                 }
             });
         });
