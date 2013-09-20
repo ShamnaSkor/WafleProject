@@ -343,6 +343,45 @@ This Probe was commissioned by the Vherokior tribal leadership and bears their c
 <br><font size=\"14\"><b>Development</b></font>\n\
 This Magnate-class frigate is one of the most decoratively designed ship classes in the Amarr Empire, considered to be a pet project for a small, elite group of royal ship engineers for over a decade. The frigate's design has gone through several stages over the past decade, and new models of the Magnate appear every few years.<br><br>In recent times the royal Amarr Houses have shown increased interest in the design. House Tash-Murkon came to the fore in Amarr politics only after the fall of another, disgraced house, and while they possess great wealth and considerable power, some feel they do not command the respect of the original, highborn royal Houses. This Magnate is a clear statement by house Tash-Murkon that they possess all the grandeur and powerful grace required to stand beside the most pious of Amarr, and despite a few nattering voices claiming they are yet again trying to purchase divinity, most people applaud the vessel as a proper effort to honor the glory of the Almighty.", tl: 1, aemr: 0.5, aexr: 0.8, akir: 0.75, athr: 0.65, semr: 1, sexr: 0.5, skir: 0.6, sthr: 0.8, hemr: 1, hexr: 1, hkir: 1, hthr: 1, r: 4, pgo: 26, cpuo: 230, shhp: 250, sshp: 250, sahp: 350, lsc: 4, msc: 3, hsc: 3, lasc: 2, tusc: 2, rsc: 3, rgsz: 1, calb: 400, vel: 350}
     },
+    "38": {
+      "377": { n: "Small Shield Extender I", mg: 605, pmg: 551, mta: 0, d: "Increases the maximum strength of the shield.", cpu: 20, pg: 2, shp: 188, tl: 1, shhp: 40, sra: 2},
+      "380": { n: "Small Shield Extender II", mg: 605, pmg: 551, mta: 5, d: "Increases the maximum strength of the shield.", cpu: 23, pg: 3, shp: 263, tl: 2, shhp: 40, sra: 2},
+      "3829": { n: "Medium Shield Extender I", mg: 606, pmg: 551, mta: 0, d: "Increases the maximum strength of the shield.", cpu: 30, pg: 28, shp: 750, tl: 1, shhp: 40, sra: 7},
+      "3831": { n: "Medium Shield Extender II", mg: 606, pmg: 551, mta: 5, d: "Increases the maximum strength of the shield.", cpu: 34, pg: 31, shp: 1050, tl: 2, shhp: 40, sra: 7},
+      "3839": { n: "Large Shield Extender I", mg: 608, pmg: 551, mta: 0, d: "Increases the maximum strength of the shield.", cpu: 40, pg: 150, shp: 1875, tl: 1, shhp: 40, sra: 25},
+      "3841": { n: "Large Shield Extender II", mg: 608, pmg: 551, mta: 5, d: "Increases the maximum strength of the shield.", cpu: 46, pg: 165, shp: 2625, tl: 2, shhp: 40, sra: 25},
+      "3849": { n: "Micro Shield Extender I", mg: 607, pmg: 551, mta: 0, d: "Increases the maximum strength of the shield.", cpu: 15, pg: 1, shp: 94, tl: 1, shhp: 40, sra: 1},
+      "3851": { n: "Micro Shield Extender II", mg: 607, pmg: 551, mta: 5, d: "Increases the maximum strength of the shield.", cpu: 17, pg: 1, shp: 131, tl: 2, shhp: 40, sra: 1},
+      "8387": { n: "Micro Subordinate Screen Stabilizer I", mg: 607, pmg: 551, mta: 2, d: "Increases the maximum strength of the shield.", cpu: 13, pg: 1, shp: 104, tl: 1, r: 2, shhp: 40, sra: 1},
+      "8397": { n: "Medium Subordinate Screen Stabilizer I", mg: 606, pmg: 551, mta: 2, d: "Increases the maximum strength of the shield.", cpu: 27, pg: 28, shp: 825, tl: 1, r: 2, shhp: 40, sra: 6},
+      "8401": { n: "Small Subordinate Screen Stabilizer I", mg: 605, pmg: 551, mta: 2, d: "Increases the maximum strength of the shield.", cpu: 18, pg: 2, shp: 206, tl: 1, r: 2, shhp: 40, sra: 2},
+      "8409": { n: "Large Subordinate Screen Stabilizer I", mg: 608, pmg: 551, mta: 2, d: "Increases the maximum strength of the shield.", cpu: 36, pg: 150, shp: 2063, tl: 1, r: 2, shhp: 40, sra: 23},
+      "8419": { n: "Large Azeotropic Ward Salubrity I", mg: 608, pmg: 551, mta: 3, d: "Increases the maximum strength of the shield.", cpu: 32, pg: 150, shp: 2156, tl: 1, r: 4, shhp: 40, sra: 22},
+      "8427": { n: "Small Azeotropic Ward Salubrity I", mg: 605, pmg: 551, mta: 3, d: "Increases the maximum strength of the shield.", cpu: 16, pg: 2, shp: 216, tl: 1, r: 4, shhp: 40, sra: 2},
+      "8433": { n: "Medium Azeotropic Ward Salubrity I", mg: 606, pmg: 551, mta: 3, d: "Increases the maximum strength of the shield.", cpu: 24, pg: 28, shp: 863, tl: 1, r: 4, shhp: 40, sra: 5},
+      "8437": { n: "Micro Azeotropic Ward Salubrity I", mg: 607, pmg: 551, mta: 3, d: "Increases the maximum strength of the shield.", cpu: 12, pg: 1, shp: 109, tl: 1, r: 4, shhp: 40, sra: 1},
+      "8465": { n: "Micro Supplemental Barrier Emitter I", mg: 607, pmg: 551, mta: 1, d: "Increases the maximum strength of the shield.", cpu: 14, pg: 1, shp: 100, tl: 1, r: 8, shhp: 40, sra: 1},
+      "8477": { n: "Medium Supplemental Barrier Emitter I", mg: 606, pmg: 551, mta: 1, d: "Increases the maximum strength of the shield.", cpu: 28, pg: 28, shp: 788, tl: 1, r: 8, shhp: 40, sra: 6},
+      "8481": { n: "Small Supplemental Barrier Emitter I", mg: 605, pmg: 551, mta: 1, d: "Increases the maximum strength of the shield.", cpu: 19, pg: 2, shp: 198, tl: 1, r: 8, shhp: 40, sra: 2},
+      "8489": { n: "Large Supplemental Barrier Emitter I", mg: 608, pmg: 551, mta: 1, d: "Increases the maximum strength of the shield.", cpu: 38, pg: 150, shp: 1969, tl: 1, r: 8, shhp: 40, sra: 24},
+      "8505": { n: "Micro F-S9 Regolith Shield Induction", mg: 607, pmg: 551, mta: 4, d: "Increases the maximum strength of the shield.", cpu: 13, pg: 1, shp: 113, tl: 1, r: 1, shhp: 40, sra: 1},
+      "8517": { n: "Medium F-S9 Regolith Shield Induction", mg: 606, pmg: 551, mta: 4, d: "Increases the maximum strength of the shield.", cpu: 25, pg: 28, shp: 900, tl: 1, r: 1, shhp: 40, sra: 5},
+      "8521": { n: "Small F-S9 Regolith Shield Induction", mg: 605, pmg: 551, mta: 4, d: "Increases the maximum strength of the shield.", cpu: 17, pg: 2, shp: 225, tl: 1, r: 1, shhp: 40, sra: 2},
+      "8529": { n: "Large F-S9 Regolith Shield Induction", mg: 608, pmg: 551, mta: 4, d: "Increases the maximum strength of the shield.", cpu: 34, pg: 150, shp: 2250, tl: 1, r: 1, shhp: 40, sra: 21},
+      "20625": { n: "Small 'Wolf' Shield Extender", mg: 605, pmg: 551, mta: 6, d: "Increases the maximum strength of the shield.", cpu: 17, pg: 2, shp: 225, tl: 1, shhp: 40, sra: 2},
+      "20627": { n: "Micro 'Trapper' Shield Extender", mg: 607, pmg: 551, mta: 6, d: "Increases the maximum strength of the shield.", cpu: 13, pg: 1, shp: 113, tl: 1, shhp: 40, sra: 1},
+      "20629": { n: "Medium 'Canyon' Shield Extender", mg: 606, pmg: 551, mta: 6, d: "Increases the maximum strength of the shield.", cpu: 26, pg: 26, shp: 900, tl: 1, shhp: 40, sra: 4},
+      "20631": { n: "Large 'Sheriff' Shield Extender", mg: 608, pmg: 551, mta: 6, d: "Increases the maximum strength of the shield.", cpu: 34, pg: 135, shp: 2250, tl: 1, shhp: 40, sra: 20},
+      "28742": { n: "Thukker Small Shield Extender", mg: 605, pmg: 551, mta: 6, d: "Increases the maximum strength of the shield.", cpu: 23, pg: 3, shp: 263, tl: 1, shhp: 40, sra: 1},
+      "28744": { n: "Thukker Large Shield Extender", mg: 608, pmg: 551, mta: 6, d: "Increases the maximum strength of the shield.", cpu: 46, pg: 165, shp: 2625, tl: 1, shhp: 40, sra: 20},
+      "28746": { n: "Thukker Medium Shield Extender", mg: 606, pmg: 551, mta: 6, d: "Increases the maximum strength of the shield.", cpu: 34, pg: 31, shp: 1050, tl: 1, shhp: 40, sra: 5},
+      "31922": { n: "Caldari Navy Small Shield Extender", mg: 605, pmg: 551, mta: 7, d: "Increases the maximum strength of the shield.", cpu: 17, pg: 3, shp: 263, tl: 1, shhp: 40, sra: 2},
+      "31924": { n: "Republic Fleet Small Shield Extender", mg: 605, pmg: 551, mta: 7, d: "Increases the maximum strength of the shield.", cpu: 23, pg: 3, shp: 263, tl: 1, shhp: 40, sra: 1},
+      "31926": { n: "Caldari Navy Medium Shield Extender", mg: 606, pmg: 551, mta: 7, d: "Increases the maximum strength of the shield.", cpu: 26, pg: 31, shp: 1050, tl: 1, shhp: 40, sra: 7},
+      "31928": { n: "Republic Fleet Medium Shield Extender", mg: 606, pmg: 551, mta: 7, d: "Increases the maximum strength of the shield.", cpu: 34, pg: 31, shp: 1050, tl: 1, shhp: 40, sra: 5},
+      "31930": { n: "Caldari Navy Large Shield Extender", mg: 608, pmg: 551, mta: 7, d: "Increases the maximum strength of the shield.", cpu: 35, pg: 165, shp: 2625, tl: 1, shhp: 40, sra: 25},
+      "31932": { n: "Republic Fleet Large Shield Extender", mg: 608, pmg: 551, mta: 7, d: "Increases the maximum strength of the shield.", cpu: 46, pg: 165, shp: 2625, tl: 1, shhp: 40, sra: 19}
+    },
     "46": {
       "434": { n: "1MN Microwarpdrive I", mg: 131, pmg: 52, mta: 0, d: "Massive boost to speed for a very short time. The thrust that boosts the ship, and the corresponding maximum velocity bonus, are limited by the mass of the ship that uses this module. The sheer amount of energy needed to power this system means that it must permanently reserve a fraction of the capacitor output just to maintain the integrity of its warp containment field, and when activated it substantially increases the ship's EM footprint.\n\
 \n\
@@ -1790,6 +1829,68 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "21561": { n: "1400mm 'Jolt' Artillery I", mg: 579, pmg: 560, mta: 6, d: "The ultimate artillery cannon. It hurls death and destruction over incredible distances. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", cpu: 38, pg: 2925, opt: 40000, acc: 38500, rof: 40163, trk: 0.009, dmg: 11.739, capn: 0, tl: 1, shhp: 40, cs: 3}
+    },
+    "59": {
+      "518": { n: "Basic Gyrostabilizer", mg: 646, pmg: 143, mta: 0, d: "Gives a bonus to the speed and damage of projectile turrets.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.95, dmg: 1.05, tl: 1, shhp: 40},
+      "519": { n: "Gyrostabilizer II", mg: 646, pmg: 143, mta: 5, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.895, dmg: 1.1, tl: 2, shhp: 40},
+      "520": { n: "Gyrostabilizer I", mg: 646, pmg: 143, mta: 0, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.925, dmg: 1.07, tl: 1, shhp: 40},
+      "5913": { n: "Hydraulic Stabilization Actuator", mg: 646, pmg: 143, mta: 0, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.935, dmg: 1.065, tl: 1, r: 2, shhp: 40},
+      "5915": { n: "Lateral Gyrostabilizer", mg: 646, pmg: 143, mta: 0, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.945, dmg: 1.055, tl: 1, r: 4, shhp: 40},
+      "5917": { n: "Stabilized Weapon Mounts", mg: 646, pmg: 143, mta: 0, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.93, dmg: 1.07, tl: 1, r: 8, shhp: 40},
+      "5919": { n: "F-M2 Weapon Inertial Suspensor", mg: 646, pmg: 143, mta: 0, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 25, pg: 1, rofm: 0.94, dmg: 1.06, tl: 1, r: 1, shhp: 40},
+      "5929": { n: "Pneumatic Stabilization Actuator I", mg: 646, pmg: 143, mta: 3, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 33, pg: 1, rofm: 0.9025, dmg: 1.091, tl: 1, r: 2, shhp: 40},
+      "5931": { n: "Cross-Lateral Gyrostabilizer I", mg: 646, pmg: 143, mta: 1, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 31, pg: 1, rofm: 0.9175, dmg: 1.077, tl: 1, r: 4, shhp: 40},
+      "5933": { n: "Counterbalanced Weapon Mounts I", mg: 646, pmg: 143, mta: 4, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 34, pg: 1, rofm: 0.895, dmg: 1.098, tl: 1, r: 8, shhp: 40},
+      "5935": { n: "F-M3 Munition Inertial Suspensor", mg: 646, pmg: 143, mta: 2, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 32, pg: 1, rofm: 0.91, dmg: 1.084, tl: 1, r: 1, shhp: 40},
+      "13939": { n: "Domination Gyrostabilizer", mg: 646, pmg: 143, mta: 8, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "14536": { n: "Mizuro's Modified Gyrostabilizer", mg: 646, pmg: 143, mta: 11, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 22, pg: 1, rofm: 0.895, dmg: 1.13125, tl: 1, shhp: 40},
+      "14538": { n: "Hakim's Modified Gyrostabilizer", mg: 646, pmg: 143, mta: 12, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, dmg: 1.1375, tl: 1, shhp: 40},
+      "14540": { n: "Gotan's Modified Gyrostabilizer", mg: 646, pmg: 143, mta: 13, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.895, dmg: 1.14375, tl: 1, shhp: 40},
+      "14542": { n: "Tobias' Modified Gyrostabilizer", mg: 646, pmg: 143, mta: 14, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.895, dmg: 1.15, tl: 1, shhp: 40},
+      "15447": { n: "Shaqil's Modified Gyrostabilizer", mg: 646, pmg: 143, mta: 14, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.895, dmg: 1.15, tl: 1, shhp: 40},
+      "15806": { n: "Republic Fleet Gyrostabilizer", mg: 646, pmg: 143, mta: 8, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "21486": { n: "'Kindred' Stabilization Actuator I", mg: 646, pmg: 143, mta: 6, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.925, dmg: 1.1, tl: 1, shhp: 40},
+      "21488": { n: "Monophonic Stabilization Actuator I", mg: 646, pmg: 143, mta: 6, d: "Gives a bonus to the speed and damage of projectile turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.925, dmg: 1.1, tl: 1, shhp: 40}
     },
     "60": {
       "521": { n: "Basic Damage Control", mg: 615, pmg: 14, mta: 0, d: "Utilizes a combination of containment field emitters and redundancy systems to prevent critical system damage. \n\
@@ -5522,6 +5623,142 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "28559": { n: "Khanid Navy Thermic Plating", mg: 1665, pmg: 540, mta: 9, d: "Attempts to distribute thermal energy over the entire plating. Grants a bonus to thermal resistance. Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 0, pg: 1, tl: 1, shhp: 40, ahpbp: 0, emdrb: 0, exdrb: 0, kidrb: 0, thdrb: -30},
       "32809": { n: "Ammatar Navy Thermic Plating", mg: 1665, pmg: 540, mta: 9, d: "Attempts to distribute thermal energy over the entire plating. Grants a bonus to thermal resistance. Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 0, pg: 1, tl: 1, shhp: 40, ahpbp: 0, emdrb: 0, exdrb: 0, kidrb: 0, thdrb: -30}
     },
+    "205": {
+      "1893": { n: "Basic Heat Sink", mg: 647, pmg: 143, mta: 0, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.95, dmg: 1.05, tl: 1, shhp: 40},
+      "2363": { n: "Heat Sink I", mg: 647, pmg: 143, mta: 0, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.925, dmg: 1.07, tl: 1, shhp: 40},
+      "2364": { n: "Heat Sink II", mg: 647, pmg: 143, mta: 5, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.895, dmg: 1.1, tl: 2, shhp: 40},
+      "5845": { n: "Heat Exhaust System", mg: 647, pmg: 143, mta: 0, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.945, dmg: 1.055, tl: 1, r: 2, shhp: 40},
+      "5846": { n: "Thermal Exhaust System I", mg: 647, pmg: 143, mta: 1, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 31, pg: 1, rofm: 0.9175, dmg: 1.077, tl: 1, r: 2, shhp: 40},
+      "5849": { n: "Extruded Heat Sink I", mg: 647, pmg: 143, mta: 4, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 34, pg: 1, rofm: 0.895, dmg: 1.098, tl: 1, r: 4, shhp: 40},
+      "5854": { n: "Stamped Heat Sink", mg: 647, pmg: 143, mta: 0, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.93, dmg: 1.07, tl: 1, r: 4, shhp: 40},
+      "5855": { n: "'Boreas' Coolant System", mg: 647, pmg: 143, mta: 0, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.935, dmg: 1.065, tl: 1, r: 8, shhp: 40},
+      "5856": { n: "C3S Convection Thermal Radiator", mg: 647, pmg: 143, mta: 0, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 25, pg: 1, rofm: 0.94, dmg: 1.06, tl: 1, r: 1, shhp: 40},
+      "5857": { n: "'Skadi' Coolant System I", mg: 647, pmg: 143, mta: 3, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 33, pg: 1, rofm: 0.9025, dmg: 1.091, tl: 1, r: 8, shhp: 40},
+      "5858": { n: "C4S Coiled Circuit Thermal Radiator", mg: 647, pmg: 143, mta: 2, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 32, pg: 1, rofm: 0.91, dmg: 1.084, tl: 1, r: 1, shhp: 40},
+      "13941": { n: "Dark Blood Heat Sink", mg: 647, pmg: 143, mta: 8, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "13943": { n: "True Sansha Heat Sink", mg: 647, pmg: 143, mta: 8, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "14800": { n: "Brokara's Modified Heat Sink", mg: 647, pmg: 143, mta: 11, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 22, pg: 1, rofm: 0.895, dmg: 1.13125, tl: 1, shhp: 40},
+      "14802": { n: "Tairei's Modified Heat Sink", mg: 647, pmg: 143, mta: 11, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 22, pg: 1, rofm: 0.895, dmg: 1.13125, tl: 1, shhp: 40},
+      "14804": { n: "Selynne's Modified Heat Sink", mg: 647, pmg: 143, mta: 12, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, dmg: 1.1375, tl: 1, shhp: 40},
+      "14806": { n: "Raysere's Modified Heat Sink", mg: 647, pmg: 143, mta: 12, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, dmg: 1.1375, tl: 1, shhp: 40},
+      "14808": { n: "Vizan's Modified Heat Sink", mg: 647, pmg: 143, mta: 13, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.895, dmg: 1.14375, tl: 1, shhp: 40},
+      "14810": { n: "Ahremen's Modified Heat Sink", mg: 647, pmg: 143, mta: 13, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.895, dmg: 1.14375, tl: 1, shhp: 40},
+      "14812": { n: "Chelm's Modified Heat Sink", mg: 647, pmg: 143, mta: 14, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.895, dmg: 1.15, tl: 1, shhp: 40},
+      "14814": { n: "Draclira's Modified Heat Sink", mg: 647, pmg: 143, mta: 14, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.895, dmg: 1.15, tl: 1, shhp: 40},
+      "15808": { n: "Ammatar Navy Heat Sink", mg: 647, pmg: 143, mta: 8, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "15810": { n: "Imperial Navy Heat Sink", mg: 647, pmg: 143, mta: 8, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "23900": { n: "'Mangonel' Heat Sink I", mg: 647, pmg: 143, mta: 6, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.905, dmg: 1.085, tl: 1, shhp: 40},
+      "23902": { n: "'Trebuchet' Heat Sink I", mg: 647, pmg: 143, mta: 7, d: "Dissipates energy weapon damage efficiently, thus allowing them to be fired more rapidly. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.9, dmg: 1.1, tl: 1, shhp: 40}
+    },
+    "302": {
+      "9944": { n: "Magnetic Field Stabilizer I", mg: 648, pmg: 143, mta: 0, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.925, dmg: 1.07, tl: 1, shhp: 40},
+      "10188": { n: "Basic Magnetic Field Stabilizer", mg: 648, pmg: 143, mta: 0, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.95, dmg: 1.05, tl: 1, shhp: 40},
+      "10190": { n: "Magnetic Field Stabilizer II", mg: 648, pmg: 143, mta: 5, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.895, dmg: 1.1, tl: 2, shhp: 40},
+      "11101": { n: "Linear Flux Stabilizer I", mg: 648, pmg: 143, mta: 2, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 32, pg: 1, rofm: 0.91, dmg: 1.084, tl: 1, r: 2, shhp: 40},
+      "11103": { n: "Insulated Stabilizer Array I", mg: 648, pmg: 143, mta: 1, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 31, pg: 1, rofm: 0.9175, dmg: 1.077, tl: 1, r: 4, shhp: 40},
+      "11105": { n: "Magnetic Vortex Stabilizer I", mg: 648, pmg: 143, mta: 4, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 34, pg: 1, rofm: 0.895, dmg: 1.098, tl: 1, r: 8, shhp: 40},
+      "11107": { n: "Gauss Field Balancer I", mg: 648, pmg: 143, mta: 3, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 33, pg: 1, rofm: 0.9025, dmg: 1.091, tl: 1, r: 1, shhp: 40},
+      "11109": { n: "Linear Flux Stabilizer", mg: 648, pmg: 143, mta: 0, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 25, pg: 1, rofm: 0.94, dmg: 1.06, tl: 1, r: 2, shhp: 40},
+      "11111": { n: "Insulated Stabilizer Array", mg: 648, pmg: 143, mta: 0, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.945, dmg: 1.055, tl: 1, r: 4, shhp: 40},
+      "11113": { n: "Magnetic Vortex Stabilizer", mg: 648, pmg: 143, mta: 0, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.93, dmg: 1.07, tl: 1, r: 8, shhp: 40},
+      "11115": { n: "Gauss Field Balancer", mg: 648, pmg: 143, mta: 0, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.935, dmg: 1.065, tl: 1, r: 1, shhp: 40},
+      "13945": { n: "Shadow Serpentis Magnetic Field Stabilizer", mg: 648, pmg: 143, mta: 8, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "15144": { n: "Brynn's Modified Magnetic Field Stabilizer", mg: 648, pmg: 143, mta: 11, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 22, pg: 1, rofm: 0.895, dmg: 1.1325, tl: 1, shhp: 40},
+      "15146": { n: "Tuvan's Modified Magnetic Field Stabilizer", mg: 648, pmg: 143, mta: 12, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, dmg: 1.1375, tl: 1, shhp: 40},
+      "15148": { n: "Setele's Modified Magnetic Field Stabilizer", mg: 648, pmg: 143, mta: 13, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.895, dmg: 1.14375, tl: 1, shhp: 40},
+      "15150": { n: "Cormack's Modified Magnetic Field Stabilizer", mg: 648, pmg: 143, mta: 14, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.895, dmg: 1.15, tl: 1, shhp: 40},
+      "15895": { n: "Federation Navy Magnetic Field Stabilizer", mg: 648, pmg: 143, mta: 8, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 20, pg: 1, rofm: 0.895, dmg: 1.125, tl: 1, shhp: 40},
+      "22917": { n: "'Capitalist' Magnetic Field Stabilizer I", mg: 648, pmg: 143, mta: 6, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 27, pg: 1, rofm: 0.9, dmg: 1.09, tl: 1, shhp: 40},
+      "22919": { n: "'Monopoly' Magnetic Field Stabilizer I", mg: 648, pmg: 143, mta: 6, d: "Grants a bonus to the firing rate and damage of hybrid turrets. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, dmg: 1.1, tl: 1, shhp: 40}
+    },
     "325": {
       "3536": { n: "Capital Coaxial Remote Armor Repairer", mg: 1056, pmg: 537, mta: 2, d: "This module uses nano-assemblers to repair damage done to the armor of the Target ship.\n\
 Note: May only be fitted to capital class ships.", cpu: 36, pg: 150000, opt: 16500, capn: 1350, tl: 1, shhp: 40, ad: 5000, ahpr: 1650},
@@ -5735,6 +5972,81 @@ Penalty:  Adds to your ship's mass, making it less agile and maneuverable in add
       "31918": { n: "Federation Navy 800mm Reinforced Steel Plates", mg: 1675, pmg: 133, mta: 7, d: "Increases the maximum strength of the Armor.\n\
 \n\
 Penalty:  Adds to your ship's mass, making it less agile and maneuverable in addition to decreasing the factor of thrust gained from speed modules like Afterburners and MicroWarpdrives.", cpu: 28, pg: 230, ahp: 2103, tl: 1, shhp: 40}
+    },
+    "339": {
+      "4254": { n: "Micro Auxiliary Power Core II", mg: 660, pmg: 655, mta: 5, d: "Supplements the main Power core providing more power", cpu: 18, pg: 0, pginc: 12, tl: 2, shhp: 40},
+      "11563": { n: "Micro Auxiliary Power Core I", mg: 660, pmg: 655, mta: 0, d: "Supplements the main Power core providing more power", cpu: 15, pg: 0, pginc: 10, tl: 1, shhp: 40},
+      "16537": { n: "Micro B66 Core Augmentation", mg: 660, pmg: 655, mta: 1, d: "Supplements the main Power core providing more power", cpu: 19, pg: 0, pginc: 11, tl: 1, shhp: 40},
+      "16539": { n: "Micro B88 Core Augmentation", mg: 660, pmg: 655, mta: 2, d: "Supplements the main Power core providing more power", cpu: 17, pg: 0, pginc: 11, tl: 1, shhp: 40},
+      "16541": { n: "Micro K-Exhaust Core Augmentation", mg: 660, pmg: 655, mta: 3, d: "Supplements the main Power core providing more power", cpu: 23, pg: 0, pginc: 12, tl: 1, shhp: 40},
+      "16543": { n: "Micro 'Vigor' Core Augmentation", mg: 660, pmg: 655, mta: 4, d: "Supplements the main Power core providing more power", cpu: 19, pg: 0, pginc: 12, tl: 1, shhp: 40},
+      "28740": { n: "Thukker Micro Auxiliary Power Core", mg: 660, pmg: 655, mta: 6, d: "Supplements the main Power core providing more power", cpu: 15, pg: 0, pginc: 12, tl: 1, shhp: 40},
+      "31936": { n: "Navy Micro Auxiliary Power Core", mg: 660, pmg: 655, mta: 6, d: "Supplements the main Power core providing more power", cpu: 20, pg: 0, pginc: 13, tl: 1, shhp: 40}
+    },
+    "367": {
+      "12274": { n: "Ballistic Control System I", mg: 645, pmg: 143, mta: 0, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 35, pg: 1, rofm: 0.925, tl: 1, shhp: 40, midm: 1.07},
+      "13935": { n: "Domination Ballistic Control System", mg: 645, pmg: 143, mta: 7, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.1},
+      "13937": { n: "Dread Guristas Ballistic Control System", mg: 645, pmg: 143, mta: 12, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.125},
+      "14528": { n: "Hakim's Modified Ballistic Control System", mg: 645, pmg: 143, mta: 11, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 34, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.11},
+      "14530": { n: "Mizuro's Modified Ballistic Control System", mg: 645, pmg: 143, mta: 11, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 31, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.105},
+      "14532": { n: "Gotan's Modified Ballistic Control System", mg: 645, pmg: 143, mta: 11, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 36, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.115},
+      "14534": { n: "Tobias' Modified Ballistic Control System", mg: 645, pmg: 143, mta: 11, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 39, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.12},
+      "14684": { n: "Kaikka's Modified Ballistic Control System", mg: 645, pmg: 143, mta: 13, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 26, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.13125},
+      "14686": { n: "Thon's Modified Ballistic Control System", mg: 645, pmg: 143, mta: 13, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 29, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.1375},
+      "14688": { n: "Vepas' Modified Ballistic Control System", mg: 645, pmg: 143, mta: 14, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 31, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.14375},
+      "14690": { n: "Estamel's Modified Ballistic Control System", mg: 645, pmg: 143, mta: 14, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 34, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.15},
+      "15681": { n: "Caldari Navy Ballistic Control System", mg: 645, pmg: 143, mta: 12, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.125},
+      "15683": { n: "Republic Fleet Ballistic Control System", mg: 645, pmg: 143, mta: 7, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 28, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.1},
+      "16457": { n: "Cross-linked Bolt Array I", mg: 645, pmg: 143, mta: 1, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 37, pg: 1, rofm: 0.9175, tl: 1, shhp: 40, midm: 1.077},
+      "16459": { n: "Muon Coil Bolt Array I", mg: 645, pmg: 143, mta: 2, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 39, pg: 1, rofm: 0.91, tl: 1, shhp: 40, midm: 1.084},
+      "16461": { n: "Multiphasic Bolt Array I", mg: 645, pmg: 143, mta: 3, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 40, pg: 1, rofm: 0.9025, tl: 1, shhp: 40, midm: 1.091},
+      "16463": { n: "'Pandemonium' Ballistic Enhancement", mg: 645, pmg: 143, mta: 4, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 42, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.098},
+      "21482": { n: "Ballistic 'Purge' Targeting System I", mg: 645, pmg: 143, mta: 6, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.925, tl: 1, shhp: 40, midm: 1.1},
+      "21484": { n: "'Full Duplex' Ballistic Targeting System", mg: 645, pmg: 143, mta: 6, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 30, pg: 1, rofm: 0.915, tl: 1, shhp: 40, midm: 1.1},
+      "22291": { n: "Ballistic Control System II", mg: 645, pmg: 143, mta: 5, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 40, pg: 1, rofm: 0.895, tl: 2, shhp: 40, midm: 1.1},
+      "28563": { n: "Khanid Navy Ballistic Control System", mg: 645, pmg: 143, mta: 12, d: "A computer system designed for monitoring and guiding missiles in flight, thus allowing for superior effectiveness and lethality. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", cpu: 24, pg: 1, rofm: 0.895, tl: 1, shhp: 40, midm: 1.125}
     },
     "372": {
       "12608": { n: "Hail S", mg: 859, pmg: 847, mta: 5, d: "Hail is an attempt to combine the penetration of titanium sabot with the versatility of a depleted uranium shell. It has tremendous damage potential, but should not be used at long ranges. Any pilot using this ammunition should be prepared to trade optimal range, falloff range, and tracking speed for a devastating amount of damage.\n\
@@ -5979,6 +6291,35 @@ Note: This ammunition can only be used by medium tech level II Blasters.", tl: 2
 50% reduced falloff range.\n\
 \n\
 Note: This ammunition can only be used by large tech level II Blasters.", tl: 2, emd: 0, exd: 0, kid: 30.8, thd: 30.8, wrm: 0.75, cs: 3, lg: 74, tsm: 0.75, fom: 0.5}
+    },
+    "379": {
+      "12709": { n: "Target Painter I", mg: 757, pmg: 657, mta: 0, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 20, pg: 1, opt: 25000, acc: 50000, srb: 25, capn: 20, tl: 1, shhp: 40, ad: 10000},
+      "19806": { n: "Target Painter II", mg: 757, pmg: 657, mta: 5, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 24, pg: 1, opt: 30000, acc: 60000, srb: 30, capn: 24, tl: 2, shhp: 40, ad: 10000},
+      "19808": { n: "Partial Weapon Navigation", mg: 757, pmg: 657, mta: 1, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 19, pg: 1, opt: 26250, acc: 52500, srb: 26.25, capn: 19, tl: 1, shhp: 40, ad: 10000},
+      "19810": { n: "Peripheral Weapon Navigation Diameter", mg: 757, pmg: 657, mta: 2, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 18, pg: 1, opt: 27500, acc: 55000, srb: 27.5, capn: 18, tl: 1, shhp: 40, ad: 10000},
+      "19812": { n: "Parallel Weapon Navigation Transmitter", mg: 757, pmg: 657, mta: 3, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 17, pg: 1, opt: 28750, acc: 57500, srb: 28.75, capn: 17, tl: 1, shhp: 40, ad: 10000},
+      "19814": { n: "Phased Weapon Navigation Array Generation Extron", mg: 757, pmg: 657, mta: 4, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 16, pg: 1, opt: 30000, acc: 60000, srb: 30, capn: 16, tl: 1, shhp: 40, ad: 10000},
+      "21540": { n: "'Inception' Target Painter I", mg: 757, pmg: 657, mta: 6, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 17, pg: 1, opt: 30000, acc: 50000, srb: 20, capn: 16, tl: 1, shhp: 40, ad: 10000},
+      "31944": { n: "Republic Fleet Target Painter", mg: 757, pmg: 657, mta: 6, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 25, pg: 1, opt: 30000, acc: 60000, srb: 32, capn: 24, tl: 1, shhp: 40, ad: 10000},
+      "32414": { n: "Domination Target Painter", mg: 757, pmg: 657, mta: 9, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", cpu: 27, pg: 1, opt: 30000, acc: 60000, srb: 33, capn: 28, tl: 1, shhp: 40, ad: 10000}
     },
     "384": {
       "210": { n: "Scourge Light Missile", mg: 920, pmg: 117, mta: 0, d: "From its humble beginnings in tiny Minmatar design labs, the Scourge light missile has quickly established itself throughout the star cluster as a premier missile for light launchers.", tl: 1, shhp: 70, vel: 3750, emd: 0, exd: 0, kid: 83, thd: 0, lg: 509},
@@ -6595,6 +6936,128 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "31822": { n: "Small Core Defense Operational Solidifier II", mg: 1234, pmg: 965, mta: 5, d: "This ship modification is designed to reduce the duration of shield booster cycles at the expense of increased signature radius.", tl: 2, shhp: 40, rgsz: 1, calbc: 150, drwbk: 10},
       "31824": { n: "Medium Core Defense Operational Solidifier II", mg: 1235, pmg: 965, mta: 5, d: "This ship modification is designed to reduce the duration of shield booster cycles at the expense of increased signature radius.", tl: 2, shhp: 40, rgsz: 2, calbc: 150, drwbk: 10},
       "31826": { n: "Capital Core Defense Operational Solidifier II", mg: 1732, pmg: 965, mta: 5, d: "This ship modification is designed to reduce the duration of shield booster cycles at the expense of increased signature radius.", tl: 2, shhp: 40, rgsz: 4, emdrb: 0, exdrb: 0, kidrb: 0, thdrb: 0, calbc: 150, drwbk: 10}
+    },
+    "782": {
+      "26056": { n: "Large Dynamic Fuel Valve I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
+      "26058": { n: "Large Low Friction Nozzle Joints I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
+      "26060": { n: "Large Auxiliary Thrusters I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 3, calbc: 100, drwbk: -10},
+      "26062": { n: "Large Engine Thermal Shielding I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
+      "26066": { n: "Large Warp Core Optimizer I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
+      "26068": { n: "Large Hyperspatial Velocity Optimizer I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
+      "26070": { n: "Large Polycarbon Engine Housing I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 3, agim: -9.1, velm: 5.5, calbc: 100, drwbk: -10},
+      "26072": { n: "Large Cargohold Optimization I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 3, calbc: 100, drwbk: -10},
+      "26304": { n: "Large Cargohold Optimization II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 3, calbc: 150, drwbk: -10},
+      "26306": { n: "Large Dynamic Fuel Valve II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
+      "26308": { n: "Large Engine Thermal Shielding II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
+      "26310": { n: "Large Low Friction Nozzle Joints II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
+      "26312": { n: "Large Polycarbon Engine Housing II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 3, agim: -11, velm: 6.6, calbc: 150, drwbk: -10},
+      "26318": { n: "Large Auxiliary Thrusters II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 3, calbc: 150, drwbk: -10},
+      "26320": { n: "Large Warp Core Optimizer II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
+      "26322": { n: "Large Hyperspatial Velocity Optimizer II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
+      "31105": { n: "Small Auxiliary Thrusters I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 1, calbc: 100, drwbk: -10},
+      "31107": { n: "Medium Auxiliary Thrusters I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 2, calbc: 100, drwbk: -10},
+      "31109": { n: "Capital Auxiliary Thrusters I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 4, calbc: 100, drwbk: -10},
+      "31111": { n: "Small Auxiliary Thrusters II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 1, calbc: 150, drwbk: -10},
+      "31113": { n: "Medium Auxiliary Thrusters II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 2, calbc: 150, drwbk: -10},
+      "31115": { n: "Capital Auxiliary Thrusters II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 4, calbc: 150, drwbk: -10},
+      "31117": { n: "Small Cargohold Optimization I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 1, calbc: 100, drwbk: -10},
+      "31119": { n: "Medium Cargohold Optimization I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 2, calbc: 100, drwbk: -10},
+      "31121": { n: "Capital Cargohold Optimization I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 4, calbc: 100, drwbk: -10},
+      "31123": { n: "Small Cargohold Optimization II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 1, calbc: 150, drwbk: -10},
+      "31125": { n: "Medium Cargohold Optimization II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 2, calbc: 150, drwbk: -10},
+      "31127": { n: "Capital Cargohold Optimization II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's cargo capacity at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 4, calbc: 150, drwbk: -10},
+      "31129": { n: "Small Dynamic Fuel Valve I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
+      "31131": { n: "Medium Dynamic Fuel Valve I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
+      "31133": { n: "Capital Dynamic Fuel Valve I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
+      "31135": { n: "Small Dynamic Fuel Valve II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
+      "31137": { n: "Medium Dynamic Fuel Valve II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
+      "31139": { n: "Capital Dynamic Fuel Valve II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to reduce the capacitor need of a ship's afterburner and microwarpdrive modules at the expense of armor amount.\n\
+", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10},
+      "31141": { n: "Small Engine Thermal Shielding I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
+      "31143": { n: "Medium Engine Thermal Shielding I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
+      "31145": { n: "Capital Engine Thermal Shielding I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
+      "31147": { n: "Small Engine Thermal Shielding II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
+      "31149": { n: "Medium Engine Thermal Shielding II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
+      "31151": { n: "Capital Engine Thermal Shielding II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10},
+      "31153": { n: "Small Low Friction Nozzle Joints I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
+      "31155": { n: "Medium Low Friction Nozzle Joints I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
+      "31157": { n: "Capital Low Friction Nozzle Joints I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
+      "31159": { n: "Small Hyperspatial Velocity Optimizer I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
+      "31161": { n: "Medium Hyperspatial Velocity Optimizer I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
+      "31163": { n: "Capital Hyperspatial Velocity Optimizer I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
+      "31165": { n: "Small Hyperspatial Velocity Optimizer II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
+      "31167": { n: "Medium Hyperspatial Velocity Optimizer II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
+      "31169": { n: "Capital Hyperspatial Velocity Optimizer II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10},
+      "31171": { n: "Small Low Friction Nozzle Joints II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
+      "31173": { n: "Medium Low Friction Nozzle Joints II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
+      "31175": { n: "Capital Low Friction Nozzle Joints II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10},
+      "31177": { n: "Small Polycarbon Engine Housing I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 1, agim: -9.1, velm: 5.5, calbc: 100, drwbk: -10},
+      "31179": { n: "Medium Polycarbon Engine Housing I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 2, agim: -9.1, velm: 5.5, calbc: 100, drwbk: -10},
+      "31181": { n: "Capital Polycarbon Engine Housing I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 1, shhp: 40, rgsz: 4, agim: -9.1, velm: 5.5, calbc: 100, drwbk: -10},
+      "31183": { n: "Small Polycarbon Engine Housing II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 1, agim: -11, velm: 6.6, calbc: 150, drwbk: -10},
+      "31185": { n: "Medium Polycarbon Engine Housing II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 2, agim: -11, velm: 6.6, calbc: 150, drwbk: -10},
+      "31187": { n: "Capital Polycarbon Engine Housing II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
+\n\
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", tl: 2, shhp: 40, rgsz: 4, agim: -11, velm: 6.6, calbc: 150, drwbk: -10},
+      "31189": { n: "Small Warp Core Optimizer I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
+      "31191": { n: "Medium Warp Core Optimizer I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
+      "31193": { n: "Capital Warp Core Optimizer I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
+      "31195": { n: "Small Warp Core Optimizer II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
+      "31197": { n: "Medium Warp Core Optimizer II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
+      "31199": { n: "Capital Warp Core Optimizer II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10}
     }
   };
   export var TypeToGroupIDMapping = {
@@ -6660,6 +7123,48 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "32987": 25,
     "32989": 25,
     "33190": 25,
+    "377": 38,
+    "380": 38,
+    "3829": 38,
+    "3831": 38,
+    "3839": 38,
+    "3841": 38,
+    "3849": 38,
+    "3851": 38,
+    "8387": 38,
+    "8397": 38,
+    "8401": 38,
+    "8409": 38,
+    "8419": 38,
+    "8427": 38,
+    "8433": 38,
+    "8437": 38,
+    "8465": 38,
+    "8477": 38,
+    "8481": 38,
+    "8489": 38,
+    "8505": 38,
+    "8517": 38,
+    "8521": 38,
+    "8529": 38,
+    "15408": 38,
+    "16142": 38,
+    "16144": 38,
+    "16146": 38,
+    "19489": 38,
+    "20625": 38,
+    "20627": 38,
+    "20629": 38,
+    "20631": 38,
+    "28742": 38,
+    "28744": 38,
+    "28746": 38,
+    "31922": 38,
+    "31924": 38,
+    "31926": 38,
+    "31928": 38,
+    "31930": 38,
+    "31932": 38,
     "434": 46,
     "438": 46,
     "439": 46,
@@ -7160,6 +7665,26 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "21557": 55,
     "21559": 55,
     "21561": 55,
+    "518": 59,
+    "519": 59,
+    "520": 59,
+    "5913": 59,
+    "5915": 59,
+    "5917": 59,
+    "5919": 59,
+    "5929": 59,
+    "5931": 59,
+    "5933": 59,
+    "5935": 59,
+    "13939": 59,
+    "14536": 59,
+    "14538": 59,
+    "14540": 59,
+    "14542": 59,
+    "15447": 59,
+    "15806": 59,
+    "21486": 59,
+    "21488": 59,
     "521": 60,
     "2046": 60,
     "2048": 60,
@@ -8419,6 +8944,53 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "28554": 98,
     "28559": 98,
     "32809": 98,
+    "1893": 205,
+    "2363": 205,
+    "2364": 205,
+    "5845": 205,
+    "5846": 205,
+    "5849": 205,
+    "5854": 205,
+    "5855": 205,
+    "5856": 205,
+    "5857": 205,
+    "5858": 205,
+    "13941": 205,
+    "13943": 205,
+    "14800": 205,
+    "14802": 205,
+    "14804": 205,
+    "14806": 205,
+    "14808": 205,
+    "14810": 205,
+    "14812": 205,
+    "14814": 205,
+    "15397": 205,
+    "15435": 205,
+    "15808": 205,
+    "15810": 205,
+    "23900": 205,
+    "23902": 205,
+    "9944": 302,
+    "10188": 302,
+    "10190": 302,
+    "11101": 302,
+    "11103": 302,
+    "11105": 302,
+    "11107": 302,
+    "11109": 302,
+    "11111": 302,
+    "11113": 302,
+    "11115": 302,
+    "13945": 302,
+    "15144": 302,
+    "15146": 302,
+    "15148": 302,
+    "15150": 302,
+    "15416": 302,
+    "15895": 302,
+    "22917": 302,
+    "22919": 302,
     "3536": 325,
     "11355": 325,
     "11357": 325,
@@ -8514,6 +9086,35 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "31910": 329,
     "31916": 329,
     "31918": 329,
+    "4254": 339,
+    "11563": 339,
+    "16537": 339,
+    "16539": 339,
+    "16541": 339,
+    "16543": 339,
+    "28740": 339,
+    "31936": 339,
+    "12274": 367,
+    "13935": 367,
+    "13937": 367,
+    "14528": 367,
+    "14530": 367,
+    "14532": 367,
+    "14534": 367,
+    "14684": 367,
+    "14686": 367,
+    "14688": 367,
+    "14690": 367,
+    "15681": 367,
+    "15683": 367,
+    "16457": 367,
+    "16459": 367,
+    "16461": 367,
+    "16463": 367,
+    "21482": 367,
+    "21484": 367,
+    "22291": 367,
+    "28563": 367,
     "12608": 372,
     "12625": 372,
     "12627": 372,
@@ -8568,6 +9169,15 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "12791": 377,
     "12793": 377,
     "12795": 377,
+    "12709": 379,
+    "19806": 379,
+    "19808": 379,
+    "19810": 379,
+    "19812": 379,
+    "19814": 379,
+    "21540": 379,
+    "31944": 379,
+    "32414": 379,
     "210": 384,
     "211": 384,
     "212": 384,
@@ -8909,6 +9519,72 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "31820": 774,
     "31822": 774,
     "31824": 774,
-    "31826": 774
+    "31826": 774,
+    "26056": 782,
+    "26058": 782,
+    "26060": 782,
+    "26062": 782,
+    "26064": 782,
+    "26066": 782,
+    "26068": 782,
+    "26070": 782,
+    "26072": 782,
+    "26304": 782,
+    "26306": 782,
+    "26308": 782,
+    "26310": 782,
+    "26312": 782,
+    "26314": 782,
+    "26318": 782,
+    "26320": 782,
+    "26322": 782,
+    "31105": 782,
+    "31107": 782,
+    "31109": 782,
+    "31111": 782,
+    "31113": 782,
+    "31115": 782,
+    "31117": 782,
+    "31119": 782,
+    "31121": 782,
+    "31123": 782,
+    "31125": 782,
+    "31127": 782,
+    "31129": 782,
+    "31131": 782,
+    "31133": 782,
+    "31135": 782,
+    "31137": 782,
+    "31139": 782,
+    "31141": 782,
+    "31143": 782,
+    "31145": 782,
+    "31147": 782,
+    "31149": 782,
+    "31151": 782,
+    "31153": 782,
+    "31155": 782,
+    "31157": 782,
+    "31159": 782,
+    "31161": 782,
+    "31163": 782,
+    "31165": 782,
+    "31167": 782,
+    "31169": 782,
+    "31171": 782,
+    "31173": 782,
+    "31175": 782,
+    "31177": 782,
+    "31179": 782,
+    "31181": 782,
+    "31183": 782,
+    "31185": 782,
+    "31187": 782,
+    "31189": 782,
+    "31191": 782,
+    "31193": 782,
+    "31195": 782,
+    "31197": 782,
+    "31199": 782
   };
 }
