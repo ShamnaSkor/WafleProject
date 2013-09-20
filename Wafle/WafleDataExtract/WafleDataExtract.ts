@@ -76,6 +76,7 @@ sql.open(connectionString, function (err, conn) {
         "SELECT bse.typeId, bse.groupId, bse.name, bse.marketGroupId, bse.parentMarketGroupId, bse.raceId, bse.description, \n" +
         "	ISNULL(cpu.valueFloat,cpu.valueInt) as [cpu], \n" +
         "	ISNULL(pg.valueFloat,pg.valueInt) as [powergrid], \n" +
+        "	ISNULL(pginc.valueFloat,pginc.valueInt) as [powergridIncrease], \n" +
         "	COALESCE(mta.valueFloat,mta.valueInt,0) as [metalevel], \n" +
         "	COALESCE(opt.valueFloat,opt.valueInt,edr.valueFloat,edr.valueInt,ptrr.valueFloat,ptrr.valueInt) as [optimal], \n" +
         "	ISNULL(acc.valueFloat,acc.valueInt) as [accuracyFalloff], \n" +
@@ -214,6 +215,7 @@ sql.open(connectionString, function (err, conn) {
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes shp ON shp.typeID = bse.typeId AND shp.attributeID = 72 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes rofm ON rofm.typeID = bse.typeId AND rofm.attributeID = 204 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes midm ON midm.typeID = bse.typeId AND midm.attributeID = 213 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes pginc ON pginc.typeID = bse.typeId AND pginc.attributeID = 549 \n" +
         "ORDER BY bse.groupId, bse.typeId;";
 
     console.log("Querying (may take a few seconds)...");
@@ -236,6 +238,8 @@ sql.open(connectionString, function (err, conn) {
 
             buffer.append(aliasedPropertyValueOrBlank(results[i], "cpu", "cpu"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "powergrid", "pg"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "powergridIncrease", "pginc"));
+            
             buffer.append(aliasedPropertyValueOrBlank(results[i], "optimal", "opt"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "accuracyFalloff", "acc"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "rateOfFire", "rof"));
