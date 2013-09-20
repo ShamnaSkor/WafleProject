@@ -36,9 +36,10 @@ catch (ex) {
 }
 
 
-var MarketGroupIDs = [25, 46, 52, 53, 55, 60, 62, 65, 68, 71, 74, 77, 83, 85, 86, 98, 325, 329, 372, 373, 374,
-    375, 376, 377, 384, 385, 387, 395, 507, 509, 510, 511, 648, 653, 654, 655, 763, 771, 772, 773,
-    774];
+var MarketGroupIDs = [25, 46, 38, 52, 53, 55, 60, 62, 65, 68, 71, 74, 77, 83, 85, 86, 98, 325,
+    329, 339, 367,
+    372, 373, 374, 375, 376, 377, 384, 385, 387, 395, 507, 509, 510, 511, 648, 653,
+    654, 655, 763, 771, 772, 773, 774];
 
 
 if (process.argv.length !== 4 ) {
@@ -79,11 +80,14 @@ sql.open(connectionString, function (err, conn) {
         "	COALESCE(opt.valueFloat,opt.valueInt,edr.valueFloat,edr.valueInt,ptrr.valueFloat,ptrr.valueInt) as [optimal], \n" +
         "	ISNULL(acc.valueFloat,acc.valueInt) as [accuracyFalloff], \n" +
         "	ISNULL(rof.valueFloat,rof.valueInt) as [rateOfFire], \n" +
+        "	ISNULL(rofm.valueFloat,rofm.valueInt) as [rateOfFireMultiplier], \n" +
         "	ISNULL(trk.valueFloat,trk.valueInt) as [trackingSpeed], \n" +
         "	ISNULL(dmg.valueFloat,dmg.valueInt) as [damageModifier], \n" +
         "	ISNULL(spd.valueFloat,spd.valueInt) as [speedFactor], \n" +
         "	ISNULL(srb.valueFloat,srb.valueInt) as [signatureRadiusBonus], \n" +
+        "	ISNULL(sra.valueFloat,sra.valueInt) as [signatureRadiusIncreaseAmount], \n" +
         "	ISNULL(ahp.valueFloat,ahp.valueInt) as [armorHPBonusAdd], \n" +
+        "	ISNULL(shp.valueFloat,shp.valueInt) as [shieldHPBonusAdd], \n" +
         "	ISNULL(capn.valueFloat,capn.valueInt) as [capacitorNeed], \n" +
         "	ISNULL(tl.valueFloat,tl.valueInt) as [techLevel], \n" +
         "	ISNULL(aemr.valueFloat,aemr.valueInt) as [armorEmDamageResonance], \n" +
@@ -129,6 +133,7 @@ sql.open(connectionString, function (err, conn) {
         "	ISNULL(kid.valueFloat,kid.valueInt) as [kineticDamage], \n" +
         "	ISNULL(thd.valueFloat,thd.valueInt) as [thermalDamage], \n" +
         "	ISNULL(wrm.valueFloat,wrm.valueInt) as [weaponRangeMultiplier], \n" +
+        "	ISNULL(midm.valueFloat,midm.valueInt) as [missileDamageMultiplier], \n" +
         "	ISNULL(cs.valueFloat,cs.valueInt) as [chargeSize], \n" +
         "	ISNULL(lg.valueFloat,lg.valueInt) as [launcherGroup], \n" +
         "	ISNULL(tsm.valueFloat,tsm.valueInt) as [trackingSpeedMultiplier], \n" +
@@ -205,6 +210,10 @@ sql.open(connectionString, function (err, conn) {
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes pta ON pta.typeID = bse.typeId AND pta.attributeID = 90 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes edr ON edr.typeID = bse.typeId AND edr.attributeID = 98 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes ptrr ON ptrr.typeID = bse.typeId AND ptrr.attributeID = 91 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes sra ON sra.typeID = bse.typeId AND sra.attributeID = 983 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes shp ON shp.typeID = bse.typeId AND shp.attributeID = 72 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes rofm ON rofm.typeID = bse.typeId AND rofm.attributeID = 204 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes midm ON midm.typeID = bse.typeId AND midm.attributeID = 213 \n" +
         "ORDER BY bse.groupId, bse.typeId;";
 
     console.log("Querying (may take a few seconds)...");
@@ -230,12 +239,16 @@ sql.open(connectionString, function (err, conn) {
             buffer.append(aliasedPropertyValueOrBlank(results[i], "optimal", "opt"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "accuracyFalloff", "acc"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "rateOfFire", "rof"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "rateOfFireMultiplier", "rofm"));
+            
             buffer.append(aliasedPropertyValueOrBlank(results[i], "trackingSpeed", "trk"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "damageModifier", "dmg"));
 
             buffer.append(aliasedPropertyValueOrBlank(results[i], "speedFactor", "spd"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "signatureRadiusBonus", "srb"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "armorHPBonusAdd", "ahp"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "shieldHPBonusAdd", "shp"));
+            
             buffer.append(aliasedPropertyValueOrBlank(results[i], "capacitorNeed", "capn"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "techLevel", "tl"));
 
@@ -301,12 +314,11 @@ sql.open(connectionString, function (err, conn) {
             buffer.append(aliasedPropertyValueOrBlank(results[i], "energyDestabilizationAmount", "eda"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "powerTransferAmount", "pta"));
 
-            /*
-            "	LEFT OUTER JOIN dbo.dgmTypeAttributes eda ON eda.typeID = bse.typeId AND eda.attributeID = 97 \n" +
-        "	LEFT OUTER JOIN dbo.dgmTypeAttributes pta ON pta.typeID = bse.typeId AND pta.attributeID = 90 \n" +
-        "	LEFT OUTER JOIN dbo.dgmTypeAttributes edr ON edr.typeID = bse.typeId AND edr.attributeID = 98 \n" +
-        "	LEFT OUTER JOIN dbo.dgmTypeAttributes ptrr ON ptrr.typeID = bse.typeId AND ptrr.attributeID = 91 \n" +
-*/
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "signatureRadiusIncreaseAmount", "sra"));
+
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "missileDamageMultiplier", "midm"));
+
+          
             buffer.append('}');
             if (i + 1 !== results.length && results[i + 1].groupId === results[i].groupId) {
                 buffer.append(',');
