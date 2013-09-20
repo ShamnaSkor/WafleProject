@@ -530,12 +530,12 @@ QUnit.module("Reality Checks");
         ship.fittingSlots[0].SetModule(3001, 53); //Dual Light Pulse Laser II
         ship.fittingSlots[1].SetModule(3001, 53); //Dual Light Pulse Laser II
         ship.fittingSlots[2].SetModule(3001, 53); //Dual Light Pulse Laser II
-        //ship.fittingSlots[3].SetModule(, ); //TODO: Put a small Nos II here...
+        //Empty high slot
         ship.fittingSlots[4].SetModule(3244);  //Warp Disruptor II
         ship.fittingSlots[5].SetModule(527); //Stasis Webifier II
         ship.fittingSlots[6].SetModule(5973); //Limited 1MN MicroWarpdrive I
         ship.fittingSlots[7].SetModule(20347);  //200mm Reinforced Steel Plates II
-        //ship.fittingSlots[8].SetModule(); //TODO: put Adaptive Nano Plating II
+        ship.fittingSlots[8].SetModule(1306); //Adaptive Nano Plating II
         ship.fittingSlots[9].SetModule(2048);  //Damage Control II
         ship.fittingSlots[10].SetModule(30987); //Small Trimark Armor Pump I
         ship.fittingSlots[11].SetModule(30987); //Small Trimark Armor Pump I
@@ -548,7 +548,7 @@ QUnit.module("Reality Checks");
         strictEqual(ship.cpu(), 175, "CPU");
         strictEqual(ship.powergrid(), 56.25, "Powergrid");
         strictEqual(ship.remainingCpu(), 13, "Remaining CPU");
-        strictEqual(Wafle.Round(ship.remainingPowergrid(), -2), Wafle.Round(7.35, -2), "Remaining Powergrid");
+        strictEqual(Wafle.Round(ship.remainingPowergrid(), -2), Wafle.Round(6.35, -2), "Remaining Powergrid");
         strictEqual(Wafle.Round(ship.MaxVelocity(), -2), Wafle.Round(452.43, -2), "Max Velocity (no AB/MWD)");
         strictEqual(Wafle.Round(ship.ShieldEMDamageReduction(), -3), Wafle.Round(0.125, -3), "shield em");
         strictEqual(Wafle.Round(ship.ShieldExplosiveDamageReduction(), -3), Wafle.Round(0.563, -3), "shield ex");

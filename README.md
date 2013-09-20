@@ -6,8 +6,9 @@ Web Accessible Fitting Library for EVE
 Wafle is a library that performs calculations needed to properly fit [Internet Spaceships](http://www.eveonline.com/universe/spaceships/) for the game [EVE Online](http://www.eveonline.com).
 
 Wafle:
+* runs great in the EVE in-game browser and in modern out-of-game browsers.
+* requires no active server-side components.  Therefore, Wafle can be used with any web server by simply copying the .js files to an accessible path.
 * is written in [TypeScript](https://typescript.codeplex.com/), a typed superset of JavaScript that compiles to readable, standards-based JavaScript.  Wafle works with any modern browser on any device, or with non-browser JavaScript environments such as [node.js](http://nodejs.org/).
-* has no active server-side components.  Therefore, Wafle can be used with any web server by simply copying the .js files to an accessible path.
 * is covered by [qUnit](http://qunitjs.com/) tests.
 * produces "regular" js files in addition to minified js files via [UglifyJS 2](https://github.com/mishoo/UglifyJS2).
 * does not currently have a UI.  Pull requests welcome!
