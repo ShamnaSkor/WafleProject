@@ -588,3 +588,49 @@ test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
         strictEqual(ship.HullKineticDamageReduction(), 0.6, "Hull ki ");
         strictEqual(ship.HullThermalDamageReduction(), 0.6, "Hull th ");
     });
+
+    test("Shield Buffer Kestrel Sniper with all V skills.", function () {
+        var ship = new Wafle.Ship("Kestrel");
+        ship.pilot = new Wafle.Pilot("");
+        ship.pilot.skills.SetAllSkills(5);
+
+        ship.fittingSlots[0].SetModule(2404); //light missile launcher
+        ship.fittingSlots[0].LoadCharge(new Wafle.TypeInfo(27361)); //caldari navy scourge light missile
+        ship.fittingSlots[1].SetModule(2404);
+        ship.fittingSlots[1].LoadCharge(new Wafle.TypeInfo(27361));
+        ship.fittingSlots[2].SetModule(2404);
+        ship.fittingSlots[2].LoadCharge(new Wafle.TypeInfo(27361));
+        ship.fittingSlots[3].SetModule(2404);
+        ship.fittingSlots[3].LoadCharge(new Wafle.TypeInfo(27361));
+        ship.fittingSlots[4].SetModule(5973); //limited 1mn mwd
+        ship.fittingSlots[5].SetModule(8433); //Medium meta Shield Ext
+        ship.fittingSlots[6].SetModule(5399);  //meta warp disruptor
+        ship.fittingSlots[7].SetModule(19814); //PWNAGE
+        ship.fittingSlots[8].SetModule(11563); //Micro Aux Power Core I
+        ship.fittingSlots[9].SetModule(22291); //BCS II
+        ship.fittingSlots[10].SetModule(31177); //Polycarbon
+        ship.fittingSlots[11].SetModule(31177); //Polycarbon
+        ship.fittingSlots[12].SetModule(31716); //Anti-EM Screen
+        
+        strictEqual(ship.structureHP(), 438, "structure HP");
+        strictEqual(ship.shieldHP(), 313, "shield HP");
+        strictEqual(ship.armorHP(), 1736, "armor HP");
+        strictEqual(ship.cpu(), 175, "CPU");
+        strictEqual(ship.powergrid(), 56.25, "Powergrid");
+        strictEqual(ship.remainingCpu(), 13, "Remaining CPU");
+        strictEqual(Wafle.Round(ship.remainingPowergrid(), -2), Wafle.Round(6.35, -2), "Remaining Powergrid");
+        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), Wafle.Round(452.43, -2), "Max Velocity (no AB/MWD)");
+        strictEqual(Wafle.Round(ship.ShieldEMDamageReduction(), -3), Wafle.Round(0.125, -3), "shield em");
+        strictEqual(Wafle.Round(ship.ShieldExplosiveDamageReduction(), -3), Wafle.Round(0.563, -3), "shield ex");
+        strictEqual(Wafle.Round(ship.ShieldKineticDamageReduction(), -3), Wafle.Round(0.475, -3), "shield ki");
+        strictEqual(Wafle.Round(ship.ShieldThermalDamageReduction(), -3), Wafle.Round(0.3, -3), "shield th");
+        strictEqual(Wafle.Round(ship.ArmorEMDamageReduction(), -3), Wafle.Round(0.575, -3), "Armor em");
+        strictEqual(Wafle.Round(ship.ArmorExplosiveDamageReduction(), -3), 0.524, "Armor ex");
+        strictEqual(Wafle.Round(ship.ArmorKineticDamageReduction(), -3), 0.363, "Armor ki ");
+        strictEqual(Wafle.Round(ship.ArmorThermalDamageReduction(), -3), Wafle.Round(0.448, -3), "Armor th ");
+        strictEqual(ship.HullEMDamageReduction(), 0.6, "Hull em ");
+        strictEqual(ship.HullExplosiveDamageReduction(), 0.6, "Hull ex ");
+        strictEqual(ship.HullKineticDamageReduction(), 0.6, "Hull ki ");
+        strictEqual(ship.HullThermalDamageReduction(), 0.6, "Hull th ");
+        strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage() + ship.fittingSlots[1].totalAlphaDamage() + ship.fittingSlots[2].totalAlphaDamage() + ship.fittingSlots[3].totalAlphaDamage(), -2), Wafle.Round(45.38, -2), "alpha damage from all missiles");
+    });

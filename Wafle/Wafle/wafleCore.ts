@@ -65,20 +65,25 @@ module Wafle {
     }
 
     export enum InventoryGroups {
-        Unknown = -1, Frigate = 25, Propulsion = 46, WarpScrambler = 52, EnergyWeapon= 53, ProjectileWeapon= 55,
-        DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, EnergyVampire= 68, EnergyDestabilizer=71,
+        Unknown = -1, Frigate = 25, ShieldExtender = 38, Propulsion = 46, WarpScrambler = 52, EnergyWeapon= 53, ProjectileWeapon= 55,
+        Gyrostabilizer=59, DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, EnergyVampire= 68, EnergyDestabilizer=71,
         HybridWeapon= 74, ShieldHardener=77, ProjectileAmmo = 83, HybridCharge=85, FrequencyCrystal=86,
-        ArmorCoating=98, ArmorRepairProjector = 325, ArmorPlate = 329,
+        ArmorCoating=98, HeatSink=205, MagneticFieldStabilizer=302, ArmorRepairProjector = 325, ArmorPlate = 329,AuxiliaryPowerCore=339, BallisticControlSystem=367,
         AdvancedAutocannonAmmo= 372, AdvancedRailgunCharge= 373, AdvancedBeamLaserCrystal= 374, AdvancedPulseLaserCrystal= 375,
-        AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377,
+        AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377, TargetPainter=379,
         LightMissile= 384, HeavyMissile= 385, Rocket= 387,
         FoFHeavyMissile= 395, RocketLauncher= 507,
         LightMissileLauncher= 509, HeavyMissileLauncher= 510, RapidLightMissileLauncher= 511, AdvancedRocket= 648,
         AdvancedLightMissile= 653,
         AdvancedHeavyAssaultMissile=654, AdvancedHeavyMissile=655, Nanofiber= 763,
-        HeavyAssaultMissileLauncher= 771, HeavyAssaultMissile=772, ArmorRig= 773, ShieldRig= 774
+        HeavyAssaultMissileLauncher= 771, HeavyAssaultMissile=772, ArmorRig= 773, ShieldRig= 774, NavigationRig=782
     }
-
+    /*
+    --Adding on 9/19: 38: Shield Extender, 
+--367 (Ballistic Control System), 339 (Auxiliary Power Core)
+-- 59: Gyrostabilizer, 205 "Heat Sink", 302 "Magnetic Field Stabilizer"
+-- 379 Target Painter, 782 Rig Navigation
+    */
     
 
     export function Round(value: number, decimalPlace: number) {
@@ -761,6 +766,19 @@ module Wafle {
         }
     }
 
+    function ShieldExtenderLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.slotUsed = FittingSlotType.Mid;
+        target.shieldHPBonusAdd = data.shp;
+        target.signatureRadiusBonus = data.sra;
+        target.cpuUsageActual = function (ship: Ship) {
+            return CpuFormulas.standardModule(ship, this.cpuUsage)
+        }
+        target.powergridUsageActual = function (ship: Ship) {
+            return PowergridFormulas.standardModule(ship, this.powergridUsage);
+        }
+    }
+
+
     function ArmorPlateAndCoatingLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
         if (data.ahp) {
             target.armorHPBonusAdd = data.ahp;
@@ -897,6 +915,11 @@ module Wafle {
         public parentMarketGroup: number = 0;
         public speedFactor: number = 0;
         public signatureRadiusBonus: number = 0;
+        /** Signature Radius Add - represented in meters (10 = 10 additional meters) */
+        public signatureRadiusAdd: number = 0;
+        /** Shield HP added - represented as a flat addition (10 = 10 additional HP) */
+        public shieldHPBonusAdd: number = 0;
+        /** Armor HP added - represented as a flat addition (10 = 10 additional HP) */
         public armorHPBonusAdd: number = 0;
         /** Armor HP Bonus Percent - represented in whole numbers (20% bonus as 20). */
         public armorHPBonusPercent: number = 0;
@@ -990,6 +1013,9 @@ module Wafle {
                     break;
                 case InventoryGroups.Propulsion:
                     PropulsionLoader(data, this);
+                    break;
+                case InventoryGroups.ShieldExtender:
+                    ShieldExtenderLoader(data, this);
                     break;
                 case InventoryGroups.WarpScrambler:
                     MidProjectedEffectLoader(data, this);

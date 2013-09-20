@@ -12,7 +12,9 @@ module Wafle {
         groupId?: number;
     }
 
-    export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod, IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, ITurret, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire {
+    export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod,
+            IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic,
+            ITurret, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP {
         /** name - the name of the type. */
         n: string;
         /** description - the description text for the type. */
@@ -85,6 +87,16 @@ module Wafle {
         kid?: number;
         /** Thermal damage in HP */
         thd?: number;
+    }
+
+    export interface ISignatureRadius {
+        /** Signature Radius add amount - flat in meters (2 = 2 meters of additional signature radius) */
+        sra?: number;
+    }
+
+    export interface IShieldHP {
+        /** Shield HP increase - flat in HP (100 = 100 additional HP) */
+        shp?: number;
     }
 
     export interface IAmmo {
