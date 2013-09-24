@@ -13,7 +13,7 @@ module Wafle {
     }
 
     export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod,
-            IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic,
+            IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, IPowerModule,
             ITurret, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP {
         /** name - the name of the type. */
         n: string;
@@ -214,6 +214,7 @@ module Wafle {
     export interface IPropulsion {
         //todo: add description
         spd?: number;
+        /** Signature Radius bonus - expressed as a whole percentage increase, such as 10 = 10% increase to signature radius */
         srb?: number;
     }
     export interface IAgilityMod {
@@ -234,6 +235,11 @@ module Wafle {
     export interface IEnergyVampire {
         /** powerTransferAmount in "not specified" units (probably GJ) - ex: 8 */
         pta?: number;
+    }
+
+    export interface IPowerModule {
+        /** Power grid increase (in MW) */
+        pginc?: number;
     }
 
 

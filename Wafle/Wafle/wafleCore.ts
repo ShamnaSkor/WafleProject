@@ -68,22 +68,16 @@ module Wafle {
         Unknown = -1, Frigate = 25, ShieldExtender = 38, Propulsion = 46, WarpScrambler = 52, EnergyWeapon= 53, ProjectileWeapon= 55,
         Gyrostabilizer=59, DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, EnergyVampire= 68, EnergyDestabilizer=71,
         HybridWeapon= 74, ShieldHardener=77, ProjectileAmmo = 83, HybridCharge=85, FrequencyCrystal=86,
-        ArmorCoating=98, HeatSink=205, MagneticFieldStabilizer=302, ArmorRepairProjector = 325, ArmorPlate = 329,AuxiliaryPowerCore=339, BallisticControlSystem=367,
+        ArmorCoating= 98, HeatSink= 205, MagneticFieldStabilizer= 302, ArmorRepairProjector = 325,
+        ArmorPlate = 329, AuxiliaryPowerCore= 339, BallisticControlSystem= 367,
         AdvancedAutocannonAmmo= 372, AdvancedRailgunCharge= 373, AdvancedBeamLaserCrystal= 374, AdvancedPulseLaserCrystal= 375,
-        AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377, TargetPainter=379,
-        LightMissile= 384, HeavyMissile= 385, Rocket= 387,
-        FoFHeavyMissile= 395, RocketLauncher= 507,
-        LightMissileLauncher= 509, HeavyMissileLauncher= 510, RapidLightMissileLauncher= 511, AdvancedRocket= 648,
-        AdvancedLightMissile= 653,
+        AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377, TargetPainter=379, LightMissile= 384, HeavyMissile= 385, Rocket= 387,
+        FoFHeavyMissile= 395, RocketLauncher= 507, LightMissileLauncher= 509, HeavyMissileLauncher= 510,
+        RapidLightMissileLauncher= 511, AdvancedRocket= 648,AdvancedLightMissile= 653,
         AdvancedHeavyAssaultMissile=654, AdvancedHeavyMissile=655, Nanofiber= 763,
         HeavyAssaultMissileLauncher= 771, HeavyAssaultMissile=772, ArmorRig= 773, ShieldRig= 774, NavigationRig=782
     }
-    /*
-    --Adding on 9/19: 38: Shield Extender, 
---367 (Ballistic Control System), 339 (Auxiliary Power Core)
--- 59: Gyrostabilizer, 205 "Heat Sink", 302 "Magnetic Field Stabilizer"
--- 379 Target Painter, 782 Rig Navigation
-    */
+
     
 
     export function Round(value: number, decimalPlace: number) {
@@ -744,6 +738,12 @@ module Wafle {
         target.optimalRange = data.opt;
         target.accuracyFalloff = data.acc;
         target.slotUsed = FittingSlotType.Mid;
+        if (data.srb) {
+            target.signatureRadiusBonusOfTarget = data.srb;
+        }
+        if (data.ad) {
+            target.activationDuration = data.ad;
+        }
         target.cpuUsageActual = function (ship: Ship) {
             return CpuFormulas.standardModule(ship, this.cpuUsage)
         }
@@ -778,6 +778,10 @@ module Wafle {
         }
     }
 
+    function LowWeaponEnhancer(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.slotUsed = FittingSlotType.Low;
+
+    }
 
     function ArmorPlateAndCoatingLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
         if (data.ahp) {
@@ -792,6 +796,17 @@ module Wafle {
         }
         target.powergridUsageActual = function (ship: Ship) {
             return PowergridFormulas.standardModule(ship, this.powergridUsage);
+        }
+    }
+
+    function PowerModuleLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.slotUsed = FittingSlotType.Low;
+        target.powerGridIncrease = data.pginc;
+        target.cpuUsageActual = function (ship: Ship) { 
+            return CpuFormulas.standardModule(ship, this.cpuUsage)
+        }
+        target.powergridUsageActual = function (ship: Ship) {
+            return 0;
         }
     }
 
@@ -908,13 +923,18 @@ module Wafle {
         public cpuUsage: number = 0;
         public rateOfFire: number = 0;
         public powergridUsage: number = 0;
+        /** Base powergrid increase amount (for modules that create powergrid capacity) in MW, such as 12 = 12 MW powergrid increase.*/
+        public powerGridIncrease: number = 0;
         public optimalRange: number = 0;
         public metaLevel: number = 0;
         public damageModifier: number = 0;
         public marketGroup: number = 0;
         public parentMarketGroup: number = 0;
         public speedFactor: number = 0;
+        /** Signature Radius bonus - expressed as a whole percentage increase, such as 10 = 10% increase to signature radius */
         public signatureRadiusBonus: number = 0;
+        /** Signature Radius bonus (of target) - expressed as a whole percentage increase, such as 10 = 10% increase to signature radius of a targeted ship */
+        public signatureRadiusBonusOfTarget: number = 0;
         /** Signature Radius Add - represented in meters (10 = 10 additional meters) */
         public signatureRadiusAdd: number = 0;
         /** Shield HP added - represented as a flat addition (10 = 10 additional HP) */
@@ -1008,7 +1028,8 @@ module Wafle {
                 case InventoryGroups.HeavyMissileLauncher: // fall through
                     LauncherLoader(data, this);
                     break;
-                case InventoryGroups.StasisWeb:
+                case InventoryGroups.StasisWeb: // fall through
+                case InventoryGroups.TargetPainter:
                     MidProjectedEffectLoader(data, this);
                     break;
                 case InventoryGroups.Propulsion:
@@ -1038,6 +1059,13 @@ module Wafle {
                 case InventoryGroups.DamageControl:
                     DamageControlLoader(data, this);
                     break;
+                case InventoryGroups.AuxiliaryPowerCore:
+                    PowerModuleLoader(data, this);
+                case InventoryGroups.BallisticControlSystem: //fall through
+                case InventoryGroups.Gyrostabilizer: //fall through
+                case InventoryGroups.HeatSink: //fall through
+                case InventoryGroups.MagneticFieldStabilizer:
+                    LowWeaponEnhancer(data, this);
                 default:
                     break;
             }
