@@ -3,26 +3,31 @@
 module Wafle.Data {
 
     export function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boolean {
-        var t = type;
-        if (t.groupId === undefined) {
-            t.FindGroupId();
+        if (type.groupId === undefined) {
+            type.FindGroupId();
         }
-        if (t.groupId !== Wafle.InventoryGroups.ArmorRig) {
+        if (type.groupId !== Wafle.InventoryGroups.ArmorRig) {
             return false;
         }
         var typeIdsWithArmorRepairPowergridPenalty = [25896, 25898, 26294, 26296, 27064, 27066, 31045, 31047, 31049, 31051, 31053, 31063, 31065, 31067, 31069, 31071];
-        return (typeIdsWithArmorRepairPowergridPenalty.indexOf(t.typeId) > -1);
+        return (typeIdsWithArmorRepairPowergridPenalty.indexOf(type.typeId) > -1);
     }
     export function DrawbackIsMaxVelocityPenalty(type: Wafle.TypeInfo): boolean {
-        var t = type; 
-        if (t.groupId === undefined) {
-            t.FindGroupId();
+        if (type.groupId === undefined) {
+            type.FindGroupId();
         }
-        if (t.groupId !== Wafle.InventoryGroups.ArmorRig) {
+        if (type.groupId !== Wafle.InventoryGroups.ArmorRig) {
             return false;
         }
-        return (!DrawbackIsArmorRepairPowergridPenalty(t));
+        return (!DrawbackIsArmorRepairPowergridPenalty(type));
     }
+    export function DrawbackIsArmorAmount(type: Wafle.TypeInfo): boolean {
+        if (type.groupId === undefined) {
+            type.FindGroupId();
+        }
+        return (type.groupId === Wafle.InventoryGroups.NavigationRig); //they all have this drawback.
+    }
+
 
     export function IsLoadableCharge(type: Wafle.TypeInfo): boolean {
         var w = Wafle.InventoryGroups;
@@ -54,8 +59,14 @@ module Wafle.Data {
         switch (ship.baseShipData.typeId) {
             case 587:
                 if (attackingModule.groupId === InventoryGroups.ProjectileWeapon && attackingModule.chargeSize === 1) {
-                    mult = mult * (1 + (0.05 * ps.MinmatarFrigate));
+                    mult *= (1 + (0.05 * ps.MinmatarFrigate));
                 }
+                break;
+            case 602:
+                if (attackingModule.groupId === InventoryGroups.RocketLauncher || attackingModule.groupId === InventoryGroups.LightMissileLauncher) {
+                   mult *= (1 + (0.05 * ps.CaldariFrigate));
+                }
+                break;
             //no default
         }
 

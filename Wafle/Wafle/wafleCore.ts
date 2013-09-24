@@ -193,12 +193,16 @@ module Wafle {
         }
 
         public powergrid() {
+            var pg = this.baseShipData.powergridOutput;
+            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
+                    pg += this.fittingSlots[i].baseShipEquipmentData.powerGridIncrease;
+                }
+            }
             if (this.pilot) {
-                return Round(this.baseShipData.powergridOutput * this.pilot.skills.powergridMultiplier(), -2);
+                pg *= this.pilot.skills.powergridMultiplier();
             }
-            else {
-                return this.baseShipData.powergridOutput;
-            }
+            return pg;
         }
 
         public powergridString() {
@@ -236,12 +240,23 @@ module Wafle {
         }
 
         public shieldHP() {
+            var baseShieldHP = this.baseShipData.shieldHP;
+            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
+                    baseShieldHP += this.fittingSlots[i].baseShipEquipmentData.shieldHPBonusAdd;
+                }
+            }
             if (this.pilot) {
-                return Round(this.baseShipData.shieldHP * this.pilot.skills.shieldHPMultiplier(), 0);
+                baseShieldHP *= this.pilot.skills.shieldHPMultiplier()
             }
-            else {
-                return this.baseShipData.shieldHP;
+            
+            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.shieldHPBonusPercent) {
+                    baseShieldHP *= (1 + (this.fittingSlots[i].baseShipEquipmentData.shieldHPBonusPercent(this) * 0.01));
+                }
             }
+
+            return Round(baseShieldHP,0);
         }
 
         public armorHP() {
@@ -252,12 +267,12 @@ module Wafle {
                 }
             }
             if (this.pilot) {
-                baseArmorHP = baseArmorHP * this.pilot.skills.armorHPMultiplier();
+                baseArmorHP *= this.pilot.skills.armorHPMultiplier();
             }
 
             for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
-                    baseArmorHP *= (1 + (this.fittingSlots[i].baseShipEquipmentData.armorHPBonusPercent * 0.01));
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.armorHPBonusPercent) {
+                    baseArmorHP *= (1 + (this.fittingSlots[i].baseShipEquipmentData.armorHPBonusPercent(this) * 0.01));
                 }
             }
             return Round(baseArmorHP,0);
@@ -486,7 +501,7 @@ module Wafle {
             var growerCount = 0, shrinkerCount = 0;
             for (var i = 0; i < percentages.length; i++) {
                 if (percentages[i] > 1) {
-                    startValue *= percentages[i] * dimEffRatio(growerCount);
+                    startValue *= (1 + ((percentages[i]-1) * dimEffRatio(growerCount)));
                     growerCount += 1;
                 } else if (percentages[i] < 1) {
                     startValue *= (1 - ((1 - percentages[i]) * dimEffRatio(shrinkerCount)));
@@ -560,10 +575,12 @@ module Wafle {
         HullUpgrades: number = 0;
         Mechanics: number = 0;
         ShieldManagement: number = 0;
+        ShieldUpgrades: number = 0;
         WeaponUpgrades: number = 0;
         AdvancedWeaponUpgrades: number = 0;
         Navigation: number = 0;
         ArmorRigging: number = 0;
+        NavigationRigging: number = 0;
         GallenteFrigate: number = 0;
         MinmatarFrigate: number = 0;
         CaldariFrigate: number = 0;
@@ -584,10 +601,12 @@ module Wafle {
             this.HullUpgrades = level;
             this.Mechanics = level;
             this.ShieldManagement = level;
+            this.ShieldUpgrades = level;
             this.WeaponUpgrades = level;
             this.AdvancedWeaponUpgrades = level;
             this.Navigation = level;
             this.ArmorRigging = level;
+            this.NavigationRigging = level;
             this.GallenteFrigate = level;
             this.MinmatarFrigate = level;
             this.CaldariFrigate = level;
@@ -673,7 +692,17 @@ module Wafle {
             } else {
                 return 0;
             }
-            
+        }
+        public static shieldUpgradeModule(ship: Ship, basePowergrid: number) {
+            if (basePowergrid) {
+                if (ship.pilot) {
+                    return basePowergrid * (1 - (0.05 * ship.pilot.skills.ShieldUpgrades));
+                } else {
+                    return basePowergrid;
+                }
+            } else {
+                return 0;
+            }
         }
     }
 
@@ -774,13 +803,27 @@ module Wafle {
             return CpuFormulas.standardModule(ship, this.cpuUsage)
         }
         target.powergridUsageActual = function (ship: Ship) {
-            return PowergridFormulas.standardModule(ship, this.powergridUsage);
+            return PowergridFormulas.shieldUpgradeModule(ship, this.powergridUsage);
         }
     }
 
     function LowWeaponEnhancer(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
         target.slotUsed = FittingSlotType.Low;
-
+        if (data.rofm) {
+            target.rateOfFireMultiplier = data.rofm;
+        }
+        if (data.dmg) {
+            target.damageModifier = data.dmg;
+        }
+        if (data.midm) {
+            target.missileDamageMultiplier = data.midm;
+        }
+        target.cpuUsageActual = function (ship: Ship) {
+            return CpuFormulas.standardModule(ship, this.cpuUsage)
+        }
+        target.powergridUsageActual = function (ship: Ship) {
+            return PowergridFormulas.standardModule(ship, this.powergridUsage);
+        }
     }
 
     function ArmorPlateAndCoatingLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
@@ -788,7 +831,9 @@ module Wafle {
             target.armorHPBonusAdd = data.ahp;
         }
         if (data.ahpbp) {
-            target.armorHPBonusPercent = data.ahpbp;
+            target.armorHPBonusPercent = (ship: Ship): number => {
+                return data.ahpbp;
+            }
         }
         target.slotUsed = FittingSlotType.Low;
         target.cpuUsageActual = function (ship: Ship) {
@@ -842,10 +887,10 @@ module Wafle {
         target.agilityMultiplier = data.agim;
         target.baseVelocityMultiplier = data.velm;
         target.slotUsed = FittingSlotType.Low;
-        target.cpuUsageActual = (ship: Ship) => {
+        target.cpuUsageActual = (ship: Ship): number => {
             return CpuFormulas.standardModule(ship, target.cpuUsage)
         }
-        target.powergridUsageActual = (ship: Ship) => {
+        target.powergridUsageActual = (ship: Ship) : number => {
             return PowergridFormulas.standardModule(ship, target.powergridUsage);
         }
     }
@@ -881,17 +926,29 @@ module Wafle {
                 target.actualVelocityMultiplier = (ship: Ship) => {
                     var m: number = target.drawback;
                     if (ship.pilot) {
-                        m = m * (1 - (ship.pilot.skills.ArmorRigging * 0.1))
-                }
-                    return m;
-                }
+                        m = m * (1 - (ship.pilot.skills.ArmorRigging * 0.1));
+                    }
+                        return m;
+                    }
             }
 
             if (data.ahpbp) {
-                target.armorHPBonusPercent = data.ahpbp;
+                target.armorHPBonusPercent = (ship: Ship): number => {
+                    return data.ahpbp;
+                }
             }
         } else if (target.groupId == InventoryGroups.ShieldRig) {
             target.shieldResists = new ResistSet((100 + data.emdrb) * 0.01 || 1, (100 + data.exdrb) * 0.01 || 1, (100 + data.kidrb) * 0.01 || 1, (100 + data.thdrb) * 0.01 || 1);
+        } else if (target.groupId == InventoryGroups.NavigationRig) {
+            if (data.agim) {
+                target.agilityMultiplier = data.agim;
+            }
+            if (data.velm) {
+                target.baseVelocityMultiplier = data.velm;
+            }
+            target.armorHPBonusPercent = (ship: Ship) => {
+                return target.drawback * (1 - (ship.pilot.skills.NavigationRigging * 0.1));
+            }
         }
 
     }
@@ -908,7 +965,7 @@ module Wafle {
             }
         }
         public FindGroupId(): void {
-            this.groupId = Wafle.Data.TypeToGroupIDMapping[this.typeId.toString()]
+            this.groupId = Wafle.Data.TypeToGroupIDMapping[this.typeId.toString()];
         }
     }
    
@@ -922,12 +979,15 @@ module Wafle {
         public trackingSpeed: number = 0;
         public cpuUsage: number = 0;
         public rateOfFire: number = 0;
+        /** Rate of fire multiplier - Rate is measured in ms between firing, so lower is faster: 0.9 would be a 10% faster rate of fire.*/
+        public rateOfFireMultiplier: number = 0;
         public powergridUsage: number = 0;
         /** Base powergrid increase amount (for modules that create powergrid capacity) in MW, such as 12 = 12 MW powergrid increase.*/
         public powerGridIncrease: number = 0;
         public optimalRange: number = 0;
         public metaLevel: number = 0;
         public damageModifier: number = 0;
+        public missileDamageMultiplier: number = 0;
         public marketGroup: number = 0;
         public parentMarketGroup: number = 0;
         public speedFactor: number = 0;
@@ -942,7 +1002,9 @@ module Wafle {
         /** Armor HP added - represented as a flat addition (10 = 10 additional HP) */
         public armorHPBonusAdd: number = 0;
         /** Armor HP Bonus Percent - represented in whole numbers (20% bonus as 20). */
-        public armorHPBonusPercent: number = 0;
+        public armorHPBonusPercent: (ship: Ship) => number; //todo: refactor to eliminate requirement to pass ship to the module on the ship.
+        /** Shield HP Bonus Percent - represented in whole numbers (20% bonus as 20). */
+        public shieldHPBonusPercent: (ship: Ship) => number; //todo: refactor to eliminate requirement to pass ship to the module on the ship.
         public slotUsed: FittingSlotType = FittingSlotType.Unknown;
         public cpuUsageActual: (ship: Ship) => number;
         public powergridUsageActual: (ship: Ship) => number;
@@ -1053,7 +1115,8 @@ module Wafle {
                     NosNeutLoader(data, this);
                     break;
                 case InventoryGroups.ArmorRig: //fall through
-                case InventoryGroups.ShieldRig: 
+                case InventoryGroups.ShieldRig: //fall through
+                case InventoryGroups.NavigationRig:
                     RigLoader(data, this);
                     break;
                 case InventoryGroups.DamageControl:

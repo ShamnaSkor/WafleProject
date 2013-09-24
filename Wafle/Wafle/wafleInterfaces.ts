@@ -14,7 +14,8 @@ module Wafle {
 
     export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod,
             IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, IPowerModule,
-            ITurret, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP {
+            ITurretModifier, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP,
+            IMissileModifier {
         /** name - the name of the type. */
         n: string;
         /** description - the description text for the type. */
@@ -111,6 +112,14 @@ module Wafle {
     }
 
 
+    export interface IBallisticEnhancement {
+        /** Missile damage multiplier - 1.1 = 10% increased damage. */
+        midm?: number;
+    }
+
+    
+
+
 
     export interface IResistBonus {
         /** EM Damage resist bonus - measured as whole percentage of reduction in damage taken (example: value of -10 means 10% less damage taken)) */
@@ -190,22 +199,24 @@ module Wafle {
     }
 
     export interface IPeriodic {
-        //todo: add description
+        /** Rate of fire - measured in ms so 5000 means fires every 5 seconds.  */
         rof?: number;
+        /** Rate of fire multiplier - Rate is measured in ms between firing, so lower is faster: 0.9 would be a 10% faster rate of fire.*/
+        rofm?: number;
     }
 
-    export interface ITurret  {
-        //todo: add description
+    export interface ITurretModifier  {
+        /** Turret tracking speed modifier */
         trk?: number;
+        /** Turret damage multiplier - such as 1.5 = 50% damage increase. */
         dmg?: number;
     }
 
+    export interface IMissileModifier {
+        midm?: number;
 
-
-    export interface ILauncher {
-        //todo: refactor into the main interface type.
     }
-    
+
     export interface IProjected{
         //todo: add description
         opt?: number;
