@@ -12,7 +12,10 @@ module Wafle {
         groupId?: number;
     }
 
-    export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod, IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, ITurret, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire {
+    export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod,
+            IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, IPowerModule,
+            ITurretModifier, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP,
+            IMissileModifier {
         /** name - the name of the type. */
         n: string;
         /** description - the description text for the type. */
@@ -87,6 +90,16 @@ module Wafle {
         thd?: number;
     }
 
+    export interface ISignatureRadius {
+        /** Signature Radius add amount - flat in meters (2 = 2 meters of additional signature radius) */
+        sra?: number;
+    }
+
+    export interface IShieldHP {
+        /** Shield HP increase - flat in HP (100 = 100 additional HP) */
+        shp?: number;
+    }
+
     export interface IAmmo {
         /** Weapons Range Modifier as fraction of base range (example: 0.5 means the range is half of normal) */
         wrm?: number;
@@ -97,6 +110,14 @@ module Wafle {
         /** Tracking Speed modifier as fraction of base (example: 1.2 means 20% faster tracking than normal) */
         tsm?: number;
     }
+
+
+    export interface IBallisticEnhancement {
+        /** Missile damage multiplier - 1.1 = 10% increased damage. */
+        midm?: number;
+    }
+
+    
 
 
 
@@ -178,22 +199,24 @@ module Wafle {
     }
 
     export interface IPeriodic {
-        //todo: add description
+        /** Rate of fire - measured in ms so 5000 means fires every 5 seconds.  */
         rof?: number;
+        /** Rate of fire multiplier - Rate is measured in ms between firing, so lower is faster: 0.9 would be a 10% faster rate of fire.*/
+        rofm?: number;
     }
 
-    export interface ITurret  {
-        //todo: add description
+    export interface ITurretModifier  {
+        /** Turret tracking speed modifier */
         trk?: number;
+        /** Turret damage multiplier - such as 1.5 = 50% damage increase. */
         dmg?: number;
     }
 
+    export interface IMissileModifier {
+        midm?: number;
 
-
-    export interface ILauncher {
-        //todo: refactor into the main interface type.
     }
-    
+
     export interface IProjected{
         //todo: add description
         opt?: number;
@@ -202,6 +225,7 @@ module Wafle {
     export interface IPropulsion {
         //todo: add description
         spd?: number;
+        /** Signature Radius bonus - expressed as a whole percentage increase, such as 10 = 10% increase to signature radius */
         srb?: number;
     }
     export interface IAgilityMod {
@@ -222,6 +246,11 @@ module Wafle {
     export interface IEnergyVampire {
         /** powerTransferAmount in "not specified" units (probably GJ) - ex: 8 */
         pta?: number;
+    }
+
+    export interface IPowerModule {
+        /** Power grid increase (in MW) */
+        pginc?: number;
     }
 
 

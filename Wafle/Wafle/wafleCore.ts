@@ -49,7 +49,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module Wafle {
 
-    export var Version: string = "0.1.0-alpha.2";
+    export var Version: string = "0.1.0-alphaWII.3";
 
     
     export enum RaceType {
@@ -65,18 +65,17 @@ module Wafle {
     }
 
     export enum InventoryGroups {
-        Unknown = -1, Frigate = 25, Propulsion = 46, WarpScrambler = 52, EnergyWeapon= 53, ProjectileWeapon= 55,
-        DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, EnergyVampire= 68, EnergyDestabilizer=71,
+        Unknown = -1, Frigate = 25, ShieldExtender = 38, Propulsion = 46, WarpScrambler = 52, EnergyWeapon= 53, ProjectileWeapon= 55,
+        Gyrostabilizer=59, DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, EnergyVampire= 68, EnergyDestabilizer=71,
         HybridWeapon= 74, ShieldHardener=77, ProjectileAmmo = 83, HybridCharge=85, FrequencyCrystal=86,
-        ArmorCoating=98, ArmorRepairProjector = 325, ArmorPlate = 329,
+        ArmorCoating= 98, HeatSink= 205, MagneticFieldStabilizer= 302, ArmorRepairProjector = 325,
+        ArmorPlate = 329, AuxiliaryPowerCore= 339, BallisticControlSystem= 367,
         AdvancedAutocannonAmmo= 372, AdvancedRailgunCharge= 373, AdvancedBeamLaserCrystal= 374, AdvancedPulseLaserCrystal= 375,
-        AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377,
-        LightMissile= 384, HeavyMissile= 385, Rocket= 387,
-        FoFHeavyMissile= 395, RocketLauncher= 507,
-        LightMissileLauncher= 509, HeavyMissileLauncher= 510, RapidLightMissileLauncher= 511, AdvancedRocket= 648,
-        AdvancedLightMissile= 653,
+        AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377, TargetPainter=379, LightMissile= 384, HeavyMissile= 385, Rocket= 387,
+        FoFHeavyMissile= 395, RocketLauncher= 507, LightMissileLauncher= 509, HeavyMissileLauncher= 510,
+        RapidLightMissileLauncher= 511, AdvancedRocket= 648,AdvancedLightMissile= 653,
         AdvancedHeavyAssaultMissile=654, AdvancedHeavyMissile=655, Nanofiber= 763,
-        HeavyAssaultMissileLauncher= 771, HeavyAssaultMissile=772, ArmorRig= 773, ShieldRig= 774
+        HeavyAssaultMissileLauncher= 771, HeavyAssaultMissile=772, ArmorRig= 773, ShieldRig= 774, NavigationRig=782
     }
 
     
@@ -98,6 +97,7 @@ module Wafle {
     }
     
     export class FittingSlot {
+        private loadedCharge: BaseShipEquipmentData = null;
         public baseShipEquipmentData: BaseShipEquipmentData = null;
         public cpuUsage(): number {
             if (this.baseShipEquipmentData) {
@@ -114,6 +114,7 @@ module Wafle {
             }
         }
 
+        
         constructor(public slotType: FittingSlotType, public ship: Ship) {
         }
 
@@ -137,6 +138,29 @@ module Wafle {
                     this.baseShipEquipmentData = null;
                     throw errorMessage;
                 }
+            }
+        }
+
+        public LoadedCharge() {
+            return this.loadedCharge;
+        }
+
+        public LoadCharge(type: TypeInfo) {
+            if (!Wafle.Data.IsLoadableCharge(type)) {
+                throw "Type " + type.typeId + " in group " + type.groupId + " is not a loadable charge.";
+            }
+            var charge = new BaseShipEquipmentData(type.groupId, type.typeId);
+            if (charge.launcherGroup !== this.baseShipEquipmentData.groupId) {
+                throw "Type " + type.typeId + " is not compatible with a launcher of type " + this.baseShipEquipmentData.name + ".";
+            }
+            this.loadedCharge = charge;
+        }
+
+        public totalAlphaDamage(): number {
+            if (this.baseShipEquipmentData) {
+                return this.baseShipEquipmentData.totalAlphaDamageActual(this.ship, this.loadedCharge);
+            } else {
+                return 0;
             }
         }
     }
@@ -170,12 +194,16 @@ module Wafle {
         }
 
         public powergrid() {
+            var pg = this.baseShipData.powergridOutput;
+            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
+                    pg += this.fittingSlots[i].baseShipEquipmentData.powerGridIncrease;
+                }
+            }
             if (this.pilot) {
-                return Round(this.baseShipData.powergridOutput * this.pilot.skills.powergridMultiplier(), -2);
+                pg *= this.pilot.skills.powergridMultiplier();
             }
-            else {
-                return this.baseShipData.powergridOutput;
-            }
+            return pg;
         }
 
         public powergridString() {
@@ -213,12 +241,23 @@ module Wafle {
         }
 
         public shieldHP() {
+            var baseShieldHP = this.baseShipData.shieldHP;
+            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
+                    baseShieldHP += this.fittingSlots[i].baseShipEquipmentData.shieldHPBonusAdd;
+                }
+            }
             if (this.pilot) {
-                return Round(this.baseShipData.shieldHP * this.pilot.skills.shieldHPMultiplier(), 0);
+                baseShieldHP *= this.pilot.skills.shieldHPMultiplier()
             }
-            else {
-                return this.baseShipData.shieldHP;
+            
+            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.shieldHPBonusPercent) {
+                    baseShieldHP *= (1 + (this.fittingSlots[i].baseShipEquipmentData.shieldHPBonusPercent(this) * 0.01));
+                }
             }
+
+            return Round(baseShieldHP,0);
         }
 
         public armorHP() {
@@ -229,12 +268,12 @@ module Wafle {
                 }
             }
             if (this.pilot) {
-                baseArmorHP = baseArmorHP * this.pilot.skills.armorHPMultiplier();
+                baseArmorHP *= this.pilot.skills.armorHPMultiplier();
             }
 
             for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
-                    baseArmorHP *= (1 + (this.fittingSlots[i].baseShipEquipmentData.armorHPBonusPercent * 0.01));
+                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.armorHPBonusPercent) {
+                    baseArmorHP *= (1 + (this.fittingSlots[i].baseShipEquipmentData.armorHPBonusPercent(this) * 0.01));
                 }
             }
             return Round(baseArmorHP,0);
@@ -463,7 +502,7 @@ module Wafle {
             var growerCount = 0, shrinkerCount = 0;
             for (var i = 0; i < percentages.length; i++) {
                 if (percentages[i] > 1) {
-                    startValue *= percentages[i] * dimEffRatio(growerCount);
+                    startValue *= (1 + ((percentages[i]-1) * dimEffRatio(growerCount)));
                     growerCount += 1;
                 } else if (percentages[i] < 1) {
                     startValue *= (1 - ((1 - percentages[i]) * dimEffRatio(shrinkerCount)));
@@ -473,12 +512,35 @@ module Wafle {
             return startValue;
         }
 
-        private SortArrayByAscendingAbsoluteValue(theArray: number[]) {
+        private SortArrayByAscendingAbsoluteValue(theArray: number[]) : number[] {
             return theArray.sort(function (a, b) {return Math.abs(a) - Math.abs(b) });
         }
 
-        private SortArrayByDescendingAbsoluteValue(theArray: number[]) {
+        private SortArrayByDescendingAbsoluteValue(theArray: number[]) : number[] {
             return theArray.sort(function (a, b) {return Math.abs(b) - Math.abs(a) });
+        }
+
+        public emDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number {
+            return Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge) * this.pilot.OmniDamageMultiplier(attackingModule);
+        }
+        public explosiveDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number{
+            return Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge) * this.pilot.OmniDamageMultiplier(attackingModule);
+        }
+        public kineticDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number {
+            return Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge) * this.pilot.OmniDamageMultiplier(attackingModule);
+        }
+        public thermalDamageModifier(attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number {
+            return Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge) * this.pilot.OmniDamageMultiplier(attackingModule);
+        }
+
+        
+
+        public totalAlphaDamageActual(): number {
+            var total = 0
+            for (var i = 0; i < this.fittingSlots.length; i++) {
+                total += this.fittingSlots[i].baseShipEquipmentData.totalAlphaDamageActual(this, this.fittingSlots[i].LoadedCharge());
+            }
+            return total;
         }
         
     }
@@ -488,6 +550,24 @@ module Wafle {
         constructor(public name: string) {
             this.skills = new Skills;
         }
+
+        public OmniDamageMultiplier(attackingModule: BaseShipEquipmentData): number {
+            var mult = 1.0;
+            if (attackingModule.groupId === InventoryGroups.ProjectileWeapon) {
+                mult *= this.skills.surgicalStrikeDamageMultiplier();
+                switch (attackingModule.chargeSize) {
+                    case 1:
+                        mult *= this.skills.smallProjectileTurretDamageMultiplier();
+                        break;
+                }
+            } else if (attackingModule.groupId === InventoryGroups.RocketLauncher) {
+                mult *= this.skills.rocketsDamageMultiplier() * this.skills.warheadDamageMultiplier();
+            } else if (attackingModule.groupId === InventoryGroups.LightMissileLauncher) {
+                mult *= this.skills.lightMissilesDamageMultiplier() * this.skills.warheadDamageMultiplier();
+            }
+            return mult;
+        }
+
     }
 
     export class Skills {
@@ -496,11 +576,52 @@ module Wafle {
         HullUpgrades: number = 0;
         Mechanics: number = 0;
         ShieldManagement: number = 0;
+        ShieldUpgrades: number = 0;
         WeaponUpgrades: number = 0;
         AdvancedWeaponUpgrades: number = 0;
         Navigation: number = 0;
         ArmorRigging: number = 0;
+        NavigationRigging: number = 0;
+        GallenteFrigate: number = 0;
+        MinmatarFrigate: number = 0;
+        CaldariFrigate: number = 0;
+        AmarrFrigate: number = 0;
+        GallenteCruiser: number = 0;
+        MinmatarCruiser: number = 0;
+        CaldariCruiser: number = 0;
+        AmarrCruiser: number = 0;
+        SmallProjectileTurret: number = 0;
+        SurgicalStrike: number = 0;
+        Rockets: number = 0;
+        LightMissiles: number = 0;
+        WarheadUpgrades: number = 0;
 
+        public SetAllSkills(level: number) {
+            this.Engineering = level;
+            this.Electronics = level;
+            this.HullUpgrades = level;
+            this.Mechanics = level;
+            this.ShieldManagement = level;
+            this.ShieldUpgrades = level;
+            this.WeaponUpgrades = level;
+            this.AdvancedWeaponUpgrades = level;
+            this.Navigation = level;
+            this.ArmorRigging = level;
+            this.NavigationRigging = level;
+            this.GallenteFrigate = level;
+            this.MinmatarFrigate = level;
+            this.CaldariFrigate = level;
+            this.AmarrFrigate = level;
+            this.GallenteCruiser = level;
+            this.MinmatarCruiser = level;
+            this.CaldariCruiser = level;
+            this.AmarrCruiser = level;
+            this.SmallProjectileTurret = level;
+            this.SurgicalStrike = level;
+            this.Rockets = level;
+            this.LightMissiles = level;
+            this.WarheadUpgrades = level;
+        }
 
         public cpuMultiplier(): number {
             return 1.0 + (this.Electronics * 0.05);
@@ -520,6 +641,23 @@ module Wafle {
         public velocityMultiplier(): number {
             return 1.0 + (this.Navigation * 0.05);
         }
+        public smallProjectileTurretDamageMultiplier(): number {
+            return 1.0 + (this.SmallProjectileTurret * 0.05);
+        }
+        public surgicalStrikeDamageMultiplier(): number {
+            return 1.0 + (this.SurgicalStrike * 0.03);
+        }
+        public rocketsDamageMultiplier(): number {
+            return 1.0 + (this.Rockets * 0.05);
+        }
+        public lightMissilesDamageMultiplier(): number {
+            return 1.0 + (this.LightMissiles * 0.05);
+        }
+        public warheadDamageMultiplier(): number {
+            return 1.0 + (this.WarheadUpgrades * 0.02);
+        }
+
+
     }
 
     export class CpuFormulas {
@@ -555,7 +693,17 @@ module Wafle {
             } else {
                 return 0;
             }
-            
+        }
+        public static shieldUpgradeModule(ship: Ship, basePowergrid: number) {
+            if (basePowergrid) {
+                if (ship.pilot) {
+                    return basePowergrid * (1 - (0.05 * ship.pilot.skills.ShieldUpgrades));
+                } else {
+                    return basePowergrid;
+                }
+            } else {
+                return 0;
+            }
         }
     }
 
@@ -575,31 +723,57 @@ module Wafle {
         target.accuracyFalloff = data.acc;
         target.rateOfFire = data.rof;
         target.trackingSpeed = data.trk;
-        target.damageModifier = data.dmg;
+        target.damageMultiplier = data.dmg;
         target.slotUsed = FittingSlotType.High;
-        target.cpuUsageActual = function (ship: Ship) {
-            return CpuFormulas.standardWeapon(ship, this.cpuUsage)
-        }
-        target.powergridUsageActual = function (ship: Ship) {
-            return PowergridFormulas.standardWeapon(ship, this.powergridUsage);
-        }
+        target.launcherGroup = data.lg;
+        target.chargeSize = data.cs;
+        target.cpuUsageActual = (ship: Ship) => CpuFormulas.standardWeapon(ship, target.cpuUsage);
+        target.powergridUsageActual = (ship: Ship) => PowergridFormulas.standardWeapon(ship, target.powergridUsage);
+        target.emAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.emBaseDamage * target.damageMultiplier * ship.emDamageModifier(target, charge);
+        };
+        target.explosiveAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.explosiveBaseDamage * target.damageMultiplier * ship.explosiveDamageModifier(target, charge);
+        };
+        target.kineticAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.kineticBaseDamage * target.damageMultiplier * ship.kineticDamageModifier(target, charge);
+        };
+        target.thermalAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.thermalBaseDamage * target.damageMultiplier * ship.thermalDamageModifier(target, charge);
+        };
     }
 
-    function RocketLauncherLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+
+    function LauncherLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
         target.rateOfFire = data.rof;
         target.slotUsed = FittingSlotType.High;
-        target.cpuUsageActual = function (ship: Ship) {
-            return CpuFormulas.standardWeapon(ship, this.cpuUsage)
-        }
-        target.powergridUsageActual = function (ship: Ship) {
-            return PowergridFormulas.standardWeapon(ship, this.powergridUsage);
-        }
+        target.cpuUsageActual = (ship: Ship) => CpuFormulas.standardWeapon(ship, target.cpuUsage);
+        target.powergridUsageActual = (ship: Ship) => PowergridFormulas.standardWeapon(ship, target.powergridUsage);
+        target.launcherGroup = data.lg;
+        target.emAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.emBaseDamage * ship.emDamageModifier(target, charge);
+        };
+        target.explosiveAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.explosiveBaseDamage * ship.explosiveDamageModifier(target, charge);
+        };
+        target.kineticAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.kineticBaseDamage * ship.kineticDamageModifier(target, charge);
+        };
+        target.thermalAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
+            return charge.thermalBaseDamage * ship.thermalDamageModifier(target, charge);
+        };
     }
 
     function MidProjectedEffectLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
         target.optimalRange = data.opt;
         target.accuracyFalloff = data.acc;
         target.slotUsed = FittingSlotType.Mid;
+        if (data.srb) {
+            target.signatureRadiusBonusOfTarget = data.srb;
+        }
+        if (data.ad) {
+            target.activationDuration = data.ad;
+        }
         target.cpuUsageActual = function (ship: Ship) {
             return CpuFormulas.standardModule(ship, this.cpuUsage)
         }
@@ -622,12 +796,45 @@ module Wafle {
         }
     }
 
+    function ShieldExtenderLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.slotUsed = FittingSlotType.Mid;
+        target.shieldHPBonusAdd = data.shp;
+        target.signatureRadiusBonus = data.sra;
+        target.cpuUsageActual = function (ship: Ship) {
+            return CpuFormulas.standardModule(ship, this.cpuUsage)
+        }
+        target.powergridUsageActual = function (ship: Ship) {
+            return PowergridFormulas.shieldUpgradeModule(ship, this.powergridUsage);
+        }
+    }
+
+    function LowWeaponEnhancer(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.slotUsed = FittingSlotType.Low;
+        if (data.rofm) {
+            target.rateOfFireMultiplier = data.rofm;
+        }
+        if (data.dmg) {
+            target.damageMultiplier = data.dmg;
+        }
+        if (data.midm) {
+            target.missileDamageMultiplier = data.midm;
+        }
+        target.cpuUsageActual = function (ship: Ship) {
+            return CpuFormulas.standardModule(ship, this.cpuUsage)
+        }
+        target.powergridUsageActual = function (ship: Ship) {
+            return PowergridFormulas.standardModule(ship, this.powergridUsage);
+        }
+    }
+
     function ArmorPlateAndCoatingLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
         if (data.ahp) {
             target.armorHPBonusAdd = data.ahp;
         }
         if (data.ahpbp) {
-            target.armorHPBonusPercent = data.ahpbp;
+            target.armorHPBonusPercent = (ship: Ship): number => {
+                return data.ahpbp;
+            }
         }
         target.slotUsed = FittingSlotType.Low;
         target.cpuUsageActual = function (ship: Ship) {
@@ -635,6 +842,17 @@ module Wafle {
         }
         target.powergridUsageActual = function (ship: Ship) {
             return PowergridFormulas.standardModule(ship, this.powergridUsage);
+        }
+    }
+
+    function PowerModuleLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.slotUsed = FittingSlotType.Low;
+        target.powerGridIncrease = data.pginc;
+        target.cpuUsageActual = function (ship: Ship) { 
+            return CpuFormulas.standardModule(ship, this.cpuUsage)
+        }
+        target.powergridUsageActual = function (ship: Ship) {
+            return 0;
         }
     }
 
@@ -653,16 +871,27 @@ module Wafle {
         }
     }
 
+    function ChargeLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+        target.emBaseDamage = data.emd;
+        target.explosiveBaseDamage = data.exd;
+        target.kineticBaseDamage = data.kid;
+        target.thermalBaseDamage = data.thd;
+        target.weaponsRangeModifier = data.wrm;
+        target.chargeSize = data.cs;
+        target.launcherGroup = data.lg; //todo: fix up so this works with all types of charges
+        target.trackingSpeedModifier = data.tsm;
+    }
+
     function NanofiberLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
         
         target.shipHullHPMultiplier = data.sshpm;
         target.agilityMultiplier = data.agim;
         target.baseVelocityMultiplier = data.velm;
         target.slotUsed = FittingSlotType.Low;
-        target.cpuUsageActual = (ship: Ship) => {
+        target.cpuUsageActual = (ship: Ship): number => {
             return CpuFormulas.standardModule(ship, target.cpuUsage)
         }
-        target.powergridUsageActual = (ship: Ship) => {
+        target.powergridUsageActual = (ship: Ship) : number => {
             return PowergridFormulas.standardModule(ship, target.powergridUsage);
         }
     }
@@ -698,25 +927,46 @@ module Wafle {
                 target.actualVelocityMultiplier = (ship: Ship) => {
                     var m: number = target.drawback;
                     if (ship.pilot) {
-                        m = m * (1 - (ship.pilot.skills.ArmorRigging * 0.1))
-                }
-                    return m;
-                }
+                        m = m * (1 - (ship.pilot.skills.ArmorRigging * 0.1));
+                    }
+                        return m;
+                    }
             }
 
             if (data.ahpbp) {
-                target.armorHPBonusPercent = data.ahpbp;
+                target.armorHPBonusPercent = (ship: Ship): number => {
+                    return data.ahpbp;
+                }
             }
         } else if (target.groupId == InventoryGroups.ShieldRig) {
             target.shieldResists = new ResistSet((100 + data.emdrb) * 0.01 || 1, (100 + data.exdrb) * 0.01 || 1, (100 + data.kidrb) * 0.01 || 1, (100 + data.thdrb) * 0.01 || 1);
+        } else if (target.groupId == InventoryGroups.NavigationRig) {
+            if (data.agim) {
+                target.agilityMultiplier = data.agim;
+            }
+            if (data.velm) {
+                target.baseVelocityMultiplier = data.velm;
+            }
+            target.armorHPBonusPercent = (ship: Ship) => {
+                return target.drawback * (1 - (ship.pilot.skills.NavigationRigging * 0.1));
+            }
         }
 
     }
 
     export class TypeInfo implements ITypeInfo {
-        constructor(public typeId: number, public groupId?: number) { }
+        public typeId: number;
+        public groupId: number;
+        constructor(typeId: number, groupId?: number) {
+            this.typeId = typeId;
+            if (groupId === undefined) {
+                this.FindGroupId();
+            } else {
+                this.groupId = groupId;
+            }
+        }
         public FindGroupId(): void {
-            this.groupId = Wafle.Data.TypeToGroupIDMapping[this.typeId.toString()]
+            this.groupId = Wafle.Data.TypeToGroupIDMapping[this.typeId.toString()];
         }
     }
    
@@ -730,17 +980,32 @@ module Wafle {
         public trackingSpeed: number = 0;
         public cpuUsage: number = 0;
         public rateOfFire: number = 0;
+        /** Rate of fire multiplier - Rate is measured in ms between firing, so lower is faster: 0.9 would be a 10% faster rate of fire.*/
+        public rateOfFireMultiplier: number = 0;
         public powergridUsage: number = 0;
+        /** Base powergrid increase amount (for modules that create powergrid capacity) in MW, such as 12 = 12 MW powergrid increase.*/
+        public powerGridIncrease: number = 0;
         public optimalRange: number = 0;
         public metaLevel: number = 0;
-        public damageModifier: number = 0;
+        public damageMultiplier: number = 1;
+        public missileDamageMultiplier: number = 1;
         public marketGroup: number = 0;
         public parentMarketGroup: number = 0;
         public speedFactor: number = 0;
+        /** Signature Radius bonus - expressed as a whole percentage increase, such as 10 = 10% increase to signature radius */
         public signatureRadiusBonus: number = 0;
+        /** Signature Radius bonus (of target) - expressed as a whole percentage increase, such as 10 = 10% increase to signature radius of a targeted ship */
+        public signatureRadiusBonusOfTarget: number = 0;
+        /** Signature Radius Add - represented in meters (10 = 10 additional meters) */
+        public signatureRadiusAdd: number = 0;
+        /** Shield HP added - represented as a flat addition (10 = 10 additional HP) */
+        public shieldHPBonusAdd: number = 0;
+        /** Armor HP added - represented as a flat addition (10 = 10 additional HP) */
         public armorHPBonusAdd: number = 0;
         /** Armor HP Bonus Percent - represented in whole numbers (20% bonus as 20). */
-        public armorHPBonusPercent: number = 0;
+        public armorHPBonusPercent: (ship: Ship) => number; //todo: refactor to eliminate requirement to pass ship to the module on the ship.
+        /** Shield HP Bonus Percent - represented in whole numbers (20% bonus as 20). */
+        public shieldHPBonusPercent: (ship: Ship) => number; //todo: refactor to eliminate requirement to pass ship to the module on the ship.
         public slotUsed: FittingSlotType = FittingSlotType.Unknown;
         public cpuUsageActual: (ship: Ship) => number;
         public powergridUsageActual: (ship: Ship) => number;
@@ -766,6 +1031,35 @@ module Wafle {
         /** energyDestabilizationAmount in Giga Joule - ex: 45 = 45GJ */
         public energyDestabilizationAmount: number = 0;
 
+        /** total alpha damage of all types at optimal including ship bonuses, pilot skill, and ammunition used. */
+        public totalAlphaDamageActual(ship: Ship, charge: BaseShipEquipmentData): number {
+            return (this.emAlphaDamageActual(ship, charge) +
+                this.explosiveAlphaDamageActual(ship, charge) +
+                this.kineticAlphaDamageActual(ship, charge) +
+                this.thermalAlphaDamageActual(ship, charge) || 0);
+        }
+        public emAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        public explosiveAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        public kineticAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        public thermalAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
+        /** EM damage in HP */
+        public emBaseDamage: number;
+        /** Explosive damage in HP */
+        public explosiveBaseDamage: number;
+        /** Kinetic damage in HP */
+        public kineticBaseDamage: number;
+        /** Thermal damage in HP */
+        public thermalBaseDamage: number;
+        /** Weapons Range Modifier as fraction of base range (example: 0.5 means the range is half of normal) */
+        public weaponsRangeModifier: number;
+        /** Charge size: 1=small, 2=medium, 3=large, etc... */
+        public chargeSize: number;
+        /** Launcher Group (Group ID number of compatible Launchers) */
+        public launcherGroup: number;
+        /** Tracking Speed modifier as fraction of base (example: 1.2 means 20% faster tracking than normal) */
+        public trackingSpeedModifier: number;
+
+
 
 
         constructor(public groupId: number, public typeId: number) {
@@ -783,14 +1077,29 @@ module Wafle {
                 case InventoryGroups.EnergyWeapon: 
                     TurretLoader(data, this);
                     break;
-                case InventoryGroups.RocketLauncher:
-                    RocketLauncherLoader(data, this);
+                case InventoryGroups.AdvancedArtilleryAmmo: //fall through
+                case InventoryGroups.ProjectileAmmo: //fall through
+                case InventoryGroups.Rocket: //fall through
+                case InventoryGroups.AdvancedRocket: //fall through
+                case InventoryGroups.LightMissile:  //fall through
+                case InventoryGroups.AdvancedLightMissile:
+                    ChargeLoader(data, this);
                     break;
-                case InventoryGroups.StasisWeb:
+                case InventoryGroups.RocketLauncher: //fall through
+                case InventoryGroups.LightMissileLauncher: //fall through
+                case InventoryGroups.HeavyAssaultMissileLauncher: //fall through
+                case InventoryGroups.HeavyMissileLauncher: // fall through
+                    LauncherLoader(data, this);
+                    break;
+                case InventoryGroups.StasisWeb: // fall through
+                case InventoryGroups.TargetPainter:
                     MidProjectedEffectLoader(data, this);
                     break;
                 case InventoryGroups.Propulsion:
                     PropulsionLoader(data, this);
+                    break;
+                case InventoryGroups.ShieldExtender:
+                    ShieldExtenderLoader(data, this);
                     break;
                 case InventoryGroups.WarpScrambler:
                     MidProjectedEffectLoader(data, this);
@@ -807,15 +1116,54 @@ module Wafle {
                     NosNeutLoader(data, this);
                     break;
                 case InventoryGroups.ArmorRig: //fall through
-                case InventoryGroups.ShieldRig: 
+                case InventoryGroups.ShieldRig: //fall through
+                case InventoryGroups.NavigationRig:
                     RigLoader(data, this);
                     break;
                 case InventoryGroups.DamageControl:
                     DamageControlLoader(data, this);
                     break;
+                case InventoryGroups.AuxiliaryPowerCore:
+                    PowerModuleLoader(data, this);
+                case InventoryGroups.BallisticControlSystem: //fall through
+                case InventoryGroups.Gyrostabilizer: //fall through
+                case InventoryGroups.HeatSink: //fall through
+                case InventoryGroups.MagneticFieldStabilizer:
+                    LowWeaponEnhancer(data, this);
                 default:
                     break;
             }
+        }
+
+        public damageMultiplierForModule(theAttackingModule: BaseShipEquipmentData): number {
+            if (this.damageMultiplier == 0 && this.missileDamageMultiplier == 0) {
+                return 1;
+            }
+            switch (theAttackingModule.groupId) {
+                case InventoryGroups.HeavyAssaultMissileLauncher:
+                case InventoryGroups.HeavyMissileLauncher:
+                case InventoryGroups.LightMissileLauncher:
+                case InventoryGroups.RapidLightMissileLauncher:
+                case InventoryGroups.RocketLauncher:
+                    return this.missileDamageMultiplier;
+                    break;
+                case InventoryGroups.ProjectileWeapon:
+                    if (this.groupId == InventoryGroups.Gyrostabilizer) {
+                        return this.damageMultiplier;
+                    }
+                    break;
+                case InventoryGroups.HybridWeapon:
+                    if (this.groupId == InventoryGroups.MagneticFieldStabilizer) {
+                        return this.damageMultiplier;
+                    }
+                    break;
+                case InventoryGroups.EnergyWeapon:
+                    if (this.groupId == InventoryGroups.HeatSink) {
+                        return this.damageMultiplier;
+                    }
+                    break;
+            }
+            return 1;
         }
     }
 
