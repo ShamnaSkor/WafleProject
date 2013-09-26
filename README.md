@@ -16,7 +16,10 @@ Wafle:
 * contains data in JSON format extracted from the [EVE Community Toolkit](http://community.eveonline.com/community/fansites/toolkit/) which is (c) 2013 CCP hf. (See the LICENSE file for specific details.)
 
 ###Current state of the project
-Wafle is currently in very early alpha - pre 0.1.0 release...  It is currently capable of performing many but not all of the calculations relevant for fitting "fighting" frigates.
+Wafle is currently in very early alpha - pre 0.1.0 release...  It is currently capable of performing most but not all of the calculations relevant for fitting "fighting" frigates.
+
+####Latest Version:
+0.1.0-alpha.4 (2013-09-25) adds alpha damage calculation for missiles and turrets, and adds support for Shield Extenders, Aux Power Cores, and Heat Sinks/Gyros/MagStabs/BCS.
 
 ####What is needed?
 * Wafle needs one or more UIs.
