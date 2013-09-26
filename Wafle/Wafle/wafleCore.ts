@@ -29,14 +29,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 /* Todo:
-. Fix requiring both Wafle and WafleData to be referenced in the HTML page.
-. lasers and hybrids
 . more rigs and other modules.
 . modules that use capacitor - adjust stats for active or inactive.
 . track capacitor usage of ship/cap stability
-. missiles
 . drone stuff
-. Ammo
 . cruisers, bc, bs, other
 . align time, warp speed, other navigation concerns
 . Offline Modules
@@ -49,9 +45,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module Wafle {
 
-    export var Version: string = "0.1.0-alphaWII.3";
+    export var Version: string = "0.1.0-alpha.4";
 
-    
     export enum RaceType {
         Unknown = 0, Caldari = 1, Minmatar = 2, Amarr = 4, Gallente = 8, ORE
     }
@@ -1135,33 +1130,30 @@ module Wafle {
             }
         }
 
+        public typeInfo(): Wafle.TypeInfo {
+            return new TypeInfo(this.typeId, this.groupId);
+        }
+
         public damageMultiplierForModule(theAttackingModule: BaseShipEquipmentData): number {
             if (this.damageMultiplier == 0 && this.missileDamageMultiplier == 0) {
                 return 1;
             }
-            switch (theAttackingModule.groupId) {
-                case InventoryGroups.HeavyAssaultMissileLauncher:
-                case InventoryGroups.HeavyMissileLauncher:
-                case InventoryGroups.LightMissileLauncher:
-                case InventoryGroups.RapidLightMissileLauncher:
-                case InventoryGroups.RocketLauncher:
-                    return this.missileDamageMultiplier;
-                    break;
-                case InventoryGroups.ProjectileWeapon:
-                    if (this.groupId == InventoryGroups.Gyrostabilizer) {
-                        return this.damageMultiplier;
-                    }
-                    break;
-                case InventoryGroups.HybridWeapon:
-                    if (this.groupId == InventoryGroups.MagneticFieldStabilizer) {
-                        return this.damageMultiplier;
-                    }
-                    break;
-                case InventoryGroups.EnergyWeapon:
-                    if (this.groupId == InventoryGroups.HeatSink) {
-                        return this.damageMultiplier;
-                    }
-                    break;
+
+            var ti = theAttackingModule.typeInfo();
+            if (Wafle.Data.IsLauncher(ti)){
+                return this.missileDamageMultiplier;
+            } else if (ti.groupId == InventoryGroups.ProjectileWeapon) {
+                if (this.groupId == InventoryGroups.Gyrostabilizer) {
+                    return this.damageMultiplier;
+                }
+            } else if (ti.groupId == InventoryGroups.HybridWeapon) {
+                if (this.groupId == InventoryGroups.MagneticFieldStabilizer) {
+                    return this.damageMultiplier;
+                }
+            } else if (ti.groupId == InventoryGroups.EnergyWeapon) {
+                if (this.groupId == InventoryGroups.HeatSink) {
+                    return this.damageMultiplier;
+                }
             }
             return 1;
         }

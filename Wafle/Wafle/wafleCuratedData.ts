@@ -29,6 +29,20 @@ module Wafle.Data {
     }
 
 
+    export function IsTurret(type: Wafle.TypeInfo): boolean {
+       var w = Wafle.InventoryGroups;
+        return (type.groupId === w.ProjectileWeapon || type.groupId === w.EnergyWeapon || type.groupId === w.HybridWeapon);
+    }
+
+    export function IsLauncher(type: Wafle.TypeInfo): boolean {
+        var w = Wafle.InventoryGroups;
+        return (type.groupId === w.RocketLauncher ||
+            type.groupId === w.HeavyMissileLauncher ||
+            type.groupId === w.HeavyAssaultMissileLauncher ||
+            type.groupId === w.LightMissileLauncher ||
+            type.groupId === w.RapidLightMissileLauncher);
+    }
+
     export function IsLoadableCharge(type: Wafle.TypeInfo): boolean {
         var w = Wafle.InventoryGroups;
         return (type.groupId === w.AdvancedArtilleryAmmo ||
