@@ -632,5 +632,5 @@ test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
         strictEqual(ship.HullExplosiveDamageReduction(), 0.0, "Hull ex ");
         strictEqual(ship.HullKineticDamageReduction(), 0.0, "Hull ki ");
         strictEqual(ship.HullThermalDamageReduction(), 0.0, "Hull th ");
-        strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage() + ship.fittingSlots[1].totalAlphaDamage() + ship.fittingSlots[2].totalAlphaDamage() + ship.fittingSlots[3].totalAlphaDamage(), -2), Wafle.Round(718, -2), "alpha damage from all missiles");
+        strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage() + ship.fittingSlots[1].totalAlphaDamage() + ship.fittingSlots[2].totalAlphaDamage() + ship.fittingSlots[3].totalAlphaDamage(), -2), Wafle.Round(718.44, -2), "alpha damage from all missiles");
     });

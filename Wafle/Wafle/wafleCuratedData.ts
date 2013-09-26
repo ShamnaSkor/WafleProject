@@ -70,6 +70,12 @@ module Wafle.Data {
             //no default
         }
 
+        for (var i = 0; i < ship.fittingSlots.length; i++) {
+            if (ship.fittingSlots[i].baseShipEquipmentData) {
+                mult *= ship.fittingSlots[i].baseShipEquipmentData.damageMultiplierForModule(attackingModule);
+            }
+        }
+
         return mult;
     }
 }

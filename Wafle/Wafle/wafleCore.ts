@@ -49,7 +49,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module Wafle {
 
-    export var Version: string = "0.1.0-alpha.2";
+    export var Version: string = "0.1.0-alphaWII.3";
 
     
     export enum RaceType {
@@ -114,6 +114,7 @@ module Wafle {
             }
         }
 
+        
         constructor(public slotType: FittingSlotType, public ship: Ship) {
         }
 
@@ -722,23 +723,23 @@ module Wafle {
         target.accuracyFalloff = data.acc;
         target.rateOfFire = data.rof;
         target.trackingSpeed = data.trk;
-        target.damageModifier = data.dmg;
+        target.damageMultiplier = data.dmg;
         target.slotUsed = FittingSlotType.High;
         target.launcherGroup = data.lg;
         target.chargeSize = data.cs;
         target.cpuUsageActual = (ship: Ship) => CpuFormulas.standardWeapon(ship, target.cpuUsage);
         target.powergridUsageActual = (ship: Ship) => PowergridFormulas.standardWeapon(ship, target.powergridUsage);
         target.emAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
-            return charge.emBaseDamage * target.damageModifier * ship.emDamageModifier(target, charge);
+            return charge.emBaseDamage * target.damageMultiplier * ship.emDamageModifier(target, charge);
         };
         target.explosiveAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
-            return charge.explosiveBaseDamage * target.damageModifier * ship.explosiveDamageModifier(target, charge);
+            return charge.explosiveBaseDamage * target.damageMultiplier * ship.explosiveDamageModifier(target, charge);
         };
         target.kineticAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
-            return charge.kineticBaseDamage * target.damageModifier * ship.kineticDamageModifier(target, charge);
+            return charge.kineticBaseDamage * target.damageMultiplier * ship.kineticDamageModifier(target, charge);
         };
         target.thermalAlphaDamageActual = (ship: Ship, charge: BaseShipEquipmentData) => {
-            return charge.thermalBaseDamage * target.damageModifier * ship.thermalDamageModifier(target, charge);
+            return charge.thermalBaseDamage * target.damageMultiplier * ship.thermalDamageModifier(target, charge);
         };
     }
 
@@ -813,7 +814,7 @@ module Wafle {
             target.rateOfFireMultiplier = data.rofm;
         }
         if (data.dmg) {
-            target.damageModifier = data.dmg;
+            target.damageMultiplier = data.dmg;
         }
         if (data.midm) {
             target.missileDamageMultiplier = data.midm;
@@ -986,8 +987,8 @@ module Wafle {
         public powerGridIncrease: number = 0;
         public optimalRange: number = 0;
         public metaLevel: number = 0;
-        public damageModifier: number = 0;
-        public missileDamageMultiplier: number = 0;
+        public damageMultiplier: number = 1;
+        public missileDamageMultiplier: number = 1;
         public marketGroup: number = 0;
         public parentMarketGroup: number = 0;
         public speedFactor: number = 0;
@@ -1132,6 +1133,37 @@ module Wafle {
                 default:
                     break;
             }
+        }
+
+        public damageMultiplierForModule(theAttackingModule: BaseShipEquipmentData): number {
+            if (this.damageMultiplier == 0 && this.missileDamageMultiplier == 0) {
+                return 1;
+            }
+            switch (theAttackingModule.groupId) {
+                case InventoryGroups.HeavyAssaultMissileLauncher:
+                case InventoryGroups.HeavyMissileLauncher:
+                case InventoryGroups.LightMissileLauncher:
+                case InventoryGroups.RapidLightMissileLauncher:
+                case InventoryGroups.RocketLauncher:
+                    return this.missileDamageMultiplier;
+                    break;
+                case InventoryGroups.ProjectileWeapon:
+                    if (this.groupId == InventoryGroups.Gyrostabilizer) {
+                        return this.damageMultiplier;
+                    }
+                    break;
+                case InventoryGroups.HybridWeapon:
+                    if (this.groupId == InventoryGroups.MagneticFieldStabilizer) {
+                        return this.damageMultiplier;
+                    }
+                    break;
+                case InventoryGroups.EnergyWeapon:
+                    if (this.groupId == InventoryGroups.HeatSink) {
+                        return this.damageMultiplier;
+                    }
+                    break;
+            }
+            return 1;
         }
     }
 
