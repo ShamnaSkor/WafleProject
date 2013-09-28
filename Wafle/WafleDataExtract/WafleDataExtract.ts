@@ -36,7 +36,7 @@ catch (ex) {
 }
 
 
-var MarketGroupIDs = [25, 46, 38, 52, 53, 55, 59, 60, 62, 65, 68, 71, 74, 77, 83, 85, 86, 98, 205,
+var MarketGroupIDs = [25, 46, 38, 52, 53, 55, 59, 60, 62, 65, 68, 71, 74, 77, 83, 85, 86, 98, 100, 205,
     302, 325, 329, 339, 367, 372, 373, 374, 375, 376, 377, 379, 384, 385, 387, 395, 507, 509, 510,
     511, 648, 653, 654, 655, 763, 771, 772, 773, 774, 782];
 
@@ -67,12 +67,12 @@ sql.open(connectionString, function (err, conn) {
 
     //Dear future code reviewer: this SQL statement is a great example of the type of code that is only OK to write
     // when you are developing a data extract script that runs from time to time off a development server.
-    var sqlQuery = "With BaseShipEquipData (typeId, groupId, name, marketGroupId, parentMarketGroupId, raceId, description)  AS \n" +
-        "	(SELECT it.typeID, it.groupID, it.typeName, it.marketGroupID, parentGroupID, it.raceID, it.description \n" +
+    var sqlQuery = "With BaseShipEquipData (typeId, groupId, name, marketGroupId, parentMarketGroupId, raceId, description, volume, capacity)  AS \n" +
+        "	(SELECT it.typeID, it.groupID, it.typeName, it.marketGroupID, parentGroupID, it.raceID, it.description, it.volume, it.capacity \n" +
         "		FROM dbo.invTypes it \n" +
         "		INNER JOIN dbo.invMarketGroups mg ON mg.marketGroupID = it.marketGroupID \n" +
         "		WHERE it.groupID IN (" + MarketGroupIDs.join(',') + ") and it.published = 1) \n" +
-        "SELECT bse.typeId, bse.groupId, bse.name, bse.marketGroupId, bse.parentMarketGroupId, bse.raceId, bse.description, \n" +
+        "SELECT bse.typeId, bse.groupId, bse.name, bse.marketGroupId, bse.parentMarketGroupId, bse.raceId, bse.description, bse.volume, NULLIF(bse.capacity,0) [capacity], \n" +
         "	ISNULL(cpu.valueFloat,cpu.valueInt) as [cpu], \n" +
         "	ISNULL(pg.valueFloat,pg.valueInt) as [powergrid], \n" +
         "	ISNULL(pginc.valueFloat,pginc.valueInt) as [powergridIncrease], \n" +
@@ -139,7 +139,13 @@ sql.open(connectionString, function (err, conn) {
         "	ISNULL(tsm.valueFloat,tsm.valueInt) as [trackingSpeedMultiplier], \n" +
         "	ISNULL(fom.valueFloat,fom.valueInt) as [falloffMultiplier], \n" +
         "	ISNULL(eda.valueFloat,eda.valueInt) as [energyDestabilizationAmount], \n" +
-        "	ISNULL(pta.valueFloat,pta.valueInt) as [powerTransferAmount] \n" +
+        "	ISNULL(pta.valueFloat,pta.valueInt) as [powerTransferAmount], \n" +
+        "	ISNULL(dbu.valueFloat,dbu.valueInt) as [droneBandwidthUsed], \n" +
+        "	ISNULL(dc.valueFloat,dc.valueInt) as [droneCapacity], \n" +
+        "	ISNULL(db.valueFloat,db.valueInt) as [droneBandwidth], \n" +
+        "	ISNULL(s1.valueFloat,s1.valueInt) as [primarySkillRequired], \n" +
+        "	ISNULL(s2.valueFloat,s2.valueInt) as [secondarySkillRequired], \n" +
+        "	ISNULL(s3.valueFloat,s3.valueInt) as [tertiarySkillRequired] \n" +
         "FROM BaseShipEquipData bse \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes cpu ON cpu.typeID = bse.typeId AND cpu.attributeID = 50 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes pg ON pg.typeID = bse.typeId AND pg.attributeID = 30 \n" +
@@ -215,6 +221,12 @@ sql.open(connectionString, function (err, conn) {
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes rofm ON rofm.typeID = bse.typeId AND rofm.attributeID = 204 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes midm ON midm.typeID = bse.typeId AND midm.attributeID = 213 \n" +
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes pginc ON pginc.typeID = bse.typeId AND pginc.attributeID = 549 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes dc ON dc.typeID = bse.typeId AND dc.attributeID = 283 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes db ON db.typeID = bse.typeId AND db.attributeID = 1271 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes dbu ON dbu.typeID = bse.typeId AND dbu.attributeID = 1272 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes s1 ON s1.typeID = bse.typeId AND s1.attributeID = 182 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes s2 ON s2.typeID = bse.typeId AND s2.attributeID = 183 \n" +
+        "	LEFT OUTER JOIN dbo.dgmTypeAttributes s3 ON s3.typeID = bse.typeId AND s3.attributeID = 184 \n" +
         "ORDER BY bse.groupId, bse.typeId;";
 
     console.log("Querying (may take a few seconds)...");
@@ -235,9 +247,20 @@ sql.open(connectionString, function (err, conn) {
             }
             buffer.append('      "' + results[i].typeId + '": { n: "' + results[i].name + '", mg: ' + results[i].marketGroupId + ', pmg: ' + results[i].parentMarketGroupId + ', mta: ' + results[i].metalevel + ', d: "' + fixupStringForJSON(results[i].description) + '"');
 
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "volume", "v"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "capacity", "c"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "cpu", "cpu"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "powergrid", "pg"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "powergridIncrease", "pginc"));
+
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "primarySkillRequired", "s1"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "secondarySkillRequired", "s2"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "tertiarySkillRequired", "s3"));
+
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "droneCapacity", "dc"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "droneBandwidth", "db"));
+            buffer.append(aliasedPropertyValueOrBlank(results[i], "droneBandwidthUsed", "dbu"));
+            
             
             buffer.append(aliasedPropertyValueOrBlank(results[i], "optimal", "opt"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "accuracyFalloff", "acc"));
