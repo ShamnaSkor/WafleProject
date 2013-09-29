@@ -25,7 +25,8 @@ Wafle is currently in very early alpha - pre 0.1.0 release...  It is currently c
 * Wafle needs one or more UIs.
 * Wafle needs support for more module types, ship classes, and things like drones.
 * The Wafle Project needs help from a Mac or Linux user to help streamline development of Wafle on those platforms.
-* I need a node.js expert to help fixup the build script and the data extract script.
+* The project needs a node.js expert to help fixup the build script and the data extract script.
+* The project needs help with localization.
 
 ###Guiding Principles
 * Wafle will be distributed for free and will use free (as in beer) tools for development.
@@ -34,6 +35,7 @@ Wafle is currently in very early alpha - pre 0.1.0 release...  It is currently c
  * It will not require any active server-side functionality to perform its basic role as a fitting tool.
  * It will be designed to work with the EVE IGB and modern browsers (Recent versions of Firefox, Webkit-based browsers, IE 10+, and similar)
 * The Wafle project will strive to make it easy for new contributors to join in.
+* The Wafle project will eventualy be localized to all supported EVE client languages.
 * The Wafle project will use [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).
 * The Wafle Data module will remain separate from the Wafle library to ensure that CCP's intellectual property is respected.
 
