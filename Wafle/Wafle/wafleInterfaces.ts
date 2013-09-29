@@ -15,7 +15,7 @@ module Wafle {
     export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod,
             IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, IPowerModule,
             ITurretModifier, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP,
-            IMissileModifier {
+            IMissileModifier, IDroneSupport, IContainer {
         /** name - the name of the type. */
         n: string;
         /** description - the description text for the type. */
@@ -26,6 +26,8 @@ module Wafle {
         pmg: number;
         /** metaLevel - the relative measure of a type as compared to other types in the same category.  0 is the most basic and higher numbers are more capable. */
         mta: number;
+        /** Volume in m3 */
+        v: number;
         /** tech level (Tech I = 1, Tech II = 2, etc). */
         tl?: number;
 
@@ -77,6 +79,18 @@ module Wafle {
         /** Activation Duration (in ms) */
         ad?: number;
 
+    }
+
+    export interface IDroneSupport {
+        /** Drone bay capacity in m3 */
+        dc?: number;
+        /** Drone bandwidth */
+        db?: number;
+    }
+
+    export interface IContainer {
+        /** Capacity in m3 */
+        c?: number;
     }
     
     export interface IDamage {
