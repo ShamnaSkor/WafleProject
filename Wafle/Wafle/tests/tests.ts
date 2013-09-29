@@ -451,6 +451,37 @@ QUnit.module("Specific module tests");
 
     });
 
+QUnit.module("Drone Tests");
+    test("Adding a Hobgoblin I to a Tristan works and there is room left in the drone bay.", function () {
+        var ship = new Wafle.Ship("Tristan");
+        strictEqual(ship.LoadDrone(new Wafle.TypeInfo(2456)), undefined, "Loading Hobgoblin II to drone bay"); 
+        strictEqual((ship.DroneCapacityRemaining() > 0),true, "Drone bay still has room"); 
+    });
+
+    test("Adding multiple drones.", function () {
+        var ship = new Wafle.Ship("Tristan");
+        var countOfDrones = 8;
+        strictEqual(ship.LoadDrones(new Wafle.TypeInfo(2456), countOfDrones), undefined, "Loading many Hobgoblin IIs to drone bay");
+        strictEqual(ship.DroneCapacityRemaining(), 0, "Drone bay is full.");
+        strictEqual(ship.droneBay.length, countOfDrones, "Drone bay count is correct.");
+    });
+
+    test("Loading third light drone into Tormentor throws exception.", function () {
+        var ship = new Wafle.Ship("Tormentor");
+        strictEqual(ship.LoadDrone(new Wafle.TypeInfo(2486)), undefined, "Loading Warrior I to drone bay");
+        strictEqual(ship.LoadDrone(new Wafle.TypeInfo(2486)), undefined, "Loading Warrior I to drone bay");
+        strictEqual(ship.DroneCapacityRemaining(), 0, "Drone bay is full");
+        throws(
+            function () {
+                ship.LoadDrone(new Wafle.TypeInfo(2486));
+            },
+            /This drone will not fit in the drone bay./,
+            "Drone bay is full."
+            );
+
+    });
+
+
 QUnit.module("Reality Checks");
 
     //Note: all fits in this section are terrible because Shamna Skor is bad at EVE.
@@ -579,10 +610,10 @@ test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
         strictEqual(Wafle.Round(ship.ShieldExplosiveDamageReduction(), -3), Wafle.Round(0.563, -3), "shield ex");
         strictEqual(Wafle.Round(ship.ShieldKineticDamageReduction(), -3), Wafle.Round(0.475, -3), "shield ki");
         strictEqual(Wafle.Round(ship.ShieldThermalDamageReduction(), -3), Wafle.Round(0.3, -3), "shield th");
-        strictEqual(Wafle.Round(ship.ArmorEMDamageReduction(), -3), Wafle.Round(0.575,-3), "Armor em");
-        strictEqual(Wafle.Round(ship.ArmorExplosiveDamageReduction(), -3), 0.524, "Armor ex");
-        strictEqual(Wafle.Round(ship.ArmorKineticDamageReduction(), -3), 0.363, "Armor ki ");
-        strictEqual(Wafle.Round(ship.ArmorThermalDamageReduction(), -3), Wafle.Round(0.448, -3), "Armor th ");
+        strictEqual(Wafle.Round(ship.ArmorEMDamageReduction(), -3), Wafle.Round(0.657,-3), "Armor em");
+        strictEqual(Wafle.Round(ship.ArmorExplosiveDamageReduction(), -3), 0.603, "Armor ex");
+        strictEqual(Wafle.Round(ship.ArmorKineticDamageReduction(), -3), 0.485, "Armor ki ");
+        strictEqual(Wafle.Round(ship.ArmorThermalDamageReduction(), -3), Wafle.Round(0.554, -3), "Armor th ");
         strictEqual(ship.HullEMDamageReduction(), 0.6, "Hull em ");
         strictEqual(ship.HullExplosiveDamageReduction(), 0.6, "Hull ex ");
         strictEqual(ship.HullKineticDamageReduction(), 0.6, "Hull ki ");
@@ -633,4 +664,53 @@ test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
         strictEqual(ship.HullKineticDamageReduction(), 0.0, "Hull ki ");
         strictEqual(ship.HullThermalDamageReduction(), 0.0, "Hull th ");
         strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage() + ship.fittingSlots[1].totalAlphaDamage() + ship.fittingSlots[2].totalAlphaDamage() + ship.fittingSlots[3].totalAlphaDamage(), -2), Wafle.Round(718.44, -2), "alpha damage from all missiles");
+    });
+
+    test("Armor Buffer Tristan with all V skills.", function () {
+        var ship = new Wafle.Ship("Tristan");
+        ship.pilot = new Wafle.Pilot("");
+        ship.pilot.skills.SetAllSkills(5);
+
+        ship.fittingSlots[0].SetModule(3170); //light Ion Blaster II
+        ship.fittingSlots[0].LoadCharge(new Wafle.TypeInfo(12612)); //Void S
+        //empty high slot
+        ship.fittingSlots[2].SetModule(3170); //light Ion Blaster II
+        ship.fittingSlots[2].LoadCharge(new Wafle.TypeInfo(12612)); //Void S
+
+        ship.fittingSlots[3].SetModule(5973); //limited 1mn mwd
+        ship.fittingSlots[4].SetModule(4027); //Fleeting Propulsion Inhibitor I
+        ship.fittingSlots[5].SetModule(3244); //Warp Disruptor II
+
+        ship.fittingSlots[6].SetModule(11349); //200mm Reinforced Rolled Tungsten Plates I
+        ship.fittingSlots[7].SetModule(1306); //Adaptive Nano Plating II
+        ship.fittingSlots[8].SetModule(2048); //Damage Control II
+        
+        ship.fittingSlots[9].SetModule(30987); //Small Trimark Armor Pump I
+        ship.fittingSlots[10].SetModule(30987); //Small Trimark Armor Pump I
+        ship.fittingSlots[11].SetModule(31009); //Small Anti-Explosive Pump I
+
+        ship.LoadDrones(new Wafle.TypeInfo(2456), 8);  //Hobgoblin II
+
+        strictEqual(ship.structureHP(), 813, "structure HP");
+        strictEqual(ship.shieldHP(), 438, "shield HP");
+        strictEqual(ship.armorHP(), 1612, "armor HP");
+        strictEqual(ship.cpu(), 162.5, "CPU");
+        strictEqual(ship.powergrid(), 43.75, "Powergrid");
+        strictEqual(ship.remainingCpu(), 12.5, "Remaining CPU");
+        strictEqual(Wafle.Round(ship.remainingPowergrid(), -2), Wafle.Round(2.15, -2), "Remaining Powergrid");
+        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), Wafle.Round(358.63, -2), "Max Velocity (no AB/MWD)");
+        strictEqual(Wafle.Round(ship.ShieldEMDamageReduction(), -3), Wafle.Round(0.125, -3), "shield em");
+        strictEqual(Wafle.Round(ship.ShieldExplosiveDamageReduction(), -3), Wafle.Round(0.563, -3), "shield ex");
+        strictEqual(Wafle.Round(ship.ShieldKineticDamageReduction(), -3), Wafle.Round(0.475, -3), "shield ki");
+        strictEqual(Wafle.Round(ship.ShieldThermalDamageReduction(), -3), Wafle.Round(0.3, -3), "shield th");
+        strictEqual(Wafle.Round(ship.ArmorEMDamageReduction(), -3), Wafle.Round(0.657, -3), "Armor em");
+        strictEqual(Wafle.Round(ship.ArmorExplosiveDamageReduction(), -3), 0.554, "Armor ex");
+        strictEqual(Wafle.Round(ship.ArmorKineticDamageReduction(), -3), 0.554, "Armor ki ");
+        strictEqual(Wafle.Round(ship.ArmorThermalDamageReduction(), -3), Wafle.Round(0.554, -3), "Armor th ");
+        strictEqual(ship.HullEMDamageReduction(), 0.6, "Hull em ");
+        strictEqual(ship.HullExplosiveDamageReduction(), 0.6, "Hull ex ");
+        strictEqual(ship.HullKineticDamageReduction(), 0.6, "Hull ki ");
+        strictEqual(ship.HullThermalDamageReduction(), 0.6, "Hull th ");
+        strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage() + ship.fittingSlots[1].totalAlphaDamage() + ship.fittingSlots[2].totalAlphaDamage(), -2), Wafle.Round(172.59, -2), "alpha damage from guns");
+
     });

@@ -32,7 +32,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 . more rigs and other modules.
 . modules that use capacitor - adjust stats for active or inactive.
 . track capacitor usage of ship/cap stability
-. drone stuff
 . cruisers, bc, bs, other
 . align time, warp speed, other navigation concerns
 . Offline Modules
@@ -45,7 +44,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module Wafle {
 
-    export var Version: string = "0.1.0-alpha.4";
+    export var Version: string = "0.1.0-alpha.5";
 
     export enum RaceType {
         Unknown = 0, Caldari = 1, Minmatar = 2, Amarr = 4, Gallente = 8, ORE
@@ -64,7 +63,7 @@ module Wafle {
         Gyrostabilizer=59, DamageControl= 60, ArmorRepairUnit = 62, StasisWeb= 65, EnergyVampire= 68, EnergyDestabilizer=71,
         HybridWeapon= 74, ShieldHardener=77, ProjectileAmmo = 83, HybridCharge=85, FrequencyCrystal=86,
         ArmorCoating= 98, HeatSink= 205, MagneticFieldStabilizer= 302, ArmorRepairProjector = 325,
-        ArmorPlate = 329, AuxiliaryPowerCore= 339, BallisticControlSystem= 367,
+        ArmorPlatingEnergized = 326, ArmorPlate = 329, AuxiliaryPowerCore= 339, BallisticControlSystem= 367,
         AdvancedAutocannonAmmo= 372, AdvancedRailgunCharge= 373, AdvancedBeamLaserCrystal= 374, AdvancedPulseLaserCrystal= 375,
         AdvancedArtilleryAmmo=376, AdvancedBlasterCharge=377, TargetPainter=379, LightMissile= 384, HeavyMissile= 385, Rocket= 387,
         FoFHeavyMissile= 395, RocketLauncher= 507, LightMissileLauncher= 509, HeavyMissileLauncher= 510,
@@ -144,7 +143,7 @@ module Wafle {
             if (!Wafle.Data.IsLoadableCharge(type)) {
                 throw "Type " + type.typeId + " in group " + type.groupId + " is not a loadable charge.";
             }
-            var charge = new BaseShipEquipmentData(type.groupId, type.typeId);
+            var charge = new BaseShipEquipmentData(type);
             if (charge.launcherGroup !== this.baseShipEquipmentData.groupId) {
                 throw "Type " + type.typeId + " is not compatible with a launcher of type " + this.baseShipEquipmentData.name + ".";
             }
@@ -164,6 +163,35 @@ module Wafle {
         public baseShipData: BaseShipData;
         public pilot: Pilot = null;
         public fittingSlots: FittingSlot[] = [];
+        public droneBay: BaseShipEquipmentData[] = [];
+        public cargoHold: BaseShipEquipmentData[] = [];
+        public DroneCapacityRemaining(): number {
+            return this.baseShipData.droneBayCapacity - this.DroneCapacityUsed();
+        }
+        public DroneCapacityUsed(): number {
+            var capacityUsed = 0
+            for (var i = 0; i < this.droneBay.length; i++) {
+                if (this.droneBay[i].volume) {
+                    capacityUsed += this.droneBay[i].volume;
+                }
+            }
+            return capacityUsed;
+        }
+        public LoadDrone(droneType: TypeInfo) {
+            var drone = new BaseShipEquipmentData(droneType);
+            if (drone.volume > this.DroneCapacityRemaining()) {
+                throw "This drone will not fit in the drone bay.";
+            }
+            this.droneBay.push(drone);
+        }
+        public LoadDrones(droneType: TypeInfo, count: number) {
+            if (count < 0) {
+                throw "Parameter 'count' must be a positive number.";
+            }
+            for (var i = 0; i < count; i++) {
+                this.LoadDrone(droneType);
+            }
+        }
 
         constructor(public hullName: string) {
             this.baseShipData = new BaseShipData(hullName);
@@ -286,7 +314,7 @@ module Wafle {
         public totalHP() {
             return this.structureHP() + this.armorHP() + this.shieldHP();
         }
-
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public ShieldEMDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.shieldResists.EM.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -301,7 +329,7 @@ module Wafle {
             }
             return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
         }
-
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public ShieldExplosiveDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.shieldResists.Explosive.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -317,7 +345,7 @@ module Wafle {
             return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
         }
 
-
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public ShieldKineticDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.shieldResists.Kinetic.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -332,7 +360,7 @@ module Wafle {
             }
             return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
         }
-
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public ShieldThermalDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.shieldResists.Thermal.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -349,66 +377,45 @@ module Wafle {
         }
         
         public ArmorEMDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.armorResists.EM.baseDamageReductionPercentage();
-            var damageTakenMultipliers: number[] = [];
-            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.armorResists) {
-                    if (this.fittingSlots[i].baseShipEquipmentData.armorResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.EM.baseDamageReductionPercentage());
-                    } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.EM.baseDamageReductionPercentage());
-                    }
-                }
-            }
-            return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
+            return this.ArmorSpecificDamageReduction("EM");
         }
 
         public ArmorExplosiveDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.armorResists.Explosive.baseDamageReductionPercentage();
-            var damageTakenMultipliers: number[] = [];
-            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.armorResists) {
-                    if (this.fittingSlots[i].baseShipEquipmentData.armorResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.Explosive.baseDamageReductionPercentage());
-                    } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.Explosive.baseDamageReductionPercentage()) ;
-                    }
-                }
-            }
-            return 1 - this.multiplyPercentages(damageTakenPercent,damageTakenMultipliers,true);
+            return this.ArmorSpecificDamageReduction("Explosive");
         }
 
-
         public ArmorKineticDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.armorResists.Kinetic.baseDamageReductionPercentage();
-            var damageTakenMultipliers: number[] = [];
-            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.armorResists) {
-                    if (this.fittingSlots[i].baseShipEquipmentData.armorResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.Kinetic.baseDamageReductionPercentage());
-                    } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.Kinetic.baseDamageReductionPercentage());
-                    }
-                }
-            }
-            return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
+            return this.ArmorSpecificDamageReduction("Kinetic");
         }
 
         public ArmorThermalDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.armorResists.Thermal.baseDamageReductionPercentage();
+            return this.ArmorSpecificDamageReduction("Thermal");
+        }
+
+        private ArmorSpecificDamageReduction(damageTypeName: string): number {
+            var damageTakenPercent = 1 - this.baseShipData.armorResists[damageTypeName].baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
             for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
                 if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.armorResists) {
                     if (this.fittingSlots[i].baseShipEquipmentData.armorResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.Thermal.baseDamageReductionPercentage());
+                        var dtm = 1 - this.fittingSlots[i].baseShipEquipmentData.armorResists[damageTypeName].baseDamageReductionPercentage();
+                        if (Wafle.Data.AffectedByArmorCompensationSkills(this.fittingSlots[i].baseShipEquipmentData.typeInfo())) {
+                            var compensationSkillName = damageTypeName.replace("Thermal","Thermic") + "ArmorCompensation";
+                            dtm = 1 - ((1 - dtm) * (1 + (this.pilot.skills[compensationSkillName] * 0.05)))
+                        }
+                        if (dtm !== 1.0) {
+                            damageTakenMultipliers.push(dtm);
+                        }
                     } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.armorResists.Thermal.baseDamageReductionPercentage());
+                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.armorResists[damageTypeName].baseDamageReductionPercentage());
                     }
                 }
             }
             return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
         }
 
+        
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public HullEMDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.hullResists.EM.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -424,6 +431,7 @@ module Wafle {
             return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
         }
 
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public HullExplosiveDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.hullResists.Explosive.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -439,7 +447,7 @@ module Wafle {
             return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
         }
 
-
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public HullKineticDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.hullResists.Kinetic.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -454,7 +462,7 @@ module Wafle {
             }
             return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
         }
-
+        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public HullThermalDamageReduction(): number {
             var damageTakenPercent = 1 - this.baseShipData.hullResists.Thermal.baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
@@ -555,6 +563,20 @@ module Wafle {
                         mult *= this.skills.smallProjectileTurretDamageMultiplier();
                         break;
                 }
+            } else if (attackingModule.groupId === InventoryGroups.HybridWeapon) {
+                mult *= this.skills.surgicalStrikeDamageMultiplier();
+                switch (attackingModule.chargeSize) {
+                    case 1:
+                        mult *= this.skills.smallHybridTurretDamageMultiplier();
+                        if (attackingModule.techLevel == 2) {
+                            if (Wafle.Data.IsBlaster(attackingModule)) {
+                                mult *= this.skills.smallT2BlasterDamageMultiplier();
+                            } else if (Wafle.Data.IsRailgun(attackingModule)) {
+                                mult *= this.skills.smallT2RailgunDamageMultiplier();
+                            }
+                        }
+                        break;
+                }
             } else if (attackingModule.groupId === InventoryGroups.RocketLauncher) {
                 mult *= this.skills.rocketsDamageMultiplier() * this.skills.warheadDamageMultiplier();
             } else if (attackingModule.groupId === InventoryGroups.LightMissileLauncher) {
@@ -577,6 +599,10 @@ module Wafle {
         Navigation: number = 0;
         ArmorRigging: number = 0;
         NavigationRigging: number = 0;
+        EMArmorCompensation: number = 0;
+        ExplosiveArmorCompensation: number = 0;
+        KineticArmorCompensation: number = 0;
+        ThermicArmorCompensation: number = 0;
         GallenteFrigate: number = 0;
         MinmatarFrigate: number = 0;
         CaldariFrigate: number = 0;
@@ -590,6 +616,9 @@ module Wafle {
         Rockets: number = 0;
         LightMissiles: number = 0;
         WarheadUpgrades: number = 0;
+        SmallHybridTurret: number = 0;
+        SmallRailgunSpecialization: number = 0;
+        SmallBlasterSpecialization: number = 0;
 
         public SetAllSkills(level: number) {
             this.Engineering = level;
@@ -612,10 +641,17 @@ module Wafle {
             this.CaldariCruiser = level;
             this.AmarrCruiser = level;
             this.SmallProjectileTurret = level;
+            this.SmallHybridTurret = level;
+            this.SmallRailgunSpecialization = level;
+            this.SmallBlasterSpecialization = level;
             this.SurgicalStrike = level;
             this.Rockets = level;
             this.LightMissiles = level;
             this.WarheadUpgrades = level;
+            this.EMArmorCompensation = level;
+            this.ExplosiveArmorCompensation = level;
+            this.KineticArmorCompensation = level;
+            this.ThermicArmorCompensation = level;
         }
 
         public cpuMultiplier(): number {
@@ -638,6 +674,15 @@ module Wafle {
         }
         public smallProjectileTurretDamageMultiplier(): number {
             return 1.0 + (this.SmallProjectileTurret * 0.05);
+        }
+        public smallHybridTurretDamageMultiplier(): number {
+            return 1.0 + (this.SmallHybridTurret * 0.05);
+        }
+        public smallT2BlasterDamageMultiplier(): number {
+            return 1.0 + (this.SmallBlasterSpecialization * 0.02);
+        }
+        public smallT2RailgunDamageMultiplier(): number {
+            return 1.0 + (this.SmallRailgunSpecialization * 0.02);
         }
         public surgicalStrikeDamageMultiplier(): number {
             return 1.0 + (this.SurgicalStrike * 0.03);
@@ -711,6 +756,8 @@ module Wafle {
         target.metaLevel = data.mta;
         target.marketGroup = data.mg;
         target.parentMarketGroup = data.pmg;
+        target.volume = data.v;
+        target.techLevel = data.tl;
     }
 
     function TurretLoader(data: IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
@@ -830,6 +877,13 @@ module Wafle {
             target.armorHPBonusPercent = (ship: Ship): number => {
                 return data.ahpbp;
             }
+        }
+        if (data.emdrb || data.exdrb || data.kidrb || data.thdrb) {
+            target.armorResists = new ResistSet(
+                new Resistance((100 + (data.emdrb || 0)) / 100),
+                new Resistance((100 + (data.exdrb || 0)) / 100),
+                new Resistance((100 + (data.kidrb || 0)) / 100),
+                new Resistance((100 + (data.thdrb || 0)) / 100), true);
         }
         target.slotUsed = FittingSlotType.Low;
         target.cpuUsageActual = function (ship: Ship) {
@@ -969,8 +1023,13 @@ module Wafle {
 
     //todo: consider rename to BaseModuleData.
     export class BaseShipEquipmentData {
+        public groupId: number;
+        public typeId: number;
         public name: string = '';
+        public techLevel: number = 1;
         public description: string = '';
+        /** volume of the item in m3 */
+        public volume: number = 0;
         public accuracyFalloff: number = 0;
         public trackingSpeed: number = 0;
         public cpuUsage: number = 0;
@@ -1028,10 +1087,20 @@ module Wafle {
 
         /** total alpha damage of all types at optimal including ship bonuses, pilot skill, and ammunition used. */
         public totalAlphaDamageActual(ship: Ship, charge: BaseShipEquipmentData): number {
-            return (this.emAlphaDamageActual(ship, charge) +
-                this.explosiveAlphaDamageActual(ship, charge) +
-                this.kineticAlphaDamageActual(ship, charge) +
-                this.thermalAlphaDamageActual(ship, charge) || 0);
+            var total = 0;
+            if (this.emAlphaDamageActual) {
+                total += this.emAlphaDamageActual(ship, charge)
+            }
+            if (this.explosiveAlphaDamageActual) {
+                total += this.explosiveAlphaDamageActual(ship, charge)
+            }
+            if (this.kineticAlphaDamageActual) {
+                total += this.kineticAlphaDamageActual(ship, charge)
+            }
+            if (this.thermalAlphaDamageActual) {
+                total += this.thermalAlphaDamageActual(ship, charge)
+            }
+            return total;
         }
         public emAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
         public explosiveAlphaDamageActual: (ship: Ship, charge: BaseShipEquipmentData) => number;
@@ -1056,14 +1125,26 @@ module Wafle {
 
 
 
-
-        constructor(public groupId: number, public typeId: number) {
-            if (!Wafle.Data.Types[groupId.toString()]) {
-                throw "groupId " + groupId.toString() + " is not known.";
+        constructor(typeInfo: TypeInfo)
+        constructor(groupId: number, typeId: number)
+        constructor(p1: any, p2?: any) {
+            if (p1.typeId) {
+                if (!<TypeInfo>p1.groupId) {
+                    <TypeInfo>p1.FindGroupId();
+                }
+                this.typeId = (<TypeInfo>p1).typeId;
+                this.groupId = (<TypeInfo>p1).groupId;
+            } else {
+                this.typeId = p2;
+                this.groupId = p1;
             }
-            var data: IEveInventoryTypeAttributes = Wafle.Data.Types[groupId.toString()][typeId.toString()];
+
+            if (!Wafle.Data.Types[this.groupId.toString()]) {
+                throw "groupId " + this.groupId.toString() + " is not known.";
+            }
+            var data: IEveInventoryTypeAttributes = Wafle.Data.Types[this.groupId.toString()][this.typeId.toString()];
             if (!data) {
-                throw "typeId " + typeId.toString() + " in groupId " + groupId.toString() + " is not known.";
+                throw "typeId " + this.typeId.toString() + " in groupId " + this.groupId.toString() + " is not known.";
             }
             ShipEquipmentLoader(data, this);
             switch (this.groupId) {
@@ -1072,6 +1153,12 @@ module Wafle {
                 case InventoryGroups.EnergyWeapon: 
                     TurretLoader(data, this);
                     break;
+                case InventoryGroups.HybridCharge: //fall through
+                case InventoryGroups.FrequencyCrystal: //fall through
+                case InventoryGroups.AdvancedRailgunCharge: //fall through
+                case InventoryGroups.AdvancedBlasterCharge: //fall through
+                case InventoryGroups.AdvancedBeamLaserCrystal: //fall through
+                case InventoryGroups.AdvancedPulseLaserCrystal: //fall through
                 case InventoryGroups.AdvancedArtilleryAmmo: //fall through
                 case InventoryGroups.ProjectileAmmo: //fall through
                 case InventoryGroups.Rocket: //fall through
@@ -1157,13 +1244,16 @@ module Wafle {
             }
             return 1;
         }
+
+        
     }
 
     export class Resistance {
+         /** baseResistRatio = Fractional damage amount taken - 90% damage taken (10% resisted) expressed as 0.9  */
         constructor(private baseResistRatio: number) {
         }
         /**
-        * Base damage reduction percentage.  50% damage reduction expressed as 0.5 .
+        * Base damage reduction percentage.  30% damage reduction expressed as 0.3 .
         **/
         public baseDamageReductionPercentage() {
             return 1 - this.baseResistRatio;
@@ -1212,6 +1302,10 @@ module Wafle {
         public structureHP: number;
         public armorHP: number;
         public shieldHP: number;
+        /** in m3 */
+        public droneBayCapacity: number;
+        /** in m3 */
+        public cargoHoldCapacity: number;
 
         public hullResists: ResistSet = null;
         public armorResists: ResistSet = null;
@@ -1293,6 +1387,9 @@ module Wafle {
             this.turretCount = data.tusc;
             this.launcherCount = data.lasc;
             this.maxVelocity = data.vel;
+            this.droneBayCapacity = data.dc;
+            this.cargoHoldCapacity = data.c;
+
         }
 
 
