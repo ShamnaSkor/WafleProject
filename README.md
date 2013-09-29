@@ -19,6 +19,7 @@ Wafle:
 Wafle is currently in very early alpha - pre 0.1.0 release...  It is currently capable of performing most but not all of the calculations relevant for fitting "fighting" frigates.
 
 ####Latest Version:
+0.1.0-alpha.5 (2013-09-29) adds support for light and medium Drones, EANM modules, cargo holds.
 0.1.0-alpha.4 (2013-09-25) adds alpha damage calculation for missiles and turrets, and adds support for Shield Extenders, Aux Power Cores, and Heat Sinks/Gyros/MagStabs/BCS.
 
 ####What is needed?
