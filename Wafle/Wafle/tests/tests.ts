@@ -25,7 +25,7 @@ QUnit.module("Skill tests");
         var ship = new Wafle.Ship("Rifter");
         var expected = ship.baseShipData.powergridOutput * 1.05;
         ship.pilot = new Wafle.Pilot("");
-        ship.pilot.skills.Engineering = 1;
+        ship.pilot.skills.PowerGridManagement = 1;
         strictEqual(ship.powergrid(), expected);
     });
 
@@ -33,7 +33,7 @@ QUnit.module("Skill tests");
         var ship = new Wafle.Ship("Rifter");
         var expected = ship.baseShipData.powergridOutput * 1.25;
         ship.pilot = new Wafle.Pilot("");
-        ship.pilot.skills.Engineering = 5;
+        ship.pilot.skills.PowerGridManagement = 5;
         strictEqual(ship.powergrid(), expected);
     });
 
@@ -41,7 +41,7 @@ QUnit.module("Skill tests");
         var ship = new Wafle.Ship("Rifter");
         var expected = ship.baseShipData.cpuOutput * 1.05;
         ship.pilot = new Wafle.Pilot("");
-        ship.pilot.skills.Electronics = 1;
+        ship.pilot.skills.CPUManagement = 1;
         strictEqual(ship.cpu(), expected);
     });
 
@@ -49,7 +49,7 @@ QUnit.module("Skill tests");
         var ship = new Wafle.Ship("Rifter");
         var expected = ship.baseShipData.cpuOutput * 1.25;
         ship.pilot = new Wafle.Pilot("");
-        ship.pilot.skills.Electronics = 5;
+        ship.pilot.skills.CPUManagement = 5;
         strictEqual(ship.cpu(), expected);
     });
 
@@ -466,6 +466,27 @@ QUnit.module("Drone Tests");
         strictEqual(ship.droneBay.length, countOfDrones, "Drone bay count is correct.");
     });
 
+    test("Drones do not consume bandwidth until they are activated.", function () {
+        var ship = new Wafle.Ship("Tristan");
+        strictEqual(ship.LoadDrone(new Wafle.TypeInfo(2456)), undefined, "Loading Hobgoblin II to drone bay"); 
+        strictEqual(ship.DroneBandwidthUsed(), 0, "No drone bandwidth for inactive drone.");
+
+        var oldBandwidthUsed = ship.DroneBandwidthUsed();
+        ship.droneBay[0].Activate();
+        strictEqual((ship.DroneBandwidthUsed() > oldBandwidthUsed), true, "Drone bandwidth consumed for active drone.");
+    });
+
+    test("Drones do not do damage until they are activated.", function () {
+        var ship = new Wafle.Ship("Tristan");
+        strictEqual(ship.LoadDrone(new Wafle.TypeInfo(2456)), undefined, "Loading Hobgoblin II to drone bay");
+        strictEqual(ship.totalDroneAlphaDamage(), 0, "No drone alpha for inactive drones.");
+
+        var oldDroneDamage = ship.totalDroneAlphaDamage();
+        ship.droneBay[0].Activate();
+        strictEqual((ship.totalDroneAlphaDamage() > oldDroneDamage), true, "Active drone does damage.");
+    });
+
+
     test("Loading third light drone into Tormentor throws exception.", function () {
         var ship = new Wafle.Ship("Tormentor");
         strictEqual(ship.LoadDrone(new Wafle.TypeInfo(2486)), undefined, "Loading Warrior I to drone bay");
@@ -482,6 +503,8 @@ QUnit.module("Drone Tests");
     });
 
 
+
+
 QUnit.module("Reality Checks");
 
     //Note: all fits in this section are terrible because Shamna Skor is bad at EVE.
@@ -493,8 +516,8 @@ QUnit.module("Reality Checks");
         ship.pilot.skills.Mechanics = 5;
         ship.pilot.skills.HullUpgrades = 5;
         ship.pilot.skills.ShieldManagement = 5;
-        ship.pilot.skills.Electronics = 5;
-        ship.pilot.skills.Engineering = 5;
+        ship.pilot.skills.CPUManagement = 5;
+        ship.pilot.skills.PowerGridManagement = 5;
         ship.pilot.skills.AdvancedWeaponUpgrades = 5;
         ship.pilot.skills.WeaponUpgrades = 5;
         ship.pilot.skills.Navigation = 5;
@@ -691,6 +714,12 @@ test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
 
         ship.LoadDrones(new Wafle.TypeInfo(2456), 8);  //Hobgoblin II
 
+        //activate 5 drones.
+        for (var i = 0; i < 5; i++) {
+            ship.droneBay[i].Activate();
+        }
+        
+
         strictEqual(ship.structureHP(), 813, "structure HP");
         strictEqual(ship.shieldHP(), 438, "shield HP");
         strictEqual(ship.armorHP(), 1612, "armor HP");
@@ -712,5 +741,5 @@ test("T1 Armor Fleet Buffer Tackle Rifter with all V skills.", function () {
         strictEqual(ship.HullKineticDamageReduction(), 0.6, "Hull ki ");
         strictEqual(ship.HullThermalDamageReduction(), 0.6, "Hull th ");
         strictEqual(Wafle.Round(ship.fittingSlots[0].totalAlphaDamage() + ship.fittingSlots[1].totalAlphaDamage() + ship.fittingSlots[2].totalAlphaDamage(), -2), Wafle.Round(172.59, -2), "alpha damage from guns");
-
+        strictEqual(Wafle.Round(ship.totalDroneAlphaDamage(),0), Wafle.Round(396,0), "Drone Alpha from Hobgoblin II x5 with perfect skills");
     });

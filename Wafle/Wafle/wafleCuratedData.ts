@@ -76,28 +76,56 @@ module Wafle.Data {
 
 
     export function ShipOmniDamageMultiplier(ship: Ship, attackingModule: BaseShipEquipmentData, charge: BaseShipEquipmentData): number {
-        var ps = ship.pilot.skills;
+        
         var mult = 1.0;
 
-        switch (ship.baseShipData.typeId) {
-            case 587:
-                if (attackingModule.groupId === InventoryGroups.ProjectileWeapon && attackingModule.chargeSize === 1) {
-                    mult *= (1 + (0.05 * ps.MinmatarFrigate));
-                }
-                break;
-            case 602:
-                if (attackingModule.groupId === InventoryGroups.RocketLauncher || attackingModule.groupId === InventoryGroups.LightMissileLauncher) {
-                   mult *= (1 + (0.05 * ps.CaldariFrigate));
-                }
-                break;
-            //no default
-        }
+        if (ship.pilot && ship.pilot.skills) {
+            var ps = ship.pilot.skills;
+            switch (ship.baseShipData.typeId) {
+                case 587:
+                    if (attackingModule.groupId === InventoryGroups.ProjectileWeapon && attackingModule.chargeSize === 1) {
+                        mult *= (1 + (0.05 * ps.MinmatarFrigate));
+                    }
+                    break;
+                case 602:
+                    if (attackingModule.groupId === InventoryGroups.RocketLauncher || attackingModule.groupId === InventoryGroups.LightMissileLauncher) {
+                        mult *= (1 + (0.05 * ps.CaldariFrigate));
+                    }
+                    break;
+                //no default
+            }
 
+            if (attackingModule.groupId === InventoryGroups.CombatDrone) {
+                mult *= (1 + (0.2 * ps.DroneInterfacing));
+                if (attackingModule.volume == 10 || attackingModule.volume == 5) {
+                    mult *= (1 + (0.05 * ps.CombatDroneOperation));
+                }
+                if (attackingModule.techLevel == 2) {
+                    switch (attackingModule.race) {
+                        case RaceType.Minmatar:
+                            mult *= (1 + (0.02 * ps.MinmatarDroneSpecialization));
+                            break;
+                        case RaceType.Gallente:
+                            mult *= (1 + (0.02 * ps.GallenteDroneSpecialization));
+                            break;
+                        case RaceType.Caldari:
+                            mult *= (1 + (0.02 * ps.CaldariDroneSpecialization));
+                            break;
+                        case RaceType.Amarr:
+                            mult *= (1 + (0.02 * ps.AmarrDroneSpecialization));
+                            break;
+                    }
+                }
+            }
+
+        }
+        
         for (var i = 0; i < ship.fittingSlots.length; i++) {
             if (ship.fittingSlots[i].baseShipEquipmentData) {
                 mult *= ship.fittingSlots[i].baseShipEquipmentData.damageMultiplierForModule(attackingModule);
             }
         }
+        
 
         return mult;
     }
