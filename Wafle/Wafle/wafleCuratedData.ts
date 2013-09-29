@@ -27,11 +27,20 @@ module Wafle.Data {
         }
         return (type.groupId === Wafle.InventoryGroups.NavigationRig); //they all have this drawback.
     }
-
+    export function AffectedByArmorCompensationSkills(type: Wafle.TypeInfo): boolean {
+        var w = Wafle.InventoryGroups;
+        return (type.groupId === w.ArmorCoating || type.groupId === w.ArmorPlatingEnergized);
+    }
 
     export function IsTurret(type: Wafle.TypeInfo): boolean {
        var w = Wafle.InventoryGroups;
         return (type.groupId === w.ProjectileWeapon || type.groupId === w.EnergyWeapon || type.groupId === w.HybridWeapon);
+    }
+    export function IsBlaster(bsed: BaseShipEquipmentData): boolean {
+        return (bsed.groupId === Wafle.InventoryGroups.HybridWeapon && bsed.parentMarketGroup === 556);
+    }
+    export function IsRailgun(bsed: BaseShipEquipmentData): boolean {
+        return (bsed.groupId === Wafle.InventoryGroups.HybridWeapon && bsed.parentMarketGroup === 555);
     }
 
     export function IsLauncher(type: Wafle.TypeInfo): boolean {
