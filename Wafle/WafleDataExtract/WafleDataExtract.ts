@@ -1,4 +1,5 @@
 ///<reference path="Scripts/typings/node/node.d.ts"/>
+///<reference path="Scripts/typings/async/async.d.ts"/>
 ///<reference path="../Wafle/wafle.ts"/>
 
 class StringBuilder {
@@ -24,6 +25,7 @@ class StringBuilder {
 var currentScriptPath = __dirname;
 
 var fs = require('fs');
+var async = require('async');
 try {
     var sql = require('msnodesql');
 }
@@ -35,8 +37,7 @@ catch (ex) {
     process.exit(1);
 }
 
-
-var MarketGroupIDs = [25, 46, 38, 52, 53, 55, 59, 60, 62, 65, 68, 71, 74, 77, 83, 85, 86, 98, 100, 205,
+var InventoryGroupIDs = [25, 46, 38, 52, 53, 55, 59, 60, 62, 65, 68, 71, 74, 77, 83, 85, 86, 98, 100, 205,
     302, 325, 326, 329, 339, 367, 372, 373, 374, 375, 376, 377, 379, 384, 385, 387, 395, 507, 509, 510,
     511, 648, 653, 654, 655, 763, 771, 772, 773, 774, 782];
 
@@ -50,20 +51,69 @@ if (process.argv.length !== 4 ) {
 
 var outputCodeFile = currentScriptPath + '\\..\\Wafle\\wafleData.ts'
 var connectionString = "Driver={SQL Server Native Client 11.0};Server={" + process.argv[2] + "};Database={" + process.argv[3] + "};Trusted_Connection={Yes};";
-
-var buffer = new StringBuilder();
-
-buffer.append("/*@license\n\n");
-buffer.append('  This data was extracted from the EVE Community Toolkit: http://community.eveonline.com/community/fansites/toolkit/\n\n');
-buffer.append('  Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.\n\n');
-buffer.append('  All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/\n\n');
-buffer.append('*/\n\n');
-buffer.append("///<reference path=\"wafle.ts\"/>\n\n");
-buffer.append("module Wafle.Data {\n");
-buffer.append('    export var Types: Wafle.IEveInventoryGroupMap = { \n');
-
 console.log("Connecting to SQL Server...");
+
 sql.open(connectionString, function (err, conn) {
+    async.parallel([
+        function (callback) {
+            runInventoryGroupsQuery(conn, callback);
+        },
+        function (callback) {
+            runTypeToGroupIDQuery(conn, callback);
+        },
+        function (callback) {
+            runTypesQuery(conn, callback);
+        }
+        
+    ],
+        function (err, results) {
+            if (err) {
+                console.log("Fatal extract error: " + err);
+                process.exit(1);
+            } else if (!results || results.length != 3) {
+                console.log("Error: incorrect number of results or results not found!");
+                process.exit(1);
+            } else {
+                generateOutput(results);
+            }
+        });
+});
+
+
+function generateOutput(theBuffers) {
+    console.log("Writing file to disk...");
+    var fileContent = fileHeader() + theBuffers[2] + theBuffers[1] + theBuffers[0] + fileFooter();
+    fs.writeFile(outputCodeFile, fileContent, function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("\n\nWafleData.ts updated successfully.");
+            console.log("Don't forget to run the Wafle build script to compile and minify the data!");
+        }
+    });
+}
+
+function fileHeader() : string {
+    var buffer = new StringBuilder();
+    buffer.append("/*@license\n\n");
+    buffer.append('  This data was extracted from the EVE Community Toolkit: http://community.eveonline.com/community/fansites/toolkit/\n\n');
+    buffer.append('  Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.\n\n');
+    buffer.append('  All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/\n\n');
+    buffer.append('*/\n\n');
+    buffer.append("///<reference path=\"wafle.ts\"/>\n\n");
+    buffer.append("module Wafle.Data {\n");
+    return buffer.toString();
+}
+
+function fileFooter(): string {
+    return '}\n';
+}
+
+
+function runTypesQuery(conn: any, callback: any) {
+
+    var buffer = new StringBuilder();
+    buffer.append('    export var Types: Wafle.IEveInventoryGroupMap = { \n');
 
     //Dear future code reviewer: this SQL statement is a great example of the type of code that is only OK to write
     // when you are developing a data extract script that runs from time to time off a development server.
@@ -71,7 +121,7 @@ sql.open(connectionString, function (err, conn) {
         "	(SELECT it.typeID, it.groupID, it.typeName, it.marketGroupID, parentGroupID, it.raceID, it.description, it.volume, it.capacity \n" +
         "		FROM dbo.invTypes it \n" +
         "		INNER JOIN dbo.invMarketGroups mg ON mg.marketGroupID = it.marketGroupID \n" +
-        "		WHERE it.groupID IN (" + MarketGroupIDs.join(',') + ") and it.published = 1) \n" +
+        "		WHERE it.groupID IN (" + InventoryGroupIDs.join(',') + ") and it.published = 1) \n" +
         "SELECT bse.typeId, bse.groupId, bse.name, bse.marketGroupId, bse.parentMarketGroupId, bse.raceId, bse.description, bse.volume, NULLIF(bse.capacity,0) [capacity], \n" +
         "	ISNULL(cpu.valueFloat,cpu.valueInt) as [cpu], \n" +
         "	ISNULL(pg.valueFloat,pg.valueInt) as [powergrid], \n" +
@@ -229,14 +279,15 @@ sql.open(connectionString, function (err, conn) {
         "	LEFT OUTER JOIN dbo.dgmTypeAttributes s3 ON s3.typeID = bse.typeId AND s3.attributeID = 184 \n" +
         "ORDER BY bse.groupId, bse.typeId;";
 
-    console.log("Querying (may take a few seconds)...");
+    console.log("Querying type attributes...");
     conn.query(sqlQuery, function (err, results) {
+        
         if (!results) {
-            console.warn("error on query: " + err);
-            return;
+            console.warn("error on type attribute query: " + err);
+            callback(err, buffer);
         }
         var previousGroupID = '';
-        console.log("Processing results...");
+        console.log("Processing type attribute results...");
         for (var i = 0; i < results.length; i++) {
             if (previousGroupID !== results[i].groupId) {
                 if (previousGroupID !== '') {
@@ -260,13 +311,13 @@ sql.open(connectionString, function (err, conn) {
             buffer.append(aliasedPropertyValueOrBlank(results[i], "droneCapacity", "dc"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "droneBandwidth", "db"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "droneBandwidthUsed", "dbu"));
-            
-            
+
+
             buffer.append(aliasedPropertyValueOrBlank(results[i], "optimal", "opt"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "accuracyFalloff", "acc"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "rateOfFire", "rof"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "rateOfFireMultiplier", "rofm"));
-            
+
             buffer.append(aliasedPropertyValueOrBlank(results[i], "trackingSpeed", "trk"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "damageModifier", "dmg"));
 
@@ -274,7 +325,7 @@ sql.open(connectionString, function (err, conn) {
             buffer.append(aliasedPropertyValueOrBlank(results[i], "signatureRadiusBonus", "srb"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "armorHPBonusAdd", "ahp"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "shieldHPBonusAdd", "shp"));
-            
+
             buffer.append(aliasedPropertyValueOrBlank(results[i], "capacitorNeed", "capn"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "techLevel", "tl"));
 
@@ -344,7 +395,7 @@ sql.open(connectionString, function (err, conn) {
 
             buffer.append(aliasedPropertyValueOrBlank(results[i], "missileDamageMultiplier", "midm"));
 
-          
+
             buffer.append('}');
             if (i + 1 !== results.length && results[i + 1].groupId === results[i].groupId) {
                 buffer.append(',');
@@ -353,33 +404,97 @@ sql.open(connectionString, function (err, conn) {
         }
         buffer.append('    }\n');
         buffer.append('  };\n');
-        buffer.append('  export var TypeToGroupIDMapping = {\n');
-
-        conn.query("select typeID, groupID from dbo.invTypes where groupID IN (" + MarketGroupIDs.join(',') + ")", function (err, typeLookupResults) {
-            for (i = 0; i < typeLookupResults.length; i++) {
-                buffer.append('    "' + typeLookupResults[i].typeID + '": ' + typeLookupResults[i].groupID);
-                if (i + 1 !== typeLookupResults.length) {
-                    buffer.append(',');
-                }
-                buffer.append('\n');
-            }
-            buffer.append('  };\n');
-            buffer.append('}\n');
-
-
-
-            fs.writeFile(outputCodeFile, buffer.toString(), function (err) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log("\n\nWafleData.ts updated successfully.");
-                    console.log("Don't forget to run the Wafle build script to compile and minify the data!");
-                }
-            });
-        });
+        callback(null, buffer);
     });
+}
 
-});
+
+function runTypeToGroupIDQuery(conn: any, callback: any) {
+    var buffer = new StringBuilder();
+    buffer.append('  export var TypeToGroupIDMapping = {\n');
+
+    console.log("Querying type ID and group ID mapping...");
+    conn.query("select typeID, groupID from dbo.invTypes where groupID IN (" + InventoryGroupIDs.join(',') + ") ORDER BY typeID;", function (err, typeLookupResults) {
+        console.log("processing type ID and group ID mapping...");
+        for (var i = 0; i < typeLookupResults.length; i++) {
+            buffer.append('    "' + typeLookupResults[i].typeID + '": ' + typeLookupResults[i].groupID);
+            if (i + 1 !== typeLookupResults.length) {
+                buffer.append(',');
+            }
+            buffer.append('\n');
+        }
+        buffer.append('  };\n');
+        callback(null, buffer);
+    });
+}
+
+function runInventoryGroupsQuery(conn: any, callback: any) {
+    var buffer = new StringBuilder();
+    buffer.append('  export var InventoryGroups = {\n');
+
+    console.log("Querying inventory groups...");
+    conn.query("SELECT groupID, groupName, iconID from dbo.invGroups where groupID IN (" + InventoryGroupIDs.join(',') + ") order by groupID", function (err, typeLookupResults) {
+        console.log("processing inventory groups...");
+        for (var i = 0; i < typeLookupResults.length; i++) {
+            buffer.append('    "' + typeLookupResults[i].groupID + '": {n:"' + fixupStringForJSON(typeLookupResults[i].groupName) + '",i:"' + typeLookupResults[i].iconID + '"}');
+            if (i + 1 !== typeLookupResults.length) {
+                buffer.append(',');
+            }
+            buffer.append('\n');
+        }
+        buffer.append('  };\n');
+        callback(null, buffer);
+    });
+}
+
+//buffer.append("/*@license\n\n");
+//buffer.append('  This data was extracted from the EVE Community Toolkit: http://community.eveonline.com/community/fansites/toolkit/\n\n');
+//buffer.append('  Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.\n\n');
+//buffer.append('  All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/\n\n');
+//buffer.append('*/\n\n');
+//buffer.append("///<reference path=\"wafle.ts\"/>\n\n");
+//buffer.append("module Wafle.Data {\n");
+//buffer.append('    export var Types: Wafle.IEveInventoryGroupMap = { \n');
+
+//var buffer = new StringBuilder();
+//console.log("Connecting to SQL Server...");
+//sql.open(connectionString, function (err, conn) {
+
+
+
+
+
+//            buffer.append('  export var InventoryGroups = {\n');
+
+//            conn.query("SELECT groupID, groupName, iconID from dbo.invGroups where groupID IN (" + InventoryGroupIDs.join(',') + ") order by groupID", function (err, typeLookupResults) {
+//                for (i = 0; i < typeLookupResults.length; i++) {
+//                    buffer.append('    "' + typeLookupResults[i].groupID + '": {n:"' + fixupStringForJSON(typeLookupResults[i].groupName) + '",i:"' + typeLookupResults[i].iconID + '"}');
+//                    if (i + 1 !== typeLookupResults.length) {
+//                        buffer.append(',');
+//                    }
+//                    buffer.append('\n');
+//                }
+//                buffer.append('  };\n');
+
+
+
+
+//            buffer.append('}\n');
+
+
+
+//            fs.writeFile(outputCodeFile, buffer.toString(), function (err) {
+//                if (err) {
+//                    console.log(err);
+//                } else {
+//                    console.log("\n\nWafleData.ts updated successfully.");
+//                    console.log("Don't forget to run the Wafle build script to compile and minify the data!");
+//                }
+//            });
+//        });
+//    });
+
+//});
 
 function fixupStringForJSON(theString: string) {
     return theString.replace(/\r/g, '').replace(/\n/g, '\\n\\\n').replace(/"/g, '\\"');
