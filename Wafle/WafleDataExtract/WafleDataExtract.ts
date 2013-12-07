@@ -60,7 +60,7 @@ buffer.append('  All uses of this software must comply with the EVE EULA: http:/
 buffer.append('*/\n\n');
 buffer.append("///<reference path=\"wafle.ts\"/>\n\n");
 buffer.append("module Wafle.Data {\n");
-buffer.append('    export var Types: Wafle.IEveInventoryGroupMap = { \n');
+buffer.append('    export var Types = { \n');
 
 console.log("Connecting to SQL Server...");
 sql.open(connectionString, function (err, conn) {
