@@ -6,6 +6,12 @@ Wafle/Wafle/*.js
 Wafle/Wafle/*.js.map
 Wafle/Wafle/tests/*.js
 Wafle/Wafle/tests/*.js.map
+Wafle/Wafle.WebUI/*.js
+Wafle/Wafle.WebUI/*.js.map
+Wafle/Wafle.WebUI/lib/wafle*.js
+Wafle/Wafle.WebUI/lib/wafle*.js.map
+
+
 
 # Be specific about what to exclude in the build folder...
 Wafle/Wafle/build/build.js*
