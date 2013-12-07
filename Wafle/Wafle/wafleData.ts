@@ -68,7 +68,7 @@ The Rifter is a very powerful combat frigate and can easily tackle the best frig
 <br><font size=\"14\"><b>Traits</b></font>\n\
 <b><a href=showinfo:3331>Amarr Frigate</a> skill bonus per level:</b>\n\
 10% bonus to Small Energy Turret capacitor use\n\
-5% Small Energy Turret damage\n\
+5% bonus to Small Energy Turret damage\n\
 <br><b>Role Bonus:</b>\n\
 80% reduction in Propulsion Jamming systems activation cost\n\
 <br><font size=\"14\"><b>Development</b></font>\n\
@@ -341,7 +341,25 @@ This Probe was commissioned by the Vherokior tribal leadership and bears their c
 <br><b>Role Bonus:</b>\n\
 +5 Virus Strength to Relic and Data Analyzers\n\
 <br><font size=\"14\"><b>Development</b></font>\n\
-This Magnate-class frigate is one of the most decoratively designed ship classes in the Amarr Empire, considered to be a pet project for a small, elite group of royal ship engineers for over a decade. The frigate's design has gone through several stages over the past decade, and new models of the Magnate appear every few years.<br><br>In recent times the royal Amarr Houses have shown increased interest in the design. House Tash-Murkon came to the fore in Amarr politics only after the fall of another, disgraced house, and while they possess great wealth and considerable power, some feel they do not command the respect of the original, highborn royal Houses. This Magnate is a clear statement by house Tash-Murkon that they possess all the grandeur and powerful grace required to stand beside the most pious of Amarr, and despite a few nattering voices claiming they are yet again trying to purchase divinity, most people applaud the vessel as a proper effort to honor the glory of the Almighty.", v: 22100, c: 400, s1: 3331, dc: 40, db: 15, tl: 1, aemr: 0.5, aexr: 0.8, akir: 0.75, athr: 0.65, semr: 1, sexr: 0.5, skir: 0.6, sthr: 0.8, hemr: 1, hexr: 1, hkir: 1, hthr: 1, r: 4, pgo: 26, cpuo: 230, shhp: 250, sshp: 250, sahp: 350, lsc: 4, msc: 3, hsc: 3, lasc: 2, tusc: 2, rsc: 3, rgsz: 1, calb: 400, vel: 350}
+This Magnate-class frigate is one of the most decoratively designed ship classes in the Amarr Empire, considered to be a pet project for a small, elite group of royal ship engineers for over a decade. The frigate's design has gone through several stages over the past decade, and new models of the Magnate appear every few years.<br><br>In recent times the royal Amarr Houses have shown increased interest in the design. House Tash-Murkon came to the fore in Amarr politics only after the fall of another, disgraced house, and while they possess great wealth and considerable power, some feel they do not command the respect of the original, highborn royal Houses. This Magnate is a clear statement by house Tash-Murkon that they possess all the grandeur and powerful grace required to stand beside the most pious of Amarr, and despite a few nattering voices claiming they are yet again trying to purchase divinity, most people applaud the vessel as a proper effort to honor the glory of the Almighty.", v: 22100, c: 400, s1: 3331, dc: 40, db: 15, tl: 1, aemr: 0.5, aexr: 0.8, akir: 0.75, athr: 0.65, semr: 1, sexr: 0.5, skir: 0.6, sthr: 0.8, hemr: 1, hexr: 1, hkir: 1, hthr: 1, r: 4, pgo: 26, cpuo: 230, shhp: 250, sshp: 250, sahp: 350, lsc: 4, msc: 3, hsc: 3, lasc: 2, tusc: 2, rsc: 3, rgsz: 1, calb: 400, vel: 350},
+      "33468": { n: "Astero", mg: 1365, pmg: 1362, mta: 8, d: "The Astero is a Frigate designed for both exploration and combat\n\
+<br><font size=\"14\"><b>Traits</b></font>\n\
+<b><a href=showinfo:3331>Amarr Frigate</a> skill bonus per level:</b>\n\
+4% bonus to armor resistances\n\
+<br><b><a href=showinfo:3328>Gallente Frigate</a> skill bonus per level:</b>\n\
+20% bonus to drone hitpoints\n\
+<br><b>Role Bonus:</b>\n\
+100% reduction in CPU requirement for cloaking devices\n\
+37.5% increased strength for scan probes\n\
++10 virus strength for Relic and Data Analyzers\n\
+\n\
+Note: can fit covert ops cloaks and use covert jump portals\n\
+<br><font size=\"14\"><b>Development</b></font>\n\
+This was one of the first vessels the Sisters of EVE made available to capsuleers. It had been under development by the Sanctuary corporation, whose interest in exploration includes not only search & rescue operations but also a constant inquiry into the nature of the EVE Gate. Thanks to the Sisters' efforts and the Sanctuary's particular expertise, the Astero is an agile, tenacious ship that aptly adheres to the mantra of both rescuers and explorers: Stay safe, stay hidden, and use every tool at your disposal. \n\
+\n\
+It is particularly adept at venturing into dangerous territories, not merely in recovering whatever may be of interest but also in being able to safely bring it back. Its engines have alternate power sources that come into play should any of its cargo - for which it has plenty of room - cause serious interference with internal systems. Its carapace is extremely well armored for a ship this agile, and covered in sensors capable of letting its crew track a myriad of different organic signatures. The crew itself is safely protected from any number of transmittable ailments from rescues and other unexpected passengers, thanks to special quarantine bays that are conveniently located near jettisonable openings. \n\
+\n\
+And lastly, an ingenious but cryptic transfer in part of the warp core functionality to an outlying cylindrical structure means the Astero is able to run certain higher-level cloaking functions with very little technical cost, and minimal interference from warp. The Sisters of EVE have refused to comment on this technology, other than to recommend it not be tampered with.", v: 16500, c: 210, s1: 3331, s2: 3328, dc: 75, db: 25, tl: 1, aemr: 0.5, aexr: 0.9, akir: 0.65, athr: 0.65, semr: 1, sexr: 0.5, skir: 0.6, sthr: 0.8, hemr: 1, hexr: 1, hkir: 1, hthr: 1, r: 8, pgo: 32, cpuo: 170, shhp: 600, sshp: 540, sahp: 600, lsc: 4, msc: 4, hsc: 2, lasc: 0, tusc: 2, rsc: 3, rgsz: 1, calb: 350, vel: 312}
     },
     "38": {
       "377": { n: "Small Shield Extender I", mg: 605, pmg: 551, mta: 0, d: "Increases the maximum strength of the shield.", v: 5, cpu: 20, pg: 2, s1: 3425, shp: 188, tl: 1, shhp: 40, sra: 2},
@@ -1252,6 +1270,7 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", v: 20, c: 1, cpu: 40, pg: 2750, s1: 3309, s2: 3300, opt: 24000, acc: 8000, rof: 7875, trk: 0.03375, dmg: 4.125, capn: 27, tl: 1, shhp: 40, cs: 3},
       "14443": { n: "Ahremen's Modified Mega Pulse Laser", mg: 573, pmg: 558, mta: 14, d: "A super-heavy pulse laser designed for medium range engagements. \n\
+\n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", v: 20, c: 1, cpu: 40, pg: 2750, s1: 3309, s2: 3300, opt: 24000, acc: 8000, rof: 7875, trk: 0.03375, dmg: 4.5, capn: 28.8, tl: 1, shhp: 40, cs: 3},
       "14445": { n: "Brokara's Modified Mega Pulse Laser", mg: 573, pmg: 558, mta: 12, d: "A super-heavy pulse laser designed for medium range engagements. \n\
 \n\
@@ -1304,7 +1323,9 @@ Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequenc
       "15855": { n: "Ammatar Navy Focused Medium Beam Laser", mg: 568, pmg: 557, mta: 8, d: "A high-energy, concentrated laser designed for medium range engagements. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", v: 10, c: 1, cpu: 24, pg: 149, s1: 3306, s2: 3300, opt: 21875, acc: 6000, rof: 4800, trk: 0.0378, dmg: 3.13, capn: 8.7525, tl: 1, r: 4, shhp: 40, cs: 2},
-      "15856": { n: "Ammatar Navy Dual Light Pulse Laser", mg: 570, pmg: 558, mta: 8, d: "This light pulse laser uses two separate laser focusing systems to reduce the cool down period between shots. Good skirmish weapon. Requires frequency crystal ammo types: gamma, infrared, microwave, multifrequency, radio, standard, ultraviolet, xray.", v: 5, c: 1, cpu: 6, pg: 7, s1: 3303, s2: 3300, opt: 5625, acc: 1500, rof: 2700, trk: 0.27375, dmg: 2.5, capn: 2.0025, tl: 1, r: 4, shhp: 40, cs: 1},
+      "15856": { n: "Ammatar Navy Dual Light Pulse Laser", mg: 570, pmg: 558, mta: 8, d: "This light pulse laser uses two separate laser focusing systems to reduce the cool down period between shots. Good skirmish weapon. \n\
+\n\
+Requires frequency crystal ammo types: gamma, infrared, microwave, multifrequency, radio, standard, ultraviolet, xray.", v: 5, c: 1, cpu: 6, pg: 7, s1: 3303, s2: 3300, opt: 5625, acc: 1500, rof: 2700, trk: 0.27375, dmg: 2.5, capn: 2.0025, tl: 1, r: 4, shhp: 40, cs: 1},
       "15857": { n: "Ammatar Navy Dual Light Beam Laser", mg: 567, pmg: 557, mta: 8, d: "This light beam laser uses two separate laser focusing systems to reduce the cool down period between shots. Good short to medium range weapon. \n\
 \n\
 Requires frequency crystal ammo types: Gamma, Infrared, Microwave, Multifrequency, Radio, Standard, Ultraviolet, Xray.", v: 5, c: 1, cpu: 9, pg: 8, s1: 3303, s2: 3300, opt: 10938, acc: 3000, rof: 3200, trk: 0.13, dmg: 2.5, capn: 2.9175, tl: 1, r: 4, shhp: 40, cs: 1},
@@ -1429,10 +1450,10 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "494": { n: "Dual 425mm AutoCannon I", mg: 576, pmg: 559, mta: 0, d: "Combines the damage output of two 425mm intermediate-range autocannons. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 5, cpu: 33, pg: 1250, s1: 3308, s2: 3300, opt: 3200, acc: 16000, rof: 6750, trk: 0.057132, dmg: 2.0625, capn: 0, tl: 1, shhp: 40, cs: 3},
-      "495": { n: "Dual 650mm Repeating Artillery I", mg: 576, pmg: 559, mta: 0, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "495": { n: "Dual 650mm Repeating Cannon I", mg: 576, pmg: 559, mta: 0, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 50, c: 4, cpu: 36, pg: 1500, s1: 3308, s2: 3300, opt: 3600, acc: 17600, rof: 7500, trk: 0.04968, dmg: 2.444203042, capn: 0, tl: 1, shhp: 40, cs: 3},
-      "496": { n: "800mm Repeating Artillery I", mg: 576, pmg: 559, mta: 0, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "496": { n: "800mm Repeating Cannon I", mg: 576, pmg: 559, mta: 0, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 25, c: 3, cpu: 39, pg: 2000, s1: 3308, s2: 3300, opt: 4000, acc: 19200, rof: 7875, trk: 0.0432, dmg: 2.695, capn: 0, tl: 1, shhp: 40, cs: 3},
       "497": { n: "1200mm Artillery Cannon I", mg: 579, pmg: 560, mta: 0, d: "One of the most powerful projectile cannons a battleship can equip. \n\
@@ -1465,7 +1486,7 @@ Must be loaded with any of the following regular and advanced projectile ammo ty
       "2921": { n: "650mm Artillery Cannon II", mg: 578, pmg: 560, mta: 5, d: "A powerful long-range cannon. One of the most damaging weapons mountable on a cruiser. \n\
 \n\
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Quake, Tremor.", v: 10, c: 0.5, cpu: 28, pg: 198, s1: 3305, s2: 3300, s3: 12202, opt: 19320, acc: 17500, rof: 11475, trk: 0.0261, dmg: 5.54, capn: 0, tl: 2, shhp: 40, cs: 2},
-      "2929": { n: "800mm Repeating Artillery II", mg: 576, pmg: 559, mta: 5, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "2929": { n: "800mm Repeating Cannon II", mg: 576, pmg: 559, mta: 5, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Barrage, Hail.", v: 20, c: 3, cpu: 41, pg: 2200, s1: 3308, s2: 3300, s3: 12209, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.234, capn: 0, tl: 2, shhp: 40, cs: 3},
       "2937": { n: "Dual 180mm AutoCannon II", mg: 575, pmg: 559, mta: 5, d: "This dual 180mm autocannon is a simple but effective close combat weapon. \n\
@@ -1474,7 +1495,7 @@ Must be loaded with any of the following regular and advanced projectile ammo ty
       "2945": { n: "Dual 425mm AutoCannon II", mg: 576, pmg: 559, mta: 5, d: "Combines the damage output of two 425mm intermediate-range autocannons. \n\
 \n\
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Barrage, Hail.", v: 20, c: 5, cpu: 35, pg: 1375, s1: 3308, s2: 3300, s3: 12209, opt: 3840, acc: 16000, rof: 6750, trk: 0.057132, dmg: 2.475, capn: 0, tl: 2, shhp: 40, cs: 3},
-      "2953": { n: "Dual 650mm Repeating Artillery II", mg: 576, pmg: 559, mta: 5, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "2953": { n: "Dual 650mm Repeating Cannon II", mg: 576, pmg: 559, mta: 5, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following regular and advanced projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, Titanium Sabot, Barrage, Hail.", v: 20, c: 4, cpu: 38, pg: 1650, s1: 3308, s2: 3300, s3: 12209, opt: 4320, acc: 17600, rof: 7500, trk: 0.04968, dmg: 2.93304365, capn: 0, tl: 2, shhp: 40, cs: 3},
       "2961": { n: "1400mm Howitzer Artillery II", mg: 579, pmg: 560, mta: 5, d: "The ultimate artillery cannon. It hurls death and destruction over incredible distances. \n\
@@ -1602,28 +1623,28 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "9253": { n: "Dual 425mm Prototype Automatic Cannon", mg: 576, pmg: 559, mta: 3, d: "Combines the damage output of two 425mm intermediate-range autocannons. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 5, cpu: 28, pg: 1250, s1: 3308, s2: 3300, opt: 3680, acc: 16000, rof: 6750, trk: 0.057132, dmg: 2.3727, capn: 0, tl: 1, r: 1, shhp: 40, cs: 3},
-      "9287": { n: "Dual 650mm 'Scout' Repeating Artillery I", mg: 576, pmg: 559, mta: 4, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "9287": { n: "Dual 650mm 'Scout' Repeating Cannon I", mg: 576, pmg: 559, mta: 4, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 32, pg: 1500, s1: 3308, s2: 3300, opt: 4320, acc: 17600, rof: 7500, trk: 0.04968, dmg: 2.93304365, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
-      "9289": { n: "Dual 650mm Carbine Repeating Howitzer I", mg: 576, pmg: 559, mta: 1, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "9289": { n: "Dual 650mm Carbine Repeating Cannon I", mg: 576, pmg: 559, mta: 1, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 28, pg: 1500, s1: 3308, s2: 3300, opt: 3780, acc: 17600, rof: 7500, trk: 0.04968, dmg: 2.566413194, capn: 0, tl: 1, r: 4, shhp: 40, cs: 3},
-      "9291": { n: "Dual 650mm Gallium Repeating Cannon", mg: 576, pmg: 559, mta: 2, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "9291": { n: "Dual 650mm Gallium Repeating Cannon", mg: 576, pmg: 559, mta: 2, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 34, pg: 1500, s1: 3308, s2: 3300, opt: 3960, acc: 17600, rof: 7500, trk: 0.04968, dmg: 2.688623346, capn: 0, tl: 1, r: 8, shhp: 40, cs: 3},
-      "9293": { n: "Dual 650mm Prototype Repeating Siege Cannon", mg: 576, pmg: 559, mta: 3, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "9293": { n: "Dual 650mm Prototype Automatic Cannon", mg: 576, pmg: 559, mta: 3, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 30, pg: 1500, s1: 3308, s2: 3300, opt: 4140, acc: 17600, rof: 7500, trk: 0.04968, dmg: 2.810833498, capn: 0, tl: 1, r: 1, shhp: 40, cs: 3},
-      "9327": { n: "800mm Heavy 'Scout' Repeating Artillery I", mg: 576, pmg: 559, mta: 4, d: "Artillery cannon capable of causing tremendous damage. \n\
+      "9327": { n: "800mm Heavy 'Scout' Repeating Cannon I", mg: 576, pmg: 559, mta: 4, d: "AutoCannon cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 35, pg: 2000, s1: 3308, s2: 3300, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.234, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
-      "9329": { n: "800mm Heavy Carbine Repeating Howitzer I", mg: 576, pmg: 559, mta: 1, d: "Artillery cannon capable of causing tremendous damage. \n\
+      "9329": { n: "800mm Heavy Carbine Repeating Cannon I", mg: 576, pmg: 559, mta: 1, d: "AutoCannon cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 31, pg: 2000, s1: 3308, s2: 3300, opt: 4200, acc: 19200, rof: 7875, trk: 0.0432, dmg: 2.83052, capn: 0, tl: 1, r: 4, shhp: 40, cs: 3},
-      "9331": { n: "800mm Heavy Gallium Repeating Cannon", mg: 576, pmg: 559, mta: 2, d: "Artillery cannon capable of causing tremendous damage. \n\
+      "9331": { n: "800mm Heavy Gallium Repeating Cannon", mg: 576, pmg: 559, mta: 2, d: "AutoCannon cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 37, pg: 2000, s1: 3308, s2: 3300, opt: 4400, acc: 19200, rof: 7875, trk: 0.0432, dmg: 2.9645, capn: 0, tl: 1, r: 8, shhp: 40, cs: 3},
-      "9333": { n: "800mm Heavy Prototype Repeating Siege Cannon", mg: 576, pmg: 559, mta: 3, d: "Artillery cannon capable of causing tremendous damage. \n\
+      "9333": { n: "800mm Heavy Prototype Automatic Cannon", mg: 576, pmg: 559, mta: 3, d: "AutoCannon cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 33, pg: 2000, s1: 3308, s2: 3300, opt: 4600, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.10002, capn: 0, tl: 1, r: 1, shhp: 40, cs: 3},
       "9367": { n: "1200mm Heavy 'Scout' Artillery I", mg: 579, pmg: 560, mta: 4, d: "One of the most powerful projectile cannons a battleship can equip. \n\
@@ -1707,7 +1728,7 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "13784": { n: "Domination 720mm Howitzer Artillery", mg: 578, pmg: 560, mta: 7, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 10, c: 0.25, cpu: 27, pg: 225, s1: 3305, s2: 3300, opt: 24000, acc: 17500, rof: 17103, trk: 0.0209, dmg: 9.57, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
-      "13785": { n: "Domination 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 7, d: "Artillery cannon capable of causing tremendous damage. \n\
+      "13785": { n: "Domination 800mm Repeating Cannon", mg: 576, pmg: 559, mta: 7, d: "AutoCannon cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 28, pg: 2200, s1: 3308, s2: 3300, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.36952, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
       "13786": { n: "Domination Dual 180mm Autocannon", mg: 575, pmg: 559, mta: 7, d: "This autocannon is a simple but effective close combat weapon. \n\
@@ -1716,13 +1737,13 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "13787": { n: "Domination Dual 425mm Autocannon", mg: 576, pmg: 559, mta: 7, d: "Combines the damage output of two 425mm intermediate-range autocannons. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 5, cpu: 23, pg: 1375, s1: 3308, s2: 3300, opt: 3840, acc: 16000, rof: 6750, trk: 0.057132, dmg: 2.57895, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
-      "13788": { n: "Domination Dual 650mm Repeating Artillery", mg: 576, pmg: 559, mta: 7, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "13788": { n: "Domination Dual 650mm Repeating Cannon", mg: 576, pmg: 559, mta: 7, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 26, pg: 1650, s1: 3308, s2: 3300, opt: 4320, acc: 17600, rof: 7500, trk: 0.04968, dmg: 3.055253802, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
-      "14457": { n: "Mizuro's Modified 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 11, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "14457": { n: "Mizuro's Modified 800mm Repeating Cannon", mg: 576, pmg: 559, mta: 11, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 28, pg: 2310, s1: 3308, s2: 3300, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.70524, capn: 0, tl: 1, shhp: 40, cs: 3},
-      "14459": { n: "Gotan's Modified 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 13, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "14459": { n: "Gotan's Modified 800mm Repeating Cannon", mg: 576, pmg: 559, mta: 13, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 28, pg: 2420, s1: 3308, s2: 3300, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 4.0425, capn: 0, tl: 1, shhp: 40, cs: 3},
       "14461": { n: "Hakim's Modified 1200mm Artillery Cannon", mg: 579, pmg: 560, mta: 7, d: "One of the most powerful projectile cannons a battleship can equip. \n\
@@ -1743,10 +1764,10 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "14471": { n: "Gotan's Modified Dual 425mm AutoCannon", mg: 576, pmg: 559, mta: 13, d: "Combines the damage output of two 425mm intermediate-range autocannons.  \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 5, cpu: 23, pg: 1513, s1: 3308, s2: 3300, opt: 3840, acc: 16000, rof: 6750, trk: 0.057132, dmg: 3.09375, capn: 0, tl: 1, shhp: 40, cs: 3},
-      "14473": { n: "Mizuro's Modified Dual 650mm Repeating Artillery", mg: 576, pmg: 559, mta: 11, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "14473": { n: "Mizuro's Modified Dual 650mm Repeating Cannon", mg: 576, pmg: 559, mta: 11, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 26, pg: 1733, s1: 3308, s2: 3300, opt: 4320, acc: 17600, rof: 7500, trk: 0.04968, dmg: 3.361593917, capn: 0, tl: 1, shhp: 40, cs: 3},
-      "14475": { n: "Gotan's Modified Dual 650mm Repeating Artillery", mg: 576, pmg: 559, mta: 13, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "14475": { n: "Gotan's Modified Dual 650mm Repeating Cannon", mg: 576, pmg: 559, mta: 13, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 26, pg: 1815, s1: 3308, s2: 3300, opt: 4320, acc: 17600, rof: 7500, trk: 0.04968, dmg: 3.666304563, capn: 0, tl: 1, shhp: 40, cs: 3},
       "16046": { n: "Republic Fleet 125mm Autocannon", mg: 574, pmg: 559, mta: 7, d: "This multi-barrel autocannon is designed for skirmish warfare. \n\
@@ -1782,7 +1803,7 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "16056": { n: "Republic Fleet 720mm Howitzer Artillery", mg: 578, pmg: 560, mta: 7, d: "This rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 10, c: 0.25, cpu: 27, pg: 225, s1: 3305, s2: 3300, opt: 24000, acc: 17500, rof: 17103, trk: 0.0209, dmg: 9.57, capn: 0, tl: 1, r: 2, shhp: 40, cs: 2},
-      "16057": { n: "Republic Fleet 800mm Repeating Artillery", mg: 576, pmg: 559, mta: 7, d: "Artillery cannon capable of causing tremendous damage. \n\
+      "16057": { n: "Republic Fleet 800mm Repeating Cannon", mg: 576, pmg: 559, mta: 7, d: "AutoCannon cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 28, pg: 2200, s1: 3308, s2: 3300, opt: 4800, acc: 19200, rof: 7875, trk: 0.0432, dmg: 3.36952, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
       "16058": { n: "Republic Fleet Dual 180mm Autocannon", mg: 575, pmg: 559, mta: 7, d: "This autocannon is a simple but effective close combat weapon. \n\
@@ -1791,10 +1812,10 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "16059": { n: "Republic Fleet Dual 425mm Autocannon", mg: 576, pmg: 559, mta: 7, d: "Combines the damage output of two 425mm intermediate-range autocannons. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 5, cpu: 23, pg: 1375, s1: 3308, s2: 3300, opt: 3840, acc: 16000, rof: 6750, trk: 0.057132, dmg: 2.57895, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
-      "16060": { n: "Republic Fleet Dual 650mm Repeating Artillery", mg: 576, pmg: 559, mta: 7, d: "Powerful, intermediate-range repeating artillery cannon with a decent rate of fire. \n\
+      "16060": { n: "Republic Fleet Dual 650mm Repeating Cannon", mg: 576, pmg: 559, mta: 7, d: "Powerful, intermediate-range repeating autocannon with a decent rate of fire. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 4, cpu: 26, pg: 1650, s1: 3308, s2: 3300, opt: 4320, acc: 17600, rof: 7500, trk: 0.04968, dmg: 3.055253802, capn: 0, tl: 1, r: 2, shhp: 40, cs: 3},
-      "20452": { n: "6x2500mm Repeating Artillery I", mg: 776, pmg: 559, mta: 0, d: "One of the largest weapons currently in existence, this massive autocannon is designed for extended sieges of stationary installations and other large targets.\n\
+      "20452": { n: "6x2500mm Repeating Cannon I", mg: 776, pmg: 559, mta: 0, d: "One of the largest weapons currently in existence, this massive autocannon is designed for extended sieges of stationary installations and other large targets.\n\
 Note: May only be fitted to capital class ships.\n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 4000, c: 10, cpu: 55, pg: 100000, s1: 21667, s2: 3300, opt: 25000, acc: 28800, rof: 9450, trk: 0.00437, dmg: 5.8, capn: 0, tl: 1, shhp: 40, cs: 4},
@@ -1820,7 +1841,7 @@ Must be loaded with any of the following projectile ammo types: Carbonized Lead,
       "21555": { n: "720mm 'Jolt' Artillery I", mg: 578, pmg: 560, mta: 6, d: "This 720mm rocket-assisted howitzer is designed for long-range bombardment. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 10, c: 0.25, cpu: 26, pg: 203, s1: 3305, s2: 3300, opt: 20000, acc: 19250, rof: 18003, trk: 0.0209, dmg: 8.77, capn: 0, tl: 1, shhp: 40, cs: 2},
-      "21557": { n: "800mm Heavy 'Jolt' Repeating Artillery I", mg: 576, pmg: 559, mta: 6, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
+      "21557": { n: "800mm Heavy 'Jolt' Repeating Cannon I", mg: 576, pmg: 559, mta: 6, d: "A two-barreled, intermediate-range, powerful cannon capable of causing tremendous damage. \n\
 \n\
 Must be loaded with any of the following projectile ammo types: Carbonized Lead, Depleted Uranium, EMP, Fusion, Nuclear, Phased Plasma, Proton, or Titanium Sabot.", v: 20, c: 3, cpu: 33, pg: 1800, s1: 3308, s2: 3300, opt: 4000, acc: 21120, rof: 7875, trk: 0.0432, dmg: 2.9645, capn: 0, tl: 1, shhp: 40, cs: 3},
       "21559": { n: "1200mm Heavy 'Jolt' Artillery I", mg: 579, pmg: 560, mta: 0, d: "One of the most powerful projectile cannons a battleship can equip. \n\
@@ -2100,7 +2121,7 @@ Note: a Nosferatu module will not drain your target's capacitor below your own c
       "12257": { n: "Medium Nosferatu I", mg: 693, pmg: 662, mta: 0, d: "Drains energy from the target ship and adds it to your own. This is a more powerful version  designed for cruiser class ships.\n\
 \n\
 Note: a Nosferatu module will not drain your target's capacitor below your own capacitor level.", v: 25, cpu: 25, pg: 175, s1: 3423, opt: 10500, capn: 0, tl: 1, shhp: 40, ad: 6000, pta: 30},
-      "12259": { n: "Medium Nosferatu II", mg: 693, pmg: 662, mta: 5, d: "Drains energy from the target ship and adds it to your own. This is a more powerful version  designed for cruiser class ships.\n\
+      "12259": { n: "Medium Nosferatu II", mg: 693, pmg: 662, mta: 5, d: "Drains energy from the target ship and adds it to your own. This is a more powerful version designed for cruiser class ships.\n\
 \n\
 Note: a Nosferatu module will not drain your target's capacitor below your own capacitor level.", v: 5, cpu: 25, pg: 200, s1: 3423, opt: 12600, capn: 0, tl: 2, shhp: 40, ad: 6000, pta: 36},
       "12261": { n: "Heavy Nosferatu I", mg: 694, pmg: 662, mta: 0, d: "Drains energy from the target ship and adds it to your own. This huge unit is designed for battleship class ships.\n\
@@ -6625,31 +6646,31 @@ Note: This ammunition can only be used by large tech level II Blasters.", v: 0.0
     "379": {
       "12709": { n: "Target Painter I", mg: 757, pmg: 657, mta: 0, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 20, pg: 1, s2: 19921, opt: 25000, acc: 50000, srb: 25, capn: 20, tl: 1, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 20, pg: 1, s2: 19921, opt: 25000, acc: 50000, srb: 25, capn: 10, tl: 1, shhp: 40, ad: 5000},
       "19806": { n: "Target Painter II", mg: 757, pmg: 657, mta: 5, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 24, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 30, capn: 24, tl: 2, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 24, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 30, capn: 12, tl: 2, shhp: 40, ad: 5000},
       "19808": { n: "Partial Weapon Navigation", mg: 757, pmg: 657, mta: 1, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 19, pg: 1, s2: 19921, opt: 26250, acc: 52500, srb: 26.25, capn: 19, tl: 1, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 19, pg: 1, s2: 19921, opt: 26250, acc: 52500, srb: 26.25, capn: 10, tl: 1, shhp: 40, ad: 5000},
       "19810": { n: "Peripheral Weapon Navigation Diameter", mg: 757, pmg: 657, mta: 2, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 18, pg: 1, s2: 19921, opt: 27500, acc: 55000, srb: 27.5, capn: 18, tl: 1, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 18, pg: 1, s2: 19921, opt: 27500, acc: 55000, srb: 27.5, capn: 9, tl: 1, shhp: 40, ad: 5000},
       "19812": { n: "Parallel Weapon Navigation Transmitter", mg: 757, pmg: 657, mta: 3, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 17, pg: 1, s2: 19921, opt: 28750, acc: 57500, srb: 28.75, capn: 17, tl: 1, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 17, pg: 1, s2: 19921, opt: 28750, acc: 57500, srb: 28.75, capn: 9, tl: 1, shhp: 40, ad: 5000},
       "19814": { n: "Phased Weapon Navigation Array Generation Extron", mg: 757, pmg: 657, mta: 4, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 16, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 30, capn: 16, tl: 1, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 16, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 30, capn: 8, tl: 1, shhp: 40, ad: 5000},
       "21540": { n: "'Inception' Target Painter I", mg: 757, pmg: 657, mta: 6, d: "A targeting subsystem that projects a electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 17, pg: 1, s2: 19921, opt: 30000, acc: 50000, srb: 20, capn: 16, tl: 1, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 17, pg: 1, s2: 19921, opt: 30000, acc: 50000, srb: 20, capn: 8, tl: 1, shhp: 40, ad: 5000},
       "31944": { n: "Republic Fleet Target Painter", mg: 757, pmg: 657, mta: 6, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 25, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 32, capn: 24, tl: 1, shhp: 40, ad: 10000},
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 25, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 32, capn: 12, tl: 1, shhp: 40, ad: 5000},
       "32414": { n: "Domination Target Painter", mg: 757, pmg: 657, mta: 9, d: "A targeting subsystem that projects an electronic \"Tag\" on the target thus making it easier to target and Hit. \n\
 \n\
-Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 27, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 33, capn: 28, tl: 1, shhp: 40, ad: 10000}
+Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized. ", v: 5, cpu: 27, pg: 1, s2: 19921, opt: 30000, acc: 60000, srb: 33, capn: 14, tl: 1, shhp: 40, ad: 5000}
     },
     "384": {
       "210": { n: "Scourge Light Missile", mg: 920, pmg: 117, mta: 0, d: "From its humble beginnings in tiny Minmatar design labs, the Scourge light missile has quickly established itself throughout the star cluster as a premier missile for light launchers.", v: 0.015, s1: 3321, s2: 3319, tl: 1, shhp: 70, vel: 3750, emd: 0, exd: 0, kid: 83, thd: 0, lg: 509},
@@ -6711,7 +6732,7 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "1822": { n: "Nova Auto-Targeting Heavy Missile I", mg: 914, pmg: 115, mta: 0, d: "A Minmatar heavy missile with a nuclear warhead and automatic guidance system.", v: 0.03, s1: 3322, s2: 3324, s3: 3319, tl: 1, r: 2, shhp: 70, vel: 4300, emd: 0, exd: 102, kid: 0, thd: 0, lg: 510},
       "1824": { n: "Inferno Auto-Targeting Heavy Missile I", mg: 914, pmg: 115, mta: 0, d: "A Gallente heavy missile with a plasma warhead and automatic guidance system.", v: 0.03, s1: 3322, s2: 3324, s3: 3319, tl: 1, shhp: 70, vel: 4300, emd: 0, exd: 0, kid: 0, thd: 102, lg: 510},
       "27483": { n: "Imperial Navy Mjolnir Auto-Targeting Heavy Missile I", mg: 1192, pmg: 115, mta: 0, d: "An Amarr heavy missile with an EMP warhead and automatic guidance system.", v: 0.03, s1: 3322, s2: 3324, s3: 3319, tl: 1, shhp: 70, vel: 4300, emd: 116, exd: 0, kid: 0, thd: 0, lg: 510},
-      "27489": { n: "Caldari Navy Scourge Auto-Targeting Heavy Missile I", mg: 1192, pmg: 115, mta: 0, d: "A Caldari heavy missile with a graviton warhead and automatic guidance system.", v: 0.03, s1: 3322, s2: 3324, s3: 3319, tl: 1, shhp: 70, vel: 4300, emd: 0, exd: 0, kid: 116, thd: 0, lg: 510},
+      "27489": { n: "Caldari Navy Scourge Auto-Targeting Heavy Missile I", mg: 1192, pmg: 115, mta: 0, d: "A Caldarian heavy missile with a graviton warhead and automatic guidance system.", v: 0.03, s1: 3322, s2: 3324, s3: 3319, tl: 1, shhp: 70, vel: 4300, emd: 0, exd: 0, kid: 116, thd: 0, lg: 510},
       "27495": { n: "Federation Navy Inferno Auto-Targeting Heavy Missile I", mg: 1192, pmg: 115, mta: 0, d: "A Gallente heavy missile with a plasma warhead and automatic guidance system.", v: 0.03, s1: 3322, s2: 3324, s3: 3319, tl: 1, shhp: 70, vel: 4300, emd: 0, exd: 0, kid: 0, thd: 116, lg: 510},
       "27501": { n: "Republic Fleet Nova Auto-Targeting Heavy Missile I", mg: 1192, pmg: 115, mta: 0, d: "A Minmatar heavy missile with a nuclear warhead and automatic guidance system.", v: 0.03, s1: 3322, s2: 3324, s3: 3319, tl: 1, r: 2, shhp: 70, vel: 4300, emd: 0, exd: 116, kid: 0, thd: 0, lg: 510}
     },
@@ -6770,18 +6791,18 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "22567": { n: "True Sansha Heavy Missile Launcher", mg: 642, pmg: 140, mta: 7, d: "Designed for long engagements between medium sized ships. Slow firing rate, but makes up for it with a large missile capacity.", v: 10, c: 1.23, cpu: 40, pg: 100, s1: 3319, rof: 11625, tl: 1, r: 1, shhp: 40}
     },
     "511": {
-      "1875": { n: "Rapid Light Missile Launcher I", mg: 641, pmg: 140, mta: 0, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.9, cpu: 35, pg: 50, s1: 3319, rof: 12000, tl: 1, shhp: 40},
-      "1877": { n: "Rapid Light Missile Launcher II", mg: 641, pmg: 140, mta: 5, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular and advanced light missiles.", v: 10, c: 1.2, cpu: 39, pg: 53, s1: 3319, s2: 20210, rof: 9600, tl: 2, shhp: 40},
-      "8007": { n: "Experimental SV-2000 Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 3, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 1.035, cpu: 33, pg: 50, s1: 3319, rof: 10200, tl: 1, r: 2, shhp: 40},
-      "8023": { n: "Upgraded 'Malkuth' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 1, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.945, cpu: 28, pg: 50, s1: 3319, rof: 11400, tl: 1, r: 4, shhp: 40},
-      "8025": { n: "Limited 'Limos' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 2, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.99, cpu: 32, pg: 50, s1: 3319, rof: 10800, tl: 1, r: 8, shhp: 40},
-      "8027": { n: "Prototype 'Arbalest' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 4, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 1.08, cpu: 30, pg: 50, s1: 3319, rof: 9600, tl: 1, r: 1, shhp: 40},
-      "13919": { n: "Domination Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 7, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 1.215, cpu: 28, pg: 50, s1: 3319, rof: 9300, tl: 1, r: 1, shhp: 40},
-      "13920": { n: "Dread Guristas Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 8, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 1.35, cpu: 39, pg: 45, s1: 3319, rof: 8400, tl: 1, r: 1, shhp: 40},
-      "16061": { n: "Caldari Navy Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 8, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 1.35, cpu: 39, pg: 45, s1: 3319, rof: 8400, tl: 1, r: 1, shhp: 40},
-      "17484": { n: "Republic Fleet Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 7, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 1.215, cpu: 28, pg: 50, s1: 3319, rof: 9300, tl: 1, r: 2, shhp: 40},
-      "20597": { n: "'Pickaxe' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 6, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.9, cpu: 30, pg: 45, s1: 3319, rof: 11800, tl: 1, shhp: 40},
-      "22566": { n: "True Sansha Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 7, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 1.215, cpu: 28, pg: 50, s1: 3319, rof: 9300, tl: 1, r: 1, shhp: 40}
+      "1875": { n: "Rapid Light Missile Launcher I", mg: 641, pmg: 140, mta: 0, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.25, cpu: 35, pg: 73, s1: 3319, rof: 7800, tl: 1, shhp: 40},
+      "1877": { n: "Rapid Light Missile Launcher II", mg: 641, pmg: 140, mta: 5, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular and advanced light missiles.", v: 10, c: 0.27, cpu: 39, pg: 77, s1: 3319, s2: 20210, rof: 6240, tl: 2, shhp: 40},
+      "8007": { n: "Experimental SV-2000 Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 3, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.24, cpu: 33, pg: 73, s1: 3319, rof: 6630, tl: 1, r: 2, shhp: 40},
+      "8023": { n: "Upgraded 'Malkuth' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 1, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.25, cpu: 28, pg: 73, s1: 3319, rof: 7410, tl: 1, r: 4, shhp: 40},
+      "8025": { n: "Limited 'Limos' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 2, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.23, cpu: 32, pg: 73, s1: 3319, rof: 7020, tl: 1, r: 8, shhp: 40},
+      "8027": { n: "Prototype 'Arbalest' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 4, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.25, cpu: 30, pg: 73, s1: 3319, rof: 6240, tl: 1, r: 1, shhp: 40},
+      "13919": { n: "Domination Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 7, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.28, cpu: 28, pg: 73, s1: 3319, rof: 6045, tl: 1, r: 1, shhp: 40},
+      "13920": { n: "Dread Guristas Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 8, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.29, cpu: 39, pg: 65, s1: 3319, rof: 5460, tl: 1, r: 1, shhp: 40},
+      "16061": { n: "Caldari Navy Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 8, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.29, cpu: 39, pg: 65, s1: 3319, rof: 5460, tl: 1, r: 1, shhp: 40},
+      "17484": { n: "Republic Fleet Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 7, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.28, cpu: 28, pg: 73, s1: 3319, rof: 6045, tl: 1, r: 2, shhp: 40},
+      "20597": { n: "'Pickaxe' Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 6, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.27, cpu: 30, pg: 65, s1: 3319, rof: 7670, tl: 1, shhp: 40},
+      "22566": { n: "True Sansha Rapid Light Missile Launcher", mg: 641, pmg: 140, mta: 7, d: "Launcher for cruisers intended to counter fast frigates, can only be fitted with regular light missiles.", v: 10, c: 0.28, cpu: 28, pg: 73, s1: 3319, rof: 6045, tl: 1, r: 1, shhp: 40}
     },
     "648": {
       "2817": { n: "Mjolnir Rage Rocket", mg: 930, pmg: 118, mta: 5, d: "A small rocket with an EMP warhead.\n\
@@ -7277,8 +7298,8 @@ Penalty: Using more than one type of this module or similar modules that affect 
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", v: 20, s1: 26254, tl: 1, shhp: 40, rgsz: 3, calbc: 100, drwbk: -10},
       "26062": { n: "Large Engine Thermal Shielding I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase the duration of a ship's afterburner or microwarpdrive modules at the expense of armor amount.", v: 20, s1: 26254, tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
-      "26066": { n: "Large Warp Core Optimizer I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 20, s1: 26254, tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
-      "26068": { n: "Large Hyperspatial Velocity Optimizer I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 20, s1: 26254, tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
+      "26066": { n: "Large Warp Core Optimizer I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 20, s1: 26254, tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
+      "26068": { n: "Large Hyperspatial Velocity Optimizer I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 20, s1: 26254, tl: 1, shhp: 40, rgsz: 3, calbc: 50, drwbk: -10},
       "26070": { n: "Large Polycarbon Engine Housing I", mg: 1212, pmg: 957, mta: 0, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", v: 20, s1: 26254, tl: 1, shhp: 40, rgsz: 3, agim: -9.1, velm: 5.5, calbc: 100, drwbk: -10},
@@ -7296,8 +7317,8 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "26318": { n: "Large Auxiliary Thrusters II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", v: 20, s1: 26254, tl: 2, shhp: 40, rgsz: 3, calbc: 150, drwbk: -10},
-      "26320": { n: "Large Warp Core Optimizer II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 20, s1: 26254, tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
-      "26322": { n: "Large Hyperspatial Velocity Optimizer II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 20, s1: 26254, tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
+      "26320": { n: "Large Warp Core Optimizer II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 20, s1: 26254, tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
+      "26322": { n: "Large Hyperspatial Velocity Optimizer II", mg: 1212, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 20, s1: 26254, tl: 2, shhp: 40, rgsz: 3, calbc: 75, drwbk: -10},
       "31105": { n: "Small Auxiliary Thrusters I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's max velocity at the expense of armor amount.\n\
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", v: 5, s1: 26254, tl: 1, shhp: 40, rgsz: 1, calbc: 100, drwbk: -10},
@@ -7349,12 +7370,12 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "31157": { n: "Capital Low Friction Nozzle Joints I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", v: 40, s1: 26254, tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
-      "31159": { n: "Small Hyperspatial Velocity Optimizer I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 5, s1: 26254, tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
-      "31161": { n: "Medium Hyperspatial Velocity Optimizer I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 10, s1: 26254, tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
-      "31163": { n: "Capital Hyperspatial Velocity Optimizer I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 40, s1: 26254, tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
-      "31165": { n: "Small Hyperspatial Velocity Optimizer II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 5, s1: 26254, tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
-      "31167": { n: "Medium Hyperspatial Velocity Optimizer II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 10, s1: 26254, tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
-      "31169": { n: "Capital Hyperspatial Velocity Optimizer II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of armor amount.", v: 40, s1: 26254, tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10},
+      "31159": { n: "Small Hyperspatial Velocity Optimizer I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 5, s1: 26254, tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
+      "31161": { n: "Medium Hyperspatial Velocity Optimizer I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 10, s1: 26254, tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
+      "31163": { n: "Capital Hyperspatial Velocity Optimizer I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 40, s1: 26254, tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
+      "31165": { n: "Small Hyperspatial Velocity Optimizer II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 5, s1: 26254, tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
+      "31167": { n: "Medium Hyperspatial Velocity Optimizer II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 10, s1: 26254, tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
+      "31169": { n: "Capital Hyperspatial Velocity Optimizer II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's warp speed at the expense of the ship's CPU capacity.", v: 40, s1: 26254, tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10},
       "31171": { n: "Small Low Friction Nozzle Joints II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to increase a ship's agility at the expense of armor amount.\n\
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", v: 5, s1: 26254, tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
@@ -7382,12 +7403,12 @@ Penalty: Using more than one type of this module or similar modules that affect 
       "31187": { n: "Capital Polycarbon Engine Housing II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to increase ship's velocity and maneuverability at the expense of armor amount.\n\
 \n\
 Penalty: Using more than one type of this module or similar modules that affect the same attribute on the ship will be penalized.", v: 40, s1: 26254, tl: 2, shhp: 40, rgsz: 4, agim: -11, velm: 6.6, calbc: 150, drwbk: -10},
-      "31189": { n: "Small Warp Core Optimizer I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 5, s1: 26254, tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
-      "31191": { n: "Medium Warp Core Optimizer I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 10, s1: 26254, tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
-      "31193": { n: "Capital Warp Core Optimizer I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 40, s1: 26254, tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
-      "31195": { n: "Small Warp Core Optimizer II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 5, s1: 26254, tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
-      "31197": { n: "Medium Warp Core Optimizer II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 10, s1: 26254, tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
-      "31199": { n: "Capital Warp Core Optimizer II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of armor amount.", v: 40, s1: 26254, tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10}
+      "31189": { n: "Small Warp Core Optimizer I", mg: 1210, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 5, s1: 26254, tl: 1, shhp: 40, rgsz: 1, calbc: 50, drwbk: -10},
+      "31191": { n: "Medium Warp Core Optimizer I", mg: 1211, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 10, s1: 26254, tl: 1, shhp: 40, rgsz: 2, calbc: 50, drwbk: -10},
+      "31193": { n: "Capital Warp Core Optimizer I", mg: 1740, pmg: 957, mta: 0, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 40, s1: 26254, tl: 1, shhp: 40, rgsz: 4, calbc: 50, drwbk: -10},
+      "31195": { n: "Small Warp Core Optimizer II", mg: 1210, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 5, s1: 26254, tl: 2, shhp: 40, rgsz: 1, calbc: 75, drwbk: -10},
+      "31197": { n: "Medium Warp Core Optimizer II", mg: 1211, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 10, s1: 26254, tl: 2, shhp: 40, rgsz: 2, calbc: 75, drwbk: -10},
+      "31199": { n: "Capital Warp Core Optimizer II", mg: 1740, pmg: 957, mta: 5, d: "This ship modification is designed to reduce a ship's capacitor need for initiating warp at the expense of the ship's CPU capacity.", v: 40, s1: 26254, tl: 2, shhp: 40, rgsz: 4, calbc: 75, drwbk: -10}
     }
   };
   export var TypeToGroupIDMapping = {
@@ -7453,6 +7474,7 @@ Penalty: Using more than one type of this module or similar modules that affect 
     "32987": 25,
     "32989": 25,
     "33190": 25,
+    "33468": 25,
     "377": 38,
     "380": 38,
     "3829": 38,
