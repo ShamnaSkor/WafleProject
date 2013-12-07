@@ -34,7 +34,8 @@ function tsCompileComplete(error,stdout,stderr)
     console.log("Wafle version is: " + wafleVersion);
 
     console.log("Uglifying Wafle library...");
-    var uglifyWafle = exec('uglifyjs "' + path.join(buildJSPath, 'wafleCore.js') + '" "' + path.join(buildJSPath, 'wafleCuratedData.js') + '" -o "' + path.join(buildJSPath, 'wafle.min.js') + '" -m -c unused=false --comments', uglifyWafleCallback);
+    
+    var uglifyWafle = exec('uglifyjs "' + path.join(buildJSPath, 'wafleCore.js') + '" "' + path.join(buildJSPath, 'wafleCuratedData.js') + '" -o "' + path.join(buildJSPath, 'wafle.min.js') + '" -m -c unused=false --comments --source-map="wafle.min.js.map" --source-map-url="/lib/wafle.min.js.map" ', uglifyWafleCallback);
     console.log("Uglifying Wafle Data file...");
     var uglifyWafleData = exec('uglifyjs "' + path.join(buildJSPath, 'wafleData.js') + '" -o "' + path.join(buildJSPath,'wafleData.min.js') + '" --comments', uglifyWafleDataCallback);
 }

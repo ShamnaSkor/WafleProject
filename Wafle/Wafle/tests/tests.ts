@@ -305,6 +305,15 @@ QUnit.module("Search Tests");
         strictEqual(type, null, "should be null");
     });
 
+    test("Frigates are found by type", function () {
+        var type = Wafle.FindNamedTypesByGroup(25);
+        strictEqual((type.length > 40), true, "more than 40 frigates found.");
+        strictEqual(type[0].groupId, 25, "correct groupId for first frigate item.");
+        strictEqual(type[0].typeId, 582, "correct typeId for first frigate item.");
+        strictEqual(type[0].name, "Bantam", "correct name for first frigate item.");
+    });
+    
+
 
 
 

@@ -44,6 +44,9 @@
   <PropertyGroup>
     <RootNamespace>Wafle.WebUI</RootNamespace>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <ProjectExtensions>
@@ -83,6 +86,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)..\Wafle\build\wafleData.min.js" "$(ProjectDir)lib" /Y /I
-xcopy "$(ProjectDir)..\Wafle\build\wafle.min.js" "$(ProjectDir)lib" /Y /I</PostBuildEvent>
+xcopy "$(ProjectDir)..\Wafle\build\wafle.min.js" "$(ProjectDir)lib" /Y /I
+xcopy "$(ProjectDir)..\Wafle\build\wafle.min.js.map" "$(ProjectDir)lib" /Y /I
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -44,7 +44,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module Wafle {
 
-    export var Version: string = "0.1.0-alpha.5";
+    export var Version: string = "0.1.0-alpha.6";
 
     export enum RaceType {
         Unknown = 0, Caldari = 1, Minmatar = 2, Amarr = 4, Gallente = 8, ORE
@@ -1569,4 +1569,19 @@ module Wafle {
         return null;
     }
     
+    export function FindNamedTypesByGroup(theGroupId: number): INamedType[] {
+        var types: Wafle.INamedType[] = [];
+        var typeCount = Object.getOwnPropertyNames(Wafle.Data.Types[theGroupId]).length;
+        for (var typeIndex = 0; typeIndex < typeCount; typeIndex++) {
+            var typeId = Object.getOwnPropertyNames(Wafle.Data.Types[theGroupId])[typeIndex];
+            var theItem: Wafle.INamedType = {
+                name: Wafle.Data.Types[theGroupId][typeId].n,
+                groupId: theGroupId,
+                typeId: parseInt(typeId, 10)
+            };
+            types.push(theItem);
+        }
+        return types;
+    }
+
 }

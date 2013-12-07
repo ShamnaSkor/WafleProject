@@ -1,5 +1,8 @@
+/// <reference path="../Wafle/wafleInterfaces.ts" />
+/// <reference path="../Wafle/wafleCore.ts" />
 /// <reference path="Scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="Scripts/typings/angularjs/angular.d.ts" />
+
 
 interface IWafleScope extends ng.IScope {
     ships: any;
@@ -8,9 +11,9 @@ interface IWafleScope extends ng.IScope {
 
 
 
-function WafleController($scope : IWafleScope) {
-    $scope.ships = [{ typeId: 587, name: 'Rifter' },
-        { typeId: 585, name: 'Slasher' }, { typeId: 593, name: 'Tristan' }, ];
+function WafleController($scope: IWafleScope) {
+
+    $scope.ships = Wafle.FindNamedTypesByGroup(25);
 
     $scope.shipTypeId = 593;
 }

@@ -77,4 +77,7 @@
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>node "$(ProjectDir)build\build.js"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
