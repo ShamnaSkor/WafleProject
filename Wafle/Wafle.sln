@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wafle", "Wafle\Wafle.csproj", "{DA7EEE55-FFBD-4054-8B5A-B792A625944E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wafle.WebUI", "Wafle.WebUI\Wafle.WebUI.csproj", "{9895FA2E-A1A3-4E17-B9AB-FA7F1F3E80EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{DA7EEE55-FFBD-4054-8B5A-B792A625944E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA7EEE55-FFBD-4054-8B5A-B792A625944E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA7EEE55-FFBD-4054-8B5A-B792A625944E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9895FA2E-A1A3-4E17-B9AB-FA7F1F3E80EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9895FA2E-A1A3-4E17-B9AB-FA7F1F3E80EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9895FA2E-A1A3-4E17-B9AB-FA7F1F3E80EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9895FA2E-A1A3-4E17-B9AB-FA7F1F3E80EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

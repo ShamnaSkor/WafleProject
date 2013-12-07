@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app ng-controller="WafleController">
+<head>
+    <meta charset="utf-8" />
+    <title>Wafle WebUI</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="lib/angular.js"></script>
+</head>
+<body>
+    <h1>Wafle</h1>
+    <header>
+        Select Ship:
+        <select id="shipSelect" ng-model="shipTypeId" ng-options="ship.typeId as ship.name for ship in ships"></select>
+    </header>
+    <script src="app.js"></script>
+</body>
+</html>
