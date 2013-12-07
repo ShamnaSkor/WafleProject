@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wafle", "Wafle\Wafle.csproj", "{DA7EEE55-FFBD-4054-8B5A-B792A625944E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wafle.WebUI", "Wafle.WebUI\Wafle.WebUI.csproj", "{9895FA2E-A1A3-4E17-B9AB-FA7F1F3E80EB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DA7EEE55-FFBD-4054-8B5A-B792A625944E} = {DA7EEE55-FFBD-4054-8B5A-B792A625944E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
