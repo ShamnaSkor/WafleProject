@@ -1,6 +1,7 @@
 //Wafle build script
 //usage on Windows is: node build\build.js
 //todo: fix for non-Windows platforms.
+//For help setting up your environment, visit https://github.com/ShamnaSkor/WafleProject/wiki/Setting-up-a-development-environment-on-windows
 
 var buildJSPath = __dirname;
 console.log("Loading compilation dependencies...");

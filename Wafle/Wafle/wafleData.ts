@@ -11,7 +11,7 @@
 ///<reference path="wafle.ts"/>
 
 module Wafle.Data {
-    export var Types: Wafle.IEveInventoryGroupMap = { 
+    export var Types = { 
     "25": {
       "582": { n: "Bantam", mg: 61, pmg: 5, mta: 0, d: "The Bantam is a Support Frigate designed to rapidly repair allied vessels in combat.\n\
 <br><font size=\"14\"><b>Traits</b></font>\n\

@@ -1,4 +1,4 @@
-///<reference path="../lib/typings/qunit/qunit.d.ts"/>
+///<reference path="../Scripts/typings/qunit/qunit.d.ts"/>
 ///<reference path="../wafleCore.ts"/>
 
 QUnit.module("Ship tests");
