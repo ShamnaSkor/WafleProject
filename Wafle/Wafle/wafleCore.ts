@@ -387,62 +387,32 @@ module Wafle {
         public totalHP() : number {
             return this.structureHP() + this.armorHP() + this.shieldHP();
         }
-        //todo: refactor similarly to "ArmorSpecificDamageReduction"
+
         public ShieldEMDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.shieldResists.EM.baseDamageReductionPercentage();
-            var damageTakenMultipliers: number[] = [];
-            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.shieldResists) {
-                    if (this.fittingSlots[i].baseShipEquipmentData.shieldResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.EM.baseDamageReductionPercentage());
-                    } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.EM.baseDamageReductionPercentage());
-                    }
-                }
-            }
-            return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
+            return this.ShieldSpecificDamageReduction("EM");
         }
-        //todo: refactor similarly to "ArmorSpecificDamageReduction"
         public ShieldExplosiveDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.shieldResists.Explosive.baseDamageReductionPercentage();
-            var damageTakenMultipliers: number[] = [];
-            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.shieldResists) {
-                    if (this.fittingSlots[i].baseShipEquipmentData.shieldResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.Explosive.baseDamageReductionPercentage());
-                    } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.Explosive.baseDamageReductionPercentage());
-                    }
-                }
-            }
-            return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
+            return this.ShieldSpecificDamageReduction("Explosive");
+        }
+        public ShieldKineticDamageReduction(): number {
+            return this.ShieldSpecificDamageReduction("Kinetic");
+        }
+        public ShieldThermalDamageReduction(): number {
+            return this.ShieldSpecificDamageReduction("Thermal");
         }
 
-        //todo: refactor similarly to "ArmorSpecificDamageReduction"
-        public ShieldKineticDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.shieldResists.Kinetic.baseDamageReductionPercentage();
+        private ShieldSpecificDamageReduction(damageTypeName: string): number {
+            var damageTakenPercent = 1 - this.baseShipData.shieldResists[damageTypeName].baseDamageReductionPercentage();
             var damageTakenMultipliers: number[] = [];
             for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
                 if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.shieldResists) {
                     if (this.fittingSlots[i].baseShipEquipmentData.shieldResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.Kinetic.baseDamageReductionPercentage());
+                        var dtm = 1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists[damageTypeName].baseDamageReductionPercentage();
+                        if (dtm !== 1.0) {
+                            damageTakenMultipliers.push(dtm);
+                        }
                     } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.Kinetic.baseDamageReductionPercentage());
-                    }
-                }
-            }
-            return 1 - this.multiplyPercentages(damageTakenPercent, damageTakenMultipliers, true);
-        }
-        //todo: refactor similarly to "ArmorSpecificDamageReduction"
-        public ShieldThermalDamageReduction(): number {
-            var damageTakenPercent = 1 - this.baseShipData.shieldResists.Thermal.baseDamageReductionPercentage();
-            var damageTakenMultipliers: number[] = [];
-            for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
-                if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData && this.fittingSlots[i].baseShipEquipmentData.shieldResists) {
-                    if (this.fittingSlots[i].baseShipEquipmentData.shieldResists.HasDiminishingReturns === true) {
-                        damageTakenMultipliers.push(1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.Thermal.baseDamageReductionPercentage());
-                    } else {
-                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists.Thermal.baseDamageReductionPercentage());
+                        damageTakenPercent = damageTakenPercent * (1 - this.fittingSlots[i].baseShipEquipmentData.shieldResists[damageTypeName].baseDamageReductionPercentage());
                     }
                 }
             }
