@@ -86,8 +86,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)..\Wafle\build\wafleData.min.js" "$(ProjectDir)lib" /Y /I
-xcopy "$(ProjectDir)..\Wafle\build\wafle.min.js" "$(ProjectDir)lib" /Y /I
-xcopy "$(ProjectDir)..\Wafle\build\wafle.min.js.map" "$(ProjectDir)lib" /Y /I
+xcopy "$(ProjectDir)..\Wafle\build\wafle.dev.js" "$(ProjectDir)lib" /Y /I
+
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

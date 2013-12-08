@@ -9,7 +9,7 @@ var fs = require("fs");
 var exec = require("child_process").exec;
 var spawn = require("child_process").spawn;
 var path = require("path");
-var wafleDone = false, wafleDataDone = false;
+var wafleDone = false, wafleDataDone = false, wafleDevDone = false;
 var wafleVersion = "";
 
 console.log("Compiling Wafle TypeScript files...");
@@ -33,10 +33,13 @@ function tsCompileComplete(error,stdout,stderr)
 
     console.log("Wafle version is: " + wafleVersion);
 
-    console.log("Uglifying Wafle library...");
-    
-    var uglifyWafle = exec('uglifyjs "' + path.join(buildJSPath, 'wafleCore.js') + '" "' + path.join(buildJSPath, 'wafleCuratedData.js') + '" -o "' + path.join(buildJSPath, 'wafle.min.js') + '" -m -c unused=false --comments --source-map="wafle.min.js.map" --source-map-url="/lib/wafle.min.js.map" ', uglifyWafleCallback);
-    console.log("Uglifying Wafle Data file...");
+    var mainUglifyCommand = 'uglifyjs "' + path.join(buildJSPath, 'wafleCore.js') + '" "' + path.join(buildJSPath, 'wafleCuratedData.js') + '" -o ';
+
+    console.log("Uglifying Wafle library (min)...");
+    var uglifyWafle = exec(mainUglifyCommand + '"' + path.join(buildJSPath, 'wafle.min.js') + '" -m -c unused=false --comments --source-map="wafle.min.js.map" --source-map-url="/lib/wafle.min.js.map" ', uglifyWafleCallback);
+    console.log("Uglifying Wafle library (dev)...");
+    var uglifyWafle = exec(mainUglifyCommand + '"' + path.join(buildJSPath, 'wafle.dev.js') + '" -b --comments', uglifyWafleDevCallback);
+    console.log("Uglifying Wafle Data file (min)...");
     var uglifyWafleData = exec('uglifyjs "' + path.join(buildJSPath, 'wafleData.js') + '" -o "' + path.join(buildJSPath,'wafleData.min.js') + '" --comments', uglifyWafleDataCallback);
 }
 
@@ -46,11 +49,21 @@ function uglifyWafleCallback(error, stdout, stderr) {
         console.log(error);
         return;
     }
-
-
     copyFileSync(path.join(buildJSPath, "wafle.min.js"), path.join(buildJSPath,"wafle-" + wafleVersion + ".min.js"));
     wafleDone = true;
-    reportAndCheckAllDone("Wafle");
+    reportAndCheckAllDone("Wafle (min)");
+}
+
+
+function uglifyWafleDevCallback(error, stdout, stderr) {
+    if (error !== null) {
+        console.log("Error Uglifying Wafle Dev.");
+        console.log(error);
+        return;
+    }
+    copyFileSync(path.join(buildJSPath, "wafle.dev.js"), path.join(buildJSPath, "wafle-" + wafleVersion + ".js"));
+    wafleDevDone = true;
+    reportAndCheckAllDone("Wafle (dev)");
 }
 
 function uglifyWafleDataCallback(error, stdout, stderr) {
@@ -59,7 +72,6 @@ function uglifyWafleDataCallback(error, stdout, stderr) {
         console.log(error);
         return;
     }
-
     copyFileSync(path.join(buildJSPath, "wafleData.min.js"), path.join(buildJSPath, "wafleData-" + wafleVersion + ".min.js"));
     wafleDataDone = true;
     reportAndCheckAllDone("Wafle Data");
@@ -67,7 +79,7 @@ function uglifyWafleDataCallback(error, stdout, stderr) {
 
 var reportAndCheckAllDone = function (theLibraryName) {
     console.log("Finished uglifying " + theLibraryName);
-    if (wafleDone && wafleDataDone) {
+    if (wafleDone && wafleDataDone && wafleDevDone) {
         console.log("All done.");
     }
 }
