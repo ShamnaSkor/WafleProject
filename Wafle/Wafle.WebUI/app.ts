@@ -5,30 +5,46 @@
 
 
 interface IWafleScope extends ng.IScope {
-    ships: any;
-    shipTypeId: number;
+    AllShips: any;
+    AllPilotSkillLevelsSpike : number[];
+    selectedShipTypeId: number;
+    selectedPilotSkillLevelSpike: number;
     selectedShipChange: () => void;
+    selectedPilotSkillLevelSpikeChange: () => void;
     setShip: (number) => void;
-    theShip: Wafle.Ship;
+    setPilotSkillLevelSpike: (number) => void;
+    ship: Wafle.Ship;
 }
 
 
 
 function WafleController($scope: IWafleScope) {
 
-    $scope.ships = Wafle.FindNamedTypesByGroup(25);
-
-    $scope.shipTypeId = 593;
-
     $scope.selectedShipChange = () => {
-        $scope.setShip($scope.shipTypeId);
+        $scope.setShip($scope.selectedShipTypeId);
+    }
+    $scope.selectedPilotSkillLevelSpikeChange = () => {
+        $scope.setPilotSkillLevelSpike($scope.selectedPilotSkillLevelSpike);
     }
 
     $scope.setShip = (theShipTypeId: number) => {
-        $scope.theShip = new Wafle.Ship(theShipTypeId);
+        $scope.ship = new Wafle.Ship(theShipTypeId);
+        $scope.ship.pilot = new Wafle.Pilot("not specified");
+        $scope.ship.pilot.skills.SetAllSkills($scope.selectedPilotSkillLevelSpike);
     }
 
-    $scope.setShip($scope.shipTypeId); //initial ship.
+    $scope.setPilotSkillLevelSpike = (theSkillLevel: number) => {
+        if (!$scope.ship.pilot) {
+            $scope.ship.pilot = new Wafle.Pilot("not specified");
+        }
+        $scope.ship.pilot.skills.SetAllSkills(theSkillLevel);
+    }
+    
+    $scope.AllPilotSkillLevelsSpike = [0, 1, 2, 3, 4, 5];
+    $scope.AllShips = Wafle.FindNamedTypesByGroup(25); //todo: just frigates for now.
+    $scope.selectedShipTypeId = 593; //tristan = default ship.
+    $scope.selectedPilotSkillLevelSpike = 0;
+    $scope.setShip($scope.selectedShipTypeId);
 }
 
 
