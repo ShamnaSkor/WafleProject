@@ -302,11 +302,11 @@ module Wafle {
             return pg;
         }
 
-        public powergridString() {
+        public powergridString() : string {
             return this.powergrid().toFixed(2);
         }
 
-        public cpu() {
+        public cpu() : number {
             if (this.pilot) {
                 return Round(this.baseShipData.cpuOutput * this.pilot.skills.cpuMultiplier(), -2);
             }
@@ -315,7 +315,7 @@ module Wafle {
             }
         }
 
-        public remainingCpu() {
+        public remainingCpu() : number {
             var remaining = this.cpu();
             for (var i = 0; i < this.fittingSlots.length; i++) {
                 remaining -= this.fittingSlots[i].cpuUsage();
@@ -323,7 +323,7 @@ module Wafle {
             return Round(remaining, -2);
         }
 
-        public remainingPowergrid() {
+        public remainingPowergrid() : number {
             var remaining = this.powergrid();
             for (var i = 0; i < this.fittingSlots.length; i++) {
                 remaining -= this.fittingSlots[i].powergridUsage();
@@ -332,11 +332,11 @@ module Wafle {
         }
 
 
-        public cpuString() {
+        public cpuString() : string {
             return this.cpu().toFixed(2);
         }
 
-        public shieldHP() {
+        public shieldHP() : number {
             var baseShieldHP = this.baseShipData.shieldHP;
             for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
                 if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
@@ -356,7 +356,7 @@ module Wafle {
             return Round(baseShieldHP,0);
         }
 
-        public armorHP() {
+        public armorHP() : number {
             var baseArmorHP = this.baseShipData.armorHP;
             for (var i = 0; i <= this.baseShipData.slotCount(); i++) {
                 if (this.fittingSlots[i] && this.fittingSlots[i].baseShipEquipmentData) {
@@ -375,7 +375,7 @@ module Wafle {
             return Round(baseArmorHP,0);
         }
 
-        public structureHP() {
+        public structureHP() : number {
             if (this.pilot) {
                 return Round(this.baseShipData.structureHP * this.pilot.skills.structureHPMultiplier(), 0);
             }
@@ -384,7 +384,7 @@ module Wafle {
             }
         }
 
-        public totalHP() {
+        public totalHP() : number {
             return this.structureHP() + this.armorHP() + this.shieldHP();
         }
         //todo: refactor similarly to "ArmorSpecificDamageReduction"
