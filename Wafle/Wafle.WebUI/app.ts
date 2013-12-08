@@ -3,7 +3,6 @@
 /// <reference path="Scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="Scripts/typings/angularjs/angular.d.ts" />
 
-
 interface IWafleScope extends ng.IScope {
     AllShips: any;
     AllPilotSkillLevelsSpike : number[];
@@ -14,9 +13,8 @@ interface IWafleScope extends ng.IScope {
     setShip: (number) => void;
     setPilotSkillLevelSpike: (number) => void;
     ship: Wafle.Ship;
+    slotDisplayStyle: (string, number) => string;
 }
-
-
 
 function WafleController($scope: IWafleScope) {
 
@@ -45,12 +43,23 @@ function WafleController($scope: IWafleScope) {
     $scope.selectedShipTypeId = 593; //tristan = default ship.
     $scope.selectedPilotSkillLevelSpike = 0;
     $scope.setShip($scope.selectedShipTypeId);
+
+    $scope.slotDisplayStyle = (slotType: string, slotIndex: number) => {
+        var slotCount;
+        if (slotType == "hi") {
+            slotCount = $scope.ship.baseShipData.highSlotCount;
+        } else if (slotType == "mid") {
+            slotCount = $scope.ship.baseShipData.midSlotCount;
+        } else if (slotType == "low") {
+            slotCount = $scope.ship.baseShipData.lowSlotCount;
+        } else if (slotType == "rig") {
+            slotCount = $scope.ship.baseShipData.rigSlotCount;
+        }
+        return slotIndex <= slotCount - 1 ? "validSlot" : "";
+    }
 }
 
 
 
 window.onload = () => {
-    //var el = document.getElementById('content');
-    //var greeter = new Greeter(el);
-    //greeter.start();
 };

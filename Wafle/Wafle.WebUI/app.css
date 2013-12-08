@@ -5,3 +5,33 @@
 span {
     font-style: italic;
 }
+
+.fittingSlots > div {
+    display: none;
+}
+
+.fittingSlots > div.validSlot {
+    padding: 5px;
+    border: 1px solid black;
+    max-width: 40px;
+    max-height: 40px;
+    min-height: 40px;
+    display: inline;
+}
+
+.fittingSlots > div.highSlot {
+    background-color: red;
+}
+
+.fittingSlots > div.midSlot {
+    background-color: orange;
+}
+
+.fittingSlots > div.lowSlot {
+    background-color: yellow;
+}
+
+.fittingSlots > div.rigSlot {
+    background-color: green;
+}
+
