@@ -10,8 +10,17 @@
     <h1>Wafle</h1>
     <header>
         Select Ship:
-        <select id="shipSelect" ng-model="shipTypeId" ng-options="ship.typeId as ship.name for ship in ships"></select>
+        <select id="shipSelect"
+                ng-model="shipTypeId"
+                ng-options="ship.typeId as ship.name for ship in ships"
+                ng-change="selectedShipChange()"></select>
     </header>
+    <section>
+        <ul>
+            <li><label>CPU:</label> <span>{{theShip.cpuString()}} TFlOps</span></li>
+            <li><label>PG:</label> <span>{{theShip.powergridString()}} MW</span></li>
+        </ul>
+    </section>
     <script src="lib/wafle.min.js"></script>
     <script src="lib/wafleData.min.js"></script>
     <script src="app.js"></script>
