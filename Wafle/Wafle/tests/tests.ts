@@ -20,6 +20,14 @@ QUnit.module("Ship tests");
         ok((ship.cpu() > 0), "Without a pilot, the base CPU amount on the ship should be greater than zero.");
     });
 
+    test("Ship can be created with numeric constructor.", function () {
+        var ship = new Wafle.Ship(605);
+        strictEqual(ship.hullName,"Heron","ship name is accurate after using numeric constructor.");
+    });
+
+//todo: write test to confirm exception if non-string or number parameter is passed.
+
+
 QUnit.module("Skill tests");
     test("Pilot with Engineering I gives 5% PG bonus.", function () {
         var ship = new Wafle.Ship("Rifter");

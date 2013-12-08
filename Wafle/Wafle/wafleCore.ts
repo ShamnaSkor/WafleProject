@@ -160,6 +160,7 @@ module Wafle {
     }
 
     export class Ship {
+        public hullName: string;
         public baseShipData: BaseShipData;
         public pilot: Pilot = null;
         public fittingSlots: FittingSlot[] = [];
@@ -254,8 +255,19 @@ module Wafle {
             return dmg;
         }
 
-        constructor(public hullName: string) {
-            this.baseShipData = new BaseShipData(hullName);
+        constructor(shipTypeId: number);
+        constructor(hullName: string);
+        constructor(p1: any) {
+            if (typeof (p1) === "string") {
+                this.hullName = p1;
+            } else if (typeof (p1) === "number") {
+                var ti = new TypeInfo(<number>p1);
+                ti.FindGroupId();
+                this.hullName = Wafle.Data.Types[ti.groupId][ti.typeId].n;
+            } else {
+                throw "Ship must be created with valid string name of ship or typeId number.";
+            }
+            this.baseShipData = new BaseShipData(this.hullName);
             for (var hiSlot = 0; hiSlot < this.baseShipData.highSlotCount; hiSlot++) {
                 this.fittingSlots.push(new FittingSlot(FittingSlotType.High, this));
             }
