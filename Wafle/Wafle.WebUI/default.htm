@@ -7,54 +7,64 @@
     <script src="lib/angular.js"></script>
 </head>
 <body>
-    <h1>Wafle</h1>
-    <header>
-        Select Ship: <select id="shipSelect"
-            ng-model="selectedShipTypeId"
-            ng-options="s.typeId as s.name for s in AllShips"
-            ng-change="selectedShipChange()"></select><br/>
-        Select Pilot Skill Level: <select id="shipSelect"
-        ng-model="selectedPilotSkillLevelSpike"
-        ng-options="s as s for s in AllPilotSkillLevelsSpike"
-        ng-change="selectedPilotSkillLevelSpikeChange()"></select><br />
-    </header>
-    <section class="coreStats">
-        <ul>
-            <li><label>CPU:</label> <span>{{ship.cpuString()}} TFlOps</span> <label>Remaining:</label> <span>{{ship.remainingCpu() | number:2}} TFlOps</span></li>
-            <li><label>PG:</label> <span>{{ship.powergridString()}} MW</span> <label>Remaining:</label> <span>{{ship.remainingPowergrid() | number:2}} MW</span></li>
-            <li><label>Shields:</label> <span>{{ship.shieldHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.ShieldEMDamageReduction() * 100 | number:2}}%, Ex={{ship.ShieldExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.ShieldKineticDamageReduction() * 100 | number:2}}%, Th={{ship.ShieldThermalDamageReduction() * 100 | number:2}}%</span>)</li>
-            <li><label>Armor:</label> <span>{{ship.armorHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.ArmorEMDamageReduction() * 100 | number:2}}%, Ex={{ship.ArmorExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.ArmorKineticDamageReduction() * 100 | number:2}}%, Th={{ship.ArmorThermalDamageReduction() * 100 | number:2}}%</span>)</li>
-            <li><label>Structure:</label> <span>{{ship.structureHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.HullEMDamageReduction() * 100 | number:2}}%, Ex={{ship.HullExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.HullKineticDamageReduction() * 100 | number:2}}%, Th={{ship.HullThermalDamageReduction() * 100 | number:2}}%</span>)</li>
-        </ul>
-    </section>
-    <section class="fittingSlots">
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',0)">Hi0</div>
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',1)">Hi1</div>
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',2)">Hi2</div>
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',3)">Hi3</div>
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',4)">Hi4</div>
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',5)">Hi5</div>
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',6)">Hi6</div>
-        <div class="highSlot" ng-class="slotDisplayStyle('hi',7)">Hi7</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',0)">Mid0</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',1)">Mid1</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',2)">Mid2</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',3)">Mid3</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',4)">Mid4</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',5)">Mid5</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',6)">Mid6</div>
-        <div class="midSlot" ng-class="slotDisplayStyle('mid',7)">Mid7</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',0)">Low0</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',1)">Low1</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',2)">Low2</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',3)">Low3</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',4)">Low4</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',5)">Low5</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',6)">Low6</div>
-        <div class="lowSlot" ng-class="slotDisplayStyle('low',7)">Low7</div>
-        <div class="rigSlot" ng-class="slotDisplayStyle('rig',0)">Rig0</div>
-        <div class="rigSlot" ng-class="slotDisplayStyle('rig',1)">Rig1</div>
-        <div class="rigSlot" ng-class="slotDisplayStyle('rig',2)">Rig2</div>
+    <section ng-show="Loaded">
+        <h1>Wafle</h1>
+        <section class="ShipAndPilotSelect">
+            Select Ship: <select id="shipSelect"
+                                 ng-model="selectedShipTypeId"
+                                 ng-options="s.typeId as s.name for s in AllShips"
+                                 ng-change="selectedShipChange()"></select><br />
+            Select Pilot Skill Level: <select id="shipSelect"
+                                              ng-model="selectedPilotSkillLevelSpike"
+                                              ng-options="s as s for s in AllPilotSkillLevelsSpike"
+                                              ng-change="selectedPilotSkillLevelSpikeChange()"></select><br />
+        </section>
+        <section class="ShipEquipmentSelect">
+            Select Group: <select id="shipEquipmentGroupSelect"
+                                ng-model="selectedGroupId"
+                                ng-options="g.groupId as g.groupName for g in AllShipEquipmentGroups()"></select><br />
+            Select Ship Equipment Type: <select id="shipEquipmentTypeSelect" size="10"
+                ng-model="selectedTypeId"
+                ng-options="t.typeId as t.name for t in ShipEquipmentTypeInfo()"></select>
+        </section>
+        <section class="coreStats">
+            <ul>
+                <li><label>CPU:</label> <span>{{ship.cpuString()}} TFlOps</span> <label>Remaining:</label> <span>{{ship.remainingCpu() | number:2}} TFlOps</span></li>
+                <li><label>PG:</label> <span>{{ship.powergridString()}} MW</span> <label>Remaining:</label> <span>{{ship.remainingPowergrid() | number:2}} MW</span></li>
+                <li><label>Shields:</label> <span>{{ship.shieldHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.ShieldEMDamageReduction() * 100 | number:2}}%, Ex={{ship.ShieldExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.ShieldKineticDamageReduction() * 100 | number:2}}%, Th={{ship.ShieldThermalDamageReduction() * 100 | number:2}}%</span>)</li>
+                <li><label>Armor:</label> <span>{{ship.armorHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.ArmorEMDamageReduction() * 100 | number:2}}%, Ex={{ship.ArmorExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.ArmorKineticDamageReduction() * 100 | number:2}}%, Th={{ship.ArmorThermalDamageReduction() * 100 | number:2}}%</span>)</li>
+                <li><label>Structure:</label> <span>{{ship.structureHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.HullEMDamageReduction() * 100 | number:2}}%, Ex={{ship.HullExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.HullKineticDamageReduction() * 100 | number:2}}%, Th={{ship.HullThermalDamageReduction() * 100 | number:2}}%</span>)</li>
+            </ul>
+        </section>
+        <section class="fittingSlots">
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',0)">Hi0</div>
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',1)">Hi1</div>
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',2)">Hi2</div>
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',3)">Hi3</div>
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',4)">Hi4</div>
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',5)">Hi5</div>
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',6)">Hi6</div>
+            <div class="highSlot" ng-class="slotDisplayStyle('hi',7)">Hi7</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',0)">Mid0</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',1)">Mid1</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',2)">Mid2</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',3)">Mid3</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',4)">Mid4</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',5)">Mid5</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',6)">Mid6</div>
+            <div class="midSlot" ng-class="slotDisplayStyle('mid',7)">Mid7</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',0)">Low0</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',1)">Low1</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',2)">Low2</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',3)">Low3</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',4)">Low4</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',5)">Low5</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',6)">Low6</div>
+            <div class="lowSlot" ng-class="slotDisplayStyle('low',7)">Low7</div>
+            <div class="rigSlot" ng-class="slotDisplayStyle('rig',0)">Rig0</div>
+            <div class="rigSlot" ng-class="slotDisplayStyle('rig',1)">Rig1</div>
+            <div class="rigSlot" ng-class="slotDisplayStyle('rig',2)">Rig2</div>
+        </section>
     </section>
     <script src="lib/wafle.dev.js"></script>
     <script src="lib/wafleData.min.js"></script>

@@ -5,7 +5,7 @@
 
 interface IWafleScope extends ng.IScope {
     AllShips: any;
-    AllPilotSkillLevelsSpike : number[];
+    AllPilotSkillLevelsSpike: number[];
     selectedShipTypeId: number;
     selectedPilotSkillLevelSpike: number;
     selectedShipChange: () => void;
@@ -14,13 +14,34 @@ interface IWafleScope extends ng.IScope {
     setPilotSkillLevelSpike: (number) => void;
     ship: Wafle.Ship;
     slotDisplayStyle: (string, number) => string;
+    AllShipEquipmentGroups: () => IGroupInfo[];
+    selectedGroupId: number;
+    selectedTypeId: number;
+    ShipEquipmentTypeInfo: () => Wafle.INamedType[] ;
+    OnLoad: () => void;
+    Loaded: boolean;
+}
+
+interface IGroupInfo {
+    groupId: number;
+    groupName: string;
 }
 
 function WafleController($scope: IWafleScope) {
 
+    $scope.AllShipEquipmentGroups = () => {
+        var g = [{ groupId: 0, groupName: "None" },
+            { groupId: 38, groupName: "Shield Extender" },
+            { groupId: 46, groupName: "Propulsion" },
+            { groupId: 59, groupName: "Gyrostabilizer" },
+            { groupId: 55, groupName: "Projectile Weapon" }];
+        return g;
+    }
+
     $scope.selectedShipChange = () => {
         $scope.setShip($scope.selectedShipTypeId);
     }
+
     $scope.selectedPilotSkillLevelSpikeChange = () => {
         $scope.setPilotSkillLevelSpike($scope.selectedPilotSkillLevelSpike);
     }
@@ -37,12 +58,6 @@ function WafleController($scope: IWafleScope) {
         }
         $scope.ship.pilot.skills.SetAllSkills(theSkillLevel);
     }
-    
-    $scope.AllPilotSkillLevelsSpike = [0, 1, 2, 3, 4, 5];
-    $scope.AllShips = Wafle.FindNamedTypesByGroup(25); //todo: just frigates for now.
-    $scope.selectedShipTypeId = 593; //tristan = default ship.
-    $scope.selectedPilotSkillLevelSpike = 0;
-    $scope.setShip($scope.selectedShipTypeId);
 
     $scope.slotDisplayStyle = (slotType: string, slotIndex: number) => {
         var slotCount;
@@ -57,6 +72,28 @@ function WafleController($scope: IWafleScope) {
         }
         return slotIndex <= slotCount - 1 ? "validSlot" : "";
     }
+
+    $scope.ShipEquipmentTypeInfo = () => {
+        if ($scope.selectedGroupId != 0) {
+            return Wafle.FindNamedTypesByGroup($scope.selectedGroupId);
+        }
+        return [];
+    }
+
+    $scope.OnLoad = () => {
+        $scope.selectedGroupId = 38;
+        $scope.AllPilotSkillLevelsSpike = [0, 1, 2, 3, 4, 5];
+        $scope.AllShips = Wafle.FindNamedTypesByGroup(25); //todo: just frigates for now.
+        $scope.selectedShipTypeId = 593; //tristan = default ship.
+        $scope.selectedPilotSkillLevelSpike = 0;
+        $scope.selectedGroupId = 0;
+        $scope.selectedTypeId = 0;
+        $scope.setShip($scope.selectedShipTypeId);
+        $scope.Loaded = true;
+    }
+    
+    $scope.OnLoad(); //start
+    
 }
 
 
