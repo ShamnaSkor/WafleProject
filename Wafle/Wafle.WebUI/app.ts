@@ -10,6 +10,7 @@ interface IWafleScope extends ng.IScope {
     selectedPilotSkillLevelSpike: number;
     selectedShipChange: () => void;
     selectedPilotSkillLevelSpikeChange: () => void;
+    selectedEquipmentGroupChange: () => void;
     setShip: (number) => void;
     setPilotSkillLevelSpike: (number) => void;
     ship: Wafle.Ship;
@@ -27,6 +28,8 @@ interface IGroupInfo {
     groupName: string;
 }
 
+
+
 function WafleController($scope: IWafleScope) {
 
     $scope.AllShipEquipmentGroups = () => {
@@ -36,6 +39,26 @@ function WafleController($scope: IWafleScope) {
             { groupId: 59, groupName: "Gyrostabilizer" },
             { groupId: 55, groupName: "Projectile Weapon" }];
         return g;
+    }
+
+    $scope.selectedEquipmentGroupChange = () => {
+        
+        var ul: HTMLUListElement = document.createElement("ul");
+        ul.id = "shipEquipmentTypeList";
+        
+        var elements : Wafle.INamedType[] = [];
+        if ($scope.selectedGroupId != 0) {
+            elements = Wafle.FindNamedTypesByGroup($scope.selectedGroupId);
+        }
+
+        for (var i = 0; i < elements.length; i++) {
+            var li: HTMLLIElement = document.createElement("li");
+            li.id = elements[i].typeId.toString();
+            li.innerText = elements[i].name;
+            ul.appendChild(li);
+        }
+        var oldList = document.getElementById("shipEquipmentTypeList");
+        oldList.parentNode.replaceChild(ul, oldList);
     }
 
     $scope.selectedShipChange = () => {
@@ -73,13 +96,7 @@ function WafleController($scope: IWafleScope) {
         return slotIndex <= slotCount - 1 ? "validSlot" : "";
     }
 
-    $scope.ShipEquipmentTypeInfo = () => {
-        if ($scope.selectedGroupId != 0) {
-            return Wafle.FindNamedTypesByGroup($scope.selectedGroupId);
-        }
-        return [];
-    }
-
+ 
     $scope.OnLoad = () => {
         $scope.selectedGroupId = 38;
         $scope.AllPilotSkillLevelsSpike = [0, 1, 2, 3, 4, 5];

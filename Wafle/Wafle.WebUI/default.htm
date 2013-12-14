@@ -14,18 +14,16 @@
                                  ng-model="selectedShipTypeId"
                                  ng-options="s.typeId as s.name for s in AllShips"
                                  ng-change="selectedShipChange()"></select><br />
-            Select Pilot Skill Level: <select id="shipSelect"
+            Select Pilot Skill Level: <select id="skillSelect"
                                               ng-model="selectedPilotSkillLevelSpike"
                                               ng-options="s as s for s in AllPilotSkillLevelsSpike"
                                               ng-change="selectedPilotSkillLevelSpikeChange()"></select><br />
         </section>
         <section class="ShipEquipmentSelect">
             Select Group: <select id="shipEquipmentGroupSelect"
-                                ng-model="selectedGroupId"
+                                ng-model="selectedGroupId" ng-change="selectedEquipmentGroupChange()"
                                 ng-options="g.groupId as g.groupName for g in AllShipEquipmentGroups()"></select><br />
-            Select Ship Equipment Type: <select id="shipEquipmentTypeSelect" size="10"
-                ng-model="selectedTypeId"
-                ng-options="t.typeId as t.name for t in ShipEquipmentTypeInfo()"></select>
+            Select Ship Equipment Type: <ul id="shipEquipmentTypeList"></ul>
         </section>
         <section class="coreStats">
             <ul>
