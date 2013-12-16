@@ -20,12 +20,14 @@
     <Content Include="app.css" />
     <Content Include="default.htm" />
     <Content Include="lib\angular.js" />
+    <Content Include="lib\jquery-ui.js" />
     <Content Include="lib\jquery.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>

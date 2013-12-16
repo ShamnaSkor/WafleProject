@@ -1,5 +1,9 @@
 ﻿body {
     font-family: 'Segoe UI', sans-serif;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 span {
@@ -19,24 +23,29 @@ span {
     display: inline;
 }
 
-.fittingSlots > div.highSlot {
+.fittingSlots > div.High {
     background-color: red;
 }
 
-.fittingSlots > div.midSlot {
+.fittingSlots > div.Mid {
     background-color: orange;
 }
 
-.fittingSlots > div.lowSlot {
+.fittingSlots > div.Low {
     background-color: yellow;
 }
 
-.fittingSlots > div.rigSlot {
+.fittingSlots > div.Rig {
     background-color: green;
 }
 
-#shipEquipmentTypeList {
+.ShipEquipmentSelect > ul {
     width: 350px;
     height: 150px;
     overflow: auto;
-}
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid black;
+    cursor: pointer;
+}  

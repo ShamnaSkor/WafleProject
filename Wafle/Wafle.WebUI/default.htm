@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <title>Wafle WebUI</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="lib/jquery.js"></script>
+    <script src="lib/jquery-ui.js"></script>
     <script src="lib/angular.js"></script>
 </head>
 <body>
@@ -35,33 +37,7 @@
             </ul>
         </section>
         <section class="fittingSlots">
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',0)">Hi0</div>
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',1)">Hi1</div>
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',2)">Hi2</div>
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',3)">Hi3</div>
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',4)">Hi4</div>
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',5)">Hi5</div>
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',6)">Hi6</div>
-            <div class="highSlot" ng-class="slotDisplayStyle('hi',7)">Hi7</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',0)">Mid0</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',1)">Mid1</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',2)">Mid2</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',3)">Mid3</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',4)">Mid4</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',5)">Mid5</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',6)">Mid6</div>
-            <div class="midSlot" ng-class="slotDisplayStyle('mid',7)">Mid7</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',0)">Low0</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',1)">Low1</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',2)">Low2</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',3)">Low3</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',4)">Low4</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',5)">Low5</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',6)">Low6</div>
-            <div class="lowSlot" ng-class="slotDisplayStyle('low',7)">Low7</div>
-            <div class="rigSlot" ng-class="slotDisplayStyle('rig',0)">Rig0</div>
-            <div class="rigSlot" ng-class="slotDisplayStyle('rig',1)">Rig1</div>
-            <div class="rigSlot" ng-class="slotDisplayStyle('rig',2)">Rig2</div>
+            <div ng-repeat="fs in AllFittingSlots" ng-class="slotDisplayStyle(fs.slotType,fs.indexInType)">{{slotDescription(fs.slotType)}}</div>
         </section>
     </section>
     <script src="lib/wafle.dev.js"></script>
