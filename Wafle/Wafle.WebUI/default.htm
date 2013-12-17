@@ -1,47 +1,42 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app ng-controller="WafleController">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>Wafle WebUI</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script src="lib/jquery.js"></script>
     <script src="lib/jquery-ui.js"></script>
-    <script src="lib/angular.js"></script>
+    <script src="lib/knockout-3.0.0.debug.js"></script>
+
 </head>
 <body>
-    <section ng-show="Loaded">
+    <section>
         <h1>Wafle</h1>
         <section class="ShipAndPilotSelect">
-            Select Ship: <select id="shipSelect"
-                                 ng-model="selectedShipTypeId"
-                                 ng-options="s.typeId as s.name for s in AllShips"
-                                 ng-change="selectedShipChange()"></select><br />
-            Select Pilot Skill Level: <select id="skillSelect"
-                                              ng-model="selectedPilotSkillLevelSpike"
-                                              ng-options="s as s for s in AllPilotSkillLevelsSpike"
-                                              ng-change="selectedPilotSkillLevelSpikeChange()"></select><br />
+            Select Ship: <select id="shipSelect" data-bind="options: wvm.AllShips, optionsText: 'name', optionsValue: 'typeId', value: SelectedShipTypeId, optionsCaption: 'Choose a ship...'"></select><br />
+            Select Pilot Skill Level: <select id="skillSelect" data-bind="options: wvm.AllPilotSkillLevelsSpike, value: SelectedPilotSkillLevelSpike"></select><br />
         </section>
         <section class="ShipEquipmentSelect">
             Select Group: <select id="shipEquipmentGroupSelect"
-                                ng-model="selectedGroupId" ng-change="selectedEquipmentGroupChange()"
-                                ng-options="g.groupId as g.groupName for g in AllShipEquipmentGroups()"></select><br />
+        data-ng-model="selectedGroupId" data-ng-change="selectedEquipmentGroupChange()"
+        data-ng-options="g.groupId as g.groupName for g in AllShipEquipmentGroups()"></select><br />
             Select Ship Equipment Type: <ul id="shipEquipmentTypeList"></ul>
         </section>
         <section class="coreStats">
             <ul>
-                <li><label>CPU:</label> <span>{{ship.cpuString()}} TFlOps</span> <label>Remaining:</label> <span>{{ship.remainingCpu() | number:2}} TFlOps</span></li>
-                <li><label>PG:</label> <span>{{ship.powergridString()}} MW</span> <label>Remaining:</label> <span>{{ship.remainingPowergrid() | number:2}} MW</span></li>
-                <li><label>Shields:</label> <span>{{ship.shieldHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.ShieldEMDamageReduction() * 100 | number:2}}%, Ex={{ship.ShieldExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.ShieldKineticDamageReduction() * 100 | number:2}}%, Th={{ship.ShieldThermalDamageReduction() * 100 | number:2}}%</span>)</li>
-                <li><label>Armor:</label> <span>{{ship.armorHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.ArmorEMDamageReduction() * 100 | number:2}}%, Ex={{ship.ArmorExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.ArmorKineticDamageReduction() * 100 | number:2}}%, Th={{ship.ArmorThermalDamageReduction() * 100 | number:2}}%</span>)</li>
-                <li><label>Structure:</label> <span>{{ship.structureHP() | number:0}} HP</span> (<label>Resistances:</label> <span>EM={{ship.HullEMDamageReduction() * 100 | number:2}}%, Ex={{ship.HullExplosiveDamageReduction() * 100 | number:2}}%, Ki={{ship.HullKineticDamageReduction() * 100 | number:2}}%, Th={{ship.HullThermalDamageReduction() * 100 | number:2}}%</span>)</li>
+                <li><label>CPU:</label> <span data-bind="text: wvm.Ship().cpu"></span> TFlOps, <label>Remaining:</label> <span data-bind="text: wvm.Ship().remainingCpu"></span> TFlOps</li>
+                <li><label>PG:</label> <span data-bind="text: wvm.Ship().powergrid"></span> MW, <label>Remaining:</label> <span data-bind="text: wvm.Ship().remainingPowergrid"></span> MW</li>
+                <li><label>Shields:</label> <span data-bind="text: wvm.Ship().shieldHP"></span>HP (<label>Resistances:</label> EM=<span data-bind="text: wvm.Ship().shieldEMDamageReduction"></span>%, Ex=<span data-bind="text: wvm.Ship().shieldExplosiveDamageReduction"></span>%, Ki=<span data-bind="text: wvm.Ship().shieldKineticDamageReduction"></span>%, Th=<span data-bind="text: wvm.Ship().shieldThermalDamageReduction"></span>%)</li>
+                <li><label>Armor:</label> <span data-bind="text: wvm.Ship().armorHP"></span>HP (<label>Resistances:</label> EM=<span data-bind="text: wvm.Ship().armorEMDamageReduction"></span>%, Ex=<span data-bind="text: wvm.Ship().armorExplosiveDamageReduction"></span>%, Ki=<span data-bind="text: wvm.Ship().armorKineticDamageReduction"></span>%, Th=<span data-bind="text: wvm.Ship().armorThermalDamageReduction"></span>%)</li>
+                <li><label>Structure:</label> <span data-bind="text: wvm.Ship().structureHP"></span>HP (<label>Resistances:</label> EM=<span data-bind="text: wvm.Ship().structureEMDamageReduction"></span>%, Ex=<span data-bind="text: wvm.Ship().structureExplosiveDamageReduction"></span>%, Ki=<span data-bind="text: wvm.Ship().structureKineticDamageReduction"></span>%, Th=<span data-bind="text: wvm.Ship().structureThermalDamageReduction"></span>%)</li>
             </ul>
         </section>
         <section class="fittingSlots">
-            <div ng-repeat="fs in AllFittingSlots" ng-class="slotDisplayStyle(fs.slotType,fs.indexInType)">{{slotDescription(fs.slotType)}}</div>
+            <div data-ng-repeat="fs in AllFittingSlots" data-ng-class="slotDisplayStyle(fs.slotType,fs.indexInType)">{{slotDescription(fs.slotType)}}</div>
         </section>
     </section>
     <script src="lib/wafle.dev.js"></script>
     <script src="lib/wafleData.min.js"></script>
-    <script src="app.js"></script>
+    <script src="WafleUIViewModel.js"></script>
 </body>
 </html>
