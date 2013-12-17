@@ -28,6 +28,32 @@ class ShipStatsModel {
     public structureExplosiveDamageReduction: KnockoutObservable<string> = ko.observable<string>("");
     public structureKineticDamageReduction: KnockoutObservable<string> = ko.observable<string>("");
     public structureThermalDamageReduction: KnockoutObservable<string> = ko.observable<string>("");
+    public fittingSlots: KnockoutObservableArray<FittingSlotDisplay> = ko.observableArray<FittingSlotDisplay>(this.SetUpFittingSlots());
+
+    private SetUpFittingSlots(): FittingSlotDisplay[] {
+        var slots: FittingSlotDisplay[] = [];
+        var slotTypes = [Wafle.FittingSlotType.High, Wafle.FittingSlotType.Mid, Wafle.FittingSlotType.Low, Wafle.FittingSlotType.Rig];
+        for (var sti = 0; sti < slotTypes.length; sti++) {
+            var count = slotTypes[sti] == Wafle.FittingSlotType.Rig ? 3 : 8;
+            for (var i = 0; i < count; i++) {
+                var s = new FittingSlotDisplay();
+                s.indexInType = i;
+                s.isAvailableOnShip = false;
+                s.slotType = Wafle.FittingSlotType[slotTypes[sti]];
+                slots.push(s);
+            }
+        }
+        return slots;
+    }
+}
+
+class FittingSlotDisplay {
+    public slotType: string;
+    public indexInType: number;
+    public isAvailableOnShip: boolean;
+    public slotName(): string {
+        return this.slotType + this.indexInType.toString();
+    }
 }
 
 class WafleUIViewModel {
@@ -58,6 +84,8 @@ class WafleUIViewModel {
         this.AllShips.valueHasMutated();
     }
 
+
+
     private RefreshAll(): void {
         console.log("Refresh called.");
         if (!this.SelectedShipTypeId()) {
@@ -67,26 +95,49 @@ class WafleUIViewModel {
         var ship = new Wafle.Ship(this.SelectedShipTypeId());
         ship.pilot = new Wafle.Pilot("");
         ship.pilot.skills.SetAllSkills(this.SelectedPilotSkillLevelSpike());
-        var s = this.Ship();
-        s.cpu(ship.cpuString());
-        s.remainingCpu(ship.remainingCpu().toFixed(2));
-        s.powergrid(ship.powergridString());
-        s.remainingPowergrid(ship.remainingPowergrid().toFixed(2));
-        s.shieldHP(ship.shieldHP().toFixed(0));
-        s.shieldEMDamageReduction((ship.ShieldEMDamageReduction() * 100).toFixed(2));
-        s.shieldExplosiveDamageReduction((ship.ShieldExplosiveDamageReduction() * 100).toFixed(2));
-        s.shieldKineticDamageReduction((ship.ShieldKineticDamageReduction() * 100).toFixed(2));
-        s.shieldThermalDamageReduction((ship.ShieldThermalDamageReduction() * 100).toFixed(2));
-        s.armorHP(ship.armorHP().toFixed(0));
-        s.armorEMDamageReduction((ship.ArmorEMDamageReduction() * 100).toFixed(2));
-        s.armorExplosiveDamageReduction((ship.ArmorExplosiveDamageReduction() * 100).toFixed(2));
-        s.armorKineticDamageReduction((ship.ArmorKineticDamageReduction() * 100).toFixed(2));
-        s.armorThermalDamageReduction((ship.ArmorThermalDamageReduction() * 100).toFixed(2));
-        s.structureHP(ship.structureHP().toFixed(0));
-        s.structureEMDamageReduction((ship.HullEMDamageReduction() * 100).toFixed(2));
-        s.structureExplosiveDamageReduction((ship.HullExplosiveDamageReduction() * 100).toFixed(2));
-        s.structureKineticDamageReduction((ship.HullKineticDamageReduction() * 100).toFixed(2));
-        s.structureThermalDamageReduction((ship.HullThermalDamageReduction() * 100).toFixed(2));
+        var m = this.Ship();
+        this.SetupFittingSlots(ship,m);
+        m.cpu(ship.cpuString());
+        m.remainingCpu(ship.remainingCpu().toFixed(2));
+        m.powergrid(ship.powergridString());
+        m.remainingPowergrid(ship.remainingPowergrid().toFixed(2));
+        m.shieldHP(ship.shieldHP().toFixed(0));
+        m.shieldEMDamageReduction((ship.ShieldEMDamageReduction() * 100).toFixed(2));
+        m.shieldExplosiveDamageReduction((ship.ShieldExplosiveDamageReduction() * 100).toFixed(2));
+        m.shieldKineticDamageReduction((ship.ShieldKineticDamageReduction() * 100).toFixed(2));
+        m.shieldThermalDamageReduction((ship.ShieldThermalDamageReduction() * 100).toFixed(2));
+        m.armorHP(ship.armorHP().toFixed(0));
+        m.armorEMDamageReduction((ship.ArmorEMDamageReduction() * 100).toFixed(2));
+        m.armorExplosiveDamageReduction((ship.ArmorExplosiveDamageReduction() * 100).toFixed(2));
+        m.armorKineticDamageReduction((ship.ArmorKineticDamageReduction() * 100).toFixed(2));
+        m.armorThermalDamageReduction((ship.ArmorThermalDamageReduction() * 100).toFixed(2));
+        m.structureHP(ship.structureHP().toFixed(0));
+        m.structureEMDamageReduction((ship.HullEMDamageReduction() * 100).toFixed(2));
+        m.structureExplosiveDamageReduction((ship.HullExplosiveDamageReduction() * 100).toFixed(2));
+        m.structureKineticDamageReduction((ship.HullKineticDamageReduction() * 100).toFixed(2));
+        m.structureThermalDamageReduction((ship.HullThermalDamageReduction() * 100).toFixed(2));
+        
+    }
+    private SetupFittingSlots(ship: Wafle.Ship, m: ShipStatsModel): void {
+        var RegularSlotCount = 8;
+        var RigSlotCount = 3;
+        var modelSlotIndex = 0;
+        for (var i = 0; i < RegularSlotCount; i++) {
+            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.highSlotCount);
+            modelSlotIndex += 1;
+        }
+        for (var i = 0; i < RegularSlotCount; i++) {
+            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.midSlotCount);
+            modelSlotIndex += 1;
+        }
+        for (var i = 0; i < RegularSlotCount; i++) {
+            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.lowSlotCount);
+            modelSlotIndex += 1;
+        }
+        for (var i = 0; i < RigSlotCount; i++) {
+            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.rigSlotCount);
+            modelSlotIndex += 1;
+        }
     }
 
 

@@ -11,7 +11,7 @@ span {
 }
 
 .fittingSlots > div {
-    display: none;
+    /*display: none;*/
 }
 
 .fittingSlots > div.validSlot {
