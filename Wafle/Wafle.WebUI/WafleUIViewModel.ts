@@ -28,18 +28,18 @@ class ShipStatsModel {
     public structureExplosiveDamageReduction: KnockoutObservable<string> = ko.observable<string>("");
     public structureKineticDamageReduction: KnockoutObservable<string> = ko.observable<string>("");
     public structureThermalDamageReduction: KnockoutObservable<string> = ko.observable<string>("");
-    public fittingSlots: KnockoutObservableArray<FittingSlotDisplay> = ko.observableArray<FittingSlotDisplay>(this.SetUpFittingSlots());
+    public fittingSlots: KnockoutObservableArray<KnockoutObservable<FittingSlotDisplay>> = ko.observableArray<KnockoutObservable<FittingSlotDisplay>>(this.SetUpFittingSlots());
 
-    private SetUpFittingSlots(): FittingSlotDisplay[] {
-        var slots: FittingSlotDisplay[] = [];
+    private SetUpFittingSlots(): KnockoutObservable<FittingSlotDisplay>[] {
+        var slots: KnockoutObservable<FittingSlotDisplay>[] = [];
         var slotTypes = [Wafle.FittingSlotType.High, Wafle.FittingSlotType.Mid, Wafle.FittingSlotType.Low, Wafle.FittingSlotType.Rig];
         for (var sti = 0; sti < slotTypes.length; sti++) {
             var count = slotTypes[sti] == Wafle.FittingSlotType.Rig ? 3 : 8;
             for (var i = 0; i < count; i++) {
-                var s = new FittingSlotDisplay();
-                s.indexInType = i;
-                s.isAvailableOnShip = false;
-                s.slotType = Wafle.FittingSlotType[slotTypes[sti]];
+                var s = ko.observable<FittingSlotDisplay>(new FittingSlotDisplay());
+                s().indexInType = i;
+                s().slotType = Wafle.FittingSlotType[slotTypes[sti]];
+                s().isAvailableOnShip(false);
                 slots.push(s);
             }
         }
@@ -50,7 +50,10 @@ class ShipStatsModel {
 class FittingSlotDisplay {
     public slotType: string;
     public indexInType: number;
-    public isAvailableOnShip: boolean;
+    public isAvailableOnShip: KnockoutObservable<boolean> = ko.observable<boolean>();
+    public cssDisplay: KnockoutComputed<string> = ko.computed<string>((): string => {
+        return this.slotType + (this.isAvailableOnShip() == true ? " validSlot" : "");
+    });
     public slotName(): string {
         return this.slotType + this.indexInType.toString();
     }
@@ -77,6 +80,9 @@ class WafleUIViewModel {
         this.subscriptions.push(this.SelectedPilotSkillLevelSpike.subscribe(n => {
             this.RefreshAll();
         }));
+        this.subscriptions.push(this.Ship().fittingSlots()[3]().isAvailableOnShip.subscribe(n=> {
+            console.log("fitting slot zero was updated.  New value = " + n);
+        }));
     }
 
     private QuickLoadShips(): void {
@@ -96,7 +102,7 @@ class WafleUIViewModel {
         ship.pilot = new Wafle.Pilot("");
         ship.pilot.skills.SetAllSkills(this.SelectedPilotSkillLevelSpike());
         var m = this.Ship();
-        this.SetupFittingSlots(ship,m);
+        this.RecalculateFittingSlots(ship,m);
         m.cpu(ship.cpuString());
         m.remainingCpu(ship.remainingCpu().toFixed(2));
         m.powergrid(ship.powergridString());
@@ -118,24 +124,24 @@ class WafleUIViewModel {
         m.structureThermalDamageReduction((ship.HullThermalDamageReduction() * 100).toFixed(2));
         
     }
-    private SetupFittingSlots(ship: Wafle.Ship, m: ShipStatsModel): void {
+    private RecalculateFittingSlots(ship: Wafle.Ship, m: ShipStatsModel): void {
         var RegularSlotCount = 8;
         var RigSlotCount = 3;
         var modelSlotIndex = 0;
         for (var i = 0; i < RegularSlotCount; i++) {
-            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.highSlotCount);
+            m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.highSlotCount));
             modelSlotIndex += 1;
         }
         for (var i = 0; i < RegularSlotCount; i++) {
-            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.midSlotCount);
+            m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.midSlotCount));
             modelSlotIndex += 1;
         }
         for (var i = 0; i < RegularSlotCount; i++) {
-            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.lowSlotCount);
+            m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.lowSlotCount));
             modelSlotIndex += 1;
         }
         for (var i = 0; i < RigSlotCount; i++) {
-            m.fittingSlots()[modelSlotIndex].isAvailableOnShip = (i < ship.baseShipData.rigSlotCount);
+            m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.rigSlotCount));
             modelSlotIndex += 1;
         }
     }

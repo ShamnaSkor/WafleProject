@@ -31,14 +31,12 @@
                 <li><label>Structure:</label> <span data-bind="text: wvm.Ship().structureHP"></span>HP (<label>Resistances:</label> EM=<span data-bind="text: wvm.Ship().structureEMDamageReduction"></span>%, Ex=<span data-bind="text: wvm.Ship().structureExplosiveDamageReduction"></span>%, Ki=<span data-bind="text: wvm.Ship().structureKineticDamageReduction"></span>%, Th=<span data-bind="text: wvm.Ship().structureThermalDamageReduction"></span>%)</li>
             </ul>
         </section>
-        <section class="fittingSlots" data-bind="template: {name:'fittingSlot-template', foreach: wvm.Ship().fittingSlots}">
-
+        <section class="fittingSlots" data-bind="template: {name:'fittingSlot-template', foreach: wvm.Ship().fittingSlots()}">
         </section>
-        <!--<div data-ng-repeat="fs in AllFittingSlots" data-ng-class="slotDisplayStyle(fs.slotType,fs.indexInType)">{{slotDescription(fs.slotType)}}</div>-->
     </section>
     <section>
         <script type="text/html" id="fittingSlot-template">
-            <div data-bind="text: slotName()"><span data-bind="text: isAvailableOnShip"></span></div>
+            <div data-bind="text: slotName(), css: cssDisplay()"></div>
         </script>
     </section>
     <script src="lib/wafle.dev.js"></script>
