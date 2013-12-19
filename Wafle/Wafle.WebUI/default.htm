@@ -17,9 +17,7 @@
             Select Pilot Skill Level: <select id="skillSelect" data-bind="options: wvm.AllPilotSkillLevelsSpike, value: SelectedPilotSkillLevelSpike"></select><br />
         </section>
         <section class="ShipEquipmentSelect">
-            Select Group: <select id="shipEquipmentGroupSelect"
-        data-ng-model="selectedGroupId" data-ng-change="selectedEquipmentGroupChange()"
-        data-ng-options="g.groupId as g.groupName for g in AllShipEquipmentGroups()"></select><br />
+            Select Group: <select id="shipEquipmentGroupSelect" data-bind="options: wvm.AllShipEquipmentGroups(), optionsText: 'name', optionsValue: 'groupId', value: SelectedShipEquipmentGroupId, optionsCaption: 'Choose a ship equipment group...'"></select><br />
             Select Ship Equipment Type: <ul id="shipEquipmentTypeList"></ul>
         </section>
         <section class="coreStats">

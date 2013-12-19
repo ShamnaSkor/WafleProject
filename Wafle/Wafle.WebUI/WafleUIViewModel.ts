@@ -59,29 +59,44 @@ class FittingSlotDisplay {
     }
 }
 
+class EquipmentGroupSpike {
+    constructor(public groupId: number, public name: string) { }
+}
+
 class WafleUIViewModel {
     private subscriptions : KnockoutSubscription[]= [];
     public AllShips: KnockoutObservableArray<Wafle.INamedType> = ko.observableArray<Wafle.INamedType>();
+    public AllShipEquipmentGroups: KnockoutObservableArray<EquipmentGroupSpike> = ko.observableArray<EquipmentGroupSpike>(this.AllEquipmentGroupsSpike());
     public SelectedShipTypeId: KnockoutObservable<number> = ko.observable<number>();
+    public SelectedShipEquipmentGroupId: KnockoutObservable<number> = ko.observable<number>();
     public AllPilotSkillLevelsSpike: number[] = [1, 2, 3, 4, 5];
     public SelectedPilotSkillLevelSpike: KnockoutObservable<number> = ko.observable<number>();
-    public Ship: KnockoutObservable<ShipStatsModel> = ko.observable<ShipStatsModel>(new ShipStatsModel());
+    public Ship: KnockoutObservable<ShipStatsModel> = ko.observable<ShipStatsModel>();
+
+    private AllEquipmentGroupsSpike(): EquipmentGroupSpike[]{
+        //todo: refactor as proper data-driven module in Wafle.Data.
+        return [new EquipmentGroupSpike(38, "Shield Extender"),
+            new EquipmentGroupSpike(46, "Propulsion"),
+            new EquipmentGroupSpike(59, "Gyrostabilizer"),
+            new EquipmentGroupSpike(55, "Projectile Weapon")];
+    }
 
 
     constructor() {
         this.QuickLoadShips();
         this.EstablishSubscriptions();
+        this.Ship(new ShipStatsModel());
     }
 
     private EstablishSubscriptions() : void {
         this.subscriptions.push(this.SelectedShipTypeId.subscribe(n => {
-            this.RefreshAll();
+            this.RefreshShipDisplay();
         }));
         this.subscriptions.push(this.SelectedPilotSkillLevelSpike.subscribe(n => {
-            this.RefreshAll();
+            this.RefreshShipDisplay();
         }));
-        this.subscriptions.push(this.Ship().fittingSlots()[3]().isAvailableOnShip.subscribe(n=> {
-            console.log("fitting slot zero was updated.  New value = " + n);
+        this.subscriptions.push(this.SelectedShipEquipmentGroupId.subscribe(n => {
+            this.RefreshShipEquipmentList();
         }));
     }
 
@@ -91,9 +106,31 @@ class WafleUIViewModel {
     }
 
 
+    private RefreshShipEquipmentList(): void {
+        if (!this.SelectedShipEquipmentGroupId()) {
+            return;
+        }
 
-    private RefreshAll(): void {
-        console.log("Refresh called.");
+        var ul: HTMLUListElement = document.createElement("ul");
+        ul.id = "shipEquipmentTypeList";
+
+        var elements: Wafle.INamedType[] = Wafle.FindNamedTypesByGroup(this.SelectedShipEquipmentGroupId());
+        for (var i = 0; i < elements.length; i++) {
+            var li: HTMLLIElement = document.createElement("li");
+            if (!!li.setAttribute) {
+                li.setAttribute("data-groupId", elements[i].groupId.toString())
+                li.setAttribute("data-typeId", elements[i].typeId.toString())
+            }
+            li.innerHTML = elements[i].name;
+            ul.appendChild(li);
+        }
+        var oldList = document.getElementById("shipEquipmentTypeList");
+        oldList.parentNode.replaceChild(ul, oldList);
+        this.makeShipEquipmentDraggable();
+    }
+
+
+    private RefreshShipDisplay(): void {
         if (!this.SelectedShipTypeId()) {
             return;
         }
@@ -122,7 +159,7 @@ class WafleUIViewModel {
         m.structureExplosiveDamageReduction((ship.HullExplosiveDamageReduction() * 100).toFixed(2));
         m.structureKineticDamageReduction((ship.HullKineticDamageReduction() * 100).toFixed(2));
         m.structureThermalDamageReduction((ship.HullThermalDamageReduction() * 100).toFixed(2));
-        
+        this.makeFittingSlotsDroppable();
     }
     private RecalculateFittingSlots(ship: Wafle.Ship, m: ShipStatsModel): void {
         var RegularSlotCount = 8;
@@ -146,12 +183,42 @@ class WafleUIViewModel {
         }
     }
 
+    public makeShipEquipmentDraggable(): void {
+        $(".ShipEquipmentSelect ul > li").draggable({
+            appendTo: document.body,
+            forcePlaceholderSize: true,
+            scope: "shipEquipSlot",
+            helper: "clone",
+            start: function (event: Event, ui: JQueryUI.DraggableEventUIParams) {
+                if (console) {
+                    console.log("initiating drag..");
+                }
+            }
+        });
+    }
+
+    public makeFittingSlotsDroppable(): void {
+        $(".fittingSlots > div").droppable({
+            scope: "shipEquipSlot",
+            drop: function (event: Event, ui: JQueryUI.DroppableEventUIParam) {
+                if (!(<any>event).originalEvent) {
+                    if (console) {
+                        console.log("originalEvent not found");
+                    }
+                }
+                var orig: HTMLLIElement = (<any>event).originalEvent.target;
+                var groupId = orig.getAttribute("data-groupId");
+                var typeId = orig.getAttribute("data-typeId");
+                if (console) {
+                    console.log("dropped groupId " + groupId + ", typeId " + typeId);
+                }
+            }
+        });
+    }
 
     
 
 }
-
-
 
 var wvm = new WafleUIViewModel();
 ko.applyBindings(wvm);
