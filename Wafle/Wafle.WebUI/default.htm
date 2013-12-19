@@ -34,7 +34,7 @@
     </section>
     <section>
         <script type="text/html" id="fittingSlot-template">
-            <div data-bind="text: slotName(), css: cssDisplay()"></div>
+            <div data-bind="text: slotText(), css: cssDisplay(), attr: {'data-shipSlotIndex': indexOnShip()}"></div>
         </script>
     </section>
     <script src="lib/wafle.dev.js"></script>

@@ -125,6 +125,8 @@ module Wafle {
             if (!calcGroupId) {
                 throw "typeId " + typeId.toString() + ' is not a member of a known inventory group.';
             }
+
+            //bug: this seems to break an existing module regardless of if the new module is valid.
             this.baseShipEquipmentData = new BaseShipEquipmentData(calcGroupId, typeId);
             if (this.baseShipEquipmentData) {
                 if (this.baseShipEquipmentData.slotUsed !== this.slotType) {

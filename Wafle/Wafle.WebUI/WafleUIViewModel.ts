@@ -37,8 +37,8 @@ class ShipStatsModel {
             var count = slotTypes[sti] == Wafle.FittingSlotType.Rig ? 3 : 8;
             for (var i = 0; i < count; i++) {
                 var s = ko.observable<FittingSlotDisplay>(new FittingSlotDisplay());
-                s().indexInType = i;
-                s().slotType = Wafle.FittingSlotType[slotTypes[sti]];
+                s().indexInType(i);
+                s().slotType(Wafle.FittingSlotType[slotTypes[sti]]);
                 s().isAvailableOnShip(false);
                 slots.push(s);
             }
@@ -48,15 +48,20 @@ class ShipStatsModel {
 }
 
 class FittingSlotDisplay {
-    public slotType: string;
-    public indexInType: number;
+    public slotType: KnockoutObservable<string> = ko.observable<string>();
+    public indexInType: KnockoutObservable<number> = ko.observable<number>();
+    public indexOnShip: KnockoutObservable<number> = ko.observable<number>();
     public isAvailableOnShip: KnockoutObservable<boolean> = ko.observable<boolean>();
-    public cssDisplay: KnockoutComputed<string> = ko.computed<string>((): string => {
-        return this.slotType + (this.isAvailableOnShip() == true ? " validSlot" : "");
-    });
-    public slotName(): string {
-        return this.slotType + this.indexInType.toString();
+    public UpdateInfoFromFittingSlot(theFittingSlot: Wafle.FittingSlot): void {
+        this.fittedModuleName(theFittingSlot.baseShipEquipmentData.name);
     }
+    public fittedModuleName: KnockoutObservable<string> = ko.observable<string>();
+    public cssDisplay: KnockoutComputed<string> = ko.computed<string>((): string => {
+        return this.slotType() + (this.isAvailableOnShip() == true ? " validSlot" : "");
+    });
+    public slotText: KnockoutComputed<string> = ko.computed<string>((): string => {
+        return (this.slotType() || "") + (this.indexInType() || "");
+    });
 }
 
 class EquipmentGroupSpike {
@@ -72,6 +77,7 @@ class WafleUIViewModel {
     public AllPilotSkillLevelsSpike: number[] = [1, 2, 3, 4, 5];
     public SelectedPilotSkillLevelSpike: KnockoutObservable<number> = ko.observable<number>();
     public Ship: KnockoutObservable<ShipStatsModel> = ko.observable<ShipStatsModel>();
+    private ship: Wafle.Ship;
 
     private AllEquipmentGroupsSpike(): EquipmentGroupSpike[]{
         //todo: refactor as proper data-driven module in Wafle.Data.
@@ -81,18 +87,20 @@ class WafleUIViewModel {
             new EquipmentGroupSpike(55, "Projectile Weapon")];
     }
 
-
     constructor() {
         this.QuickLoadShips();
         this.EstablishSubscriptions();
+        this.SetUpShip();
         this.Ship(new ShipStatsModel());
     }
 
     private EstablishSubscriptions() : void {
         this.subscriptions.push(this.SelectedShipTypeId.subscribe(n => {
+            this.SetUpShip();
             this.RefreshShipDisplay();
         }));
         this.subscriptions.push(this.SelectedPilotSkillLevelSpike.subscribe(n => {
+            this.SetUpShip();
             this.RefreshShipDisplay();
         }));
         this.subscriptions.push(this.SelectedShipEquipmentGroupId.subscribe(n => {
@@ -104,7 +112,6 @@ class WafleUIViewModel {
         ko.utils.arrayPushAll<Wafle.INamedType>(this.AllShips, Wafle.FindNamedTypesByGroup(25));  //todo: just frigates for now.
         this.AllShips.valueHasMutated();
     }
-
 
     private RefreshShipEquipmentList(): void {
         if (!this.SelectedShipEquipmentGroupId()) {
@@ -129,75 +136,110 @@ class WafleUIViewModel {
         this.makeShipEquipmentDraggable();
     }
 
+    private SetUpShip(): void {
+        if (!this.SelectedShipTypeId()) {
+            return;
+        }
+        console.log("The selected ship type ID is " + this.SelectedShipTypeId().toString());
+        if (!this.ship || !this.ship.baseShipData || this.ship.baseShipData.typeId != this.SelectedShipTypeId()) {
+            this.ship = new Wafle.Ship(this.SelectedShipTypeId());
+        }
+        this.ship.pilot = new Wafle.Pilot("");
+        this.ship.pilot.skills.SetAllSkills(this.SelectedPilotSkillLevelSpike());
+    }
 
     private RefreshShipDisplay(): void {
         if (!this.SelectedShipTypeId()) {
             return;
         }
-        console.log("The selected ship type ID is " + this.SelectedShipTypeId().toString());
-        var ship = new Wafle.Ship(this.SelectedShipTypeId());
-        ship.pilot = new Wafle.Pilot("");
-        ship.pilot.skills.SetAllSkills(this.SelectedPilotSkillLevelSpike());
-        var m = this.Ship();
-        this.RecalculateFittingSlots(ship,m);
-        m.cpu(ship.cpuString());
-        m.remainingCpu(ship.remainingCpu().toFixed(2));
-        m.powergrid(ship.powergridString());
-        m.remainingPowergrid(ship.remainingPowergrid().toFixed(2));
-        m.shieldHP(ship.shieldHP().toFixed(0));
-        m.shieldEMDamageReduction((ship.ShieldEMDamageReduction() * 100).toFixed(2));
-        m.shieldExplosiveDamageReduction((ship.ShieldExplosiveDamageReduction() * 100).toFixed(2));
-        m.shieldKineticDamageReduction((ship.ShieldKineticDamageReduction() * 100).toFixed(2));
-        m.shieldThermalDamageReduction((ship.ShieldThermalDamageReduction() * 100).toFixed(2));
-        m.armorHP(ship.armorHP().toFixed(0));
-        m.armorEMDamageReduction((ship.ArmorEMDamageReduction() * 100).toFixed(2));
-        m.armorExplosiveDamageReduction((ship.ArmorExplosiveDamageReduction() * 100).toFixed(2));
-        m.armorKineticDamageReduction((ship.ArmorKineticDamageReduction() * 100).toFixed(2));
-        m.armorThermalDamageReduction((ship.ArmorThermalDamageReduction() * 100).toFixed(2));
-        m.structureHP(ship.structureHP().toFixed(0));
-        m.structureEMDamageReduction((ship.HullEMDamageReduction() * 100).toFixed(2));
-        m.structureExplosiveDamageReduction((ship.HullExplosiveDamageReduction() * 100).toFixed(2));
-        m.structureKineticDamageReduction((ship.HullKineticDamageReduction() * 100).toFixed(2));
-        m.structureThermalDamageReduction((ship.HullThermalDamageReduction() * 100).toFixed(2));
+        var model = this.Ship();
+        this.RecalculateFittingSlots(this.ship,model);
+        model.cpu(this.ship.cpuString());
+        model.remainingCpu(this.ship.remainingCpu().toFixed(2));
+        model.powergrid(this.ship.powergridString());
+        model.remainingPowergrid(this.ship.remainingPowergrid().toFixed(2));
+        model.shieldHP(this.ship.shieldHP().toFixed(0));
+        model.shieldEMDamageReduction((this.ship.ShieldEMDamageReduction() * 100).toFixed(2));
+        model.shieldExplosiveDamageReduction((this.ship.ShieldExplosiveDamageReduction() * 100).toFixed(2));
+        model.shieldKineticDamageReduction((this.ship.ShieldKineticDamageReduction() * 100).toFixed(2));
+        model.shieldThermalDamageReduction((this.ship.ShieldThermalDamageReduction() * 100).toFixed(2));
+        model.armorHP(this.ship.armorHP().toFixed(0));
+        model.armorEMDamageReduction((this.ship.ArmorEMDamageReduction() * 100).toFixed(2));
+        model.armorExplosiveDamageReduction((this.ship.ArmorExplosiveDamageReduction() * 100).toFixed(2));
+        model.armorKineticDamageReduction((this.ship.ArmorKineticDamageReduction() * 100).toFixed(2));
+        model.armorThermalDamageReduction((this.ship.ArmorThermalDamageReduction() * 100).toFixed(2));
+        model.structureHP(this.ship.structureHP().toFixed(0));
+        model.structureEMDamageReduction((this.ship.HullEMDamageReduction() * 100).toFixed(2));
+        model.structureExplosiveDamageReduction((this.ship.HullExplosiveDamageReduction() * 100).toFixed(2));
+        model.structureKineticDamageReduction((this.ship.HullKineticDamageReduction() * 100).toFixed(2));
+        model.structureThermalDamageReduction((this.ship.HullThermalDamageReduction() * 100).toFixed(2));
         this.makeFittingSlotsDroppable();
     }
+
     private RecalculateFittingSlots(ship: Wafle.Ship, m: ShipStatsModel): void {
+        if (!ship || !ship.baseShipData) {
+            return;
+        }
         var RegularSlotCount = 8;
         var RigSlotCount = 3;
         var modelSlotIndex = 0;
+        var indexOnShip = 0;
+        
+        //this needs to be refactored to remove duplicate code.
         for (var i = 0; i < RegularSlotCount; i++) {
             m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.highSlotCount));
+            if (m.fittingSlots()[modelSlotIndex]().isAvailableOnShip()) {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(indexOnShip);
+                indexOnShip++;
+            } else {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(null);
+            }
             modelSlotIndex += 1;
         }
         for (var i = 0; i < RegularSlotCount; i++) {
             m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.midSlotCount));
+            if (m.fittingSlots()[modelSlotIndex]().isAvailableOnShip()) {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(indexOnShip);
+                indexOnShip++;
+            } else {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(null);
+            }
             modelSlotIndex += 1;
         }
         for (var i = 0; i < RegularSlotCount; i++) {
             m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.lowSlotCount));
+            if (m.fittingSlots()[modelSlotIndex]().isAvailableOnShip()) {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(indexOnShip);
+                indexOnShip++;
+            } else {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(null);
+            }
             modelSlotIndex += 1;
         }
         for (var i = 0; i < RigSlotCount; i++) {
             m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.rigSlotCount));
+            if (m.fittingSlots()[modelSlotIndex]().isAvailableOnShip()) {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(indexOnShip);
+                indexOnShip++;
+            } else {
+                m.fittingSlots()[modelSlotIndex]().indexOnShip(null);
+            }
             modelSlotIndex += 1;
         }
     }
 
-    public makeShipEquipmentDraggable(): void {
+    private makeShipEquipmentDraggable(): void {
         $(".ShipEquipmentSelect ul > li").draggable({
             appendTo: document.body,
             forcePlaceholderSize: true,
             scope: "shipEquipSlot",
-            helper: "clone",
-            start: function (event: Event, ui: JQueryUI.DraggableEventUIParams) {
-                if (console) {
-                    console.log("initiating drag..");
-                }
-            }
+            helper: "clone"//,
+            //start: function (event: Event, ui: JQueryUI.DraggableEventUIParams) { }
         });
     }
 
-    public makeFittingSlotsDroppable(): void {
+    private makeFittingSlotsDroppable(): void {
+        var that = this;
         $(".fittingSlots > div").droppable({
             scope: "shipEquipSlot",
             drop: function (event: Event, ui: JQueryUI.DroppableEventUIParam) {
@@ -206,15 +248,25 @@ class WafleUIViewModel {
                         console.log("originalEvent not found");
                     }
                 }
-                var orig: HTMLLIElement = (<any>event).originalEvent.target;
-                var groupId = orig.getAttribute("data-groupId");
-                var typeId = orig.getAttribute("data-typeId");
+                var shipEquipmentElement: HTMLLIElement = (<any>event).originalEvent.target;
+                var fittingSlotElement: HTMLLIElement = (<any>event).target;
+                var groupId : string = shipEquipmentElement.getAttribute("data-groupId");
+                var typeId : string = shipEquipmentElement.getAttribute("data-typeId");
+                var indexOnShip : string = fittingSlotElement.getAttribute("data-shipSlotIndex");
+
                 if (console) {
-                    console.log("dropped groupId " + groupId + ", typeId " + typeId);
+                    console.log("dropped groupId " + groupId + ", typeId " + typeId + " on ship slot index " + indexOnShip);
                 }
+                that.SetModule(parseInt(groupId), parseInt(typeId), parseInt(indexOnShip));
             }
         });
     }
+
+    private SetModule(groupId: number, typeId: number, indexOnShip: number): void {
+        this.ship.fittingSlots[indexOnShip].SetModule(typeId, groupId);
+        this.RefreshShipDisplay();
+    }
+
 
     
 
