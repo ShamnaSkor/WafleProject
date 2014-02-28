@@ -185,7 +185,7 @@ class WafleUIViewModel {
         var modelSlotIndex = 0;
         var indexOnShip = 0;
         
-        //this needs to be refactored to remove duplicate code.
+        //todo: refactor to remove duplicate code.
         for (var i = 0; i < RegularSlotCount; i++) {
             m.fittingSlots()[modelSlotIndex]().isAvailableOnShip((i < ship.baseShipData.highSlotCount));
             if (m.fittingSlots()[modelSlotIndex]().isAvailableOnShip()) {

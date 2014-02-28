@@ -305,7 +305,7 @@ module Wafle {
         }
 
         public powergridString() : string {
-            return this.powergrid().toFixed(2);
+            return this.powergrid().toFixed(2);  //todo: remove this.
         }
 
         public cpu() : number {
@@ -335,7 +335,7 @@ module Wafle {
 
 
         public cpuString() : string {
-            return this.cpu().toFixed(2);
+            return this.cpu().toFixed(2);   //todo: remove this.
         }
 
         public shieldHP() : number {
