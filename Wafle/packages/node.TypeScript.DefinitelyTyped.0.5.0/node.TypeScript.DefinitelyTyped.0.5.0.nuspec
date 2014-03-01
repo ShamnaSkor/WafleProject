@@ -2,19 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>node.TypeScript.DefinitelyTyped</id>
-    <version>0.2.8</version>
-    <title>node.TypeScript.DefinitelyTyped</title>
+    <version>0.5.0</version>
     <authors>Jason Jarrett</authors>
     <owners>Jason Jarrett</owners>
     <licenseUrl>https://github.com/DefinitelyTyped/NugetAutomation/blob/master/LICENSE.MIT</licenseUrl>
     <projectUrl>https://github.com/DefinitelyTyped/</projectUrl>
     <iconUrl>http://www.gravatar.com/avatar/7226aa211e53b8d7447756fbc1f15e12?s=200</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>TypeScript Definitions (d.ts) for node. Generated based off the DefinitelyTyped repository [git commit: ea3045e8533954d66b8544b68fbabf67cd19be63]. http://github.com/DefinitelyTyped</description>
+    <description>TypeScript Definitions (d.ts) for node. Generated based off the DefinitelyTyped repository [git commit: a6b7fef7adcbeeb929a519b08aedcdd08f485121]. http://github.com/DefinitelyTyped</description>
     <releaseNotes />
     <copyright>Copyright 2013</copyright>
-    <language />
     <tags>TypeScript JavaScript</tags>
-    <references />
   </metadata>
 </package>
