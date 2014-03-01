@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WafleDataExtract", "WafleDataExtract\WafleDataExtract.csproj", "{5CB99F37-B87D-4EDC-9A00-30DEBD87C716}"
 EndProject
 Global
