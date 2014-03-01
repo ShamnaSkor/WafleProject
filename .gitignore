@@ -15,6 +15,12 @@ Wafle/Wafle/build/wafle*.js*
 Wafle/WafleDataExtract/node_modules/
 Wafle/WafleDataExtract/*.js*
 
+#Exclude any extracted bitmaps
+Wafle/Wafle/Types/*.png
+Wafle/Wafle/Renders/*.png
+Wafle/Wafle/Icons/items/*.png
+Wafle/Wafle/Icons/corporations/*.png
+
 # User-specific files
 *.suo
 *.user
