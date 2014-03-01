@@ -48,7 +48,7 @@ if (process.argv.length !== 4 ) {
 }
 
 
-var outputCodeFile = currentScriptPath + '\\..\\Wafle\\wafleData.ts'
+var outputCodeFile = currentScriptPath + '\\..\\Wafle\\wafleData.ts';
 var connectionString = "Driver={SQL Server Native Client 11.0};Server={" + process.argv[2] + "};Database={" + process.argv[3] + "};Trusted_Connection={Yes};";
 
 var buffer = new StringBuilder();

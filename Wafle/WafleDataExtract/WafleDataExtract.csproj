@@ -16,6 +16,7 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="ExtractTypes.ts" />
     <Content Include="Scripts\typings\node\node.d.ts" />
   </ItemGroup>
   <ItemGroup>
