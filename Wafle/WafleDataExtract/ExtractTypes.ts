@@ -3,8 +3,16 @@
 var currentScriptPath = __dirname;
 
 var fs = require('fs');
-var AdmZip = require('adm-zip');
-
+try {
+    var AdmZip = require('adm-zip');
+}
+catch (ex) {
+    console.log(ex);
+    console.log("Error: Unable to initialize adm-zip library.");
+    console.log("Run npm install adm-zip in the below location to obtain it.");
+    console.log("  " + currentScriptPath);
+    process.exit(1);
+}
 if (process.argv.length !== 3) {
     console.log("Usage: node ExtractTypes FilePathToTypesZip");
     console.log("Example: node ExtractTypes c:\\downloads\\Rubicon_1.1_Types.zip");
