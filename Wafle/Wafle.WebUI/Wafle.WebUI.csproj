@@ -18,17 +18,52 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="app\about.html" />
+    <Content Include="app\home.html" />
+    <Content Include="app\shell.html" />
     <Content Include="default.htm" />
+    <Content Include="index.html" />
+    <Content Include="lib\Durandal\Changes.txt" />
+    <Content Include="lib\Durandal\css\durandal.css" />
+    <Content Include="lib\Durandal\images\icon.png" />
+    <Content Include="lib\Durandal\images\ios-startup-image-landscape.png" />
+    <Content Include="lib\Durandal\images\ios-startup-image-portrait.png" />
+    <Content Include="lib\Durandal\js\activator.js" />
+    <Content Include="lib\Durandal\js\app.js" />
+    <Content Include="lib\Durandal\js\binder.js" />
+    <Content Include="lib\Durandal\js\composition.js" />
+    <Content Include="lib\Durandal\js\events.js" />
+    <Content Include="lib\Durandal\js\plugins\dialog.js" />
+    <Content Include="lib\Durandal\js\plugins\history.js" />
+    <Content Include="lib\Durandal\js\plugins\http.js" />
+    <Content Include="lib\Durandal\js\plugins\observable.js" />
+    <Content Include="lib\Durandal\js\plugins\router.js" />
+    <Content Include="lib\Durandal\js\plugins\serializer.js" />
+    <Content Include="lib\Durandal\js\plugins\widget.js" />
+    <Content Include="lib\Durandal\js\system.js" />
+    <Content Include="lib\Durandal\js\transitions\entrance.js" />
+    <Content Include="lib\Durandal\js\viewEngine.js" />
+    <Content Include="lib\Durandal\js\viewLocator.js" />
+    <Content Include="lib\Durandal\License.txt" />
     <Content Include="lib\jquery-ui.js" />
     <Content Include="lib\jquery.js" />
     <Content Include="lib\knockout-3.0.0.debug.js" />
+    <Content Include="lib\require.js" />
+    <Content Include="lib\text.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\about.ts" />
+    <TypeScriptCompile Include="app\init.ts" />
+    <TypeScriptCompile Include="app\home.ts" />
+    <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\shell.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\durandal\durandal.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\require\require.d.ts" />
     <TypeScriptCompile Include="WafleUIViewModel.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -39,7 +74,9 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="css\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -78,7 +115,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptTarget>ES3</TypeScriptTarget>
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
