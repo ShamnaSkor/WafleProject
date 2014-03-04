@@ -1,4 +1,4 @@
-﻿declare module 'knockout/punches' {
+﻿declare module 'knockout.punches' {
 
 }
 

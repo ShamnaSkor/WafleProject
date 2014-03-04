@@ -1,4 +1,6 @@
-﻿define(["require", "exports", 'knockout'], function(require, exports, ko) {
+﻿define(["require", "exports", 'knockout', 'knockout.punches'], function(require, exports, ko, kop) {
+    kop; //todo: remove if TypeScript AMD issue is fixed.
+
     ko.punches.enableAll();
 
     return {
