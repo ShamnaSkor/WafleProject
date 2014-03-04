@@ -48,6 +48,7 @@
     <Content Include="lib\jquery-ui.js" />
     <Content Include="lib\jquery.js" />
     <Content Include="lib\knockout-3.0.0.debug.js" />
+    <Content Include="lib\knockout.punches.js" />
     <Content Include="lib\require.js" />
     <Content Include="lib\text.js" />
     <Content Include="web.config" />
@@ -62,6 +63,7 @@
     <TypeScriptCompile Include="Scripts\typings\durandal\durandal.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout.punches\knockout.punches.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\require\require.d.ts" />
     <TypeScriptCompile Include="WafleUIViewModel.ts" />
