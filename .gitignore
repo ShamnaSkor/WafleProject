@@ -12,7 +12,7 @@ Wafle/Wafle.WebUI/*.js
 Wafle/Wafle.WebUI/*.js.map
 Wafle/Wafle.WebUI/lib/wafle*.js
 Wafle/Wafle.WebUI/lib/wafle*.js.map
-
+!Wafle/Wafle/wafleDataBlob.js
 
 
 # Be specific about what to exclude in the build folder...
