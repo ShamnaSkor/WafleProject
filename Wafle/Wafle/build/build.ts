@@ -63,10 +63,15 @@ requirejsForBuild(['../wafle'],
         }
 
 
-        var tscCompileCommandLine = 'tsc --sourcemap --module amd --target ES5 --outDir "' + buildJSPath + '" ' + tsFilesToCompile.join(" ");
-        console.log("Compile command line: " + tscCompileCommandLine);
+        //var tscCompileCommandLine = 'tsc --sourcemap --module amd --target ES5 --outDir "' + buildJSPath + '" ' + tsFilesToCompile.join(" ");
+        var TSC_BASE_COMMAND_LINE = 'tsc --sourcemap --module amd --target ES5 ';
 
-        var tscProcess = exec(tscCompileCommandLine, tsCompileComplete);
+        var basicBuildCommandLine = TSC_BASE_COMMAND_LINE + '--outDir "' + buildJSPath + '" ' + tsFilesToCompile.join(" ");
+
+        console.log("Compile command line: " + basicBuildCommandLine);
+
+        console.log("Compiling TypeScript files individually...");
+        var tscProcess = exec(basicBuildCommandLine, tsCompileComplete);
 
         function tsCompileComplete(error, stdout, stderr) {
             if (error !== null) {
@@ -75,28 +80,27 @@ requirejsForBuild(['../wafle'],
                 return;
             }
 
-            var jsFilesToUglify: string[] = [];
+
+            console.log("Copying data blob to build folder...");
+            copyFileSync(path.join(buildJSPath, "../wafleDataBlob.js"), path.join(buildJSPath, "wafleDataBlob.js"));
+
+            //var jsFilesToUglify: string[] = [];
 
             //fix all of the relative paths...
-            for (var i = 0; i < filesToCompile.length; i++) {
-                jsFilesToUglify.push('"' + path.join(buildJSPath, filesToCompile[i]) + '.js"');
-            }
+            //for (var i = 0; i < filesToCompile.length; i++) {
+            //    jsFilesToUglify.push('"' + path.join(buildJSPath, filesToCompile[i]) + '.js"');
+            //}
 
             var config = {
                 baseUrl: buildJSPath,
                 name: 'wafle',
-                out: path.join(buildJSPath,'wafle.dev.js')
+                out: path.join(buildJSPath, 'wafle.dev.js')
             };
 
             requirejsForBuild.optimize(config, function (buildResponse) {
-                //buildResponse is just a text output of the modules
-                //included. Load the built file for the contents.
-                //Use config.out to get the optimized file contents.
-                console.log("optimize succeeded.");
-                var contents = fs.readFileSync(config.out, 'utf8');
+                console.log("Optimized JS script written to disk: " + config.out);
             }, function (err) {
-                //optimization err callback
-                console.log("error calling optimize: " + err);
+                console.log("Error calling optimize: " + err);
             });
 
             //var mainUglifyCommand = 'uglifyjs ' + jsFilesToUglify.join(" ") + ' -o ';
@@ -109,6 +113,7 @@ requirejsForBuild(['../wafle'],
             //var uglifyWafleData = exec('uglifyjs "' + path.join(buildJSPath, '../wafleDataBlob.js') + '" -o "' + path.join(buildJSPath, 'wafleData.min.js') + '" --comments', uglifyWafleDataCallback);
 
         }
+        
 
         function uglifyWafleCallback(error, stdout, stderr) {
             if (error !== null) {

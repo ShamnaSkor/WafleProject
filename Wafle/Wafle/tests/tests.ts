@@ -1,5 +1,4 @@
-
-declare var Wafle: any;
+import Wafle = require("../wafle");
 
 QUnit.module("Ship tests");
 test("New Ship has null pilot.", function () {
@@ -761,4 +760,4 @@ test("Armor Buffer Tristan with all V skills.", function () {
     strictEqual(Wafle.Round(ship.totalDroneAlphaDamage(), 0), Wafle.Round(396, 0), "Drone Alpha from Hobgoblin II x5 with perfect skills");
 });
 
-   
+QUnit.start();
