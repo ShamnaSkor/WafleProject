@@ -52,7 +52,7 @@ class BaseShipData {
             //we are searching for a ship by name.
             _hullname = param1;
 
-            var typeInfo: Wafle.TypeInfo = Wafle.FindTypeByName(_hullname);
+            var typeInfo: Wafle.TypeInfo = Wafle.TypeInfo.TypeInfoByName(_hullname);
             if (typeInfo === null) {
                 throw 'Could not find ship with name "' + _hullname + '".';
             }
@@ -68,10 +68,9 @@ class BaseShipData {
             }
         }
 
-        try {
-            var data: Wafle.IEveInventoryTypeAttributes = Wafle.Data.Types[_groupId.toString()][_typeId.toString()];
-        }
-        catch (ex) {
+        var data: Wafle.IEveInventoryTypeAttributes = Wafle.TypeInfo.GetTypeAttributes(_typeId, _groupId);
+        
+        if (data === null) {
             throw "Ship not found with typeId " + _typeId.toString() + ", groupId " + _groupId.toString() + ".";
         }
 

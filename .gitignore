@@ -4,6 +4,8 @@
 # The "Compile on Save" js and map files are not to be included in the main source code.
 Wafle/Wafle/*.js
 Wafle/Wafle/*.js.map
+Wafle/Wafle/src/*.js
+Wafle/Wafle/src/*.js.map
 Wafle/Wafle/tests/*.js
 Wafle/Wafle/tests/*.js.map
 Wafle/Wafle.WebUI/*.js

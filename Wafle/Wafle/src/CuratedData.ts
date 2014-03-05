@@ -1,12 +1,15 @@
 ﻿import Wafle = require("../wafle");
 
-export var Types: Wafle.IEveInventoryGroupMap = {};
+declare var WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP;
+
+export var Types: Wafle.IWafleTypeDataBlob = WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP;
 
 export var TypeToGroupIDMapping = [];
 
+
 export function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boolean {
     if (type.groupId === undefined) {
-        type.FindGroupId();
+        type.FindOwnGroupId();
     }
     if (type.groupId !== Wafle.InventoryGroups.ArmorRig) {
         return false;
@@ -14,21 +17,24 @@ export function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boo
     var typeIdsWithArmorRepairPowergridPenalty = [25896, 25898, 26294, 26296, 27064, 27066, 31045, 31047, 31049, 31051, 31053, 31063, 31065, 31067, 31069, 31071];
     return (typeIdsWithArmorRepairPowergridPenalty.indexOf(type.typeId) > -1);
 }
+
 export function DrawbackIsMaxVelocityPenalty(type: Wafle.TypeInfo): boolean {
     if (type.groupId === undefined) {
-        type.FindGroupId();
+        type.FindOwnGroupId();
     }
     if (type.groupId !== Wafle.InventoryGroups.ArmorRig) {
         return false;
     }
     return (!DrawbackIsArmorRepairPowergridPenalty(type));
 }
+
 export function DrawbackIsArmorAmount(type: Wafle.TypeInfo): boolean {
     if (type.groupId === undefined) {
-        type.FindGroupId();
+        type.FindOwnGroupId();
     }
     return (type.groupId === Wafle.InventoryGroups.NavigationRig); //they all have this drawback.
 }
+
 export function AffectedByArmorCompensationSkills(type: Wafle.TypeInfo): boolean {
     var w = Wafle.InventoryGroups;
     return (type.groupId === w.ArmorCoating || type.groupId === w.ArmorPlatingEnergized);
@@ -39,8 +45,6 @@ export function IsTurret(type: Wafle.TypeInfo): boolean {
     return (type.groupId === w.ProjectileWeapon || type.groupId === w.EnergyWeapon || type.groupId === w.HybridWeapon);
 }
 
-
-    
 export function IsLauncher(type: Wafle.TypeInfo): boolean {
     var w = Wafle.InventoryGroups;
     return (type.groupId === w.RocketLauncher ||
@@ -75,10 +79,10 @@ export function IsLoadableCharge(type: Wafle.TypeInfo): boolean {
 export function IsBlaster(bsed: Wafle.BaseShipEquipmentData): boolean {
     return (bsed.groupId === Wafle.InventoryGroups.HybridWeapon && bsed.parentMarketGroup === 556);
 }
+
 export function IsRailgun(bsed: Wafle.BaseShipEquipmentData): boolean {
     return (bsed.groupId === Wafle.InventoryGroups.HybridWeapon && bsed.parentMarketGroup === 555);
 }
-
 
 export function ShipOmniDamageMultiplier(ship: Wafle.Ship, attackingModule: Wafle.BaseShipEquipmentData, charge: Wafle.BaseShipEquipmentData): number {
 
@@ -130,7 +134,6 @@ export function ShipOmniDamageMultiplier(ship: Wafle.Ship, attackingModule: Wafl
             mult *= ship.fittingSlots[i].baseShipEquipmentData.damageMultiplierForModule(attackingModule);
         }
     }
-
 
     return mult;
 }

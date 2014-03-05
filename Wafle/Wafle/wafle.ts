@@ -95,20 +95,20 @@ export function dimEffRatio(zeroBasedIndex: number) {
 }
 
 
-export function FindTypeByName(theName: string): TypeInfo {
-    var groupCount = Object.getOwnPropertyNames(Data.Types).length;
-    for (var groupIndex = 0; groupIndex < groupCount; groupIndex++) {
-        var groupId = Object.getOwnPropertyNames(Data.Types)[groupIndex];
-        var typeCount = Object.getOwnPropertyNames(Data.Types[groupId]).length;
-        for (var typeIndex = 0; typeIndex < typeCount; typeIndex++) {
-            var typeId = Object.getOwnPropertyNames(Data.Types[groupId])[typeIndex];
-            if (Data.Types[groupId][typeId].n === theName) {
-                return new TypeInfo(parseInt(typeId), parseInt(groupId));
-            }
-        }
-    }
-    return null;
-}
+//export function FindTypeByName(theName: string): TypeInfo {
+//    var groupCount = Object.getOwnPropertyNames(Data.Types).length;
+//    for (var groupIndex = 0; groupIndex < groupCount; groupIndex++) {
+//        var groupId = Object.getOwnPropertyNames(Data.Types)[groupIndex];
+//        var typeCount = Object.getOwnPropertyNames(Data.Types[groupId]).length;
+//        for (var typeIndex = 0; typeIndex < typeCount; typeIndex++) {
+//            var typeId = Object.getOwnPropertyNames(Data.Types[groupId])[typeIndex];
+//            if (Data.Types[groupId][typeId].n === theName) {
+//                return new TypeInfo(parseInt(typeId), parseInt(groupId));
+//            }
+//        }
+//    }
+//    return null;
+//}
 
 export function FindNamedTypesByGroup(theGroupId: number): INamedType[] {
     var types: INamedType[] = [];
@@ -126,27 +126,41 @@ export function FindNamedTypesByGroup(theGroupId: number): INamedType[] {
 }
 
 
-export interface IEveInventoryGroupMap {
-    [groupId: string]: IEveInventoryType;
-}
-
-export interface IEveInventoryType {
-    [typeId: string]: IEveInventoryTypeAttributes;
-}
-
 export interface ITypeInfo {
     typeId: number;
-    groupId?: number;
+    groupId: number;
 }
 
 export interface INamedType extends ITypeInfo {
     name: string;
 }
 
+export interface IWafleTypeDataBlob {
+    [index: number]: IWafleGroupDataBlob;
+    length: number;
+}
+
+export interface IWafleGroupDataBlob {
+    /** gid - the inventory group id number. */
+    gid: number;
+    /** n - the name of the inventory group. */
+    n: string;
+    /** gts - an array of the types in this inventory group (each element is of type IEveInventoryTypeAttributes). */
+    gts: IWafleTypesArrayDataBlob;
+}
+
+export interface IWafleTypesArrayDataBlob {
+    [index: number]: IEveInventoryTypeAttributes;
+    length: number;
+}
+
+/** A property bag of attributes for an EVE inventory type */
 export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod,
 IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, IPowerModule,
 ITurretModifier, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP,
 IMissileModifier, IDroneSupport, IDrone, IContainer {
+    /** id - the type id number. */
+    id: number
     /** name - the name of the type. */
     n: string;
     /** description - the description text for the type. */

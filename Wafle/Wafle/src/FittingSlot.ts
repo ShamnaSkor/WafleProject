@@ -29,10 +29,10 @@ class FittingSlot {
         if (groupId) {
             calcGroupId = groupId;
         } else {
-            calcGroupId = Wafle.Data.TypeToGroupIDMapping[typeId.toString()]; //todo: refactor to use TypeInfo
+            calcGroupId = Wafle.TypeInfo.TypeInfoByTypeId(typeId).groupId;
         }
 
-        if (!calcGroupId) {
+        if (calcGroupId === -1) {
             throw "typeId " + typeId.toString() + ' is not a member of a known inventory group.';
         }
 

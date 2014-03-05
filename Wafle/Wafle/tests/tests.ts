@@ -1,5 +1,6 @@
 import Wafle = require("../wafle");
 
+
 QUnit.module("Ship tests");
 test("New Ship has null pilot.", function () {
     var ship = new Wafle.Ship("Rifter");
@@ -250,7 +251,7 @@ test("Rifter fit with 125 autocannon x3 shows correct CPU & powergrid remaining 
 
 QUnit.module("Search Tests");
 test("Atron is found and is loaded by name.", function () {
-    var type = Wafle.FindTypeByName("Atron")
+    var type = Wafle.TypeInfo.TypeInfoByName("Atron")
 strictEqual(type.groupId, 25, "group id");
     strictEqual(type.typeId, 608, "type id");
     var ship = new Wafle.BaseShipData(type);
@@ -258,15 +259,15 @@ strictEqual(type.groupId, 25, "group id");
 });
 
 test("Executioner is found and is loaded by name.", function () {
-    var type = Wafle.FindTypeByName("Executioner")
-strictEqual(type.groupId, 25, "group id");
+    var type = Wafle.TypeInfo.TypeInfoByName("Executioner")
+    strictEqual(type.groupId, 25, "group id");
     strictEqual(type.typeId, 589, "type id");
     var ship = new Wafle.BaseShipData(type);
     strictEqual(ship.hullName, "Executioner", "Loaded ship name");
 });
 
 test("Slasher is found and is loaded by name.", function () {
-    var type = Wafle.FindTypeByName("Slasher")
+    var type = Wafle.TypeInfo.TypeInfoByName("Slasher")
 strictEqual(type.groupId, 25, "group id");
     strictEqual(type.typeId, 585, "type id");
     var ship = new Wafle.BaseShipData(type);
@@ -274,7 +275,7 @@ strictEqual(type.groupId, 25, "group id");
 });
 
 test("Merlin is found and is loaded by name.", function () {
-    var type = Wafle.FindTypeByName("Merlin")
+    var type = Wafle.TypeInfo.TypeInfoByName("Merlin")
 strictEqual(type.groupId, 25, "group id");
     strictEqual(type.typeId, 603, "type id");
     var ship = new Wafle.BaseShipData(type);
@@ -282,7 +283,7 @@ strictEqual(type.groupId, 25, "group id");
 });
 
 test("Non-existent ship is NOT found and throws exception.", function () {
-    var type = Wafle.FindTypeByName("NonExistentShipName")
+    var type = Wafle.TypeInfo.TypeInfoByName("NonExistentShipName")
 strictEqual(type, null, "type is null.");
     var ship: any;
     throws(
@@ -302,13 +303,13 @@ strictEqual(type, null, "type is null.");
 });
 
 test("125mm Gatling AutoCannon I is found by name.", function () {
-    var type = Wafle.FindTypeByName("125mm Gatling AutoCannon I")
+    var type = Wafle.TypeInfo.TypeInfoByName("125mm Gatling AutoCannon I")
 strictEqual(type.groupId, 55, "group id");
     strictEqual(type.typeId, 484, "type id");
 });
 
 test("NonExistentModule is NOT found by name (should return null).", function () {
-    var type = Wafle.FindTypeByName("Non Existent module")
+    var type = Wafle.TypeInfo.TypeInfoByName("Non Existent module")
 strictEqual(type, null, "should be null");
 });
 

@@ -108,97 +108,100 @@ class BaseShipEquipmentData {
 
 
 
-        constructor(typeInfo: Wafle.TypeInfo)
-        constructor(groupId: number, typeId: number)
-        constructor(p1: any, p2?: any) {
-        if (p1.typeId) {
-            if (!<Wafle.TypeInfo>p1.groupId) {
-                <Wafle.TypeInfo>p1.FindGroupId();
-            }
-            this.typeId = (<Wafle.TypeInfo>p1).typeId;
-            this.groupId = (<Wafle.TypeInfo>p1).groupId;
-        } else {
-            this.typeId = p2;
-            this.groupId = p1;
+    constructor(typeInfo: Wafle.TypeInfo)
+    constructor(groupId: number, typeId: number)
+    constructor(p1: any, p2?: any) {
+    if (p1.typeId) {
+        if (!<Wafle.TypeInfo>p1.groupId) {
+            <Wafle.TypeInfo>p1.FindGroupId();
         }
+        this.typeId = (<Wafle.TypeInfo>p1).typeId;
+        this.groupId = (<Wafle.TypeInfo>p1).groupId;
+    } else {
+        this.typeId = p2;
+        this.groupId = p1;
+    }
 
-        if (!Wafle.Data.Types[this.groupId.toString()]) {
-            throw "groupId " + this.groupId.toString() + " is not known.";
-        }
-        var data: Wafle.IEveInventoryTypeAttributes = Wafle.Data.Types[this.groupId.toString()][this.typeId.toString()];
-        if (!data) {
-            throw "typeId " + this.typeId.toString() + " in groupId " + this.groupId.toString() + " is not known.";
-        }
-        ShipEquipmentLoader(data, this);
-        switch (this.groupId) {
-            case Wafle.InventoryGroups.ProjectileWeapon: //fall through
-            case Wafle.InventoryGroups.HybridWeapon: //fall through
-            case Wafle.InventoryGroups.EnergyWeapon:
-                TurretLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.HybridCharge: //fall through
-            case Wafle.InventoryGroups.FrequencyCrystal: //fall through
-            case Wafle.InventoryGroups.AdvancedRailgunCharge: //fall through
-            case Wafle.InventoryGroups.AdvancedBlasterCharge: //fall through
-            case Wafle.InventoryGroups.AdvancedBeamLaserCrystal: //fall through
-            case Wafle.InventoryGroups.AdvancedPulseLaserCrystal: //fall through
-            case Wafle.InventoryGroups.AdvancedArtilleryAmmo: //fall through
-            case Wafle.InventoryGroups.ProjectileAmmo: //fall through
-            case Wafle.InventoryGroups.Rocket: //fall through
-            case Wafle.InventoryGroups.AdvancedRocket: //fall through
-            case Wafle.InventoryGroups.LightMissile:  //fall through
-            case Wafle.InventoryGroups.AdvancedLightMissile:
-                ChargeLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.RocketLauncher: //fall through
-            case Wafle.InventoryGroups.LightMissileLauncher: //fall through
-            case Wafle.InventoryGroups.HeavyAssaultMissileLauncher: //fall through
-            case Wafle.InventoryGroups.HeavyMissileLauncher: // fall through
-                LauncherLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.StasisWeb: // fall through
-            case Wafle.InventoryGroups.TargetPainter:
-                MidProjectedEffectLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.Propulsion:
-                PropulsionLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.ShieldExtender:
-                ShieldExtenderLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.WarpScrambler:
-                MidProjectedEffectLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.ArmorPlate: //fall through
-            case Wafle.InventoryGroups.ArmorCoating:
-                ArmorPlateAndCoatingLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.Nanofiber:
-                NanofiberLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.EnergyDestabilizer: //fall through
-            case Wafle.InventoryGroups.EnergyVampire:
-                NosNeutLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.ArmorRig: //fall through
-            case Wafle.InventoryGroups.ShieldRig: //fall through
-            case Wafle.InventoryGroups.NavigationRig:
-                RigLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.DamageControl:
-                DamageControlLoader(data, this);
-                break;
-            case Wafle.InventoryGroups.AuxiliaryPowerCore:
-                PowerModuleLoader(data, this);
-            case Wafle.InventoryGroups.BallisticControlSystem: //fall through
-            case Wafle.InventoryGroups.Gyrostabilizer: //fall through
-            case Wafle.InventoryGroups.HeatSink: //fall through
-            case Wafle.InventoryGroups.MagneticFieldStabilizer:
-                LowWeaponEnhancementLoader(data, this);
-            case Wafle.InventoryGroups.CombatDrone:
-                DroneLoader(data, this);
-            default:
-                break;
+    if (Wafle.TypeInfo.groupIndex(this.groupId)===-1) {
+        throw "groupId " + this.groupId.toString() + " is not known.";
+    }
+
+    var data: Wafle.IEveInventoryTypeAttributes = Wafle.TypeInfo.GetTypeAttributes(this.typeId, this.groupId);
+    if (!data) {
+        throw "typeId " + this.typeId.toString() + " in groupId " + this.groupId.toString() + " is not known.";
+    }
+
+    ShipEquipmentLoader(data, this);
+
+    switch (this.groupId) {
+        case Wafle.InventoryGroups.ProjectileWeapon: //fall through
+        case Wafle.InventoryGroups.HybridWeapon: //fall through
+        case Wafle.InventoryGroups.EnergyWeapon:
+            TurretLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.HybridCharge: //fall through
+        case Wafle.InventoryGroups.FrequencyCrystal: //fall through
+        case Wafle.InventoryGroups.AdvancedRailgunCharge: //fall through
+        case Wafle.InventoryGroups.AdvancedBlasterCharge: //fall through
+        case Wafle.InventoryGroups.AdvancedBeamLaserCrystal: //fall through
+        case Wafle.InventoryGroups.AdvancedPulseLaserCrystal: //fall through
+        case Wafle.InventoryGroups.AdvancedArtilleryAmmo: //fall through
+        case Wafle.InventoryGroups.ProjectileAmmo: //fall through
+        case Wafle.InventoryGroups.Rocket: //fall through
+        case Wafle.InventoryGroups.AdvancedRocket: //fall through
+        case Wafle.InventoryGroups.LightMissile:  //fall through
+        case Wafle.InventoryGroups.AdvancedLightMissile:
+            ChargeLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.RocketLauncher: //fall through
+        case Wafle.InventoryGroups.LightMissileLauncher: //fall through
+        case Wafle.InventoryGroups.HeavyAssaultMissileLauncher: //fall through
+        case Wafle.InventoryGroups.HeavyMissileLauncher: // fall through
+            LauncherLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.StasisWeb: // fall through
+        case Wafle.InventoryGroups.TargetPainter:
+            MidProjectedEffectLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.Propulsion:
+            PropulsionLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.ShieldExtender:
+            ShieldExtenderLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.WarpScrambler:
+            MidProjectedEffectLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.ArmorPlate: //fall through
+        case Wafle.InventoryGroups.ArmorCoating:
+            ArmorPlateAndCoatingLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.Nanofiber:
+            NanofiberLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.EnergyDestabilizer: //fall through
+        case Wafle.InventoryGroups.EnergyVampire:
+            NosNeutLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.ArmorRig: //fall through
+        case Wafle.InventoryGroups.ShieldRig: //fall through
+        case Wafle.InventoryGroups.NavigationRig:
+            RigLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.DamageControl:
+            DamageControlLoader(data, this);
+            break;
+        case Wafle.InventoryGroups.AuxiliaryPowerCore:
+            PowerModuleLoader(data, this);
+        case Wafle.InventoryGroups.BallisticControlSystem: //fall through
+        case Wafle.InventoryGroups.Gyrostabilizer: //fall through
+        case Wafle.InventoryGroups.HeatSink: //fall through
+        case Wafle.InventoryGroups.MagneticFieldStabilizer:
+            LowWeaponEnhancementLoader(data, this);
+        case Wafle.InventoryGroups.CombatDrone:
+            DroneLoader(data, this);
+        default:
+            break;
         }
     }
 

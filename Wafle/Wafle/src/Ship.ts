@@ -103,11 +103,12 @@ class Ship {
             this.hullName = p1;
         } else if (typeof (p1) === "number") {
             var ti = new Wafle.TypeInfo(<number>p1);
-            ti.FindGroupId();
-            this.hullName = Wafle.Data.Types[ti.groupId][ti.typeId].n;
+            ti.FindOwnGroupId();
+            this.hullName = Wafle.TypeInfo.GetTypeAttributes(ti.typeId, ti.groupId).n;
         } else {
             throw "Ship must be created with valid string name of ship or typeId number.";
         }
+        //todo: refactor this since we've probably already got the type ID and group ID which may be faster to use.
         this.baseShipData = new Wafle.BaseShipData(this.hullName);
         for (var hiSlot = 0; hiSlot < this.baseShipData.highSlotCount; hiSlot++) {
             this.fittingSlots.push(new Wafle.FittingSlot(Wafle.FittingSlotType.High, this));
