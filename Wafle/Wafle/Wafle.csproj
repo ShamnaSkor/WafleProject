@@ -41,9 +41,6 @@
     <TypeScriptCompile Include="src\Skills.ts" />
     <TypeScriptCompile Include="src\TypeInfo.ts" />
     <TypeScriptCompile Include="tests\init.ts" />
-    <TypeScriptCompile Include="wafleCore.ts" />
-    <TypeScriptCompile Include="wafleCuratedData.ts" />
-    <TypeScriptCompile Include="wafleInterfaces.ts" />
     <TypeScriptCompile Include="tests\tests.ts" />
     <TypeScriptCompile Include="wafle.ts" />
     <Content Include="web.config" />
