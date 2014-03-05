@@ -1,5 +1,5 @@
-import Wafle = require("../wafle");
 
+declare var Wafle: any;
 
 QUnit.module("Ship tests");
 test("New Ship has null pilot.", function () {

@@ -1,8 +1,8 @@
 ﻿import Wafle = require("../wafle");
 
-declare var WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP;
+var WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP;  //bug: not using declare to work around an issue with require.js and the build script. Need to look into this.
 
-export var Types: Wafle.IWafleTypeDataBlob = WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP;
+export var Types: Wafle.IWafleTypeDataBlob = (WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP ? WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP : []);
 
 export var TypeToGroupIDMapping = [];
 
