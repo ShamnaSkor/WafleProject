@@ -314,11 +314,11 @@ strictEqual(type, null, "should be null");
 });
 
 test("Frigates are found by type", function () {
-    var type = Wafle.FindNamedTypesByGroup(25);
-    strictEqual((type.length > 40), true, "more than 40 frigates found.");
-    strictEqual(type[0].groupId, 25, "correct groupId for first frigate item.");
-    strictEqual(type[0].typeId, 582, "correct typeId for first frigate item.");
-    strictEqual(type[0].name, "Bantam", "correct name for first frigate item.");
+    var groupTypes = Wafle.TypeInfo.FindNamedTypesByGroup(25);
+    strictEqual((groupTypes.length > 40), true, "more than 40 frigates found.");
+    strictEqual(groupTypes[0].groupId, 25, "correct groupId for first frigate item.");
+    strictEqual(groupTypes[0].typeId, 582, "correct typeId for first frigate item.");
+    strictEqual(groupTypes[0].name, "Bantam", "correct name for first frigate item.");
 });
 
 
@@ -496,7 +496,7 @@ test("Drones do not consume bandwidth until they are activated.", function () {
 test("Drones do not do damage until they are activated.", function () {
     var ship = new Wafle.Ship("Tristan");
     strictEqual(ship.LoadDrone(new Wafle.TypeInfo(2456)), undefined, "Loading Hobgoblin II to drone bay");
-    strictEqual(ship.totalDroneAlphaDamage(), 0, "No drone alpha for inactive drones.");
+    strictEqual(ship.totalDroneAlphaDamage(), 0, "Zero drone alpha for inactive drones.");
 
     var oldDroneDamage = ship.totalDroneAlphaDamage();
     ship.droneBay[0].Activate();

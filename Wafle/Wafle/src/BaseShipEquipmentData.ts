@@ -360,16 +360,16 @@ function DroneLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEq
     target.kineticBaseDamage = data.kid;
     target.thermalBaseDamage = data.thd;
     target.emAlphaDamageActual = (ship: Wafle.Ship) => {
-        return target.emBaseDamage * target.damageMultiplier * ship.emDamageMultiplier(target, null);
+        return (target.emBaseDamage ? target.emBaseDamage : 0) * target.damageMultiplier * ship.emDamageMultiplier(target, null);
     };
     target.explosiveAlphaDamageActual = (ship: Wafle.Ship) => {
-        return target.explosiveBaseDamage * target.damageMultiplier * ship.explosiveDamageMultiplier(target, null);
+        return (target.explosiveBaseDamage ? target.explosiveBaseDamage : 0) * target.damageMultiplier * ship.explosiveDamageMultiplier(target, null);
     };
     target.kineticAlphaDamageActual = (ship: Wafle.Ship) => {
-        return target.kineticBaseDamage * target.damageMultiplier * ship.kineticDamageMultiplier(target, null);
+        return (target.kineticBaseDamage ? target.kineticBaseDamage : 0) * target.damageMultiplier * ship.kineticDamageMultiplier(target, null);
     };
     target.thermalAlphaDamageActual = (ship: Wafle.Ship) => {
-        return target.thermalBaseDamage * target.damageMultiplier * ship.thermalDamageMultiplier(target, null);
+        return (target.thermalBaseDamage ? target.thermalBaseDamage : 0) * target.damageMultiplier * ship.thermalDamageMultiplier(target, null);
     };
 
 }

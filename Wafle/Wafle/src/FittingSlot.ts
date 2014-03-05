@@ -29,7 +29,12 @@ class FittingSlot {
         if (groupId) {
             calcGroupId = groupId;
         } else {
-            calcGroupId = Wafle.TypeInfo.TypeInfoByTypeId(typeId).groupId;
+            var ti = Wafle.TypeInfo.TypeInfoByTypeId(typeId); 
+            if (ti) {
+                calcGroupId = ti.groupId;
+            } else {
+                calcGroupId = -1;
+            }
         }
 
         if (calcGroupId === -1) {

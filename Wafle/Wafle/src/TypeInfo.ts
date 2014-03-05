@@ -76,5 +76,23 @@ class TypeInfo implements Wafle.ITypeInfo {
         return -1;
     }
 
+
+    public static FindNamedTypesByGroup(theGroupId: number): Wafle.INamedType[] {
+        var types: Wafle.INamedType[] = [];
+        var groupIndex = TypeInfo.groupIndex(theGroupId);
+        if (groupIndex > -1) {
+            var groupTypes = Wafle.Data.Types[groupIndex].gts;
+            for (var typeIndex = 0; typeIndex < groupTypes.length; typeIndex++) {
+                var theItem: Wafle.INamedType = {
+                    name: groupTypes[typeIndex].n,
+                    groupId: theGroupId,
+                    typeId: groupTypes[typeIndex].id
+                };
+                types.push(theItem);
+            }
+        }
+        return types;
+    }
+
 }
 export = TypeInfo;

@@ -110,20 +110,7 @@ export function dimEffRatio(zeroBasedIndex: number) {
 //    return null;
 //}
 
-export function FindNamedTypesByGroup(theGroupId: number): INamedType[] {
-    var types: INamedType[] = [];
-    var typeCount = Object.getOwnPropertyNames(Data.Types[theGroupId]).length;
-    for (var typeIndex = 0; typeIndex < typeCount; typeIndex++) {
-        var typeId = Object.getOwnPropertyNames(Data.Types[theGroupId])[typeIndex];
-        var theItem: INamedType = {
-            name: Data.Types[theGroupId][typeId].n,
-            groupId: theGroupId,
-            typeId: parseInt(typeId, 10)
-        };
-        types.push(theItem);
-    }
-    return types;
-}
+
 
 
 export interface ITypeInfo {
