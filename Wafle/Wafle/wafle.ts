@@ -39,7 +39,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 export import Pilot = require("./src/Pilot");
 export import Skills = require("./src/Skills");
-export import BaseShipEquipmentData = require("./src/BaseShipEquipmentData");
+export import InventoryTypeAttributes = require("./src/InventoryTypeAttributes");
 export import BaseShipData = require("./src/BaseShipData");
 export import Ship = require("./src/Ship");
 export import Resistance = require("./src/Resistance");

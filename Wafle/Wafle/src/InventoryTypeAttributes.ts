@@ -1,7 +1,6 @@
 ﻿import Wafle = require("../wafle");
 
-//todo: rename to InventoryTypeData during the refactoring initiative.
-class BaseShipEquipmentData {
+class InventoryTypeAttributes {
     public groupId: number;
     public typeId: number;
     public isActive: boolean = false;  //try to move this out into an actualized inventoryItem class that uses BaseTypeData as a "has a".  Also need to support "canActivate" to distinguish passive modules, etc.  Quite a bit of refactoring required here.
@@ -69,7 +68,7 @@ class BaseShipEquipmentData {
     public droneBandwidthUsed: number = 0;
 
     /** total alpha damage of all types at optimal including ship bonuses, pilot skill, and ammunition used. */
-    public totalAlphaDamageActual(ship: Wafle.Ship, charge: BaseShipEquipmentData): number {
+    public totalAlphaDamageActual(ship: Wafle.Ship, charge: InventoryTypeAttributes): number {
         var total = 0;
         if (this.emAlphaDamageActual) {
             total += this.emAlphaDamageActual(ship, charge)
@@ -85,10 +84,10 @@ class BaseShipEquipmentData {
             }
         return total;
     }
-    public emAlphaDamageActual: (ship: Wafle.Ship, charge: BaseShipEquipmentData) => number;
-    public explosiveAlphaDamageActual: (ship: Wafle.Ship, charge: BaseShipEquipmentData) => number;
-    public kineticAlphaDamageActual: (ship: Wafle.Ship, charge: BaseShipEquipmentData) => number;
-    public thermalAlphaDamageActual: (ship: Wafle.Ship, charge: BaseShipEquipmentData) => number;
+    public emAlphaDamageActual: (ship: Wafle.Ship, charge: InventoryTypeAttributes) => number;
+    public explosiveAlphaDamageActual: (ship: Wafle.Ship, charge: InventoryTypeAttributes) => number;
+    public kineticAlphaDamageActual: (ship: Wafle.Ship, charge: InventoryTypeAttributes) => number;
+    public thermalAlphaDamageActual: (ship: Wafle.Ship, charge: InventoryTypeAttributes) => number;
     /** EM damage in HP */
     public emBaseDamage: number;
     /** Explosive damage in HP */
@@ -216,7 +215,7 @@ class BaseShipEquipmentData {
         return new Wafle.TypeInfo(this.typeId, this.groupId);
     }
 
-    public damageMultiplierForModule(theAttackingModule: BaseShipEquipmentData): number {
+    public damageMultiplierForModule(theAttackingModule: InventoryTypeAttributes): number {
         if (this.damageMultiplier == 0 && this.missileDamageMultiplier == 0) {
             return 1;
         }
@@ -243,7 +242,7 @@ class BaseShipEquipmentData {
 
 }
 
-function ShipEquipmentLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function ShipEquipmentLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.name = data.n;
     target.description = data.d;
     target.cpuUsage = (data.cpu || 0);
@@ -256,7 +255,7 @@ function ShipEquipmentLoader(data: Wafle.IEveInventoryTypeAttributes, target: Ba
     target.race = data.r;
 }
 
-function TurretLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function TurretLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.optimalRange = data.opt;
     target.accuracyFalloff = data.acc;
     target.rateOfFire = data.rof;
@@ -269,42 +268,42 @@ function TurretLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipE
         return Wafle.CpuFormulas.standardWeapon(ship, target.cpuUsage);
     }
     target.powergridUsageActual = (ship: Wafle.Ship) => Wafle.PowergridFormulas.standardWeapon(ship, target.powergridUsage);
-    target.emAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.emAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.emBaseDamage ? charge.emBaseDamage : 0) * target.damageMultiplier * ship.emDamageMultiplier(target, charge);
     };
-    target.explosiveAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.explosiveAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.explosiveBaseDamage ? charge.explosiveBaseDamage : 0) * target.damageMultiplier * ship.explosiveDamageMultiplier(target, charge);
     };
-    target.kineticAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.kineticAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.kineticBaseDamage ? charge.kineticBaseDamage : 0) * target.damageMultiplier * ship.kineticDamageMultiplier(target, charge);
     };
-    target.thermalAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.thermalAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.thermalBaseDamage ? charge.thermalBaseDamage : 0) * target.damageMultiplier * ship.thermalDamageMultiplier(target, charge);
     };
 }
 
 
-function LauncherLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function LauncherLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.rateOfFire = data.rof;
     target.slotUsed = Wafle.FittingSlotType.High;
     target.cpuUsageActual = (ship: Wafle.Ship) => Wafle.CpuFormulas.standardWeapon(ship, target.cpuUsage);
     target.powergridUsageActual = (ship: Wafle.Ship) => Wafle.PowergridFormulas.standardWeapon(ship, target.powergridUsage);
     target.launcherGroup = data.lg;
-    target.emAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.emAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.emBaseDamage ? charge.emBaseDamage : 0) * ship.emDamageMultiplier(target, charge);
     };
-    target.explosiveAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.explosiveAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.explosiveBaseDamage ? charge.explosiveBaseDamage : 0) * ship.explosiveDamageMultiplier(target, charge);
     };
-    target.kineticAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.kineticAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.kineticBaseDamage ? charge.kineticBaseDamage : 0) * ship.kineticDamageMultiplier(target, charge);
     };
-    target.thermalAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
+    target.thermalAlphaDamageActual = (ship: Wafle.Ship, charge: InventoryTypeAttributes) => {
         return (charge.thermalBaseDamage ? charge.thermalBaseDamage : 0) * ship.thermalDamageMultiplier(target, charge);
     };
 }
 
-function MidProjectedEffectLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function MidProjectedEffectLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.optimalRange = data.opt;
     target.accuracyFalloff = data.acc;
     target.slotUsed = Wafle.FittingSlotType.Mid;
@@ -322,7 +321,7 @@ function MidProjectedEffectLoader(data: Wafle.IEveInventoryTypeAttributes, targe
     }
     }
 
-function PropulsionLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function PropulsionLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.speedFactor = data.spd;
     if (data.srb) {
         target.signatureRadiusBonus = data.srb;
@@ -336,7 +335,7 @@ function PropulsionLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseS
     }
     }
 
-function ShieldExtenderLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function ShieldExtenderLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.slotUsed = Wafle.FittingSlotType.Mid;
     target.shieldHPBonusAdd = data.shp;
     target.signatureRadiusBonus = data.sra;
@@ -348,7 +347,7 @@ function ShieldExtenderLoader(data: Wafle.IEveInventoryTypeAttributes, target: B
     }
     }
 
-function DroneLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function DroneLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.droneBandwidthUsed = data.dbu;
     target.optimalRange = data.opt;
     target.accuracyFalloff = data.acc;
@@ -374,7 +373,7 @@ function DroneLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEq
 
 }
 
-function LowWeaponEnhancementLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function LowWeaponEnhancementLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.slotUsed = Wafle.FittingSlotType.Low;
     if (data.rofm) {
         target.rateOfFireMultiplier = data.rofm;
@@ -393,7 +392,7 @@ function LowWeaponEnhancementLoader(data: Wafle.IEveInventoryTypeAttributes, tar
     }
     }
 
-function ArmorPlateAndCoatingLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function ArmorPlateAndCoatingLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     if (data.ahp) {
         target.armorHPBonusAdd = data.ahp;
     }
@@ -418,7 +417,7 @@ function ArmorPlateAndCoatingLoader(data: Wafle.IEveInventoryTypeAttributes, tar
     }
     }
 
-function PowerModuleLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function PowerModuleLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.slotUsed = Wafle.FittingSlotType.Low;
     target.powerGridIncrease = data.pginc;
     target.cpuUsageActual = function (ship: Wafle.Ship) { 
@@ -429,7 +428,7 @@ function PowerModuleLoader(data: Wafle.IEveInventoryTypeAttributes, target: Base
     }
     }
 
-function DamageControlLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function DamageControlLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
 
     target.hullResists = new Wafle.ResistSet(data.hemr, data.hexr, data.hkir, data.hthr, false);
     target.armorResists = new Wafle.ResistSet(data.aemr, data.aexr, data.akir, data.athr, false);
@@ -444,7 +443,7 @@ function DamageControlLoader(data: Wafle.IEveInventoryTypeAttributes, target: Ba
     }
     }
 
-function ChargeLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function ChargeLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.emBaseDamage = data.emd;
     target.explosiveBaseDamage = data.exd;
     target.kineticBaseDamage = data.kid;
@@ -455,7 +454,7 @@ function ChargeLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipE
     target.trackingSpeedModifier = data.tsm;
 }
 
-function NanofiberLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function NanofiberLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
 
     target.shipHullHPMultiplier = data.sshpm;
     target.agilityMultiplier = data.agim;
@@ -469,7 +468,7 @@ function NanofiberLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseSh
     }
     }
 
-function NosNeutLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData) {
+function NosNeutLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes) {
     target.slotUsed = Wafle.FittingSlotType.High;
     target.optimalRange = data.opt;
     target.capacitorNeed = data.capn;
@@ -484,7 +483,7 @@ function NosNeutLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShip
     }
     }
 
-function RigLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEquipmentData): void {
+function RigLoader(data: Wafle.IEveInventoryTypeAttributes, target: InventoryTypeAttributes): void {
     target.cpuUsageActual = () => {return 0 };
     target.powergridUsageActual = () => {return 0 };
     target.slotUsed = Wafle.FittingSlotType.Rig;
@@ -528,5 +527,5 @@ function RigLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipEqui
 }
 
 
-export = BaseShipEquipmentData;
+export = InventoryTypeAttributes;
 

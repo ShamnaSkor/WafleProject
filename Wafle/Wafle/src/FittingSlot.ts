@@ -1,8 +1,8 @@
 ﻿import Wafle = require("../wafle");
 
 class FittingSlot {
-    private loadedCharge: Wafle.BaseShipEquipmentData = null;
-    public baseShipEquipmentData: Wafle.BaseShipEquipmentData = null;
+    private loadedCharge: Wafle.InventoryTypeAttributes = null;
+    public baseShipEquipmentData: Wafle.InventoryTypeAttributes = null;
     public cpuUsage(): number {
         if (this.baseShipEquipmentData) {
             return this.baseShipEquipmentData.cpuUsageActual(this.ship);
@@ -42,7 +42,7 @@ class FittingSlot {
         }
 
         //bug: this seems to break an existing module regardless of if the new module is valid.
-        this.baseShipEquipmentData = new Wafle.BaseShipEquipmentData(calcGroupId, typeId);
+        this.baseShipEquipmentData = new Wafle.InventoryTypeAttributes(calcGroupId, typeId);
         if (this.baseShipEquipmentData) {
             if (this.baseShipEquipmentData.slotUsed !== this.slotType) {
                 var errorMessage = "Module " + this.baseShipEquipmentData.name + ' only fits in a ' + Wafle.FittingSlotType[this.baseShipEquipmentData.slotUsed] + ' slot.';
@@ -60,7 +60,7 @@ class FittingSlot {
         if (!Wafle.Data.IsLoadableCharge(type)) {
             throw "Type " + type.typeId + " in group " + type.groupId + " is not a loadable charge.";
         }
-        var charge = new Wafle.BaseShipEquipmentData(type);
+        var charge = new Wafle.InventoryTypeAttributes(type);
         if (charge.launcherGroup !== this.baseShipEquipmentData.groupId) {
             throw "Type " + type.typeId + " is not compatible with a launcher of type " + this.baseShipEquipmentData.name + ".";
         }

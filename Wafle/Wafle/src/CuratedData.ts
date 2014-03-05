@@ -76,15 +76,15 @@ export function IsLoadableCharge(type: Wafle.TypeInfo): boolean {
         type.groupId === w.Rocket);
 }
 
-export function IsBlaster(bsed: Wafle.BaseShipEquipmentData): boolean {
+export function IsBlaster(bsed: Wafle.InventoryTypeAttributes): boolean {
     return (bsed.groupId === Wafle.InventoryGroups.HybridWeapon && bsed.parentMarketGroup === 556);
 }
 
-export function IsRailgun(bsed: Wafle.BaseShipEquipmentData): boolean {
+export function IsRailgun(bsed: Wafle.InventoryTypeAttributes): boolean {
     return (bsed.groupId === Wafle.InventoryGroups.HybridWeapon && bsed.parentMarketGroup === 555);
 }
 
-export function ShipOmniDamageMultiplier(ship: Wafle.Ship, attackingModule: Wafle.BaseShipEquipmentData, charge: Wafle.BaseShipEquipmentData): number {
+export function ShipOmniDamageMultiplier(ship: Wafle.Ship, attackingModule: Wafle.InventoryTypeAttributes, charge: Wafle.InventoryTypeAttributes): number {
 
     var mult = 1.0;
 

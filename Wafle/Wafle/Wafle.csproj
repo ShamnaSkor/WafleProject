@@ -29,7 +29,7 @@
     <TypeScriptCompile Include="Scripts\typings\qunit\qunit.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\require\require.d.ts" />
     <TypeScriptCompile Include="src\BaseShipData.ts" />
-    <TypeScriptCompile Include="src\BaseShipEquipmentData.ts" />
+    <TypeScriptCompile Include="src\InventoryTypeAttributes.ts" />
     <TypeScriptCompile Include="src\CpuFormulas.ts" />
     <TypeScriptCompile Include="src\CuratedData.ts" />
     <TypeScriptCompile Include="src\FittingSlot.ts" />

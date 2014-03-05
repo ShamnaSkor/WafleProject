@@ -7,7 +7,7 @@ class Pilot {
         this.skills = new Wafle.Skills();
     }
 
-    public OmniDamageMultiplier(attackingModule: Wafle.BaseShipEquipmentData): number {
+    public OmniDamageMultiplier(attackingModule: Wafle.InventoryTypeAttributes): number {
         var mult = 1.0;
         if (attackingModule.groupId === Wafle.InventoryGroups.ProjectileWeapon) {
             mult *= this.skills.surgicalStrikeDamageMultiplier();

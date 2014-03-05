@@ -5,8 +5,8 @@ class Ship {
     public baseShipData: Wafle.BaseShipData;
     public pilot: Wafle.Pilot = null;
     public fittingSlots: Wafle.FittingSlot[] = [];
-    public droneBay: Wafle.BaseShipEquipmentData[] = [];
-    public cargoHold: Wafle.BaseShipEquipmentData[] = [];
+    public droneBay: Wafle.InventoryTypeAttributes[] = [];
+    public cargoHold: Wafle.InventoryTypeAttributes[] = [];
 
     /** in Mbit/sec */
     public DroneBandwidthUsed(): number {
@@ -40,7 +40,7 @@ class Ship {
         return capacityUsed;
     }
     public LoadDrone(droneType: Wafle.TypeInfo) {
-        var drone = new Wafle.BaseShipEquipmentData(droneType);
+        var drone = new Wafle.InventoryTypeAttributes(droneType);
         if (drone.volume > this.DroneCapacityRemaining()) {
             throw "This drone will not fit in the drone bay.";
         }
@@ -408,28 +408,28 @@ class Ship {
         return theArray.sort(function (a, b) {return Math.abs(b) - Math.abs(a) });
     }
 
-    public emDamageMultiplier(attackingModule: Wafle.BaseShipEquipmentData, charge: Wafle.BaseShipEquipmentData): number {
+    public emDamageMultiplier(attackingModule: Wafle.InventoryTypeAttributes, charge: Wafle.InventoryTypeAttributes): number {
         var multiplier = Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge);
         if (this.pilot) {
             multiplier *= this.pilot.OmniDamageMultiplier(attackingModule);
         }
         return multiplier;
     }
-    public explosiveDamageMultiplier(attackingModule: Wafle.BaseShipEquipmentData, charge: Wafle.BaseShipEquipmentData): number {
+    public explosiveDamageMultiplier(attackingModule: Wafle.InventoryTypeAttributes, charge: Wafle.InventoryTypeAttributes): number {
         var multiplier = Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge);
         if (this.pilot) {
             multiplier *= this.pilot.OmniDamageMultiplier(attackingModule);
         }
         return multiplier;
     }
-    public kineticDamageMultiplier(attackingModule: Wafle.BaseShipEquipmentData, charge: Wafle.BaseShipEquipmentData): number {
+    public kineticDamageMultiplier(attackingModule: Wafle.InventoryTypeAttributes, charge: Wafle.InventoryTypeAttributes): number {
         var multiplier = Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge);
         if (this.pilot) {
             multiplier *= this.pilot.OmniDamageMultiplier(attackingModule);
         }
         return multiplier;
     }
-    public thermalDamageMultiplier(attackingModule: Wafle.BaseShipEquipmentData, charge: Wafle.BaseShipEquipmentData): number {
+    public thermalDamageMultiplier(attackingModule: Wafle.InventoryTypeAttributes, charge: Wafle.InventoryTypeAttributes): number {
         var multiplier = Wafle.Data.ShipOmniDamageMultiplier(this, attackingModule, charge);
         if (this.pilot) {
             multiplier *= this.pilot.OmniDamageMultiplier(attackingModule);
