@@ -48,7 +48,7 @@ if (process.argv.length !== 4 ) {
 }
 
 
-var outputCodeFile = currentScriptPath + '\\..\\Wafle\\wafleData.ts';
+var outputCodeFile = currentScriptPath + '\\..\\Wafle\\wafleDataBlob.js';
 var connectionString = "Driver={SQL Server Native Client 11.0};Server={" + process.argv[2] + "};Database={" + process.argv[3] + "};Trusted_Connection={Yes};";
 
 var buffer = new StringBuilder();
@@ -58,9 +58,7 @@ buffer.append('  This data was extracted from the EVE Community Toolkit: http://
 buffer.append('  Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.\n\n');
 buffer.append('  All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/\n\n');
 buffer.append('*/\n\n');
-buffer.append("///<reference path=\"wafle.ts\"/>\n\n");
-buffer.append("module Wafle.Data {\n");
-buffer.append('    export var Types = { \n');
+buffer.append('var WafleDataBlob = { \n');
 
 console.log("Connecting to SQL Server...");
 sql.open(connectionString, function (err, conn) {
@@ -353,33 +351,19 @@ sql.open(connectionString, function (err, conn) {
         }
         buffer.append('    }\n');
         buffer.append('  };\n');
-        buffer.append('  export var TypeToGroupIDMapping = {\n');
-
-        conn.query("select typeID, groupID from dbo.invTypes where groupID IN (" + MarketGroupIDs.join(',') + ")", function (err, typeLookupResults) {
-            for (i = 0; i < typeLookupResults.length; i++) {
-                buffer.append('    "' + typeLookupResults[i].typeID + '": ' + typeLookupResults[i].groupID);
-                if (i + 1 !== typeLookupResults.length) {
-                    buffer.append(',');
-                }
-                buffer.append('\n');
-            }
-            buffer.append('  };\n');
-            buffer.append('}\n');
-
 
 
             fs.writeFile(outputCodeFile, buffer.toString(), function (err) {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log("\n\nWafleData.ts updated successfully.");
-                    console.log("Don't forget to run the Wafle build script to compile and minify the data!");
+                    console.log("\n\nWafleDataBlob.js was updated successfully.");
+                    console.log("Don't forget to run the Wafle build script to minify the data!");
                 }
             });
         });
     });
 
-});
 
 function fixupStringForJSON(theString: string) {
     return theString.replace(/\r/g, '').replace(/\n/g, '\\n\\\n').replace(/"/g, '\\"');
