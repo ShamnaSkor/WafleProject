@@ -270,16 +270,16 @@ function TurretLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShipE
     }
     target.powergridUsageActual = (ship: Wafle.Ship) => Wafle.PowergridFormulas.standardWeapon(ship, target.powergridUsage);
     target.emAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.emBaseDamage * target.damageMultiplier * ship.emDamageMultiplier(target, charge);
+        return (charge.emBaseDamage ? charge.emBaseDamage : 0) * target.damageMultiplier * ship.emDamageMultiplier(target, charge);
     };
     target.explosiveAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.explosiveBaseDamage * target.damageMultiplier * ship.explosiveDamageMultiplier(target, charge);
+        return (charge.explosiveBaseDamage ? charge.explosiveBaseDamage : 0) * target.damageMultiplier * ship.explosiveDamageMultiplier(target, charge);
     };
     target.kineticAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.kineticBaseDamage * target.damageMultiplier * ship.kineticDamageMultiplier(target, charge);
+        return (charge.kineticBaseDamage ? charge.kineticBaseDamage : 0) * target.damageMultiplier * ship.kineticDamageMultiplier(target, charge);
     };
     target.thermalAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.thermalBaseDamage * target.damageMultiplier * ship.thermalDamageMultiplier(target, charge);
+        return (charge.thermalBaseDamage ? charge.thermalBaseDamage : 0) * target.damageMultiplier * ship.thermalDamageMultiplier(target, charge);
     };
 }
 
@@ -291,16 +291,16 @@ function LauncherLoader(data: Wafle.IEveInventoryTypeAttributes, target: BaseShi
     target.powergridUsageActual = (ship: Wafle.Ship) => Wafle.PowergridFormulas.standardWeapon(ship, target.powergridUsage);
     target.launcherGroup = data.lg;
     target.emAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.emBaseDamage * ship.emDamageMultiplier(target, charge);
+        return (charge.emBaseDamage ? charge.emBaseDamage : 0) * ship.emDamageMultiplier(target, charge);
     };
     target.explosiveAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.explosiveBaseDamage * ship.explosiveDamageMultiplier(target, charge);
+        return (charge.explosiveBaseDamage ? charge.explosiveBaseDamage : 0) * ship.explosiveDamageMultiplier(target, charge);
     };
     target.kineticAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.kineticBaseDamage * ship.kineticDamageMultiplier(target, charge);
+        return (charge.kineticBaseDamage ? charge.kineticBaseDamage : 0) * ship.kineticDamageMultiplier(target, charge);
     };
     target.thermalAlphaDamageActual = (ship: Wafle.Ship, charge: BaseShipEquipmentData) => {
-        return charge.thermalBaseDamage * ship.thermalDamageMultiplier(target, charge);
+        return (charge.thermalBaseDamage ? charge.thermalBaseDamage : 0) * ship.thermalDamageMultiplier(target, charge);
     };
 }
 
