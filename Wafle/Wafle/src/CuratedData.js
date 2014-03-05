@@ -1,5 +1,5 @@
 ﻿define(["require", "exports", "../wafle"], function(require, exports, Wafle) {
-    exports.Types;
+    exports.Types = {};
 
     exports.TypeToGroupIDMapping = [];
 

@@ -1,6 +1,6 @@
 ﻿import Wafle = require("../wafle");
 
-export var Types: Wafle.IEveInventoryGroupMap;
+export var Types: Wafle.IEveInventoryGroupMap = {};
 
 export var TypeToGroupIDMapping = [];
 
