@@ -58,19 +58,20 @@ buffer.append('  This data was extracted from the EVE Community Toolkit: http://
 buffer.append('  Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.\n\n');
 buffer.append('  All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/\n\n');
 buffer.append('*/\n\n');
-buffer.append('var WafleDataBlob = { \n');
+buffer.append('var WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP = [ \n');
 
 console.log("Connecting to SQL Server...");
 sql.open(connectionString, function (err, conn) {
 
     //Dear future code reviewer: this SQL statement is a great example of the type of code that is only OK to write
     // when you are developing a data extract script that runs from time to time off a development server.
-    var sqlQuery = "With BaseShipEquipData (typeId, groupId, name, marketGroupId, parentMarketGroupId, raceId, description, volume, capacity)  AS \n" +
-        "	(SELECT it.typeID, it.groupID, it.typeName, it.marketGroupID, parentGroupID, it.raceID, it.description, it.volume, it.capacity \n" +
+    var sqlQuery = "With BaseShipEquipData (typeId, groupId, groupName, name, marketGroupId, parentMarketGroupId, raceId, description, volume, capacity)  AS \n" +
+        "	(SELECT it.typeID, it.groupID, g.groupName, it.typeName, it.marketGroupID, parentGroupID, it.raceID, it.description, it.volume, it.capacity \n" +
         "		FROM dbo.invTypes it \n" +
         "		INNER JOIN dbo.invMarketGroups mg ON mg.marketGroupID = it.marketGroupID \n" +
+        "		INNER JOIN dbo.invGroups g ON g.groupID = it.groupID \n" +
         "		WHERE it.groupID IN (" + MarketGroupIDs.join(',') + ") and it.published = 1) \n" +
-        "SELECT bse.typeId, bse.groupId, bse.name, bse.marketGroupId, bse.parentMarketGroupId, bse.raceId, bse.description, bse.volume, NULLIF(bse.capacity,0) [capacity], \n" +
+        "SELECT bse.typeId, bse.groupId, bse.groupName, bse.name, bse.marketGroupId, bse.parentMarketGroupId, bse.raceId, bse.description, bse.volume, NULLIF(bse.capacity,0) [capacity], \n" +
         "	ISNULL(cpu.valueFloat,cpu.valueInt) as [cpu], \n" +
         "	ISNULL(pg.valueFloat,pg.valueInt) as [powergrid], \n" +
         "	ISNULL(pginc.valueFloat,pginc.valueInt) as [powergridIncrease], \n" +
@@ -238,12 +239,12 @@ sql.open(connectionString, function (err, conn) {
         for (var i = 0; i < results.length; i++) {
             if (previousGroupID !== results[i].groupId) {
                 if (previousGroupID !== '') {
-                    buffer.append('    },\n');
+                    buffer.append('  ]},\n');
                 }
-                buffer.append('    "' + results[i].groupId + '": {\n');
+                buffer.append(' {gid:' + results[i].groupId + ', n:"' + results[i].groupName + '", gts:[\n');
                 previousGroupID = results[i].groupId;
             }
-            buffer.append('      "' + results[i].typeId + '": { n: "' + results[i].name + '", mg: ' + results[i].marketGroupId + ', pmg: ' + results[i].parentMarketGroupId + ', mta: ' + results[i].metalevel + ', d: "' + fixupStringForJSON(results[i].description) + '"');
+            buffer.append('  {id:' + results[i].typeId + ', n:"' + results[i].name + '", mg:' + results[i].marketGroupId + ', pmg:' + results[i].parentMarketGroupId + ', mta:' + results[i].metalevel + ', d:"' + fixupStringForJSON(results[i].description) + '"');
 
             buffer.append(aliasedPropertyValueOrBlank(results[i], "volume", "v"));
             buffer.append(aliasedPropertyValueOrBlank(results[i], "capacity", "c"));
@@ -345,12 +346,37 @@ sql.open(connectionString, function (err, conn) {
           
             buffer.append('}');
             if (i + 1 !== results.length && results[i + 1].groupId === results[i].groupId) {
-                buffer.append(',');
+                    buffer.append(',');
             }
             buffer.append('\n');
         }
-        buffer.append('    }\n');
-        buffer.append('  };\n');
+        buffer.append('  ]}\n');
+        buffer.append('];\n\n');
+
+
+        sqlQuery = "SELECT parentGroupID, marketGroupID, marketGroupName FROM dbo.invMarketGroups ORDER BY parentGroupID, marketGroupName;";
+
+        console.log("Querying marketGroup data ...");
+        conn.query(sqlQuery, function (err, results) {
+            if (!results) {
+                console.warn("error on marketGroup query: " + err);
+                return;
+            }
+            buffer.append('var WAFLE_DATA_BLOB_MARKET_GROUPS = [ \n');
+            for (var i = 0; i < results.length; i++) {
+                var parentGroupIDJsonFragment = aliasedPropertyValueOrBlank(results[i], "parentGroupID", "pgid", false);
+                if (parentGroupIDJsonFragment.length > 0) {
+                    parentGroupIDJsonFragment = parentGroupIDJsonFragment + ", ";
+                }
+                buffer.append("{" + parentGroupIDJsonFragment +
+                    aliasedPropertyValueOrBlank(results[i], "marketGroupID", "mgid", false) + ", n:\"" +
+                    fixupStringForJSON(results[i].marketGroupName) + "\"}");
+                if (i + 1 !== results.length) {
+                    buffer.append(",");
+                }
+            }
+            buffer.append('\n];\n\n');
+
 
 
             fs.writeFile(outputCodeFile, buffer.toString(), function (err) {
@@ -362,15 +388,18 @@ sql.open(connectionString, function (err, conn) {
                 }
             });
         });
+
     });
+});
 
 
-function fixupStringForJSON(theString: string) {
-    return theString.replace(/\r/g, '').replace(/\n/g, '\\n\\\n').replace(/"/g, '\\"');
+function fixupStringForJSON(theString: string): string {
+    return "" + theString.replace(/\r/g, '').replace(/\n/g, '\\n\\\n').replace(/"/g, '\\"');
 }
 
 function aliasedPropertyValueOrBlank(theRow: any, theFieldName: string, theJSONPropertyAlias: string, includeLeadingComma?: boolean) {
-    if (theRow[theFieldName] !== null) {
-        return ((includeLeadingComma === false) ? "" : ", ") + theJSONPropertyAlias + ": " + theRow[theFieldName]
+    if (theRow[theFieldName]) {
+        return ((includeLeadingComma === false) ? "" : ", ") + theJSONPropertyAlias + ": " + theRow[theFieldName];
     }
+    return "";
 }
