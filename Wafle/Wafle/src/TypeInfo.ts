@@ -21,9 +21,17 @@ class TypeInfo implements Wafle.ITypeInfo {
         this.groupId = TypeInfo.TypeInfoByTypeId(this.typeId).groupId;
     }
 
+    /** Give a second shot to see if the data variable has loaded. */
+    private static AllWafleTypeInventoryData() : Wafle.IWafleTypeDataBlob {
+        if (Wafle.Data.Types.length === 0) {
+            Wafle.Data.Types = WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP || [];
+        }
+        return Wafle.Data.Types;
+    }
+
     /** returns a new TypeInfo object based on the name of the type */
     public static TypeInfoByTypeId(typeId: number): TypeInfo {
-        var t = Wafle.Data.Types;
+        var t = TypeInfo.AllWafleTypeInventoryData();
         for (var groupIndex = 0; groupIndex < t.length; groupIndex++) {
             var g = t[groupIndex], groupTypes = g.gts;
             for (var typeIndex = 0; typeIndex < groupTypes.length; typeIndex++) {
@@ -37,7 +45,7 @@ class TypeInfo implements Wafle.ITypeInfo {
 
     /** returns a new TypeInfo object based on the name of the type */
     public static TypeInfoByName(name: string): TypeInfo {
-        var t = Wafle.Data.Types;
+        var t = TypeInfo.AllWafleTypeInventoryData();
         for (var groupIndex = 0; groupIndex < t.length; groupIndex++) {
             var g = t[groupIndex], groupTypes = g.gts;
             for (var typeIndex = 0; typeIndex < groupTypes.length; typeIndex++) {
@@ -51,7 +59,7 @@ class TypeInfo implements Wafle.ITypeInfo {
 
     /** returns a new type attribute property bag based on the passed parameters */
     public static GetTypeAttributes(typeId: number, groupId: number): Wafle.IEveInventoryTypeAttributes {
-        var t = Wafle.Data.Types;
+        var t = TypeInfo.AllWafleTypeInventoryData();
         for (var groupIndex = 0; groupIndex < t.length; groupIndex++) {
             if (t[groupIndex].gid === groupId) {
                 var g = t[groupIndex], groupTypes = g.gts;
@@ -67,7 +75,7 @@ class TypeInfo implements Wafle.ITypeInfo {
 
     /** Returns the index of the groupId in the array or -1 if the groupId is not found. */
     public static groupIndex(groupId: number): number {
-        var t = Wafle.Data.Types;
+        var t = TypeInfo.AllWafleTypeInventoryData();
         for (var groupIndex = 0; groupIndex < t.length; groupIndex++) {
             if (t[groupIndex].gid === groupId) {
                 return groupIndex;
@@ -81,7 +89,8 @@ class TypeInfo implements Wafle.ITypeInfo {
         var types: Wafle.INamedType[] = [];
         var groupIndex = TypeInfo.groupIndex(theGroupId);
         if (groupIndex > -1) {
-            var groupTypes = Wafle.Data.Types[groupIndex].gts;
+            var t = TypeInfo.AllWafleTypeInventoryData();
+            var groupTypes = t[groupIndex].gts;
             for (var typeIndex = 0; typeIndex < groupTypes.length; typeIndex++) {
                 var theItem: Wafle.INamedType = {
                     name: groupTypes[typeIndex].n,

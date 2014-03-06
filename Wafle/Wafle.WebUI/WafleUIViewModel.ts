@@ -1,9 +1,8 @@
-/// <reference path="../Wafle/wafleInterfaces.ts" />
-/// <reference path="../Wafle/wafleCore.ts" />
-/// <reference path="Scripts/typings/jquery/jquery.d.ts" />
-/// <reference path="Scripts/typings/jqueryui/jqueryui.d.ts" />
-/// <reference path="Scripts/typings/knockout/knockout.d.ts" />
+
+import Wafle = require('../Wafle/wafle');
+
 "use strict";
+
 
 //Thanks to: http://www.strathweb.com/2012/07/knockout-js-pro-tips-working-with-observable-arrays/
 //Thanks to: http://stackoverflow.com/questions/13168051/knockout-observablearray-in-typescript
@@ -109,7 +108,7 @@ class WafleUIViewModel {
     }
 
     private QuickLoadShips(): void {
-        ko.utils.arrayPushAll<Wafle.INamedType>(this.AllShips, Wafle.FindNamedTypesByGroup(25));  //todo: just frigates for now.
+        ko.utils.arrayPushAll<Wafle.INamedType>(this.AllShips, Wafle.TypeInfo.FindNamedTypesByGroup(25));  //todo: just frigates for now.
         this.AllShips.valueHasMutated();
     }
 
@@ -121,7 +120,7 @@ class WafleUIViewModel {
         var ul: HTMLUListElement = document.createElement("ul");
         ul.id = "shipEquipmentTypeList";
 
-        var elements: Wafle.INamedType[] = Wafle.FindNamedTypesByGroup(this.SelectedShipEquipmentGroupId());
+        var elements: Wafle.INamedType[] = Wafle.TypeInfo.FindNamedTypesByGroup(this.SelectedShipEquipmentGroupId());
         for (var i = 0; i < elements.length; i++) {
             var li: HTMLLIElement = document.createElement("li");
             if (!!li.setAttribute) {

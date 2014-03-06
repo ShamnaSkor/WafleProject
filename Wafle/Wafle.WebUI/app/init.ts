@@ -12,4 +12,4 @@
     }
 });
 
-require(['main'], () => {});
+requirejs(['main'], () => {});
