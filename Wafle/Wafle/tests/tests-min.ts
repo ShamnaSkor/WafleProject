@@ -1,7 +1,7 @@
 ﻿requirejs.config({
     paths: {
-        "wafle": "wafle",
-        "wafledata": "wafleDataBlob",
+        "wafle": "./build/wafle.min",
+        "wafledata": "./build/wafleData.min",
         "tests": "tests/tests"
     },
     baseUrl: ".."

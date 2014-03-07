@@ -41,6 +41,8 @@
     <TypeScriptCompile Include="src\Skills.ts" />
     <TypeScriptCompile Include="src\TypeInfo.ts" />
     <TypeScriptCompile Include="tests\init.ts" />
+    <TypeScriptCompile Include="tests\tests-built.ts" />
+    <TypeScriptCompile Include="tests\tests-min.ts" />
     <TypeScriptCompile Include="tests\tests.ts" />
     <TypeScriptCompile Include="tests\tests-dev.ts" />
     <TypeScriptCompile Include="wafle.ts" />

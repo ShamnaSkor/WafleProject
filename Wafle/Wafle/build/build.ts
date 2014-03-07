@@ -3,8 +3,6 @@
 //todo: fix for non-Windows platforms.
 //For help setting up your environment, visit https://github.com/ShamnaSkor/WafleProject/wiki/Setting-up-a-development-environment-on-windows
 
-
-
 var buildJSPath = __dirname;
 console.log("Loading compilation dependencies...");
 var fs = require("fs");
@@ -19,7 +17,6 @@ eval(fs.readFileSync(path.join(buildJSPath, '../wafleDataBlob.js')) + '');
 console.log("Loading Require...");
 var requirejsForBuild = require('requirejs');
 
-
 requirejsForBuild.config({
     //Pass the top-level main.js/index.js require
     //function to requirejs so that node modules
@@ -33,10 +30,8 @@ requirejsForBuild(['../wafle'],
         var wafleDone = false, wafleDataDone = false, wafleDevDone = false;
 
         var wafleVersion: string = wafle.Version;
-
-        console.log("Identifying Wafle library version...");
-
-        console.log("Wafle version is: " + wafleVersion);
+        
+        console.log("Wafle library version is: " + wafleVersion);
 
         console.log("Compiling Wafle TypeScript files...");
 
@@ -62,9 +57,7 @@ requirejsForBuild(['../wafle'],
             tsFilesToCompile.push('"' + path.join(buildJSPath, "..", filesToCompile[i]) + '.ts"');
         }
 
-
-        //var tscCompileCommandLine = 'tsc --sourcemap --module amd --target ES5 --outDir "' + buildJSPath + '" ' + tsFilesToCompile.join(" ");
-        var TSC_BASE_COMMAND_LINE = 'tsc --sourcemap --module amd --target ES5 ';
+        var TSC_BASE_COMMAND_LINE = 'tsc --sourcemap --declaration --module amd --target ES5 ';
 
         var basicBuildCommandLine = TSC_BASE_COMMAND_LINE + '--outDir "' + buildJSPath + '" ' + tsFilesToCompile.join(" ");
 
@@ -80,37 +73,27 @@ requirejsForBuild(['../wafle'],
                 return;
             }
 
-
             console.log("Copying data blob to build folder...");
             copyFileSync(path.join(buildJSPath, "../wafleDataBlob.js"), path.join(buildJSPath, "wafleDataBlob.js"));
 
-            //var jsFilesToUglify: string[] = [];
-
-            //fix all of the relative paths...
-            //for (var i = 0; i < filesToCompile.length; i++) {
-            //    jsFilesToUglify.push('"' + path.join(buildJSPath, filesToCompile[i]) + '.js"');
-            //}
-
-            var config = {
+            var requireOptimizeConfig = {
                 baseUrl: buildJSPath,
                 name: 'wafle',
                 out: path.join(buildJSPath, 'wafle.dev.js')
             };
 
-            requirejsForBuild.optimize(config, function (buildResponse) {
-                console.log("Optimized JS script written to disk: " + config.out);
+            requirejsForBuild.optimize(requireOptimizeConfig, function (buildResponse) {
+                console.log("Optimized JS script written to disk: " + requireOptimizeConfig.out);
             }, function (err) {
                 console.log("Error calling optimize: " + err);
             });
 
-            //var mainUglifyCommand = 'uglifyjs ' + jsFilesToUglify.join(" ") + ' -o ';
+            var mainUglifyCommand = 'uglifyjs "' + path.join(buildJSPath, 'wafle.dev.js') + '" -o ';
 
-            //console.log("Uglifying Wafle library (min)...");
-            //var uglifyWafle = exec(mainUglifyCommand + '"' + path.join(buildJSPath, 'wafle.min.js') + '" -m -c unused=false --comments --source-map="wafle.min.js.map" --source-map-url="/lib/wafle.min.js.map" ', uglifyWafleCallback);
-            //console.log("Uglifying Wafle library (dev)...");
-            //var uglifyWafle = exec(mainUglifyCommand + '"' + path.join(buildJSPath, 'wafle.dev.js') + '" -b --comments', uglifyWafleDevCallback);
-            //console.log("Uglifying Wafle Data file (min)...");
-            //var uglifyWafleData = exec('uglifyjs "' + path.join(buildJSPath, '../wafleDataBlob.js') + '" -o "' + path.join(buildJSPath, 'wafleData.min.js') + '" --comments', uglifyWafleDataCallback);
+            console.log("Uglifying Wafle library (min)...");
+            var uglifyWafle = exec(mainUglifyCommand + '"' + path.join(buildJSPath, 'wafle.min.js') + '" -m -c unused=false --comments --source-map="wafle.min.js.map" --source-map-url="/lib/wafle.min.js.map" ', uglifyWafleCallback);
+            console.log("Uglifying Wafle Data file (min)...");
+            var uglifyWafleData = exec('uglifyjs "' + path.join(buildJSPath, '../wafleDataBlob.js') + '" -m -o "' + path.join(buildJSPath, 'wafleData.min.js') + '" --comments', uglifyWafleDataCallback);
 
         }
         
@@ -126,18 +109,6 @@ requirejsForBuild(['../wafle'],
             reportAndCheckAllDone("Wafle (min)");
         }
 
-
-        function uglifyWafleDevCallback(error, stdout, stderr) {
-            if (error !== null) {
-                console.log("Error Uglifying Wafle Dev.");
-                console.log(error);
-                return;
-            }
-            copyFileSync(path.join(buildJSPath, "wafle.dev.js"), path.join(buildJSPath, "wafle-" + wafleVersion + ".js"));
-            wafleDevDone = true;
-            reportAndCheckAllDone("Wafle (dev)");
-        }
-
         function uglifyWafleDataCallback(error, stdout, stderr) {
             if (error !== null) {
                 console.log("Error Uglifying WafleData.");
@@ -151,7 +122,7 @@ requirejsForBuild(['../wafle'],
 
         var reportAndCheckAllDone = function (theLibraryName) {
             console.log("Finished uglifying " + theLibraryName);
-            if (wafleDone && wafleDataDone && wafleDevDone) {
+            if (wafleDone && wafleDataDone) {
                 console.log("All done.");
             }
         }
