@@ -17,8 +17,9 @@ Wafle/Wafle.WebUI/lib/wafle*.js.map
 
 # Be specific about what to exclude in the build folder...
 Wafle/Wafle/build/build.js*
-Wafle/Wafle/build/wafle*.js*
-Wafle/Wafle/build/src/*.js*
+Wafle/Wafle/build/output/wafle*.js*
+Wafle/Wafle/build/output/src/*.js*
+
 
 
 
