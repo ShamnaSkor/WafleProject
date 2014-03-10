@@ -48,9 +48,7 @@
     <TypeScriptCompile Include="wafle.ts" />
     <Content Include="web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="output\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

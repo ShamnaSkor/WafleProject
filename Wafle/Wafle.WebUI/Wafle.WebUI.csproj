@@ -67,6 +67,7 @@
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\require\require.d.ts" />
     <TypeScriptCompile Include="WafleUIViewModel.ts" />
+    <TypeScriptCompile Include="_references.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -87,7 +88,7 @@
     <RootNamespace>Wafle.WebUI</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug_BuildUIOnly'">
     <DebugSymbols>true</DebugSymbols>
@@ -134,9 +135,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)..\Wafle\build\wafleData.min.js" "$(ProjectDir)lib" /Y /I
-xcopy "$(ProjectDir)..\Wafle\build\wafle.dev.js" "$(ProjectDir)lib" /Y /I
-
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

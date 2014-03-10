@@ -26,7 +26,8 @@ requirejsForBuild.config({
 });
 
 requirejsForVersion.config({
-    nodeRequire: require
+    nodeRequire: require,
+    baseUrl: path.join(buildJSPath, 'output')
 });
 
 
@@ -98,7 +99,7 @@ var OptimizeStep = function () {
 }
 
 var DetermineWafleVersion = function () {
-    requirejsForVersion(['./output/wafle.js'],
+    requirejsForVersion(['wafle'],
         function (wafle) {
             wafleVersion = wafle.Version;
             console.log("Wafle library version is: " + wafleVersion);
@@ -110,7 +111,7 @@ var UglificationStep = function () {
     var mainUglifyCommand = 'uglifyjs "' + path.join(buildJSPath, 'output/wafle.dev.js') + '" -o ';
 
     console.log("Uglifying Wafle library (min)...");
-    var uglifyWafle = exec(mainUglifyCommand + '"' + path.join(buildJSPath, 'output/wafle.min.js') + '" -m -c unused=false --comments --source-map="output/wafle.min.js.map" --source-map-url="/lib/wafle.min.js.map" ', uglifyWafleCallback);
+    var uglifyWafle = exec(mainUglifyCommand + '"' + path.join(buildJSPath, 'output/wafle.min.js') + '" -m -c unused=false --comments --source-map="' + path.join(buildJSPath, 'output/wafle.min.js.map') + '" --source-map-url="/lib/wafle.min.js.map" ', uglifyWafleCallback);
     console.log("Uglifying Wafle Data file (min)...");
     var uglifyWafleData = exec('uglifyjs "' + path.join(buildJSPath, 'output/wafleDataBlob.js') + '" -m -o "' + path.join(buildJSPath, 'output/wafleData.min.js') + '" --comments', uglifyWafleDataCallback);
 };
