@@ -12,6 +12,8 @@ Wafle/Wafle.WebUI/*.js
 Wafle/Wafle.WebUI/*.js.map
 Wafle/Wafle.WebUI/lib/wafle*.js
 Wafle/Wafle.WebUI/lib/wafle*.js.map
+Wafle/Wafle.WebUI/app/wafle*.js
+Wafle/Wafle.WebUI/app/wafle*.js.map
 !Wafle/Wafle/wafleDataBlob.js
 
 

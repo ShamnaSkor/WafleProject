@@ -1,4 +1,4 @@
-﻿define(["require", "exports", 'knockout', 'knockout.punches'], function(require, exports, ko, kop) {
+﻿define(["require", "exports", 'knockout', 'knockout.punches', 'wafle'], function(require, exports, ko, kop, Wafle) {
     kop; //todo: remove if TypeScript AMD issue is fixed.
 
     ko.punches.enableAll();
@@ -7,7 +7,8 @@
         name: "WAFLE Project",
         author: "Shamna Skor",
         webSite: "https://github.com/ShamnaSkor/WafleProject",
-        version: "Pre Alpha"
+        version: "Pre Alpha",
+        wafleVersion: Wafle.Version
     };
 });
 //# sourceMappingURL=about.js.map

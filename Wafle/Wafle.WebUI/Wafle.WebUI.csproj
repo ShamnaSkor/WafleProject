@@ -67,7 +67,7 @@
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\require\require.d.ts" />
     <TypeScriptCompile Include="WafleUIViewModel.ts" />
-    <TypeScriptCompile Include="_references.ts" />
+    <TypeScriptCompile Include="Scripts\_references.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -131,8 +131,9 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>xcopy "$(ProjectDir)..\Wafle\build\output\wafle.dev.js" "$(ProjectDir)lib" /Y /I
+xcopy "$(ProjectDir)..\Wafle\build\output\wafleData.min.js" "$(ProjectDir)lib" /Y /I
+</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
