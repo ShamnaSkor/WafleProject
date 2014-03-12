@@ -110,29 +110,29 @@ class InventoryTypeAttributes {
     constructor(typeInfo: Wafle.TypeInfo)
     constructor(groupId: number, typeId: number)
     constructor(p1: any, p2?: any) {
-    if (p1.typeId) {
-        if (!<Wafle.TypeInfo>p1.groupId) {
-            <Wafle.TypeInfo>p1.FindGroupId();
+        if (p1.typeId) {
+            if (!<Wafle.TypeInfo>p1.groupId) {
+                <Wafle.TypeInfo>p1.FindGroupId();
+            }
+            this.typeId = (<Wafle.TypeInfo>p1).typeId;
+            this.groupId = (<Wafle.TypeInfo>p1).groupId;
+        } else {
+            this.typeId = p2;
+            this.groupId = p1;
         }
-        this.typeId = (<Wafle.TypeInfo>p1).typeId;
-        this.groupId = (<Wafle.TypeInfo>p1).groupId;
-    } else {
-        this.typeId = p2;
-        this.groupId = p1;
-    }
 
-    if (Wafle.TypeInfo.groupIndex(this.groupId)===-1) {
-        throw "groupId " + this.groupId.toString() + " is not known.";
-    }
+        if (Wafle.TypeInfo.groupIndex(this.groupId)===-1) {
+            throw "groupId " + this.groupId.toString() + " is not known.";
+        }
 
-    var data: Wafle.IEveInventoryTypeAttributes = Wafle.TypeInfo.GetTypeAttributes(this.typeId, this.groupId);
-    if (!data) {
-        throw "typeId " + this.typeId.toString() + " in groupId " + this.groupId.toString() + " is not known.";
-    }
+        var data: Wafle.IEveInventoryTypeAttributes = Wafle.TypeInfo.GetTypeAttributes(this.typeId, this.groupId);
+        if (!data) {
+            throw "typeId " + this.typeId.toString() + " in groupId " + this.groupId.toString() + " is not known.";
+        }
 
-    ShipEquipmentLoader(data, this);
+        ShipEquipmentLoader(data, this);
 
-    switch (this.groupId) {
+        switch (this.groupId) {
         case Wafle.InventoryGroups.ProjectileWeapon: //fall through
         case Wafle.InventoryGroups.HybridWeapon: //fall through
         case Wafle.InventoryGroups.EnergyWeapon:
