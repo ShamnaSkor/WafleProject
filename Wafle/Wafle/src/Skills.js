@@ -1,4 +1,6 @@
-﻿define(["require", "exports"], function(require, exports) {
+﻿///<reference path="../_references.ts"/>
+var Wafle;
+(function (Wafle) {
     var Skills = (function () {
         function Skills() {
             this.PowerGridManagement = 0;
@@ -125,7 +127,6 @@
         };
         return Skills;
     })();
-    
-    return Skills;
-});
+    Wafle.Skills = Skills;
+})(Wafle || (Wafle = {}));
 //# sourceMappingURL=Skills.js.map

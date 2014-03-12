@@ -1,4 +1,8 @@
-﻿import Wafle = require("../wafle");
-export declare function standardWeapon(ship: Wafle.Ship, basePowergrid: number): number;
-export declare function standardModule(ship: Wafle.Ship, basePowergrid: number): number;
-export declare function shieldUpgradeModule(ship: Wafle.Ship, basePowergrid: number): number;
+﻿/// <reference path="../_references.d.ts" />
+declare module Wafle {
+    module PowergridFormulas {
+        function standardWeapon(ship: Ship, basePowergrid: number): number;
+        function standardModule(ship: Ship, basePowergrid: number): number;
+        function shieldUpgradeModule(ship: Ship, basePowergrid: number): number;
+    }
+}

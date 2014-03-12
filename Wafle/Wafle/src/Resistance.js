@@ -1,4 +1,6 @@
-﻿define(["require", "exports"], function(require, exports) {
+﻿///<reference path="../_references.ts"/>
+var Wafle;
+(function (Wafle) {
     var Resistance = (function () {
         /** baseResistRatio = Fractional damage amount taken - 90% damage taken (10% resisted) expressed as 0.9  */
         function Resistance(baseResistRatio) {
@@ -12,7 +14,6 @@
         };
         return Resistance;
     })();
-    
-    return Resistance;
-});
+    Wafle.Resistance = Resistance;
+})(Wafle || (Wafle = {}));
 //# sourceMappingURL=Resistance.js.map

@@ -1,13 +1,17 @@
-﻿import Wafle = require("../wafle");
-export declare var Types: Wafle.IWafleTypeDataBlob;
-export declare var TypeToGroupIDMapping: any[];
-export declare function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boolean;
-export declare function DrawbackIsMaxVelocityPenalty(type: Wafle.TypeInfo): boolean;
-export declare function DrawbackIsArmorAmount(type: Wafle.TypeInfo): boolean;
-export declare function AffectedByArmorCompensationSkills(type: Wafle.TypeInfo): boolean;
-export declare function IsTurret(type: Wafle.TypeInfo): boolean;
-export declare function IsLauncher(type: Wafle.TypeInfo): boolean;
-export declare function IsLoadableCharge(type: Wafle.TypeInfo): boolean;
-export declare function IsBlaster(bsed: Wafle.InventoryTypeAttributes): boolean;
-export declare function IsRailgun(bsed: Wafle.InventoryTypeAttributes): boolean;
-export declare function ShipOmniDamageMultiplier(ship: Wafle.Ship, attackingModule: Wafle.InventoryTypeAttributes, charge: Wafle.InventoryTypeAttributes): number;
+﻿declare var WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP: any;
+declare module Wafle {
+    module Data {
+        var Types: IWafleTypeDataBlob;
+        var TypeToGroupIDMapping: any[];
+        function DrawbackIsArmorRepairPowergridPenalty(type: TypeInfo): boolean;
+        function DrawbackIsMaxVelocityPenalty(type: TypeInfo): boolean;
+        function DrawbackIsArmorAmount(type: TypeInfo): boolean;
+        function AffectedByArmorCompensationSkills(type: TypeInfo): boolean;
+        function IsTurret(type: TypeInfo): boolean;
+        function IsLauncher(type: TypeInfo): boolean;
+        function IsLoadableCharge(type: TypeInfo): boolean;
+        function IsBlaster(bsed: InventoryTypeAttributes): boolean;
+        function IsRailgun(bsed: InventoryTypeAttributes): boolean;
+        function ShipOmniDamageMultiplier(ship: Ship, attackingModule: InventoryTypeAttributes, charge: InventoryTypeAttributes): number;
+    }
+}

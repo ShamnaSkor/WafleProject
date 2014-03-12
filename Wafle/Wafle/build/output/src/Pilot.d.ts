@@ -1,8 +1,9 @@
-﻿import Wafle = require("../wafle");
-declare class Pilot {
-    public name: string;
-    public skills: Wafle.Skills;
-    constructor(name: string);
-    public OmniDamageMultiplier(attackingModule: Wafle.InventoryTypeAttributes): number;
+﻿/// <reference path="../_references.d.ts" />
+declare module Wafle {
+    class Pilot {
+        public name: string;
+        public skills: Skills;
+        constructor(name: string);
+        public OmniDamageMultiplier(attackingModule: InventoryTypeAttributes): number;
+    }
 }
-export = Pilot;

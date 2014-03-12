@@ -1,4 +1,5 @@
-﻿define(["require", "exports", 'knockout', 'knockout.punches', 'wafle'], function(require, exports, ko, kop, Wafle) {
+﻿/// <reference path="..\..\Wafle\wafle.ts" />
+define(["require", "exports", 'knockout', 'knockout.punches', 'wafle'], function(require, exports, ko, kop, Wafle) {
     kop; //todo: remove if TypeScript AMD issue is fixed.
 
     ko.punches.enableAll();

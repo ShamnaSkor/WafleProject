@@ -1,15 +1,16 @@
-﻿import Wafle = require("../wafle");
-declare class FittingSlot {
-    public slotType: Wafle.FittingSlotType;
-    public ship: Wafle.Ship;
-    private loadedCharge;
-    public baseShipEquipmentData: Wafle.InventoryTypeAttributes;
-    public cpuUsage(): number;
-    public powergridUsage(): number;
-    constructor(slotType: Wafle.FittingSlotType, ship: Wafle.Ship);
-    public SetModule(typeId: number, groupId?: number): void;
-    public LoadedCharge(): Wafle.InventoryTypeAttributes;
-    public LoadCharge(type: Wafle.TypeInfo): void;
-    public totalAlphaDamage(): number;
+﻿/// <reference path="../_references.d.ts" />
+declare module Wafle {
+    class FittingSlot {
+        public slotType: FittingSlotType;
+        public ship: Ship;
+        private loadedCharge;
+        public baseShipEquipmentData: InventoryTypeAttributes;
+        public cpuUsage(): number;
+        public powergridUsage(): number;
+        constructor(slotType: FittingSlotType, ship: Ship);
+        public SetModule(typeId: number, groupId?: number): void;
+        public LoadedCharge(): InventoryTypeAttributes;
+        public LoadCharge(type: TypeInfo): void;
+        public totalAlphaDamage(): number;
+    }
 }
-export = FittingSlot;

@@ -22,11 +22,13 @@ var requirejsForBuild = require('requirejs');
 var requirejsForVersion = require('requirejs');
 
 requirejsForBuild.config({
-    nodeRequire: require
+    nodeRequire: require,
+    enforceDefine: true
 });
 
 requirejsForVersion.config({
     nodeRequire: require,
+    enforceDefine: true,
     baseUrl: path.join(buildJSPath, 'output')
 });
 
@@ -100,10 +102,15 @@ var OptimizeStep = function () {
 
 var DetermineWafleVersion = function () {
     requirejsForVersion(['wafle'],
-        function (wafle) {
-            wafleVersion = wafle.Version;
+        function (w) {
+            console.log(w);
+            wafleVersion = w.Wafle.Version;
             console.log("Wafle library version is: " + wafleVersion);
             OptimizeStep();
+        }, function (err) {
+            console.log("error loading newly compiled Wafle library...");
+            console.log(err.requireModules);
+            console.log(err.requireType);
         });
 };
 

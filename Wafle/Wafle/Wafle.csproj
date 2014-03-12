@@ -47,6 +47,7 @@
     <TypeScriptCompile Include="tests\tests-dev.ts" />
     <TypeScriptCompile Include="wafle.ts" />
     <Content Include="web.config" />
+    <TypeScriptCompile Include="_references.ts" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

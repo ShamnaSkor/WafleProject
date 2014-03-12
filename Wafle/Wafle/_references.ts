@@ -1,0 +1,13 @@
+﻿///<reference path="wafle.ts"/>
+///<reference path="src/CpuFormulas.ts"/>
+///<reference path="src/BaseShipData.ts"/>
+///<reference path="src/CuratedData.ts"/>
+///<reference path="src/FittingSlot.ts"/>
+///<reference path="src/InventoryTypeAttributes.ts"/>
+///<reference path="src/Pilot.ts"/>
+///<reference path="src/PowergridFormulas.ts"/>
+///<reference path="src/Resistance.ts"/>
+///<reference path="src/ResistSet.ts"/>
+///<reference path="src/Ship.ts"/>
+///<reference path="src/Skills.ts"/>
+///<reference path="src/TypeInfo.ts"/>

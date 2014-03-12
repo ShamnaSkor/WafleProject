@@ -1,4 +1,6 @@
-﻿define(["require", "exports", "../wafle"], function(require, exports, Wafle) {
+﻿///<reference path="../_references.ts"/>
+var Wafle;
+(function (Wafle) {
     var Pilot = (function () {
         function Pilot(name) {
             this.name = name;
@@ -36,7 +38,6 @@
         };
         return Pilot;
     })();
-    
-    return Pilot;
-});
+    Wafle.Pilot = Pilot;
+})(Wafle || (Wafle = {}));
 //# sourceMappingURL=Pilot.js.map

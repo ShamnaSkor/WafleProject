@@ -1,4 +1,6 @@
-﻿define(["require", "exports", "../wafle"], function(require, exports, Wafle) {
+﻿///<reference path="../_references.ts"/>
+var Wafle;
+(function (Wafle) {
     var ResistSet = (function () {
         function ResistSet(em, ex, ki, th, dr) {
             this.HasDiminishingReturns = true;
@@ -19,7 +21,6 @@
         };
         return ResistSet;
     })();
-    
-    return ResistSet;
-});
+    Wafle.ResistSet = ResistSet;
+})(Wafle || (Wafle = {}));
 //# sourceMappingURL=ResistSet.js.map

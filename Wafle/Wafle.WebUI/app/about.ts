@@ -1,4 +1,6 @@
-﻿import app = require('durandal/app');
+﻿/// <reference path="..\..\Wafle\wafle.ts" />
+
+import app = require('durandal/app');
 import ko = require('knockout');
 import kop = require('knockout.punches');
 import Wafle = require('wafle');

@@ -1,4 +1,5 @@
-import Wafle = require('wafle');
+///<reference path="../_references.ts"/>
+
 
 export function registerTests() {
 
