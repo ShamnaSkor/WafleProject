@@ -1,7 +1,10 @@
 ﻿import app = require('durandal/app');
 import ko = require('knockout');
 import kop = require('knockout.punches');
-import Wafle = require('wafle');
+//import Wafle = require('../../Wafle/build/output/wafle.d.ts');
+//import Wafle = require('../../Wafle/wafle.ts');
+import Wafle = require('../../Wafle/wafle');
+
 
 
 kop; //todo: remove if TypeScript AMD issue is fixed.
