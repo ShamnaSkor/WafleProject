@@ -66,8 +66,20 @@
     <TypeScriptCompile Include="Scripts\typings\knockout.punches\knockout.punches.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\require\require.d.ts" />
+    <TypeScriptCompile Include="src\BaseShipData.d.ts" />
+    <TypeScriptCompile Include="src\CpuFormulas.d.ts" />
+    <TypeScriptCompile Include="src\CuratedData.d.ts" />
+    <TypeScriptCompile Include="src\FittingSlot.d.ts" />
+    <TypeScriptCompile Include="src\InventoryTypeAttributes.d.ts" />
+    <TypeScriptCompile Include="src\Pilot.d.ts" />
+    <TypeScriptCompile Include="src\PowergridFormulas.d.ts" />
+    <TypeScriptCompile Include="src\Resistance.d.ts" />
+    <TypeScriptCompile Include="src\ResistSet.d.ts" />
+    <TypeScriptCompile Include="src\Ship.d.ts" />
+    <TypeScriptCompile Include="src\Skills.d.ts" />
+    <TypeScriptCompile Include="src\TypeInfo.d.ts" />
+    <TypeScriptCompile Include="wafle.d.ts" />
     <TypeScriptCompile Include="WafleUIViewModel.ts" />
-    <TypeScriptCompile Include="Scripts\_references.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

@@ -31,19 +31,19 @@ requirejsForVersion.config({
 });
 
 
-var filesToCompile: string[] = ["wafle",
-    "/src/BaseShipData",
-    "/src/CpuFormulas",
-    "/src/CuratedData",
-    "/src/FittingSlot",
-    "/src/InventoryTypeAttributes",
-    "/src/Pilot",
-    "/src/PowergridFormulas",
-    "/src/Resistance",
-    "/src/ResistSet",
-    "/src/Ship",
-    "/src/Skills",
-    "/src/TypeInfo",
+var filesToCompile: string[] = ["./wafle",
+    "./src/BaseShipData",
+    "./src/CpuFormulas",
+    "./src/CuratedData",
+    "./src/FittingSlot",
+    "./src/InventoryTypeAttributes",
+    "./src/Pilot",
+    "./src/PowergridFormulas",
+    "./src/Resistance",
+    "./src/ResistSet",
+    "./src/Ship",
+    "./src/Skills",
+    "./src/TypeInfo",
 ];
 
 
@@ -73,6 +73,12 @@ var tsCompileComplete = function (error, stdout, stderr) {
         console.log(error);
         return;
     }
+
+    console.log("Copying definition files to UI folder...");
+    for (var i = 0; i < filesToCompile.length; i++) {
+        copyFileSync(path.join(buildJSPath, "output/" + filesToCompile[i] + ".d.ts"), path.join(buildJSPath, "../../Wafle.WebUI/" + filesToCompile[i] + ".d.ts"));
+    }
+
 
     console.log("Copying data blob to build folder...");
     copyFileSync(path.join(buildJSPath, "../wafleDataBlob.js"), path.join(buildJSPath, "output/wafleDataBlob.js"));
