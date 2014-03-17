@@ -50,7 +50,12 @@ export import CpuFormulas = require("./src/CpuFormulas");
 export import FittingSlot = require("./src/FittingSlot");
 export import Data = require("./src/CuratedData");
 
-export var Version: string = "0.1.0-alpha.6";
+export var ProjectName: string = "Wafle Project";
+export var ProjectDescription: string = "Web Accessible Fitting Library for EVE";
+export var Version: string = "0.1.0-alpha.7";
+export var VersionDescription : string = "Alpha Release - UI construction";
+export var AuthorName: string = "Shamna Skor";
+export var SourceWebSite: string = "http://github.com/ShamnaSkor/WafleProject";
 
 export enum RaceType {
     Unknown = 0, Caldari = 1, Minmatar = 2, Amarr = 4, Gallente = 8, ORE

@@ -10,7 +10,12 @@ export import PowergridFormulas = require("./src/PowergridFormulas");
 export import CpuFormulas = require("./src/CpuFormulas");
 export import FittingSlot = require("./src/FittingSlot");
 export import Data = require("./src/CuratedData");
+export declare var ProjectName: string;
+export declare var ProjectDescription: string;
 export declare var Version: string;
+export declare var VersionDescription: string;
+export declare var AuthorName: string;
+export declare var SourceWebSite: string;
 export declare enum RaceType {
     Unknown = 0,
     Caldari = 1,

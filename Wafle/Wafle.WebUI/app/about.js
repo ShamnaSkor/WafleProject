@@ -4,10 +4,10 @@
     ko.punches.enableAll();
 
     return {
-        name: "WAFLE Project",
-        author: "Shamna Skor",
-        webSite: "https://github.com/ShamnaSkor/WafleProject",
-        version: "Pre Alpha",
+        name: Wafle.ProjectName,
+        author: Wafle.AuthorName,
+        webSite: Wafle.SourceWebSite,
+        version: Wafle.VersionDescription,
         wafleVersion: Wafle.Version
     };
 });
