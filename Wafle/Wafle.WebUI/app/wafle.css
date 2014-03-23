@@ -1,0 +1,39 @@
+﻿div.twistyMenu {
+    cursor: pointer;
+}
+
+div.twistyMenu ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+div.twistyMenu li {
+    list-style-type: none;
+    line-height: 1.1em;
+    width: 100px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+div.twistyMenu li span {
+    background-color: lightblue;
+}
+div.twistyMenu li li span {
+    background-color: lightgreen;
+}
+/*
+body { padding-top: 40px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}
+    */
+
+
+@media screen and (max-width: 960px) {
+    body { padding-top: 40px; }
+}

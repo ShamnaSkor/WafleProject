@@ -19,10 +19,20 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="app\about.html" />
+    <Content Include="app\fitting.html" />
     <Content Include="app\home.html" />
     <Content Include="app\shell.html" />
+    <Content Include="app\wafle.css" />
     <Content Include="default.htm" />
     <Content Include="index.html" />
+    <Content Include="lib\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="lib\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="lib\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="lib\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="lib\bootstrap\js\bootstrap.js" />
+    <Content Include="lib\bootstrap\js\bootstrap.min.js" />
     <Content Include="lib\Durandal\Changes.txt" />
     <Content Include="lib\Durandal\css\durandal.css" />
     <Content Include="lib\Durandal\images\icon.png" />
@@ -45,6 +55,11 @@
     <Content Include="lib\Durandal\js\viewEngine.js" />
     <Content Include="lib\Durandal\js\viewLocator.js" />
     <Content Include="lib\Durandal\License.txt" />
+    <Content Include="lib\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="lib\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="lib\font-awesome\css\font-awesome.css" />
+    <Content Include="lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="lib\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="lib\jquery-ui.js" />
     <Content Include="lib\jquery.js" />
     <Content Include="lib\knockout-3.0.0.debug.js" />
@@ -55,11 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\about.ts" />
+    <TypeScriptCompile Include="app\fitting.ts" />
     <TypeScriptCompile Include="app\init.ts" />
     <TypeScriptCompile Include="app\home.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\shell.ts" />
-    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\durandal\durandal.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
@@ -82,6 +97,10 @@
     <TypeScriptCompile Include="WafleUIViewModel.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lib\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="lib\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="lib\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="lib\font-awesome\font\FontAwesome.otf" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -103,6 +122,13 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug_BuildUIOnly'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Quick'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DebugType>full</DebugType>
@@ -140,6 +166,9 @@
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
     <TypeScriptSourceMap>false</TypeScriptSourceMap>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug_BuildUIOnly'">
+    <TypeScriptModuleKind>amd</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
   <PropertyGroup>
