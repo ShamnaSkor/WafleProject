@@ -146,6 +146,21 @@ export interface IWafleTypesArrayDataBlob {
     length: number;
 }
 
+export interface IWafleMarketGroupDataBlob {
+    [index: number]: IWafleMarketGroupDataItem;
+    length: number;
+}
+
+export interface IWafleMarketGroupDataItem {
+    /** Market Group ID */
+    mgid: number;
+    /** Name */
+    n: string;
+    /** Parent Market Group ID */
+    pgid?: number
+
+}
+
 /** A property bag of attributes for an EVE inventory type */
 export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod,
 IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, IPowerModule,

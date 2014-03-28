@@ -1,6 +1,6 @@
 ﻿import Wafle = require("../wafle");
 export declare var Types: Wafle.IWafleTypeDataBlob;
-export declare var TypeToGroupIDMapping: any[];
+export declare var TypeToGroupIDMapping: Wafle.IWafleMarketGroupDataBlob;
 export declare function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boolean;
 export declare function DrawbackIsMaxVelocityPenalty(type: Wafle.TypeInfo): boolean;
 export declare function DrawbackIsArmorAmount(type: Wafle.TypeInfo): boolean;

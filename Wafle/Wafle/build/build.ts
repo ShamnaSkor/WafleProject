@@ -13,10 +13,6 @@ var path = require("path");
 var wafleDone = false, wafleDataDone = false, wafleDevDone = false;
 var wafleVersion: string;
 
-//Imports Wafle data.
-//See: http://stackoverflow.com/questions/5797852/in-node-js-how-do-i-include-functions-from-my-other-files
-eval(fs.readFileSync(path.join(buildJSPath, '../wafleDataBlob.js')) + '');
-
 console.log("Loading Require...");
 var requirejsForBuild = require('requirejs');
 var requirejsForVersion = require('requirejs');

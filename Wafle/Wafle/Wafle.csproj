@@ -46,6 +46,7 @@
     <TypeScriptCompile Include="tests\tests.ts" />
     <TypeScriptCompile Include="tests\tests-dev.ts" />
     <TypeScriptCompile Include="wafle.ts" />
+    <TypeScriptCompile Include="wafleDataBlob.d.ts" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup />
