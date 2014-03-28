@@ -44,6 +44,8 @@ var MarketGroupIDs = [25, 46, 38, 52, 53, 55, 59, 60, 62, 65, 68, 71, 74, 77, 83
 if (process.argv.length !== 4 ) {
     console.log("Usage: node WafleDataExtract SQLServerAndInstance DBName");
     console.log("Example: node WafleDataExtract (local)\\SQLExpress Odyssey11");
+    console.log("For more detailed instructions go to:");
+    console.log("http://bit.ly/1gxJbpz  (case sensitive)");
     process.exit(1);
 }
 
@@ -58,7 +60,8 @@ buffer.append('  This data was extracted from the EVE Community Toolkit: http://
 buffer.append('  Extracted data is (c) 2013 CCP hf.  All rights reserved. "EVE", "EVE Online", "CCP", and all related logos and images are trademarks or registered trademarks of CCP hf.\n\n');
 buffer.append('  All uses of this software must comply with the EVE EULA: http://community.eveonline.com/support/policies/eve-eula/\n\n');
 buffer.append('*/\n\n');
-buffer.append('var WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP = [ \n');
+buffer.append('define(["require","exports"],function(require,exports) {\n');
+buffer.append('  exports.WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP = [\n');
 
 console.log("Connecting to SQL Server...");
 sql.open(connectionString, function (err, conn) {
@@ -362,7 +365,7 @@ sql.open(connectionString, function (err, conn) {
                 console.warn("error on marketGroup query: " + err);
                 return;
             }
-            buffer.append('var WAFLE_DATA_BLOB_MARKET_GROUPS = [ \n');
+            buffer.append('  exports.WAFLE_DATA_BLOB_MARKET_GROUPS = [\n');
             for (var i = 0; i < results.length; i++) {
                 var parentGroupIDJsonFragment = aliasedPropertyValueOrBlank(results[i], "parentGroupID", "pgid", false);
                 if (parentGroupIDJsonFragment.length > 0) {
@@ -375,7 +378,7 @@ sql.open(connectionString, function (err, conn) {
                     buffer.append(",");
                 }
             }
-            buffer.append('\n];\n\n');
+            buffer.append('\n];});\n\n');
 
 
 
