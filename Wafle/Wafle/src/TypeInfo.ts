@@ -23,9 +23,6 @@ class TypeInfo implements Wafle.ITypeInfo {
 
     /** Give a second shot to see if the data variable has loaded. */
     private static AllWafleTypeInventoryData() : Wafle.IWafleTypeDataBlob {
-        if (Wafle.Data.Types.length === 0) {
-            Wafle.Data.Types = WAFLE_DATA_BLOB_INVENTORY_TYPES_BY_GROUP || [];
-        }
         return Wafle.Data.Types;
     }
 

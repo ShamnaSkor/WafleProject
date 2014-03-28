@@ -521,6 +521,16 @@ strictEqual(type, null, "should be null");
     });
 
 
+    QUnit.module("Market Group Data Tests");
+    test("More than 5 root Market Groups are found.", function () {
+        var groups = Wafle.Data.RootMarketGroups();
+        ok((groups.length > 5), "Root Market Groups Found.");
+    });
+
+    test("Exactly 5 Wafle Root Market Groups are found.", function () {
+        var groups = Wafle.Data.WafleRootMarketGroups();
+        ok((groups.length === 5), "Correct number of Wafle Root Market Groups Found.");
+    });
 
 
     QUnit.module("Reality Checks");

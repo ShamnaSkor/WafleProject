@@ -5,6 +5,31 @@ export var Types: Wafle.IWafleTypeDataBlob = wafledata.WAFLE_DATA_BLOB_INVENTORY
 
 export var TypeToGroupIDMapping = wafledata.WAFLE_DATA_BLOB_MARKET_GROUPS;
 
+export function RootMarketGroups(): Wafle.IWafleMarketGroupDataItem[] {
+    return ChildMarketGroups(undefined);
+}
+export function WafleRootMarketGroups(): Wafle.IWafleMarketGroupDataItem[] {
+    return [MarketGroupByID(4), MarketGroupByID(9), MarketGroupByID(11), MarketGroupByID(955), MarketGroupByID(157)];
+}
+export function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupDataItem {
+    for (var i = 0; i < TypeToGroupIDMapping.length - 1; i++) {
+        if (TypeToGroupIDMapping[i].mgid === marketGroupID) {
+            return TypeToGroupIDMapping[i];
+        }
+    }
+    return null;
+}
+
+export function ChildMarketGroups(parentMarketGroupID: number): Wafle.IWafleMarketGroupDataItem[] {
+    var marketGroups: Wafle.IWafleMarketGroupDataItem[] = [];
+    for (var i = 0; i < TypeToGroupIDMapping.length - 1; i++) {
+        if (TypeToGroupIDMapping[i].pgid === parentMarketGroupID) {
+            marketGroups.push(TypeToGroupIDMapping[i]);
+        }
+    }
+    return marketGroups;
+}
+
 
 export function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boolean {
     if (type.groupId === undefined) {
