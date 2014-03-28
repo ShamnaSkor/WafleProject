@@ -1,36 +1,41 @@
 ﻿import app = require('durandal/app');
 import jquery = require('jquery');
 import ko = require('knockout');
-import kop = require('knockout.punches');
 import Wafle = require('wafle');
 
 
-kop; //todo: remove if TypeScript AMD issue is fixed.
+class FittingTreeNodeViewModel {
+    public self:any = this;
+    public n = ko.observable<string>();
+    public mgid = ko.observable<number>();
+    public pgid = ko.observable<number>();
+    public children = ko.observableArray<FittingTreeNodeViewModel>();
 
-ko.punches.enableAll();
+    constructor(public data: Wafle.IWafleMarketGroupDataItem) {
+        this.n(data.n);
+        this.mgid(data.mgid);
+        this.pgid(data.pgid);
+        this.children(ko.utils.arrayMap(data.children, function (c) {
+            return new FittingTreeNodeViewModel(c);
+        }));
+    }
+    
+    public toggleTwistyCollapse = function (data, event) {
+        console.log($(event.target.parentNode).html());
+        $(event.target.parentNode).children("ul").children().toggleClass("twistyCollapse");
+    }
+}
+
+function WafleMarketGroupItemRoot() {
+    var rootFittingGroup: Wafle.IWafleMarketGroupDataItem = {
+        n: "Fitting",
+        mgid: 0,
+        children: Wafle.Data.WafleRootMarketGroups()
+    };
+    
+    return new FittingTreeNodeViewModel(rootFittingGroup);
+}
 
 return {
-    activate: function () {
-        var that = this;
-        
-    },
-    attached: function () {
-        addRootWafleItemsToTwisty();
-        $("div.twistyMenu li span").click((eventObject) => {
-            var parent = (<Node>(eventObject.target)).parentNode;
-            $(parent).find("li").toggleClass("twistyCollapse");
-        });
-    }
+    wafleMarketGroupItemRoot: WafleMarketGroupItemRoot()  
 };
-
-
-
-
-function addRootWafleItemsToTwisty() {
-    var rootMGs = Wafle.Data.WafleRootMarketGroups();
-    var htmlBuffer: string[] = [];
-    for (var i = 0; i < rootMGs.length; i++) {
-        htmlBuffer.push("<li><span>" + rootMGs[i].n + "</span><ul><li class='twistyCollapse'><span>item</span></li></ul></li>");
-    }
-    $("div.twistyMenu ul").append(htmlBuffer.join("\n"));
-}

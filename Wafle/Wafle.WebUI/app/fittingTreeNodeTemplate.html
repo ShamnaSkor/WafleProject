@@ -1,0 +1,4 @@
+﻿<span data-bind="text: n, click: $root.toggleTwistyCollapse"></span>
+<ul data-bind="foreach:{data:children, as:'item'}">
+    <li data-bind="compose:{model: item, view:'fittingTreeNodeTemplate.html'}, css:'twistyCollapse'"></li>
+</ul>

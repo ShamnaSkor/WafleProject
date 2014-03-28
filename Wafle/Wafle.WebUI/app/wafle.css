@@ -5,6 +5,7 @@
 div.twistyMenu ul {
     padding: 0px;
     margin: 0px;
+    margin-left: 10px;
 }
 
 div.twistyMenu li {
@@ -20,15 +21,19 @@ div.twistyMenu li {
 }
 
 div.twistyMenu li span {
-    background-color: lightblue;
+    /* background-color: lightblue; */
+}
+
+div.twistyMenu li li span {
+    /* background-color: lightgreen; */
+}
+
+div.twistyMenu li {
+    white-space: nowrap;
 }
 
 div.twistyMenu li li.twistyCollapse {
     display: none;
-}
-
-div.twistyMenu li li span {
-    background-color: lightgreen;
 }
 
 @media screen and (max-width: 960px) { /* this has a bug - the text will pop up for a few pixels still around 960px width...*/

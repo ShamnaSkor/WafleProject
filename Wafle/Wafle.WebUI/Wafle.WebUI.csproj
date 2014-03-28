@@ -20,6 +20,7 @@
     <Content Include="app.css" />
     <Content Include="app\about.html" />
     <Content Include="app\fitting.html" />
+    <Content Include="app\fittingTreeNodeTemplate.html" />
     <Content Include="app\home.html" />
     <Content Include="app\shell.html" />
     <Content Include="app\wafle.css" />
