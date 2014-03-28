@@ -63,7 +63,7 @@
     <Content Include="lib\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="lib\jquery-ui.js" />
     <Content Include="lib\jquery.js" />
-    <Content Include="lib\knockout-3.0.0.debug.js" />
+    <Content Include="lib\knockout-3.1.0.debug.js" />
     <Content Include="lib\knockout.punches.js" />
     <Content Include="lib\require.js" />
     <Content Include="lib\text.js" />
