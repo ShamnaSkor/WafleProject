@@ -19,21 +19,18 @@ div.twistyMenu li {
     user-select: none;
 }
 
-
 div.twistyMenu li span {
     background-color: lightblue;
 }
+
+div.twistyMenu li li.twistyCollapse {
+    display: none;
+}
+
 div.twistyMenu li li span {
     background-color: lightgreen;
 }
-/*
-body { padding-top: 40px; }
-@media screen and (max-width: 768px) {
-    body { padding-top: 0px; }
-}
-    */
 
-
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 960px) { /* this has a bug - the text will pop up for a few pixels still around 960px width...*/
     body { padding-top: 40px; }
 }

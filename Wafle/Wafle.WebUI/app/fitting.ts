@@ -11,10 +11,12 @@ ko.punches.enableAll();
 
 return {
     activate: function () {
-        var that = this;  
-        console.log('z');
-        if ($) {
-            console.log('jquery found');
-        }
+        var that = this;
+    },
+    attached: function () {
+        $("div.twistyMenu li span").click((eventObject) => {
+            var parent = (<Node>(eventObject.target)).parentNode;
+            $(parent).find("li").toggleClass("twistyCollapse");
+        });
     }
 };
