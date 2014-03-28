@@ -158,7 +158,8 @@ export interface IWafleMarketGroupDataItem {
     n: string;
     /** Parent Market Group ID */
     pgid?: number
-
+    /** Children */
+    children?: IWafleMarketGroupDataItem[];
 }
 
 /** A property bag of attributes for an EVE inventory type */

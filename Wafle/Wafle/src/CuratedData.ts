@@ -6,11 +6,28 @@ export var Types: Wafle.IWafleTypeDataBlob = wafledata.WAFLE_DATA_BLOB_INVENTORY
 export var TypeToGroupIDMapping = wafledata.WAFLE_DATA_BLOB_MARKET_GROUPS;
 
 export function RootMarketGroups(): Wafle.IWafleMarketGroupDataItem[] {
-    return ChildMarketGroups(undefined);
+    return ChildMarketGroupsByID(undefined);
 }
 export function WafleRootMarketGroups(): Wafle.IWafleMarketGroupDataItem[] {
-    return [MarketGroupByID(4), MarketGroupByID(9), MarketGroupByID(11), MarketGroupByID(955), MarketGroupByID(157)];
+    var mgs = [MarketGroupByID(4), MarketGroupByID(9), MarketGroupByID(11), MarketGroupByID(955), MarketGroupByID(157)]
+    for (var i = 0; i < mgs.length; i++) {
+        mgs[i] = DeriveAllChildMarketGroups(mgs[i]);
+    }
+    return mgs;
 }
+
+function DeriveAllChildMarketGroups(theMarketGroup: Wafle.IWafleMarketGroupDataItem): Wafle.IWafleMarketGroupDataItem {
+    var mg = theMarketGroup;
+    if (!mg.children) {
+        mg.children = [];
+    }
+    var cmg = ChildMarketGroupsByID(theMarketGroup.mgid);
+    for (var i = 0; i < cmg.length; i++) {
+        mg.children.push(DeriveAllChildMarketGroups(cmg[i]));
+    }
+    return mg;
+}
+
 export function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupDataItem {
     for (var i = 0; i < TypeToGroupIDMapping.length - 1; i++) {
         if (TypeToGroupIDMapping[i].mgid === marketGroupID) {
@@ -20,7 +37,7 @@ export function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupD
     return null;
 }
 
-export function ChildMarketGroups(parentMarketGroupID: number): Wafle.IWafleMarketGroupDataItem[] {
+export function ChildMarketGroupsByID(parentMarketGroupID: number): Wafle.IWafleMarketGroupDataItem[] {
     var marketGroups: Wafle.IWafleMarketGroupDataItem[] = [];
     for (var i = 0; i < TypeToGroupIDMapping.length - 1; i++) {
         if (TypeToGroupIDMapping[i].pgid === parentMarketGroupID) {

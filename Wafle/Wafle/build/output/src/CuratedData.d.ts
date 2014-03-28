@@ -4,7 +4,7 @@ export declare var TypeToGroupIDMapping: Wafle.IWafleMarketGroupDataBlob;
 export declare function RootMarketGroups(): Wafle.IWafleMarketGroupDataItem[];
 export declare function WafleRootMarketGroups(): Wafle.IWafleMarketGroupDataItem[];
 export declare function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupDataItem;
-export declare function ChildMarketGroups(parentMarketGroupID: number): Wafle.IWafleMarketGroupDataItem[];
+export declare function ChildMarketGroupsByID(parentMarketGroupID: number): Wafle.IWafleMarketGroupDataItem[];
 export declare function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boolean;
 export declare function DrawbackIsMaxVelocityPenalty(type: Wafle.TypeInfo): boolean;
 export declare function DrawbackIsArmorAmount(type: Wafle.TypeInfo): boolean;

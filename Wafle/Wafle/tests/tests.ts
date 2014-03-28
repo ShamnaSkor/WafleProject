@@ -456,16 +456,16 @@ strictEqual(type, null, "should be null");
         var trimarkPenalty = 1 + ship.fittingSlots[10].baseShipEquipmentData.baseVelocityMultiplier / 100;
 
         strictEqual(ship.MaxVelocity(), Wafle.Round(vel * (1 - ((1 - trimarkPenalty) * Wafle.dimEffRatio(0))), -2), "one rig.");
-        strictEqual(ship.MaxVelocity(), Wafle.Round(319.5, -2), "one rig (absolute).");
+        strictEqual(ship.MaxVelocity(), Wafle.Round(328.50, -2), "one rig (absolute).");
         ship.fittingSlots[11].SetModule(30987);
         strictEqual(ship.MaxVelocity(), Wafle.Round(vel * (1 - ((1 - trimarkPenalty) * Wafle.dimEffRatio(0)))
             * (1 - ((1 - trimarkPenalty) * Wafle.dimEffRatio(1))), -2), "two rigs.");
-        strictEqual(ship.MaxVelocity(), Wafle.Round(291.73, -2), "two rigs (absolute).");
+        strictEqual(ship.MaxVelocity(), Wafle.Round(299.95, -2), "two rigs (absolute).");
         ship.fittingSlots[12].SetModule(30987);
         strictEqual(ship.MaxVelocity(), Wafle.Round(vel * (1 - ((1 - trimarkPenalty) * Wafle.dimEffRatio(0)))
             * (1 - ((1 - trimarkPenalty) * Wafle.dimEffRatio(1)))
             * (1 - ((1 - trimarkPenalty) * Wafle.dimEffRatio(2))), -2), "three rigs.");
-        strictEqual(ship.MaxVelocity(), Wafle.Round(275.09, -2), "three rigs (absolute).");
+        strictEqual(ship.MaxVelocity(), Wafle.Round(282.83, -2), "three rigs (absolute).");
 
     });
 
@@ -532,6 +532,13 @@ strictEqual(type, null, "should be null");
         ok((groups.length === 5), "Correct number of Wafle Root Market Groups Found.");
     });
 
+    test("Each Wafle Root Market Group has children.", function () {
+        var groups = Wafle.Data.WafleRootMarketGroups();
+        for (var i = 0; i < groups.length; i++) {
+            ok((groups[i].children.length > 0), "Wafle Root Market Group " + i.toString() + " has children.");
+        }
+    });
+
 
     QUnit.module("Reality Checks");
 
@@ -562,7 +569,7 @@ strictEqual(type, null, "should be null");
         strictEqual(ship.cpu(), 156.25, "CPU");
         strictEqual(ship.powergrid(), 47.50, "Powergrid");
         strictEqual(ship.remainingCpu(), 111.25, "Remaining CPU");
-        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), 372.1, "Max Velocity (no AB/MWD)");
+        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), 382.58, "Max Velocity (no AB/MWD)");
         strictEqual(Wafle.Round(ship.remainingPowergrid(), -2), Wafle.Round(36.5, -2), "Remaining Powergrid");
         strictEqual(Wafle.Round(ship.ShieldEMDamageReduction(), -3), Wafle.Round(0.125, -3), "shield em with DC II");
         strictEqual(Wafle.Round(ship.ShieldExplosiveDamageReduction(), -3), Wafle.Round(0.563, -3), "shield ex with DC II");
@@ -610,7 +617,7 @@ strictEqual(type, null, "should be null");
         strictEqual(ship.cpu(), 156.25, "CPU");
         strictEqual(ship.powergrid(), 47.50, "Powergrid");
         strictEqual(ship.remainingCpu(), 18.25, "Remaining CPU");
-        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), Wafle.Round(422.49, -2), "Max Velocity (no AB/MWD)");
+        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), Wafle.Round(434.39, -2), "Max Velocity (no AB/MWD)");
         strictEqual(Wafle.Round(ship.remainingPowergrid(), -2), Wafle.Round(13.2, -2), "Remaining Powergrid");
         strictEqual(Wafle.Round(ship.ShieldEMDamageReduction(), -3), Wafle.Round(0.075, -3), "shield em");
         strictEqual(Wafle.Round(ship.ShieldExplosiveDamageReduction(), -3), Wafle.Round(0.538, -3), "shield ex");
@@ -701,7 +708,7 @@ strictEqual(type, null, "should be null");
         strictEqual(ship.powergrid(), 68.75, "Powergrid");
         strictEqual(ship.remainingCpu(), 1, "Remaining CPU");
         strictEqual(Wafle.Round(ship.remainingPowergrid(), -2), Wafle.Round(4.55, -2), "Remaining Powergrid");
-        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), Wafle.Round(442.17, -2), "Max Velocity (no AB/MWD)");
+        strictEqual(Wafle.Round(ship.MaxVelocity(), -2), Wafle.Round(449.08, -2), "Max Velocity (no AB/MWD)");
         strictEqual(Wafle.Round(ship.ShieldEMDamageReduction(), -3), Wafle.Round(0.3, -3), "shield em");
         strictEqual(Wafle.Round(ship.ShieldExplosiveDamageReduction(), -3), Wafle.Round(0.5, -3), "shield ex");
         strictEqual(Wafle.Round(ship.ShieldKineticDamageReduction(), -3), Wafle.Round(0.4, -3), "shield ki");
