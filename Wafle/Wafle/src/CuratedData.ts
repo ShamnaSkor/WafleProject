@@ -5,43 +5,54 @@ export var Types: Wafle.IWafleTypeDataBlob = wafledata.WAFLE_DATA_BLOB_INVENTORY
 
 export var TypeToGroupIDMapping = wafledata.WAFLE_DATA_BLOB_MARKET_GROUPS;
 
-export function RootMarketGroups(): Wafle.IWafleMarketGroupDataItem[] {
+export function RootMarketGroups(): Wafle.IWafleMarketGroupOrTypeDataItem[] {
     return ChildMarketGroupsByID(undefined);
 }
-export function WafleRootMarketGroups(): Wafle.IWafleMarketGroupDataItem[] {
+export function WafleRootMarketGroups(): Wafle.IWafleMarketGroupOrTypeDataItem[] {
     var mgs = [MarketGroupByID(4), MarketGroupByID(9), MarketGroupByID(11), MarketGroupByID(955), MarketGroupByID(157)]
     for (var i = 0; i < mgs.length; i++) {
-        mgs[i] = DeriveAllChildMarketGroups(mgs[i]);
+        mgs[i] = LoadChildMarketGroupsOrTypes(mgs[i],0);
     }
     return mgs;
 }
 
-function DeriveAllChildMarketGroups(theMarketGroup: Wafle.IWafleMarketGroupDataItem): Wafle.IWafleMarketGroupDataItem {
+export function LoadChildMarketGroupsOrTypes(theMarketGroup: Wafle.IWafleMarketGroupOrTypeDataItem, additionalLevelsDeep: number): Wafle.IWafleMarketGroupOrTypeDataItem {
     var mg = theMarketGroup;
     if (!mg.children) {
         mg.children = [];
     }
-    var cmg = ChildMarketGroupsByID(theMarketGroup.mgid);
-    for (var i = 0; i < cmg.length; i++) {
-        mg.children.push(DeriveAllChildMarketGroups(cmg[i]));
+    if (additionalLevelsDeep >= 0) {
+        mg.childrenLoaded = true;
+        var cmg = ChildMarketGroupsByID(theMarketGroup.mgid);
+        for (var i = 0; i < cmg.length; i++) {
+            mg.children.push(LoadChildMarketGroupsOrTypes(cmg[i], additionalLevelsDeep - 1));
+        }
     }
     return mg;
 }
 
-export function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupDataItem {
+export function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupOrTypeDataItem {
     for (var i = 0; i < TypeToGroupIDMapping.length - 1; i++) {
         if (TypeToGroupIDMapping[i].mgid === marketGroupID) {
-            return TypeToGroupIDMapping[i];
+            var item = TypeToGroupIDMapping[i];
+            item.childrenLoaded = false;
+            item.type = "group";
+            item.typeInfo = null;
+            return item;
         }
     }
     return null;
 }
 
-export function ChildMarketGroupsByID(parentMarketGroupID: number): Wafle.IWafleMarketGroupDataItem[] {
-    var marketGroups: Wafle.IWafleMarketGroupDataItem[] = [];
+export function ChildMarketGroupsByID(parentMarketGroupID: number): Wafle.IWafleMarketGroupOrTypeDataItem[] {
+    var marketGroups: Wafle.IWafleMarketGroupOrTypeDataItem[] = [];
     for (var i = 0; i < TypeToGroupIDMapping.length - 1; i++) {
         if (TypeToGroupIDMapping[i].pgid === parentMarketGroupID) {
-            marketGroups.push(TypeToGroupIDMapping[i]);
+            var item = TypeToGroupIDMapping[i];
+            item.childrenLoaded = false;
+            item.type = "group";
+            item.typeInfo = null;
+            marketGroups.push(item);
         }
     }
     return marketGroups;

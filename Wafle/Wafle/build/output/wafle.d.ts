@@ -123,18 +123,24 @@ export interface IWafleTypesArrayDataBlob {
     length: number;
 }
 export interface IWafleMarketGroupDataBlob {
-    [index: number]: IWafleMarketGroupDataItem;
+    [index: number]: IWafleMarketGroupOrTypeDataItem;
     length: number;
 }
-export interface IWafleMarketGroupDataItem {
+export interface IWafleMarketGroupOrTypeDataItem {
     /** Market Group ID */
     mgid: number;
     /** Name */
     n: string;
     /** Parent Market Group ID */
     pgid?: number;
+    /** Type will be either "group" or "itemtype" */
+    type: string;
+    /** If this is an itemtype, the typeInfo will be here. */
+    typeInfo?: ITypeInfo;
+    /** If this is an itemtype, the typeInfo will be here. */
+    childrenLoaded: boolean;
     /** Children */
-    children?: IWafleMarketGroupDataItem[];
+    children?: IWafleMarketGroupOrTypeDataItem[];
 }
 /** A property bag of attributes for an EVE inventory type */
 export interface IEveInventoryTypeAttributes extends IArmorResist, IShieldResist, IHullResist, IRig, IBaseSpeedMod, IArmorPlate, IArmorPercent, IResistBonus, IProjected, IPropulsion, IAgilityMod, INanofiber, IPeriodic, IPowerModule, ITurretModifier, ICapacitorUser, IAmmo, IDamage, IEnergyDestabilizer, IEnergyVampire, ISignatureRadius, IShieldHP, IMissileModifier, IDroneSupport, IDrone, IContainer {

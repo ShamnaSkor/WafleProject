@@ -147,19 +147,25 @@ export interface IWafleTypesArrayDataBlob {
 }
 
 export interface IWafleMarketGroupDataBlob {
-    [index: number]: IWafleMarketGroupDataItem;
+    [index: number]: IWafleMarketGroupOrTypeDataItem;
     length: number;
 }
 
-export interface IWafleMarketGroupDataItem {
+export interface IWafleMarketGroupOrTypeDataItem {
     /** Market Group ID */
     mgid: number;
     /** Name */
     n: string;
     /** Parent Market Group ID */
-    pgid?: number
+    pgid?: number;
+    /** Type will be either "group" or "itemtype" */
+    type: string;
+    /** If this is an itemtype, the typeInfo will be here. */
+    typeInfo?: ITypeInfo;
+    /** If this is an itemtype, the typeInfo will be here. */
+    childrenLoaded: boolean;
     /** Children */
-    children?: IWafleMarketGroupDataItem[];
+    children?: IWafleMarketGroupOrTypeDataItem[];
 }
 
 /** A property bag of attributes for an EVE inventory type */

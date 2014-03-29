@@ -1,10 +1,11 @@
 ﻿import Wafle = require("../wafle");
 export declare var Types: Wafle.IWafleTypeDataBlob;
 export declare var TypeToGroupIDMapping: Wafle.IWafleMarketGroupDataBlob;
-export declare function RootMarketGroups(): Wafle.IWafleMarketGroupDataItem[];
-export declare function WafleRootMarketGroups(): Wafle.IWafleMarketGroupDataItem[];
-export declare function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupDataItem;
-export declare function ChildMarketGroupsByID(parentMarketGroupID: number): Wafle.IWafleMarketGroupDataItem[];
+export declare function RootMarketGroups(): Wafle.IWafleMarketGroupOrTypeDataItem[];
+export declare function WafleRootMarketGroups(): Wafle.IWafleMarketGroupOrTypeDataItem[];
+export declare function LoadChildMarketGroupsOrTypes(theMarketGroup: Wafle.IWafleMarketGroupOrTypeDataItem, additionalLevelsDeep: number): Wafle.IWafleMarketGroupOrTypeDataItem;
+export declare function MarketGroupByID(marketGroupID: number): Wafle.IWafleMarketGroupOrTypeDataItem;
+export declare function ChildMarketGroupsByID(parentMarketGroupID: number): Wafle.IWafleMarketGroupOrTypeDataItem[];
 export declare function DrawbackIsArmorRepairPowergridPenalty(type: Wafle.TypeInfo): boolean;
 export declare function DrawbackIsMaxVelocityPenalty(type: Wafle.TypeInfo): boolean;
 export declare function DrawbackIsArmorAmount(type: Wafle.TypeInfo): boolean;

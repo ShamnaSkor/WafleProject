@@ -10,27 +10,41 @@ class FittingTreeNodeViewModel {
     public mgid = ko.observable<number>();
     public pgid = ko.observable<number>();
     public children = ko.observableArray<FittingTreeNodeViewModel>();
+    public childrenLoaded = ko.observable<boolean>();
 
-    constructor(public data: Wafle.IWafleMarketGroupDataItem) {
+    constructor(public data: Wafle.IWafleMarketGroupOrTypeDataItem) {
         this.n(data.n);
         this.mgid(data.mgid);
         this.pgid(data.pgid);
+        this.childrenLoaded(data.childrenLoaded);
         this.children(ko.utils.arrayMap(data.children, function (c) {
             return new FittingTreeNodeViewModel(c);
         }));
     }
     
-    public toggleTwistyCollapse = function (data, event) {
-        console.log($(event.target.parentNode).html());
+    public toggleTwistyCollapse = function (d, event) {
+        if (this.data && this.children) {
+            for (var i = 0; i < this.children().length; i++) {
+                if (this.children()[i].childrenLoaded() === false) {
+                    var childItems = (<any>(Wafle.Data.LoadChildMarketGroupsOrTypes(this.children()[i], 0))).children();
+                    for (var childItemIndex = 0; childItemIndex < childItems.length; childItemIndex++) {
+                        this.children()[i].children().push(new FittingTreeNodeViewModel(childItems[childItemIndex]));
+                    }
+                    this.children()[i].childrenLoaded(true);
+                }
+            }
+        }
         $(event.target.parentNode).children("ul").children().toggleClass("twistyCollapse");
     }
 }
 
 function WafleMarketGroupItemRoot() {
-    var rootFittingGroup: Wafle.IWafleMarketGroupDataItem = {
+    var rootFittingGroup: Wafle.IWafleMarketGroupOrTypeDataItem = {
         n: "Fitting",
         mgid: 0,
-        children: Wafle.Data.WafleRootMarketGroups()
+        children: Wafle.Data.WafleRootMarketGroups(),
+        type: "",
+        childrenLoaded: true
     };
     
     return new FittingTreeNodeViewModel(rootFittingGroup);
